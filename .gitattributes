@@ -1,0 +1,10 @@
+# Normalize text in Git while preserving binary artwork, fonts, and reports.
+* text=auto
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.gif binary
+*.ttf binary
+*.otf binary
+*.xlsx binary

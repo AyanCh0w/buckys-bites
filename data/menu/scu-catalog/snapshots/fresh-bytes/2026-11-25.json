@@ -1,0 +1,1080 @@
+{
+  "cafe": "fresh-bytes",
+  "date": "2026-11-25",
+  "source": "https://scudining.cafebonappetit.com/cafe/fresh-bytes/2026-11-25/",
+  "fetched_at": "2026-11-19T04:20:12.971008+00:00",
+  "status": "menu",
+  "items": {
+    "36383224": {
+      "id": "36383224",
+      "label": "lemon pepper tater tots",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "85838216",
+            "recipe_name": "lemon pepper tater tots"
+          }
+        ],
+        "sides": []
+      },
+      "description": "fried crispy tots with fresh herbs garlic and seasonings",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "260": "Soy"
+      },
+      "ordered_cor_icon": {
+        "0286-0260": {
+          "id": "260",
+          "label": "Soy"
+        }
+      },
+      "nextepid": null,
+      "price": "7.95",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 1,
+      "tier3": 0,
+      "tier": 1,
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "9009",
+      "station": "<strong>@Tapas</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "840",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "9.3",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "73",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "10",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "0",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "1400",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "47",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "3",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "0",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "3",
+          "unit": "g"
+        }
+      },
+      "ingredients": "potato tots, rice bran oil, garlic, lemon pepper seasoning, parsley",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "",
+      "sub_station": "",
+      "sub_station_order": "",
+      "monotony": {}
+    },
+    "36383229": {
+      "id": "36383229",
+      "label": "garlic chili egg noodles",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "85838268",
+            "recipe_name": "garlic chili egg noodles"
+          }
+        ],
+        "sides": []
+      },
+      "description": "egg noodle pasta with garlic butter, parmesan cheese, fresh greens and chili's",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "257": "Wheat/Gluten",
+        "258": "Milk",
+        "259": "Egg",
+        "260": "Soy"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0283-0257": {
+          "id": "257",
+          "label": "Wheat/Gluten"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        },
+        "0285-0259": {
+          "id": "259",
+          "label": "Egg"
+        },
+        "0286-0260": {
+          "id": "260",
+          "label": "Soy"
+        }
+      },
+      "nextepid": null,
+      "price": "10.58",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 1,
+      "tier3": 0,
+      "tier": 1,
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "9009",
+      "station": "<strong>@Tapas</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "340",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "6.7",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "10",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "3.5",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "15",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "650",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "50",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "2",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "2",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "13",
+          "unit": "g"
+        }
+      },
+      "ingredients": "ramen noodles, mushrooms, mustard greens, parmesan cheese, chili crisp, butter, garlic, green onion",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "",
+      "sub_station": "",
+      "sub_station_order": "",
+      "monotony": {}
+    },
+    "36383234": {
+      "id": "36383234",
+      "label": "creamy tomato bisque and grilled cheese",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "85838415",
+            "recipe_name": "grilled cheese"
+          },
+          {
+            "recipe_id": "85838442",
+            "recipe_name": "creammy tomato bisque"
+          }
+        ],
+        "sides": []
+      },
+      "description": "butter toasted bread with melted American cheese. creamy tomato soup with garlic and basil.",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "257": "Wheat/Gluten",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0283-0257": {
+          "id": "257",
+          "label": "Wheat/Gluten"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "11.25",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 1,
+      "tier3": 0,
+      "tier": 1,
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "9009",
+      "station": "<strong>@Tapas</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "630",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "11.7",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "36",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "21",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "1.5",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "100",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "1430",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "57",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "3",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "11",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "19",
+          "unit": "g"
+        }
+      },
+      "ingredients": "bread, american cheese, butter, tomato, cream, potato, fennel, onion, garlic, basil",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "",
+      "sub_station": "",
+      "sub_station_order": "",
+      "monotony": {}
+    },
+    "36383239": {
+      "id": "36383239",
+      "label": "vegan tomato bisque and succotash",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "85838469",
+            "recipe_name": "vegan tomato bisque"
+          },
+          {
+            "recipe_id": "85838534",
+            "recipe_name": "succotash"
+          }
+        ],
+        "sides": []
+      },
+      "description": "vegan tomato soup with garlic and fresh herbs. sautéed soybeans, corn, peas and seasonal vegetables with garlic and seasonings.",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "4": "Vegan",
+        "260": "Soy"
+      },
+      "ordered_cor_icon": {
+        "0002-0004": {
+          "id": "4",
+          "label": "Vegan"
+        },
+        "0286-0260": {
+          "id": "260",
+          "label": "Soy"
+        }
+      },
+      "nextepid": null,
+      "price": "9.50",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 1,
+      "tier3": 0,
+      "tier": 1,
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "9009",
+      "station": "<strong>@Tapas</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "270",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "8.3",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "19",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "2.5",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "0",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "1220",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "22",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "5",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "8",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "6",
+          "unit": "g"
+        }
+      },
+      "ingredients": "tomato, potato, fennel, onion, oil, garlic, basil, corn, soybean, mirepoix trinity (onion, celery, bell pepper), summer squash, peas, bell pepper, olive oil, salt",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "",
+      "sub_station": "",
+      "sub_station_order": "",
+      "monotony": {}
+    },
+    "36383244": {
+      "id": "36383244",
+      "label": "blueberry bacon sliders",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "85838606",
+            "recipe_name": "blueberry bacon sliders"
+          }
+        ],
+        "sides": []
+      },
+      "description": "grilled beef patties, toasted Hawaiian rolls, crispy bacon, cheese and blueberry sauce with honey, garlic and chili.",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "6": "Farm to Fork",
+        "298": "Sesame",
+        "257": "Wheat/Gluten",
+        "258": "Milk",
+        "259": "Egg",
+        "260": "Soy"
+      },
+      "ordered_cor_icon": {
+        "0007-0006": {
+          "id": "6",
+          "label": "Farm to Fork"
+        },
+        "0280-0298": {
+          "id": "298",
+          "label": "Sesame"
+        },
+        "0283-0257": {
+          "id": "257",
+          "label": "Wheat/Gluten"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        },
+        "0285-0259": {
+          "id": "259",
+          "label": "Egg"
+        },
+        "0286-0260": {
+          "id": "260",
+          "label": "Soy"
+        }
+      },
+      "nextepid": null,
+      "price": "12.75",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 1,
+      "tier3": 0,
+      "tier": 1,
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "9009",
+      "station": "<strong>@Tapas</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "950",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.5",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "47",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "20",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "2",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "220",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "3710",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "67",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "< 1",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "32",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "63",
+          "unit": "g"
+        }
+      },
+      "ingredients": "ground beef, hawaiian sweet roll, bacon, blueberries, swiss cheese, ketchup, honey, balsamic vinegar, chili sauce, salt, garlic",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "",
+      "sub_station": "",
+      "sub_station_order": "",
+      "monotony": {}
+    },
+    "36383249": {
+      "id": "36383249",
+      "label": "spiced shrimp",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "85838661",
+            "recipe_name": "spiced shrimp"
+          }
+        ],
+        "sides": [
+          {
+            "recipe_id": "85546709",
+            "recipe_name": "succotash"
+          }
+        ]
+      },
+      "description": "pan seared shrimp with Cajun seasoning, garlic and oil.",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "256": "Shellfish",
+        "260": "Soy"
+      },
+      "ordered_cor_icon": {
+        "0282-0256": {
+          "id": "256",
+          "label": "Shellfish"
+        },
+        "0286-0260": {
+          "id": "260",
+          "label": "Soy"
+        }
+      },
+      "nextepid": null,
+      "price": "12.79",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 1,
+      "tier3": 0,
+      "tier": 1,
+      "rating": "",
+      "connector": "with",
+      "options": {
+        "label": "sides",
+        "type": "items",
+        "values": [
+          {
+            "id": "85546709",
+            "label": "succotash",
+            "description": "sautéed soybeans, corn, peas and seasonal vegetables with garlic and seasonings.",
+            "nutrition": {},
+            "side_nutrition_details": {
+              "calories": {
+                "label": "Calories",
+                "value": 370,
+                "unit": ""
+              },
+              "servingSize": {
+                "label": "Serving Size",
+                "value": "7.4",
+                "unit": "oz"
+              },
+              "saturatedFatContent": {
+                "label": "Saturated Fat",
+                "value": "4g",
+                "unit": "g"
+              },
+              "transFatContent": {
+                "label": "Trans Fat",
+                "value": "0g",
+                "unit": "g"
+              },
+              "cholesterolContent": {
+                "label": "Cholesterol",
+                "value": "0mg",
+                "unit": "mg"
+              },
+              "sodiumContent": {
+                "label": "Sodium",
+                "value": "2100mg",
+                "unit": "mg"
+              },
+              "carbohydrateContent": {
+                "label": "Total Carbohydrate",
+                "value": "24g",
+                "unit": "g"
+              },
+              "fiberContent": {
+                "label": "Dietary Fiber",
+                "value": "5g",
+                "unit": "g"
+              },
+              "sugarContent": {
+                "label": "Sugars",
+                "value": "6g",
+                "unit": "g"
+              },
+              "proteinContent": {
+                "label": "Protein",
+                "value": "8g",
+                "unit": "g"
+              },
+              "fatContent": {
+                "label": "Total Fat",
+                "value": "29g",
+                "unit": "g"
+              }
+            },
+            "ingredients": "corn, soybean, mirepoix trinity (onion, celery, bell pepper), summer squash, peas, olive oil, garlic, salt"
+          }
+        ]
+      },
+      "station_id": "9009",
+      "station": "<strong>@Tapas</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "550",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "39",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "4.5",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "140",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "2920",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "29",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "6",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "6",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "24",
+          "unit": "g"
+        }
+      },
+      "ingredients": "shrimp, oil, garlic, cajun seasoning, corn, soybean, mirepoix trinity (onion, celery, bell pepper), summer squash, peas, olive oil, salt",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "",
+      "sub_station": "",
+      "sub_station_order": "",
+      "monotony": {}
+    },
+    "36383254": {
+      "id": "36383254",
+      "label": "chorizo mac & cheese",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "85838760",
+            "recipe_name": "chorizo mac & cheese"
+          }
+        ],
+        "sides": []
+      },
+      "description": "Loaded mac and cheese with wheat noodles, cheese, pork, garlic, seasonings and spices.",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "257": "Wheat/Gluten",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0283-0257": {
+          "id": "257",
+          "label": "Wheat/Gluten"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "11.25",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 1,
+      "tier3": 0,
+      "tier": 1,
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "9009",
+      "station": "<strong>@Tapas</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "770",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.1",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "49",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "23",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "2",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "160",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "5520",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "46",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "2",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "6",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "35",
+          "unit": "g"
+        }
+      },
+      "ingredients": "pasta white (cooked no added salt with oil) (water, pasta, oil), pork carnitas cooked (pork, orange juice, soda coca-cola 12 oz pc, 2% milk, garlic, orange, bay leaf, black pepper, salt), american cheese, chorizo sausage, cream, chili peppers, salt, hot sauce",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "",
+      "sub_station": "",
+      "sub_station_order": "",
+      "monotony": {}
+    },
+    "36383259": {
+      "id": "36383259",
+      "label": "sweet & sour popcorn chicken",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "85838949",
+            "recipe_name": "sweet & sour popcorn chicken"
+          }
+        ],
+        "sides": []
+      },
+      "description": "crispy fried chicken bytes coated with corn starch and rice flour. Tossed in tamari sauce with ginger, sugar, ketchup and vinegar.",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "6": "Farm to Fork",
+        "260": "Soy"
+      },
+      "ordered_cor_icon": {
+        "0007-0006": {
+          "id": "6",
+          "label": "Farm to Fork"
+        },
+        "0286-0260": {
+          "id": "260",
+          "label": "Soy"
+        }
+      },
+      "nextepid": null,
+      "price": "12.50",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 1,
+      "tier3": 0,
+      "tier": 1,
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "9009",
+      "station": "<strong>@Tapas</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "520",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "8.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "28",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "2.5",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "90",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "2700",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "37",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "< 1",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "12",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "29",
+          "unit": "g"
+        }
+      },
+      "ingredients": "chicken, sweet and sour sauce (ketchup, brown sugar, orange juice, low-sodium made without gluten soy sauce, seasoned rice vinegar, water, corn starch 100% pure, chili peppers, oil, ginger root), rice flour, cornstarch, salt",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "",
+      "sub_station": "",
+      "sub_station_order": "",
+      "monotony": {}
+    }
+  },
+  "placements": {
+    "36383224": [
+      {
+        "daypart": "Lunch Tapas Menu",
+        "station": "Tapas",
+        "start": "10:30",
+        "end": "14:30"
+      }
+    ],
+    "36383229": [
+      {
+        "daypart": "Lunch Tapas Menu",
+        "station": "Tapas",
+        "start": "10:30",
+        "end": "14:30"
+      }
+    ],
+    "36383234": [
+      {
+        "daypart": "Lunch Tapas Menu",
+        "station": "Tapas",
+        "start": "10:30",
+        "end": "14:30"
+      }
+    ],
+    "36383239": [
+      {
+        "daypart": "Lunch Tapas Menu",
+        "station": "Tapas",
+        "start": "10:30",
+        "end": "14:30"
+      }
+    ],
+    "36383244": [
+      {
+        "daypart": "Lunch Tapas Menu",
+        "station": "Tapas",
+        "start": "10:30",
+        "end": "14:30"
+      }
+    ],
+    "36383249": [
+      {
+        "daypart": "Lunch Tapas Menu",
+        "station": "Tapas",
+        "start": "10:30",
+        "end": "14:30"
+      }
+    ],
+    "36383254": [
+      {
+        "daypart": "Lunch Tapas Menu",
+        "station": "Tapas",
+        "start": "10:30",
+        "end": "14:30"
+      }
+    ],
+    "36383259": [
+      {
+        "daypart": "Lunch Tapas Menu",
+        "station": "Tapas",
+        "start": "10:30",
+        "end": "14:30"
+      }
+    ]
+  }
+}

@@ -1,0 +1,279 @@
+{
+  "cafe": "fresh-bytes",
+  "date": "2026-11-20",
+  "source": "https://scudining.cafebonappetit.com/cafe/fresh-bytes/2026-11-20/",
+  "fetched_at": "2026-11-19T04:20:10.634918+00:00",
+  "status": "menu",
+  "items": {
+    "36498508": {
+      "id": "36498508",
+      "label": "biscoff pumpkin cheesecake with salted caramel drizzle",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "85909335",
+            "recipe_name": "biscoff pumpkin cheesecake with salted caramel drizzle "
+          }
+        ],
+        "sides": []
+      },
+      "description": "pumpkin cheesecake with biscoff cookie crust and salted caramel drizzle",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "257": "Wheat/Gluten",
+        "258": "Milk",
+        "259": "Egg",
+        "260": "Soy"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0283-0257": {
+          "id": "257",
+          "label": "Wheat/Gluten"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        },
+        "0285-0259": {
+          "id": "259",
+          "label": "Egg"
+        },
+        "0286-0260": {
+          "id": "260",
+          "label": "Soy"
+        }
+      },
+      "nextepid": null,
+      "price": "6.00",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 1,
+      "tier3": 0,
+      "tier": 1,
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "25545",
+      "station": "<strong>@Desserts</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "490",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "6.1",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "31",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "17",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "1.5",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "135",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "450",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "47",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "2",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "36",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "7",
+          "unit": "g"
+        }
+      },
+      "ingredients": "cream cheese, pumpkin, brown sugar, cage-free egg, biscoff cookie crumbs, butter, sour cream, caramel sauce, flour, pure vanilla extract, pumpkin pie spice, sugar, salt, cinnamon",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "",
+      "sub_station": "",
+      "sub_station_order": "",
+      "monotony": {}
+    },
+    "36498516": {
+      "id": "36498516",
+      "label": "chocolate chess pie",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "85785343",
+            "recipe_name": "chocolate chess pie"
+          }
+        ],
+        "sides": []
+      },
+      "description": "Southern style chocolate custard filling in a buttery pie crust",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "257": "Wheat/Gluten",
+        "258": "Milk",
+        "259": "Egg",
+        "260": "Soy"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0283-0257": {
+          "id": "257",
+          "label": "Wheat/Gluten"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        },
+        "0285-0259": {
+          "id": "259",
+          "label": "Egg"
+        },
+        "0286-0260": {
+          "id": "260",
+          "label": "Soy"
+        }
+      },
+      "nextepid": null,
+      "price": "6.00",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 1,
+      "tier3": 0,
+      "tier": 1,
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "25545",
+      "station": "<strong>@Desserts</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "580",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "5.9",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "31",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "16",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "1.5",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "110",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "340",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "70",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "1",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "48",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "7",
+          "unit": "g"
+        }
+      },
+      "ingredients": "sugar, pie shell, cream, evaporated milk, cage-free egg, butter, cornstarch, cocoa, pure vanilla extract",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "",
+      "sub_station": "",
+      "sub_station_order": "",
+      "monotony": {}
+    }
+  },
+  "placements": {
+    "36498508": [
+      {
+        "daypart": "Open",
+        "station": "Desserts",
+        "start": "07:30",
+        "end": "17:00"
+      }
+    ],
+    "36498516": [
+      {
+        "daypart": "Open",
+        "station": "Desserts",
+        "start": "07:30",
+        "end": "17:00"
+      }
+    ]
+  }
+}

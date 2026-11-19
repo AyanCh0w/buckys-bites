@@ -1,0 +1,203 @@
+# SCU Marketplace · November 18, 2026
+
+## Dish names (63)
+
+- 2 eggs your way
+- Bacon Cheese Burger Combo
+- Baja Chicken Wrap
+- Beans and Cheese Burrito
+- Beef and Broccoli
+- Beef Patty Rice Bowl
+- Black Bean Fritters with Avocado and Pickled Onion
+- BLTA with Egg
+- Bronco Pizza Dog
+- Build Your Own Korean Bibimbap
+- Buttermilk waffle
+- Cheese Burger Combo
+- Cheese Omelet / Scramble
+- Chicken Caesar Wrap
+- Chicken Rice Bowl
+- Chicken Supreme Pizza
+- Chicken Tenders w/ Fries (3 pieces)
+- Chicken Tenders w/ Fries (4 pieces)
+- Chipotle Lime Fish Tacos with Mango Salsa
+- Chipotle Lime Tofu Tacos with Mango Salsa
+- Cream of Broccoli Soup
+- Crispy Tacos de Papa
+- Denver Omelet / Scramble
+- Express Breakfast (scrambled eggs, tater tots, and bacon)
+- Express Breakfast Protein Burrito
+- Express Breakfast Protein Burrito Bowl
+- Express Vegetarian Breakfast Burrito Bowl
+- French Toast (2)
+- Fried Chicken Sandwich
+- Golden Waffle gluten free pancake
+- Honey Sesame Fried Chicken
+- Honey Sesame Impossible Nuggets
+- Huevos Rancheros
+- Impossible Orange Chicken
+- Margherita Pizza
+- Meatball Sub
+- Mediterranean-Style Chicken
+- Mediterranean-Style Seared Mushrooms
+- Nashville Chicken Tenders w/ Fries (3 pieces)
+- Orange Chicken
+- Pancake (2)
+- Personal Cheese Pizza with Venice Bakery Gluten-Free Pizza Crust
+- Pizza Slice Combo
+- Plain Omelet / Scramble
+- Pork Pozole
+- Quesabirria with consommé
+- Quinoa, Vegetable and Spinach Soup
+- Salmon Rice Bowl
+- Signature Smash Burger
+- Slice - cheese pizza
+- Slice - pepperoni pizza
+- Slow Roasted Pork Tenderloin with Chili Honey Mustard
+- Soba Noodle Salad with Roasted Tofu
+- Sweet Potato Salad
+- Teriyaki Chicken Bowl
+- Teriyaki Tofu Bowl
+- Tofu and Broccoli
+- Tuna Melt
+- Vegetarian Breakfast Burrito
+- Vegetarian Breakfast Burrito Bowl
+- Whole Cheese Pizza
+- Whole Pepperoni Pizza
+- Whole Pepperoni Pizza with Venice Bakery Gluten-Free Pizza Crust
+
+## Dish components (133)
+
+- Alfredo sauce
+- all-beef hot dog
+- American cheese
+- avocado
+- bacon
+- basil
+- beans
+- beef and broccoli
+- beef and pork meatballs
+- beef patty
+- bell pepper
+- black bean fritters with avocado and pickled onion
+- braised beef
+- bread
+- breaded chicken
+- brioche bun
+- broccoli
+- brown rice
+- bulgogi beef
+- buttermilk pancakes
+- buttermilk waffle
+- Caesar dressing
+- Caesar salad
+- caramelized onions
+- carrots
+- celery and onion
+- cheddar cheese
+- Cheddar Jack cheese
+- chicken
+- chickpeas
+- chile rojo salsa
+- chipotle in adobo sauce
+- chipotle lime fried mahi mahi tacos
+- chipotle lime tofu tacos
+- cilantro lime rice
+- Coke
+- condiments
+- consommé
+- corn tortilla
+- cotija cheese
+- cucumber
+- egg
+- egg custard
+- eggs cooked to order
+- flour tortilla
+- french fries
+- fried egg
+- garlic jasmine rice
+- garlic roasted potatoes
+- gluten-free pancake
+- gluten-free pizza crust
+- gochujang fried tofu
+- gochujang sauce
+- green onions
+- grilled broccolini
+- grilled chicken
+- ground beef
+- ham
+- hamburger bun
+- hoagie roll
+- honey mustard dressing
+- honey sesame fried chicken
+- honey sesame Impossible nuggets
+- hot chili oil
+- impossible orange chicken
+- jasmine rice
+- kimchi
+- Korean cucumber salad
+- lemon dressing
+- lettuce
+- mango salsa
+- marinated chicken
+- mayonnaise
+- mediterranean-style chicken
+- mediterranean-style seared mushrooms
+- milk
+- mixed vegetables
+- Monterey Jack cheese
+- mozzarella
+- mushrooms
+- olives
+- onion
+- orange chicken
+- Parmesan cheese
+- pepperoni
+- pickled radish
+- pico de gallo
+- pinto beans
+- pizza crust
+- pizza dough
+- pizza sauce
+- pizza slice
+- plant-based sausage
+- pork
+- potato
+- queso fresco
+- quinoa
+- quinoa tabouleh
+- ranchero beans
+- rice
+- roasted tofu
+- roasted tomato salsa
+- roasted vegetable medley
+- salmon
+- seasoned fries
+- sesame soy dressing
+- sesame spinach
+- sesame teriyaki sauce
+- shiitake mushrooms
+- shredded carrots
+- slow roasted pork tenderloin with chili honey mustard
+- soba noodles
+- sour cream
+- sourdough bread
+- spinach
+- squash
+- sriracha mayonnaise
+- steamed bok choy
+- stir-fried bok choy, shiitake mushrooms, and carrots
+- sweet potatoes
+- tater tots
+- teriyaki sauce
+- tofu
+- tofu and broccoli
+- tomatillo and chile broth
+- tomato
+- tomato basil marinara
+- tomato sauce
+- tuna salad
+- vegetable fried rice
+- vegetable stock
+- vegetables
+- white hominy

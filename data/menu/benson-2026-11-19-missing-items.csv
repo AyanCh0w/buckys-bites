@@ -1,0 +1,390 @@
+Source item ID,Menu label,Menu section,Price,Station,Meal period
+33518147,acai sorbet,toppings,,Acai,"Breakfast, Lunch"
+17820148,banana,toppings,,Acai,"Breakfast, Lunch"
+33587730,blackberries,toppings,,Acai,"Breakfast, Lunch"
+17820149,blueberries,toppings,,Acai,"Breakfast, Lunch"
+17820153,chocolate chips,toppings,,Acai,"Breakfast, Lunch"
+33587732,dried cranberries,toppings,,Acai,"Breakfast, Lunch"
+33518148,honey oat granola,toppings,,Acai,"Breakfast, Lunch"
+17820150,mango,toppings,,Acai,"Breakfast, Lunch"
+17820147,oreo cookie crumbles,toppings,,Acai,"Breakfast, Lunch"
+33587729,pineapple,toppings,,Acai,"Breakfast, Lunch"
+33587731,raspberries,toppings,,Acai,"Breakfast, Lunch"
+17820146,shredded coconut,toppings,0,Acai,"Breakfast, Lunch"
+17820151,strawberries,toppings,,Acai,"Breakfast, Lunch"
+36219123,apple chicken sausage,meats,,Global Grill Breakfast,Breakfast
+36219122,bacon,meats,,Global Grill Breakfast,Breakfast
+36219129,bell pepper,vegetables raw,,Global Grill Breakfast,Breakfast
+36219133,cheddar jack,cheeses,,Global Grill Breakfast,Breakfast
+36219131,chorizo sausage,meats,,Global Grill Breakfast,Breakfast
+36219120,egg white,egg,,Global Grill Breakfast,Breakfast
+36219124,ham,meats,,Global Grill Breakfast,Breakfast
+36219128,mushroom,vegetables raw,,Global Grill Breakfast,Breakfast
+36219127,onion,vegetables raw,,Global Grill Breakfast,Breakfast
+36220151,Pancake Syrup,Breakfast,,Global Grill Breakfast,Breakfast
+36219150,Side of Bacon (2),Breakfast,4.15,Global Grill Breakfast,Breakfast
+36219149,Side of Chicken Apple Sausage,meats,4.15,Global Grill Breakfast,Breakfast
+36219148,Side of Tater Tots,Breakfast,3.50,Global Grill Breakfast,Breakfast
+36219126,spinach,vegetables leafy,,Global Grill Breakfast,Breakfast
+36219132,tofu,plant-based proteins,,Global Grill Breakfast,Breakfast
+36219130,tomato,vegetables raw,,Global Grill Breakfast,Breakfast
+36219134,vegan cheese,cheeses,,Global Grill Breakfast,Breakfast
+36219121,vegan eggs,egg,,Global Grill Breakfast,Breakfast
+36219125,vegan ham,plant-based proteins,,Global Grill Breakfast,Breakfast
+36219119,whole cracked egg,egg,,Global Grill Breakfast,Breakfast
+30610754,Black beans,beans and legumes cooked,,La Parilla,"Dinner, Lunch"
+30611025,Black beans,beans and legumes cooked,,La Parilla,"Dinner, Lunch"
+30611046,Black beans,beans and legumes cooked,,La Parilla,"Dinner, Lunch"
+35436172,Black beans,beans and legumes cooked,,La Parilla,"Dinner, Lunch"
+23021625,Braised beef birria,Proteins,,La Parilla,"Dinner, Lunch"
+30610736,Braised beef birria,meats,,La Parilla,"Dinner, Lunch"
+30611024,Braised beef birria,meats,,La Parilla,"Dinner, Lunch"
+30611044,Braised beef birria,meats,,La Parilla,"Dinner, Lunch"
+35437370,Braised beef birria,meats,,La Parilla,"Dinner, Lunch"
+35436170,Braised beef carnitas,meats,,La Parilla,"Dinner, Lunch"
+23021622,Chicken pollo asado,Proteins,,La Parilla,"Dinner, Lunch"
+30610734,Chicken pollo asado,meats,,La Parilla,"Dinner, Lunch"
+30611022,Chicken pollo asado,meats,,La Parilla,"Dinner, Lunch"
+30611042,Chicken pollo asado,meats,,La Parilla,"Dinner, Lunch"
+35436163,Chicken pollo asado,meats,,La Parilla,"Dinner, Lunch"
+35437364,Chicken pollo asado,meats,,La Parilla,"Dinner, Lunch"
+30611005,Chips and Pico de Gallo,Entree,3.00,La Parilla,"Dinner, Lunch"
+35436162,Corn tortilla,tortillas and flatbread,,La Parilla,"Dinner, Lunch"
+35437363,Corn tortilla,tortillas and flatbread,,La Parilla,"Dinner, Lunch"
+30610824,Corn tortilla,tortillas and flatbread,,La Parilla,"Dinner, Lunch"
+30610733,Flour tortilla,tortillas and flatbread,,La Parilla,"Dinner, Lunch"
+30610753,Flour tortilla,tortillas and flatbread,,La Parilla,"Dinner, Lunch"
+30611041,Flour tortilla,tortillas and flatbread,,La Parilla,"Dinner, Lunch"
+30610758,Grilled bell pepper,vegetables cooked,,La Parilla,"Dinner, Lunch"
+30610759,Grilled onion,grill sides,,La Parilla,"Dinner, Lunch"
+23021628,guacamole,House made salsa,,La Parilla,"Dinner, Lunch"
+30610738,Guacamole,sauces and spreads house-made,,La Parilla,"Dinner, Lunch"
+30610761,Guacamole,sauces and spreads house-made,,La Parilla,"Dinner, Lunch"
+30611029,Guacamole,sauces and spreads house-made,,La Parilla,"Dinner, Lunch"
+30611050,Guacamole,sauces and spreads house-made,,La Parilla,"Dinner, Lunch"
+30611028,Lettuce,vegetables leafy,,La Parilla,"Dinner, Lunch"
+30610757,Monterey jack cheese,cheeses,,La Parilla,"Dinner, Lunch"
+30611027,Monterey jack cheese,cheeses,,La Parilla,"Dinner, Lunch"
+35648955,monterey jack cheese,cheeses,,La Parilla,"Dinner, Lunch"
+30611052,Monterey jack cheese,cheeses,,La Parilla,"Dinner, Lunch"
+32891128,Monterey jack cheese,cheeses,,La Parilla,"Dinner, Lunch"
+23021629,pico de gallo,House made salsa,,La Parilla,"Dinner, Lunch"
+30611030,Pico de gallo,sauces and spreads house-made,,La Parilla,"Dinner, Lunch"
+30610755,Pinto beans,beans and legumes cooked,,La Parilla,"Dinner, Lunch"
+30611047,Pinto beans,beans and legumes cooked,,La Parilla,"Dinner, Lunch"
+23021623,Pork carnitas,Proteins,,La Parilla,"Dinner, Lunch"
+30610735,Pork carnitas,meats,,La Parilla,"Dinner, Lunch"
+30611023,Pork carnitas,meats,,La Parilla,"Dinner, Lunch"
+30611043,Pork carnitas,meats,,La Parilla,"Dinner, Lunch"
+35436169,Pork carnitas,meats,,La Parilla,"Dinner, Lunch"
+35437365,Pork carnitas,meats,,La Parilla,"Dinner, Lunch"
+35437371,Roasted tomato salsa,sauces and spreads house-made,,La Parilla,"Dinner, Lunch"
+30611048,Shredded lettuce,vegetables leafy,,La Parilla,"Dinner, Lunch"
+30610739,Sour cream,"sour cream, yogurts, etc.",,La Parilla,"Dinner, Lunch"
+30610760,Sour cream,"sour cream, yogurts, etc.",,La Parilla,"Dinner, Lunch"
+30610806,sour cream,Crema,,La Parilla,"Dinner, Lunch"
+30611031,Sour cream,"sour cream, yogurts, etc.",,La Parilla,"Dinner, Lunch"
+30611049,Sour cream,"sour cream, yogurts, etc.",,La Parilla,"Dinner, Lunch"
+30611021,Spanish style rice,grains cooked,,La Parilla,"Dinner, Lunch"
+30611045,Spanish style rice,grains cooked,,La Parilla,"Dinner, Lunch"
+35436171,Spanish style rice,grains cooked,,La Parilla,"Dinner, Lunch"
+30611032,Tofu verde,plant-based proteins,,La Parilla,"Dinner, Lunch"
+35649215,tofu Verde,plant-based proteins,,La Parilla,"Dinner, Lunch"
+35649221,Tofu verde,plant-based proteins,,La Parilla,"Dinner, Lunch"
+35649222,tofu verde,plant-based proteins,,La Parilla,"Dinner, Lunch"
+35649226,tofu verde,plant-based proteins,,La Parilla,"Dinner, Lunch"
+35649229,tofu verde,plant-based proteins,,La Parilla,"Dinner, Lunch"
+35649278,tofu verde,plant-based proteins,,La Parilla,"Dinner, Lunch"
+35649282,tofu verde,plant-based proteins,,La Parilla,"Dinner, Lunch"
+35435314,Value Meal- Chips and Guacamole,Entree,8.95,La Parilla,"Dinner, Lunch"
+30610732,Wheat tortilla,tortillas and flatbread,,La Parilla,"Dinner, Lunch"
+30610752,Wheat tortilla,tortillas and flatbread,,La Parilla,"Dinner, Lunch"
+30611040,Wheat tortilla,tortillas and flatbread,,La Parilla,"Dinner, Lunch"
+20611175,bacon,Protein,,La Parilla Breakfast,Breakfast
+23021315,bacon,Proteins,,La Parilla Breakfast,Breakfast
+23021271,chicken apple sausage,Protein,,La Parilla Breakfast,Breakfast
+23021316,chicken apple sausage,Proteins,,La Parilla Breakfast,Breakfast
+23021270,chorizo sausage,Protein,,La Parilla Breakfast,Breakfast
+23021314,chorizo sausage,Proteins,,La Parilla Breakfast,Breakfast
+23021331,cilantro,Chopped Cilantro,,La Parilla Breakfast,"Breakfast, Dinner, Lunch"
+23021319,egg,Eggs,,La Parilla Breakfast,Breakfast
+20611168,flour tortilla,Wraps,,La Parilla Breakfast,Breakfast
+23021332,lime wedges,Lime,,La Parilla Breakfast,"Breakfast, Dinner, Lunch"
+20611169,monterey jack cheese,Cheeses,,La Parilla Breakfast,Breakfast
+23021320,monterey jack cheese,Cheese,,La Parilla Breakfast,Breakfast
+23021330,onion,Diced Onions,,La Parilla Breakfast,"Breakfast, Dinner, Lunch"
+23021328,roasted tomato salsa,Salsas,,La Parilla Breakfast,"Breakfast, Dinner, Lunch"
+23021269,salsa,Salsa,,La Parilla Breakfast,Breakfast
+23021321,salsa,Salsa,,La Parilla Breakfast,Breakfast
+23021327,salsa,Salsas,,La Parilla Breakfast,"Breakfast, Dinner, Lunch"
+23021329,salsa verde,Salsas,,La Parilla Breakfast,"Breakfast, Dinner, Lunch"
+23021268,scrambled eggs,Egg,,La Parilla Breakfast,Breakfast
+30756115,Side of Tater Tots,Tater Tots,3.50,La Parilla Breakfast,Breakfast
+23021267,tater tots,Tater Tots,,La Parilla Breakfast,Breakfast
+23021318,tater tots,Tater Tots,,La Parilla Breakfast,Breakfast
+20611167,wheat tortilla,Wraps,,La Parilla Breakfast,Breakfast
+20648907,bell pepper,toppings,,Poke & Sushi,Lunch
+14071083,crispy wontons,toppings,,Poke & Sushi,Lunch
+14071074,diced cucumber,toppings,,Poke & Sushi,Lunch
+17819951,diced jalapeno,toppings,,Poke & Sushi,Lunch
+14071079,diced pineapple,toppings,,Poke & Sushi,Lunch
+17819895,Forsman Ranch Brown Rice,base,,Poke & Sushi,Lunch
+14071067,Forsman Ranch Sushi Rice,base,,Poke & Sushi,Lunch
+20286786,half avocado,Add on,1.55,Poke & Sushi,Lunch
+17819939,imitation crab,proteins,,Poke & Sushi,Lunch
+14071069,salmon,proteins,,Poke & Sushi,Lunch
+31066461,sesame furikake,seasonings,,Poke & Sushi,Lunch
+20286785,sesame wakame salad,toppings,,Poke & Sushi,Lunch
+14071073,shredded carrots,toppings,,Poke & Sushi,Lunch
+14071078,sliced scallion,toppings,,Poke & Sushi,Lunch
+20286783,spring mix,base,,Poke & Sushi,Lunch
+14071087,sriracha mayonnaise,sauces,,Poke & Sushi,Lunch
+31066460,Sweet and Spicy Tamari Ponzu,sauces,,Poke & Sushi,Lunch
+31066459,tamari soy sauce,sauces,,Poke & Sushi,Lunch
+14071070,tofu,proteins,,Poke & Sushi,Lunch
+14071068,tuna,proteins,,Poke & Sushi,Lunch
+17819952,wasabi  mayonnaise,sauces,,Poke & Sushi,Lunch
+36587860,made without the top-9 food allergens plus gluten-containing ingredients,,,Simply Oasis,"Dinner, Lunch"
+19671013,american cheese,cheeses,,Stacks Deli,Lunch
+30488839,avocado,fruits raw,,Stacks Deli,Lunch
+20286735,avocado spread,spreads and dips (Base Camp),,Stacks Deli,Lunch
+20286034,bacon,meats,,Stacks Deli,Lunch
+20286733,basil pesto,sauces and spreads house-made,,Stacks Deli,Lunch
+19673861,bell pepper,vegetables raw,,Stacks Deli,Lunch
+23018946,bell peppers,grill vegetables,,Stacks Deli,Lunch
+19673864,cheddar cheese,cheeses,,Stacks Deli,Lunch
+26411609,ciabatta,bread,,Stacks Deli,Lunch
+19673846,cucumber,vegetables raw,,Stacks Deli,Lunch
+19673840,dijon mustard,condiments,,Stacks Deli,Lunch
+20648560,eggplant,vegetables cooked,,Stacks Deli,Lunch
+20286734,fat free italian dressing,dressings lower calorie,,Stacks Deli,Lunch
+19671109,ham,meats,,Stacks Deli,Lunch
+20286737,herbed cream cheese,spreads and dips (Base Camp),,Stacks Deli,Lunch
+19673879,hoagie roll,bread,,Stacks Deli,Lunch
+20648559,honey mustard dressing,dressings creamy,,Stacks Deli,Lunch
+19673843,hummus,condiments,,Stacks Deli,Lunch
+33008749,hummus,sauces and spreads house-made,,Stacks Deli,Lunch
+19671036,mayonnaise,condiments,,Stacks Deli,Lunch
+19671053,mustard,condiments,,Stacks Deli,Lunch
+20648557,onion,vegetables raw,,Stacks Deli,Lunch
+19671050,pepper jack cheese,cheeses,,Stacks Deli,Lunch
+19673876,pepperoncini,vegetables raw,,Stacks Deli,Lunch
+19673855,pickle,vegetables raw,,Stacks Deli,Lunch
+19673847,pickled jalapeno,vegetables raw,,Stacks Deli,Lunch
+35678558,plant-based ham,plant-based proteins,,Stacks Deli,Lunch
+35678577,plant-based turkey,plant-based proteins,,Stacks Deli,Lunch
+23018940,Portobello mushroom,vegetables cooked,,Stacks Deli,Lunch
+19671015,provolone cheese,cheeses,,Stacks Deli,Lunch
+19671117,salami,meats,,Stacks Deli,Lunch
+19671045,shredded lettuce,vegetables leafy,,Stacks Deli,Lunch
+19671370,sliced roast beef,meats,,Stacks Deli,Lunch
+19671004,smoked turkey,meats,,Stacks Deli,Lunch
+19673884,sourdough bread,bread,,Stacks Deli,Lunch
+19671095,spinach,vegetables leafy,,Stacks Deli,Lunch
+23018888,spinach tortilla,wrap,,Stacks Deli,Lunch
+19673844,swiss cheese,cheeses,,Stacks Deli,Lunch
+19671094,tomato,vegetables raw,,Stacks Deli,Lunch
+19673390,tuna salad,meats,,Stacks Deli,Lunch
+33008747,Udi's gluten-free white bread,bread,,Stacks Deli,Lunch
+30585469,white bread,bread,,Stacks Deli,Lunch
+33518143,whole-wheat bread,bread,,Stacks Deli,Lunch
+20648561,zucchini,vegetables cooked,,Stacks Deli,Lunch
+23020655,Add-on bacon,Protein,2.90,The Fire,All Day 11-9:00
+23020304,American cheese,cheeses,,The Fire,All Day 11-9:00
+23020643,american cheese,cheeses,,The Fire,All Day 11-9:00
+23020647,bacon,Add-on,2.90,The Fire,All Day 11-9:00
+36667100,Barq's Root Beer,dispenser,2.60,The Fire,All Day 11-9:00
+23020300,Beyond burger,plant-based proteins,,The Fire,All Day 11-9:00
+23020295,Brioche bread,bread,,The Fire,All Day 11-9:00
+24591843,brown rice,Rice,4.15,The Fire,All Day 11-9:00
+23020305,Cheddar cheese,cheeses,,The Fire,All Day 11-9:00
+23020645,cheddar cheese,cheeses,,The Fire,All Day 11-9:00
+26411699,Ciabatta,bread,,The Fire,All Day 11-9:00
+36667109,Coke,dispenser,2.60,The Fire,All Day 11-9:00
+36667104,Coke Zero,dispenser,2.60,The Fire,All Day 11-9:00
+36667105,Diet Coke,dispenser,2.60,The Fire,All Day 11-9:00
+36667106,Diet Dr. Pepper,dispenser,2.60,The Fire,All Day 11-9:00
+26411700,Double beef patties,Protein,2.05,The Fire,All Day 11-9:00
+36667101,Dr. Pepper,dispenser,2.60,The Fire,All Day 11-9:00
+36667102,Fanta Orange,dispenser,2.60,The Fire,All Day 11-9:00
+30610444,Fountain Drink 16oz,Add-on,2.60,The Fire,All Day 11-9:00
+23021002,French fries,Fries,4.15,The Fire,All Day 11-9:00
+36679145,Ginger Ale,dispenser,2.60,The Fire,All Day 11-9:00
+23020298,Grilled chicken breast,Protein,,The Fire,All Day 11-9:00
+24573842,grilled chicken breast,chicken,6.10,The Fire,All Day 11-9:00
+24573843,grilled salmon fillet,salmon,9.35,The Fire,All Day 11-9:00
+24573844,grilled vegetables,SimplyOASIS Plant-Based,4.15,The Fire,All Day 11-9:00
+36667110,Hi-C Fruit Punch,dispenser,2.60,The Fire,All Day 11-9:00
+16878406,iceberg lettuce,Toppings,,The Fire,All Day 11-9:00
+16878409,ketchup,Sauces,,The Fire,All Day 11-9:00
+23020296,Lettuce wrap,vegetables leafy,,The Fire,All Day 11-9:00
+16878410,mayonnaise,Sauces,,The Fire,All Day 11-9:00
+36667103,Mellow Yello,dispenser,2.60,The Fire,All Day 11-9:00
+36679144,Minute Maid Lemonade,dispenser,2.60,The Fire,All Day 11-9:00
+36667108,Minute Maid Lemonade Light,dispenser,2.60,The Fire,All Day 11-9:00
+16878408,mustard,Sauces,,The Fire,All Day 11-9:00
+23020302,Pepper jack cheese,cheeses,,The Fire,All Day 11-9:00
+23020641,pepper jack cheese,cheeses,,The Fire,All Day 11-9:00
+16878407,pickles,Toppings,,The Fire,All Day 11-9:00
+23020303,Provolone cheese,cheeses,,The Fire,All Day 11-9:00
+23020642,provolone cheese,cheeses,,The Fire,All Day 11-9:00
+23020297,Single beef patty,Protein,,The Fire,All Day 11-9:00
+16878404,sliced red onion,Toppings,,The Fire,All Day 11-9:00
+16878405,sliced tomato,Toppings,,The Fire,All Day 11-9:00
+23020640,sourdough bread,bread,,The Fire,All Day 11-9:00
+36667111,Sprite,dispenser,2.60,The Fire,All Day 11-9:00
+36679146,Sprite Zero,dispenser,2.60,The Fire,All Day 11-9:00
+23021003,sweet potato fries / curly fries,Fries,4.80,The Fire,All Day 11-9:00
+23020306,Swiss cheese,cheeses,,The Fire,All Day 11-9:00
+23020646,swiss cheese,cheeses,,The Fire,All Day 11-9:00
+35632077,Turkey patty,Protein,,The Fire,All Day 11-9:00
+23020294,Udi's hamburger bun,bread,,The Fire,All Day 11-9:00
+35436905,Value Meal- Seasonal Vegetable Sticks with House made Ranch,a la carte,8.00,The Fire,All Day 11-9:00
+36679627,Vitamin Water,dispenser,2.60,The Fire,All Day 11-9:00
+20650690,avocado,fruits raw,4.05,The Garden,All Day 11-9:00
+32890518,balsamic vinaigrette,vinaigrettes,,The Garden,All Day 11-9:00
+20287328,balsamic vinegar,dressing,,The Garden,All Day 11-9:00
+20309096,barley,grains cooked,,The Garden,All Day 11-9:00
+20309090,beet,vegetables raw,,The Garden,All Day 11-9:00
+16878224,black olives,pickled,,The Garden,All Day 11-9:00
+16878231,blanched broccoli,vegetables raw,,The Garden,All Day 11-9:00
+20309092,blue cheese,cheeses,,The Garden,All Day 11-9:00
+16878220,buttermilk ranch dressing,dressings creamy,,The Garden,All Day 11-9:00
+32890482,caesar dressing,dressings creamy,,The Garden,All Day 11-9:00
+16878232,cherry tomato,vegetables raw,,The Garden,All Day 11-9:00
+16878226,corn,vegetables raw,,The Garden,All Day 11-9:00
+16878214,croutons,toppings,,The Garden,All Day 11-9:00
+16878210,diced chicken breast,protein,,The Garden,All Day 11-9:00
+16878597,diced tofu,protein,,The Garden,All Day 11-9:00
+17584998,diced zucchini,vegetables raw,,The Garden,All Day 11-9:00
+16878212,dried cranberry,toppings,,The Garden,All Day 11-9:00
+16878217,fat free italian dressing,dressings creamy,,The Garden,All Day 11-9:00
+20309091,feta cheese,cheeses,,The Garden,All Day 11-9:00
+16878223,garbanzo beans,beans and legumes cooked,,The Garden,All Day 11-9:00
+35762783,goldfish crackers,toppings,,The Garden,All Day 11-9:00
+23021854,grilled shrimp,grilled shrimp,,The Garden,All Day 11-9:00
+16878209,hard boiled egg,protein,,The Garden,All Day 11-9:00
+20650571,kale,vegetables leafy,,The Garden,All Day 11-9:00
+17587023,kidney beans,beans and legumes cooked,,The Garden,All Day 11-9:00
+20309093,monterey jack cheese,cheeses,,The Garden,All Day 11-9:00
+16878228,parmesan cheese,cheeses,,The Garden,All Day 11-9:00
+17587097,peas,vegetables raw,,The Garden,All Day 11-9:00
+35762781,pumpkin seeds,toppings,,The Garden,All Day 11-9:00
+20309097,quinoa,grains cooked,,The Garden,All Day 11-9:00
+36495579,Red Cabbage and Herb Slaw,,,The Garden,All Day 11-9:00
+20309095,roasted cauliflower,vegetables cooked,,The Garden,All Day 11-9:00
+20309094,roasted potatoes,vegetables cooked,,The Garden,All Day 11-9:00
+16878236,romaine lettuce,vegetables leafy,,The Garden,All Day 11-9:00
+20650862,sesame soy dressing,vinaigrettes,,The Garden,All Day 11-9:00
+16878234,shredded carrots,vegetables raw,,The Garden,All Day 11-9:00
+16878235,sliced bell pepper,vegetables raw,,The Garden,All Day 11-9:00
+16878233,sliced cucumber,vegetables raw,,The Garden,All Day 11-9:00
+17584969,sliced mushroom,vegetables raw,,The Garden,All Day 11-9:00
+17587025,sliced red onion,vegetables raw,,The Garden,All Day 11-9:00
+16878207,spinach,vegetables leafy,,The Garden,All Day 11-9:00
+16878237,spring mix,vegetables leafy,,The Garden,All Day 11-9:00
+20650861,thousand island dressing,dressings creamy,,The Garden,All Day 11-9:00
+35762782,tortilla strips,toppings,,The Garden,All Day 11-9:00
+30612362,artichoke,vegetables cooked,,The Slice,"Dinner, Lunch"
+35478427,Banana Split,Sugar & Scoop,8.75,The Slice,Dinner
+30612363,basil,herbs,,The Slice,"Dinner, Lunch"
+26412915,bell pepper,vegetables raw,,The Slice,"Dinner, Lunch"
+35478418,Brownie Sundae,Sugar & Scoop,7.65,The Slice,Dinner
+35477813,Caramel,Sugar & Scoop,,The Slice,Dinner
+35476831,Chocolate Ice Cream,Sugar & Scoop,single - 3.25 &nbsp; double - 5.25,The Slice,Dinner
+35477971,Chocolate Sprinkles,Sugar & Scoop,,The Slice,Dinner
+35477782,Chocolate Syrup,Sugar & Scoop,,The Slice,Dinner
+26412910,diced chicken,meats,,The Slice,"Dinner, Lunch"
+26412920,garlic cream sauce,sauces and spreads house-made,,The Slice,"Dinner, Lunch"
+26412908,gluten free crust,pizza doughs and crusts,,The Slice,"Dinner, Lunch"
+35477975,Graham Cracker Crumbs,Sugar & Scoop,,The Slice,Dinner
+33579373,green onion,vegetables raw,,The Slice,"Dinner, Lunch"
+26412912,ham,meats,,The Slice,"Dinner, Lunch"
+35476980,House Made Waffle Cone,Sugar & Scoop,1.50,The Slice,Dinner
+26412907,house-made pizza dough,pizza doughs and crusts,,The Slice,"Dinner, Lunch"
+35478087,Ice Cream Cookie Sandwich,Sugar & Scoop,7.25,The Slice,Dinner
+35478077,Ice Cream Sundae,Sugar & Scoop,6.50,The Slice,Dinner
+33631264,Impossible plant-based meat,plant-based proteins,,The Slice,"Dinner, Lunch"
+26412911,italian sausage,meats,,The Slice,"Dinner, Lunch"
+35476965,Mango Sorbet,Sugar & Scoop,single - 3.25 &nbsp; double - 5.25,The Slice,Dinner
+26412919,marinara sauce,sauces and spreads house-made,,The Slice,"Dinner, Lunch"
+35477964,Mini M&Ms,Sugar & Scoop,,The Slice,Dinner
+35477984,Mini Marshmallows,Sugar & Scoop,,The Slice,Dinner
+35476887,Mint Chocolate Chip Ice Cream,Sugar & Scoop,single - 3.25 &nbsp; double - 5.25,The Slice,Dinner
+26412913,mozzarella,cheeses,,The Slice,"Dinner, Lunch"
+26412914,mushroom,vegetables raw,,The Slice,"Dinner, Lunch"
+26412916,olives,pickled,,The Slice,"Dinner, Lunch"
+35477828,Oreo Crumbs,Sugar & Scoop,,The Slice,Dinner
+26412909,pepperoni,meats,2.00,The Slice,"Dinner, Lunch"
+26412918,pineapple chunk,fruits raw,,The Slice,"Dinner, Lunch"
+35477968,Rainbow Sprinkles,Sugar & Scoop,,The Slice,Dinner
+30612361,red onion,vegetables raw,,The Slice,"Dinner, Lunch"
+33631240,salami,meats,,The Slice,"Dinner, Lunch"
+35476878,Strawberry Ice Cream,Sugar & Scoop,single - 3.25 &nbsp; double - 5.25,The Slice,Dinner
+35477820,Strawberry Sauce,Sugar & Scoop,,The Slice,Dinner
+35477967,Toasted Coconut,Sugar & Scoop,,The Slice,Dinner
+33579377,tomato,vegetables raw,,The Slice,"Dinner, Lunch"
+35437066,Value Meal- Garlic Pizza Sticks,static,11.25,The Slice,"Dinner, Lunch"
+35476856,Vanilla Ice Cream,Sugar & Scoop,single - 3.25 &nbsp; double - 5.25,The Slice,Dinner
+23023050,apricot preserves,Preserves,,Toast Bar,Breakfast
+20309111,blueberries,Fresh Fruit,,Toast Bar,"Breakfast, Dinner, Lunch"
+30620757,brown sugar,Maple Syrup,,Toast Bar,Breakfast
+30620717,butter salted,Butter,,Toast Bar,Breakfast
+32954342,cake cone,Frozen Yogurt and Toppings,,Toast Bar,Breakfast
+20309113,cantaloupe,Fresh Fruit,,Toast Bar,"Breakfast, Dinner, Lunch"
+30620788,caramel sauce,Sauces,,Toast Bar,Breakfast
+35762603,cheerios,Cereal,,Toast Bar,Breakfast
+30620762,chocolate reduced-fat soft-serve ice cream,Frozen Yogurt and Toppings,6.99,Toast Bar,Breakfast
+23023044,cinnamon raisin bread,Bagels,,Toast Bar,Breakfast
+35762602,corn flakes,Cereal,,Toast Bar,Breakfast
+23023048,cream cheese,Spread,1.00,Toast Bar,Breakfast
+30620790,dark chocolate sauce,Sauces,,Toast Bar,Breakfast
+30620778,dried cranberry,Toppings,,Toast Bar,Breakfast
+23023042,everything bagel,Bagels,2.95,Toast Bar,Breakfast
+33579457,fruit jelly,condiments,,Toast Bar,Breakfast
+35762598,fruit loops,Cereal,,Toast Bar,Breakfast
+30620426,honey oat granola,Honey Granola,,Toast Bar,"Breakfast, Dinner, Lunch"
+20309114,honeydew,Fresh Fruit,,Toast Bar,"Breakfast, Dinner, Lunch"
+30620756,maple syrup,Maple Syrup,,Toast Bar,Breakfast
+30620759,marshmallows,Frozen Yogurt and Toppings,,Toast Bar,Breakfast
+30620764,oatmeal,Oatmeal,3.30,Toast Bar,Breakfast
+30620760,oreo cookies,Frozen Yogurt and Toppings,,Toast Bar,Breakfast
+33579458,Philadelphia cream cheese,cheeses,,Toast Bar,Breakfast
+20652000,pineapple,Fresh Fruit,,Toast Bar,"Breakfast, Dinner, Lunch"
+23023043,plain bagel,Bagels,2.95,Toast Bar,Breakfast
+30620758,rainbow sprinkles,Frozen Yogurt and Toppings,,Toast Bar,Breakfast
+35762599,raisin bran,Cereal,,Toast Bar,Breakfast
+30620780,shredded coconut,Toppings,,Toast Bar,Breakfast
+23023045,sourdough bread,Breads,1.95,Toast Bar,Breakfast
+20309112,strawberry,Fresh Fruit,,Toast Bar,"Breakfast, Dinner, Lunch"
+23023049,strawberry jelly preserves,Preserves,,Toast Bar,Breakfast
+20309109,strawberry yogurt,Yogurt,6.95,Toast Bar,"Breakfast, Dinner, Lunch"
+33112665,Udi's plain bagel,breakfast bread,,Toast Bar,Breakfast
+33112664,Udi's white sandwich bread,bread,,Toast Bar,Breakfast
+30620763,vanilla reduced-fat soft-serve ice cream,Frozen Yogurt and Toppings,6.99,Toast Bar,Breakfast
+20309110,vanilla yogurt,Yogurt,6.95,Toast Bar,"Breakfast, Dinner, Lunch"
+33579425,whipped cream,Frozen Yogurt and Toppings,,Toast Bar,Breakfast
+23023046,white bread,Breads,1.95,Toast Bar,Breakfast
+33518140,whole-wheat bread,Breads,,Toast Bar,Breakfast
+14029437,alfredo,sauces,,Trattoria,"Dinner, Lunch"
+26412381,bacon,Proteins,3.10,Trattoria,"Dinner, Lunch"
+14029438,basil parmesan pesto,sauces,,Trattoria,"Dinner, Lunch"
+14115262,broccoli,vegetables,,Trattoria,"Dinner, Lunch"
+32893432,corn and rice pasta,pasta,,Trattoria,"Dinner, Lunch"
+14115260,diced zucchini,vegetables,,Trattoria,"Dinner, Lunch"
+14029430,grilled chicken breast,Proteins,3.10,Trattoria,"Dinner, Lunch"
+30611062,grilled/roasted shrimp,fish and seafood,3.10,Trattoria,"Dinner, Lunch"
+19608364,Italian sausages,Proteins,3.10,Trattoria,"Dinner, Lunch"
+14029436,marinara sauce,sauces,,Trattoria,"Dinner, Lunch"
+32893421,oil olive,oils and butters,,Trattoria,"Dinner, Lunch"
+32893502,olives,pickled,,Trattoria,"Dinner, Lunch"
+23021893,onion,vegetables,,Trattoria,"Dinner, Lunch"
+20287538,oregano,herbs,,Trattoria,"Dinner, Lunch"
+16878605,parmesan cheese,cheese,,Trattoria,"Dinner, Lunch"
+23021895,peas,vegetables,,Trattoria,"Dinner, Lunch"
+14029435,penne pasta,pasta,,Trattoria,"Dinner, Lunch"
+16878603,seasoned ground beef,Proteins,3.10,Trattoria,"Dinner, Lunch"
+14115261,sliced mushrooms,vegetables,,Trattoria,"Dinner, Lunch"
+23021896,spinach,vegetables leafy,,Trattoria,"Dinner, Lunch"
+19608365,tofu,plant-based protein,3.10,Trattoria,"Dinner, Lunch"
+14029434,whole wheat penne pasta,pasta,,Trattoria,"Dinner, Lunch"

@@ -1,0 +1,6143 @@
+{
+  "cafe": "the-sunstream-cafe",
+  "date": "2026-11-17",
+  "source": "https://scudining.cafebonappetit.com/cafe/the-sunstream-cafe/2026-11-17/",
+  "fetched_at": "2026-11-19T04:20:30.370925+00:00",
+  "status": "menu",
+  "items": {
+    "36631787": {
+      "id": "36631787",
+      "label": "Holiday Spice Latte",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "87110755",
+            "recipe_name": "holiday spice latte - hot (scu)"
+          }
+        ],
+        "sides": []
+      },
+      "description": "espresso, milk, vanilla syrup, and baking spice",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "12 fl oz - $5.75 &nbsp; 16 fl oz - $6.25 &nbsp; 20 fl oz - $6.75",
+      "sizes": [
+        {
+          "size": "12 fl oz",
+          "portion": "12.70",
+          "uom": "oz",
+          "price": "$5.75"
+        },
+        {
+          "size": "16 fl oz",
+          "portion": "16.93",
+          "uom": "oz",
+          "price": "$6.25"
+        },
+        {
+          "size": "20 fl oz",
+          "portion": "21.16",
+          "uom": "oz",
+          "price": "$6.75"
+        }
+      ],
+      "nutrition": {
+        "kcal": "",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 1,
+      "tier3": 0,
+      "tier": 1,
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "8440",
+      "station": "<strong>@all day</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "200",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.7",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "6",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "4",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "20",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "140",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "29",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "< 1",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "25",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "9",
+          "unit": "g"
+        }
+      },
+      "ingredients": "2% milk, espresso shot (espresso, water), vanilla coffee syrup, pumpkin pie spice",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "",
+      "sub_station": "",
+      "sub_station_order": "",
+      "monotony": {}
+    },
+    "36631811": {
+      "id": "36631811",
+      "label": "Iced Holiday Spice Latte",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "87110994",
+            "recipe_name": "holiday spice latte - iced (scu)"
+          }
+        ],
+        "sides": []
+      },
+      "description": "espresso, milk, ice, vanilla syrup, and baking spice",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "12 fl oz - $5.75 &nbsp; 16 fl oz - $6.25 &nbsp; 20 fl oz - $6.75",
+      "sizes": [
+        {
+          "size": "12 fl oz",
+          "portion": "15.30",
+          "uom": "oz",
+          "price": "$5.75"
+        },
+        {
+          "size": "16 fl oz",
+          "portion": "20.40",
+          "uom": "oz",
+          "price": "$6.25"
+        },
+        {
+          "size": "20 fl oz",
+          "portion": "25.50",
+          "uom": "oz",
+          "price": "$6.75"
+        }
+      ],
+      "nutrition": {
+        "kcal": "",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 1,
+      "tier3": 0,
+      "tier": 1,
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "8440",
+      "station": "<strong>@all day</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "120",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "15.3",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "3",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "2",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "10",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "70",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "21",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "< 1",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "18",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "4",
+          "unit": "g"
+        }
+      },
+      "ingredients": "water, 2% milk, espresso shot (espresso, water), vanilla coffee syrup, pumpkin pie spice",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "",
+      "sub_station": "",
+      "sub_station_order": "",
+      "monotony": {}
+    },
+    "36631793": {
+      "id": "36631793",
+      "label": "Peppermint Mocha",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "87113333",
+            "recipe_name": "peppermint mocha - hot (scu)"
+          }
+        ],
+        "sides": []
+      },
+      "description": "espresso, milk, peppermint syrup, chocolate sauce, and whipped cream",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "12 fl oz - $5.95 &nbsp; 16 fl oz - $6.45 &nbsp; 20 fl oz - $6.95",
+      "sizes": [
+        {
+          "size": "12 fl oz",
+          "portion": "14.70",
+          "uom": "oz",
+          "price": "$5.95"
+        },
+        {
+          "size": "16 fl oz",
+          "portion": "19.60",
+          "uom": "oz",
+          "price": "$6.45"
+        },
+        {
+          "size": "20 fl oz",
+          "portion": "24.50",
+          "uom": "oz",
+          "price": "$6.95"
+        }
+      ],
+      "nutrition": {
+        "kcal": "",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 1,
+      "tier3": 0,
+      "tier": 1,
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "8440",
+      "station": "<strong>@all day</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "390",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "14.7",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "15",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "8",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "65",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "140",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "51",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "50",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "10",
+          "unit": "g"
+        }
+      },
+      "ingredients": "2% milk, espresso shot (espresso, water), reddi whip topping, dark chocolate sauce, peppermint coffee syrup",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "",
+      "sub_station": "",
+      "sub_station_order": "",
+      "monotony": {}
+    },
+    "36631817": {
+      "id": "36631817",
+      "label": "Iced Peppermint Mocha",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "87113801",
+            "recipe_name": "peppermint mocha - iced (scu)"
+          }
+        ],
+        "sides": []
+      },
+      "description": "espresso, milk, ice, peppermint syrup, chocolate sauce, and whipped cream",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "12 fl oz - $5.95 &nbsp; 16 fl oz - $6.45 &nbsp; 20 fl oz - $6.95",
+      "sizes": [
+        {
+          "size": "12 fl oz",
+          "portion": "16.80",
+          "uom": "oz",
+          "price": "$5.95"
+        },
+        {
+          "size": "16 fl oz",
+          "portion": "22.40",
+          "uom": "oz",
+          "price": "$6.45"
+        },
+        {
+          "size": "20 fl oz",
+          "portion": "28.00",
+          "uom": "oz",
+          "price": "$6.95"
+        }
+      ],
+      "nutrition": {
+        "kcal": "",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 1,
+      "tier3": 0,
+      "tier": 1,
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "8440",
+      "station": "<strong>@all day</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "280",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "16.8",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "12",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "6",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "55",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "75",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "35",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "35",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "4",
+          "unit": "g"
+        }
+      },
+      "ingredients": "water, 2% milk, reddi whip topping, espresso shot (espresso, water), peppermint coffee syrup, dark chocolate sauce",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "",
+      "sub_station": "",
+      "sub_station_order": "",
+      "monotony": {}
+    },
+    "36631799": {
+      "id": "36631799",
+      "label": "Peppermint White Mocha",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "87113543",
+            "recipe_name": "peppermint white mocha - hot (scu)"
+          }
+        ],
+        "sides": []
+      },
+      "description": "espresso, milk, peppermint syrup, white chocolate sauce, and whipped cream",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "12 fl oz - $5.95 &nbsp; 16 fl oz - $6.45 &nbsp; 20 fl oz - $6.95",
+      "sizes": [
+        {
+          "size": "12 fl oz",
+          "portion": "14.80",
+          "uom": "oz",
+          "price": "$5.95"
+        },
+        {
+          "size": "16 fl oz",
+          "portion": "19.73",
+          "uom": "oz",
+          "price": "$6.45"
+        },
+        {
+          "size": "20 fl oz",
+          "portion": "24.66",
+          "uom": "oz",
+          "price": "$6.95"
+        }
+      ],
+      "nutrition": {
+        "kcal": "",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 1,
+      "tier3": 0,
+      "tier": 1,
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "8440",
+      "station": "<strong>@all day</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "430",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "14.8",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "16",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "9",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "70",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "200",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "58",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "57",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "11",
+          "unit": "g"
+        }
+      },
+      "ingredients": "2% milk, espresso shot (espresso, water), reddi whip topping, white chocolate sauce, peppermint coffee syrup",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "",
+      "sub_station": "",
+      "sub_station_order": "",
+      "monotony": {}
+    },
+    "36631823": {
+      "id": "36631823",
+      "label": "Iced Peppermint White Mocha",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "87113995",
+            "recipe_name": "peppermint white mocha - iced (scu)"
+          }
+        ],
+        "sides": []
+      },
+      "description": "espresso, milk, ice, peppermint syrup, white chocolate sauce, and whipped cream",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "12 fl oz - $5.95 &nbsp; 16 fl oz - $6.45 &nbsp; 20 fl oz - $6.95",
+      "sizes": [
+        {
+          "size": "12 fl oz",
+          "portion": "16.90",
+          "uom": "oz",
+          "price": "$5.95"
+        },
+        {
+          "size": "16 fl oz",
+          "portion": "22.53",
+          "uom": "oz",
+          "price": "$6.45"
+        },
+        {
+          "size": "20 fl oz",
+          "portion": "28.16",
+          "uom": "oz",
+          "price": "$6.95"
+        }
+      ],
+      "nutrition": {
+        "kcal": "",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 1,
+      "tier3": 0,
+      "tier": 1,
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "8440",
+      "station": "<strong>@all day</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "300",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "16.9",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "12",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "6",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "55",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "100",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "39",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "38",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "5",
+          "unit": "g"
+        }
+      },
+      "ingredients": "water, 2% milk, reddi whip topping, espresso shot (espresso, water), white chocolate sauce, peppermint coffee syrup",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "",
+      "sub_station": "",
+      "sub_station_order": "",
+      "monotony": {}
+    },
+    "36631805": {
+      "id": "36631805",
+      "label": "Oatmeal Cookie Chai Latte",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "87114344",
+            "recipe_name": "oatmeal cookie chai latte - hot (scu)"
+          }
+        ],
+        "sides": []
+      },
+      "description": "oat milk, chai concentrate, white chocolate sauce, brown sugar syrup, caramel drizzle, and cinnamon powder",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "12 fl oz - $5.95 &nbsp; 16 fl oz - $6.45 &nbsp; 20 fl oz - $6.75",
+      "sizes": [
+        {
+          "size": "12 fl oz",
+          "portion": "11.00",
+          "uom": "oz",
+          "price": "$5.95"
+        },
+        {
+          "size": "16 fl oz",
+          "portion": "14.66",
+          "uom": "oz",
+          "price": "$6.45"
+        },
+        {
+          "size": "20 fl oz",
+          "portion": "18.33",
+          "uom": "oz",
+          "price": "$6.75"
+        }
+      ],
+      "nutrition": {
+        "kcal": "",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 1,
+      "tier3": 0,
+      "tier": 1,
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "8440",
+      "station": "<strong>@all day</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "360",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "11.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "7",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "1.5",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "5",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "160",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "69",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "2",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "58",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "3",
+          "unit": "g"
+        }
+      },
+      "ingredients": "oat milk, chai concentrate, white chocolate sauce, brown sugar syrup, caramel sauce, cinnamon",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "",
+      "sub_station": "",
+      "sub_station_order": "",
+      "monotony": {}
+    },
+    "36631829": {
+      "id": "36631829",
+      "label": "Iced Oatmeal Cookie Chai Latte",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "87114683",
+            "recipe_name": "oatmeal cookie chai latte - iced (scu)"
+          }
+        ],
+        "sides": []
+      },
+      "description": "oat milk, chai concentrate, ice, white chocolate sauce, brown sugar syrup, caramel drizzle, and cinnamon powder",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "12 fl oz - $5.95 &nbsp; 16 fl oz - $6.45 &nbsp; 20 fl oz - $6.75",
+      "sizes": [
+        {
+          "size": "12 fl oz",
+          "portion": "14.80",
+          "uom": "oz",
+          "price": "$5.95"
+        },
+        {
+          "size": "16 fl oz",
+          "portion": "19.73",
+          "uom": "oz",
+          "price": "$6.45"
+        },
+        {
+          "size": "20 fl oz",
+          "portion": "24.66",
+          "uom": "oz",
+          "price": "$6.75"
+        }
+      ],
+      "nutrition": {
+        "kcal": "",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 1,
+      "tier3": 0,
+      "tier": 1,
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "8440",
+      "station": "<strong>@all day</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "200",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "14.8",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "4",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "1",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "< 5",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "100",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "39",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "1",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "33",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "2",
+          "unit": "g"
+        }
+      },
+      "ingredients": "water, oat milk, chai concentrate, caramel sauce, white chocolate sauce, brown sugar syrup, cinnamon",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "",
+      "sub_station": "",
+      "sub_station_order": "",
+      "monotony": {}
+    },
+    "35567296": {
+      "id": "35567296",
+      "label": "Italian Soda",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "63615",
+            "recipe_name": "ice cubes"
+          },
+          {
+            "recipe_id": "71034714",
+            "recipe_name": "carbonated water"
+          },
+          {
+            "recipe_id": "77692748",
+            "recipe_name": "strawberry syrup "
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "4": "Vegan"
+      },
+      "ordered_cor_icon": {
+        "0002-0004": {
+          "id": "4",
+          "label": "Vegan"
+        }
+      },
+      "nextepid": null,
+      "price": "12 fl oz - $4.95 &nbsp; 16 fl oz - $5.90 &nbsp; 20 fl oz - $6.10",
+      "sizes": [
+        {
+          "size": "12 fl oz",
+          "portion": "12.10",
+          "uom": "oz",
+          "price": "$4.95"
+        },
+        {
+          "size": "16 fl oz",
+          "portion": "16.13",
+          "uom": "oz",
+          "price": "$5.90"
+        },
+        {
+          "size": "20 fl oz",
+          "portion": "20.16",
+          "uom": "oz",
+          "price": "$6.10"
+        }
+      ],
+      "nutrition": {
+        "kcal": "60",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38013",
+      "station": "<strong>@Cold Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "60",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.1",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "0",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "60",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "14",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "14",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "0",
+          "unit": "g"
+        }
+      },
+      "ingredients": "water, carbonated water, strawberry coffee syrup",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202454",
+      "sub_station": "italian soda",
+      "sub_station_order": "1",
+      "monotony": {}
+    },
+    "35567309": {
+      "id": "35567309",
+      "label": "Lemonade",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "60512.6",
+            "recipe_name": "lemonade "
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "4": "Vegan"
+      },
+      "ordered_cor_icon": {
+        "0002-0004": {
+          "id": "4",
+          "label": "Vegan"
+        }
+      },
+      "nextepid": null,
+      "price": "$12.00",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "120",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38013",
+      "station": "<strong>@Cold Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "120",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "0",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "10",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "30",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "29",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "0",
+          "unit": "g"
+        }
+      },
+      "ingredients": "water, lemon juice, sugar",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202457",
+      "sub_station": "water and house-made lemonade",
+      "sub_station_order": "3",
+      "monotony": {}
+    },
+    "35567319": {
+      "id": "35567319",
+      "label": "Chocolate Chip Banana Loaf Cake",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "83703004",
+            "recipe_name": "Chocolate Chip Banana Loaf Cake (Santa Clara)"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "257": "Wheat/Gluten",
+        "258": "Milk",
+        "259": "Egg",
+        "260": "Soy"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0283-0257": {
+          "id": "257",
+          "label": "Wheat/Gluten"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        },
+        "0285-0259": {
+          "id": "259",
+          "label": "Egg"
+        },
+        "0286-0260": {
+          "id": "260",
+          "label": "Soy"
+        }
+      },
+      "nextepid": null,
+      "price": "$4.85",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "310",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38014",
+      "station": "<strong>@Pastries</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "310",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "3.5",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "11",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "6",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "60",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "220",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "51",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "1",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "30",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "4",
+          "unit": "g"
+        }
+      },
+      "ingredients": "flour, banana, sugar, brown sugar, cage-free egg, semi sweet chocolate, butter, sour cream, salt, baking powder, baking soda",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202459",
+      "sub_station": "muffins, scones, and croissants",
+      "sub_station_order": "6",
+      "monotony": {}
+    },
+    "35567323": {
+      "id": "35567323",
+      "label": "Brownie",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "83659530",
+            "recipe_name": "Brownies (Santa Clara)"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "257": "Wheat/Gluten",
+        "258": "Milk",
+        "259": "Egg",
+        "260": "Soy"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0283-0257": {
+          "id": "257",
+          "label": "Wheat/Gluten"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        },
+        "0285-0259": {
+          "id": "259",
+          "label": "Egg"
+        },
+        "0286-0260": {
+          "id": "260",
+          "label": "Soy"
+        }
+      },
+      "nextepid": null,
+      "price": "$3.85",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "590",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38014",
+      "station": "<strong>@Pastries</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "590",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "5.3",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "26",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "6",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "65",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "290",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "92",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "4",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "73",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "6",
+          "unit": "g"
+        }
+      },
+      "ingredients": "sugar, oil, cage-free egg, semi sweet chocolate, flour, cocoa, water, salt",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202458",
+      "sub_station": "cookies and bars",
+      "sub_station_order": "5",
+      "monotony": {}
+    },
+    "35567320": {
+      "id": "35567320",
+      "label": "Chocolate Chip Muffin",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "83703151",
+            "recipe_name": "Chocolate Chip Muffin (Santa Clara)"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "257": "Wheat/Gluten",
+        "258": "Milk",
+        "259": "Egg",
+        "260": "Soy"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0283-0257": {
+          "id": "257",
+          "label": "Wheat/Gluten"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        },
+        "0285-0259": {
+          "id": "259",
+          "label": "Egg"
+        },
+        "0286-0260": {
+          "id": "260",
+          "label": "Soy"
+        }
+      },
+      "nextepid": null,
+      "price": "$4.05",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "380",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38014",
+      "station": "<strong>@Pastries</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "380",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "4.1",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "17",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "10",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "90",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "340",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "54",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "1",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "33",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "6",
+          "unit": "g"
+        }
+      },
+      "ingredients": "flour, sour cream, sugar, cage-free egg, semi sweet chocolate, butter, pure vanilla extract, baking soda, salt",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202459",
+      "sub_station": "muffins, scones, and croissants",
+      "sub_station_order": "6",
+      "monotony": {}
+    },
+    "35567324": {
+      "id": "35567324",
+      "label": "Double Chocolate Cookie",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "85492320",
+            "recipe_name": "Double Chocolate Cookies (Santa Clara)"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "257": "Wheat/Gluten",
+        "258": "Milk",
+        "259": "Egg",
+        "260": "Soy"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0283-0257": {
+          "id": "257",
+          "label": "Wheat/Gluten"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        },
+        "0285-0259": {
+          "id": "259",
+          "label": "Egg"
+        },
+        "0286-0260": {
+          "id": "260",
+          "label": "Soy"
+        }
+      },
+      "nextepid": null,
+      "price": "$3.20",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "230",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38014",
+      "station": "<strong>@Pastries</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "230",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "2.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "11",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "7",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "40",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "125",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "33",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "2",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "20",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "3",
+          "unit": "g"
+        }
+      },
+      "ingredients": "flour, butter, semi sweet chocolate, sugar, brown sugar, cage-free egg, cocoa, pure vanilla extract, baking powder, baking soda, salt",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202458",
+      "sub_station": "cookies and bars",
+      "sub_station_order": "5",
+      "monotony": {}
+    },
+    "35567280": {
+      "id": "35567280",
+      "label": "Hot Chai Latte",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "79058.3",
+            "recipe_name": "chai latte"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "220",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38012",
+      "station": "<strong>@Hot Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "220",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "3.5",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "2.5",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "15",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "85",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "40",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "40",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "6",
+          "unit": "g"
+        }
+      },
+      "ingredients": "2% milk, chai concentrate",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202452",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "4",
+      "monotony": {}
+    },
+    "35567300": {
+      "id": "35567300",
+      "label": "Iced Chai Latte",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "79083.6",
+            "recipe_name": "iced chai latte "
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "140",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38013",
+      "station": "<strong>@Cold Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "140",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "2",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "1",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "5",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "45",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "28",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "28",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "3",
+          "unit": "g"
+        }
+      },
+      "ingredients": "chai concentrate, 2% milk, water",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202455",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "2",
+      "monotony": {}
+    },
+    "35567321": {
+      "id": "35567321",
+      "label": "Blueberry Muffin",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "83703165",
+            "recipe_name": "Blueberry Muffin (Santa Clara)"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "257": "Wheat/Gluten",
+        "258": "Milk",
+        "259": "Egg"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0283-0257": {
+          "id": "257",
+          "label": "Wheat/Gluten"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        },
+        "0285-0259": {
+          "id": "259",
+          "label": "Egg"
+        }
+      },
+      "nextepid": null,
+      "price": "$4.05",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "330",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38014",
+      "station": "<strong>@Pastries</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "330",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "4.1",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "13",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "7",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "90",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "340",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "47",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "1",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "26",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "5",
+          "unit": "g"
+        }
+      },
+      "ingredients": "flour, sour cream, sugar, cage-free egg, blueberries, butter, pure vanilla extract, baking soda, salt",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202459",
+      "sub_station": "muffins, scones, and croissants",
+      "sub_station_order": "6",
+      "monotony": {}
+    },
+    "35567325": {
+      "id": "35567325",
+      "label": "M&M's Cookie",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "85492352",
+            "recipe_name": "M&M's Cookies (Santa Clara)"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "257": "Wheat/Gluten",
+        "258": "Milk",
+        "259": "Egg",
+        "260": "Soy"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0283-0257": {
+          "id": "257",
+          "label": "Wheat/Gluten"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        },
+        "0285-0259": {
+          "id": "259",
+          "label": "Egg"
+        },
+        "0286-0260": {
+          "id": "260",
+          "label": "Soy"
+        }
+      },
+      "nextepid": null,
+      "price": "$3.20",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "310",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38014",
+      "station": "<strong>@Pastries</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "310",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "2.4",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "14",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "9",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "45",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "140",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "43",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "< 1",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "31",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "3",
+          "unit": "g"
+        }
+      },
+      "ingredients": "m&m candies, flour, butter, brown sugar, sugar, cage-free egg, salt, pure vanilla extract, baking soda",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202458",
+      "sub_station": "cookies and bars",
+      "sub_station_order": "5",
+      "monotony": {}
+    },
+    "35567281": {
+      "id": "35567281",
+      "label": "Hot Caramel Macchiato",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "86135.3",
+            "recipe_name": "caramel macchiato"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "200",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38012",
+      "station": "<strong>@Hot Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "200",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "4",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "2.5",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "15",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "100",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "34",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "34",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "7",
+          "unit": "g"
+        }
+      },
+      "ingredients": "2% milk, espresso shot (water, espresso), vanilla coffee syrup, caramel coffee syrup",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202452",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "4",
+      "monotony": {}
+    },
+    "35567301": {
+      "id": "35567301",
+      "label": "Iced Caramel Macchiato",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "86135.3",
+            "recipe_name": "caramel macchiato"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "200",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38013",
+      "station": "<strong>@Cold Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "200",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "4",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "2.5",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "15",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "100",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "34",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "34",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "7",
+          "unit": "g"
+        }
+      },
+      "ingredients": "2% milk, espresso shot (water, espresso), vanilla coffee syrup, caramel coffee syrup",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202455",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "2",
+      "monotony": {}
+    },
+    "35567322": {
+      "id": "35567322",
+      "label": "Mocha Butterscotch Muffin",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "83815697",
+            "recipe_name": "Mocha Butterscotch Muffin (Santa Clara)"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "257": "Wheat/Gluten",
+        "258": "Milk",
+        "259": "Egg",
+        "260": "Soy"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0283-0257": {
+          "id": "257",
+          "label": "Wheat/Gluten"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        },
+        "0285-0259": {
+          "id": "259",
+          "label": "Egg"
+        },
+        "0286-0260": {
+          "id": "260",
+          "label": "Soy"
+        }
+      },
+      "nextepid": null,
+      "price": "$4.05",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "390",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38014",
+      "station": "<strong>@Pastries</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "390",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "4.3",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "16",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "10",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "70",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "460",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "58",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "3",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "38",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "7",
+          "unit": "g"
+        }
+      },
+      "ingredients": "brown sugar, low fat buttermilk, flour, butterscotch chips, butter, cage-free egg, cocoa, pure vanilla extract, baking powder, baking soda, espresso, salt",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202459",
+      "sub_station": "muffins, scones, and croissants",
+      "sub_station_order": "6",
+      "monotony": {}
+    },
+    "35567326": {
+      "id": "35567326",
+      "label": "Sugar Cookie",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "85492364",
+            "recipe_name": "Sugar Cookies (Santa Clara)"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "257": "Wheat/Gluten",
+        "258": "Milk",
+        "259": "Egg"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0283-0257": {
+          "id": "257",
+          "label": "Wheat/Gluten"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        },
+        "0285-0259": {
+          "id": "259",
+          "label": "Egg"
+        }
+      },
+      "nextepid": null,
+      "price": "$3.20",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "250",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38014",
+      "station": "<strong>@Pastries</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "250",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "2.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "13",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "8",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "45",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "115",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "31",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "< 1",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "16",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "3",
+          "unit": "g"
+        }
+      },
+      "ingredients": "flour, butter, sugar, cage-free egg, brown sugar, salt, baking powder",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202458",
+      "sub_station": "cookies and bars",
+      "sub_station_order": "5",
+      "monotony": {}
+    },
+    "35567282": {
+      "id": "35567282",
+      "label": "Hot Coffee",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "73373745",
+            "recipe_name": "coffee"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "4": "Vegan"
+      },
+      "ordered_cor_icon": {
+        "0002-0004": {
+          "id": "4",
+          "label": "Vegan"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "0",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38012",
+      "station": "<strong>@Hot Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "0",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "0",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "5",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "0",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "0",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "0",
+          "unit": "g"
+        }
+      },
+      "ingredients": "coffee (water, coffee)",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202452",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "4",
+      "monotony": {}
+    },
+    "35567302": {
+      "id": "35567302",
+      "label": "Iced Coffee",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "73373745",
+            "recipe_name": "coffee"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "4": "Vegan"
+      },
+      "ordered_cor_icon": {
+        "0002-0004": {
+          "id": "4",
+          "label": "Vegan"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "0",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38013",
+      "station": "<strong>@Cold Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "0",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "0",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "5",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "0",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "0",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "0",
+          "unit": "g"
+        }
+      },
+      "ingredients": "coffee (water, coffee)",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202455",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "2",
+      "monotony": {}
+    },
+    "35567327": {
+      "id": "35567327",
+      "label": "Chocolate Chip Cookie",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "85492378",
+            "recipe_name": "Chocolate Chip Cookies (Santa Clara)"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "257": "Wheat/Gluten",
+        "258": "Milk",
+        "259": "Egg",
+        "260": "Soy"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0283-0257": {
+          "id": "257",
+          "label": "Wheat/Gluten"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        },
+        "0285-0259": {
+          "id": "259",
+          "label": "Egg"
+        },
+        "0286-0260": {
+          "id": "260",
+          "label": "Soy"
+        }
+      },
+      "nextepid": null,
+      "price": "$3.20",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "280",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38014",
+      "station": "<strong>@Pastries</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "280",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "2.3",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "14",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "9",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "40",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "130",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "39",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "< 1",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "28",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "3",
+          "unit": "g"
+        }
+      },
+      "ingredients": "semi sweet chocolate, flour, butter, brown sugar, sugar, cage-free egg, salt, pure vanilla extract, baking soda",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202458",
+      "sub_station": "cookies and bars",
+      "sub_station_order": "5",
+      "monotony": {}
+    },
+    "35567328": {
+      "id": "35567328",
+      "label": "Cranberry Scone",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "85492213",
+            "recipe_name": "Cranberry Scone (Santa Clara)"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "257": "Wheat/Gluten",
+        "258": "Milk",
+        "259": "Egg"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0283-0257": {
+          "id": "257",
+          "label": "Wheat/Gluten"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        },
+        "0285-0259": {
+          "id": "259",
+          "label": "Egg"
+        }
+      },
+      "nextepid": null,
+      "price": "$4.25",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "310",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38014",
+      "station": "<strong>@Pastries</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "310",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "3.3",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "14",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "8",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "60",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "330",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "43",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "2",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "16",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "5",
+          "unit": "g"
+        }
+      },
+      "ingredients": "flour, butter, low fat buttermilk, dried cranberries, cage-free egg, sugar, baking powder, pure vanilla extract, salt, orange zest",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202459",
+      "sub_station": "muffins, scones, and croissants",
+      "sub_station_order": "6",
+      "monotony": {}
+    },
+    "35567283": {
+      "id": "35567283",
+      "label": "Hot Tea",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "73373749",
+            "recipe_name": "tea "
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": [],
+      "ordered_cor_icon": [],
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "0",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38012",
+      "station": "<strong>@Hot Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "0",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "0",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "10",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "< 1",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "0",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "0",
+          "unit": "g"
+        }
+      },
+      "ingredients": "tea (water, tea bag earl grey)",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202452",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "4",
+      "monotony": {}
+    },
+    "35567303": {
+      "id": "35567303",
+      "label": "Iced Latte",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "79066.11",
+            "recipe_name": "iced caffe latte"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "90",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38013",
+      "station": "<strong>@Cold Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "90",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "3.5",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "2",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "15",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "90",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "9",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "8",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "6",
+          "unit": "g"
+        }
+      },
+      "ingredients": "2% milk, water, espresso shot (water, espresso)",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202455",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "2",
+      "monotony": {}
+    },
+    "35567329": {
+      "id": "35567329",
+      "label": "Chocolate Chip Scone",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "85492277",
+            "recipe_name": "Chocolate Chip Scone (Santa Clara)"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "257": "Wheat/Gluten",
+        "258": "Milk",
+        "259": "Egg",
+        "260": "Soy"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0283-0257": {
+          "id": "257",
+          "label": "Wheat/Gluten"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        },
+        "0285-0259": {
+          "id": "259",
+          "label": "Egg"
+        },
+        "0286-0260": {
+          "id": "260",
+          "label": "Soy"
+        }
+      },
+      "nextepid": null,
+      "price": "$4.25",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "380",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38014",
+      "station": "<strong>@Pastries</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "380",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "3.6",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "19",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "12",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "60",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "330",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "48",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "2",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "20",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "6",
+          "unit": "g"
+        }
+      },
+      "ingredients": "flour, semi sweet chocolate, butter, low fat buttermilk, cage-free egg, sugar, baking powder, pure vanilla extract, salt",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202459",
+      "sub_station": "muffins, scones, and croissants",
+      "sub_station_order": "6",
+      "monotony": {}
+    },
+    "35567333": {
+      "id": "35567333",
+      "label": "Rice Krispies Treat",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "85210675",
+            "recipe_name": "Rice Krispies Treat (Santa Clara)"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "257": "Wheat/Gluten",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0283-0257": {
+          "id": "257",
+          "label": "Wheat/Gluten"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "290",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38014",
+      "station": "<strong>@Pastries</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "290",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "2.5",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "9",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "6",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "25",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "140",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "51",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "23",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "2",
+          "unit": "g"
+        }
+      },
+      "ingredients": "marshmallows, rice krispies cereal, butter",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202458",
+      "sub_station": "cookies and bars",
+      "sub_station_order": "5",
+      "monotony": {}
+    },
+    "35567284": {
+      "id": "35567284",
+      "label": "Hot Latte",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "79047.3",
+            "recipe_name": "caffè latte "
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "80",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38012",
+      "station": "<strong>@Hot Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "80",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "3",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "2",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "10",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "80",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "8",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "8",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "5",
+          "unit": "g"
+        }
+      },
+      "ingredients": "2% milk, espresso shot (water, espresso)",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202452",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "4",
+      "monotony": {}
+    },
+    "35567304": {
+      "id": "35567304",
+      "label": "Iced Tea",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "80918",
+            "recipe_name": "iced tea "
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "4": "Vegan"
+      },
+      "ordered_cor_icon": {
+        "0002-0004": {
+          "id": "4",
+          "label": "Vegan"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "0",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38013",
+      "station": "<strong>@Cold Drinks</strong>",
+      "nutrition_details": {},
+      "ingredients": "unsweetened tea (water, black tea), water",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202455",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "2",
+      "monotony": {}
+    },
+    "35567330": {
+      "id": "35567330",
+      "label": "Chocolate Croissant",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "85492566",
+            "recipe_name": "Chocolate Croissant (Santa Clara)"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "298": "Sesame",
+        "257": "Wheat/Gluten",
+        "258": "Milk",
+        "259": "Egg"
+      },
+      "ordered_cor_icon": {
+        "0280-0298": {
+          "id": "298",
+          "label": "Sesame"
+        },
+        "0283-0257": {
+          "id": "257",
+          "label": "Wheat/Gluten"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        },
+        "0285-0259": {
+          "id": "259",
+          "label": "Egg"
+        }
+      },
+      "nextepid": null,
+      "price": "$4.95",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "430",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38014",
+      "station": "<strong>@Pastries</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "430",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "3.9",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "24",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "14",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "60",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "260",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "43",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "3",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "12",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "8",
+          "unit": "g"
+        }
+      },
+      "ingredients": "croissant dough, dark chocolate",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202459",
+      "sub_station": "muffins, scones, and croissants",
+      "sub_station_order": "6",
+      "monotony": {}
+    },
+    "35567285": {
+      "id": "35567285",
+      "label": "Hot Chocolate",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "79055.4",
+            "recipe_name": "hot chocolate"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "270",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38012",
+      "station": "<strong>@Hot Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "270",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "7",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "4",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "25",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "180",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "41",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "42",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "11",
+          "unit": "g"
+        }
+      },
+      "ingredients": "2% milk, dark chocolate coffee syrup",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202452",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "4",
+      "monotony": {}
+    },
+    "35567305": {
+      "id": "35567305",
+      "label": "Iced Americano",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "78962.3",
+            "recipe_name": "iced caffe americano"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "4": "Vegan"
+      },
+      "ordered_cor_icon": {
+        "0002-0004": {
+          "id": "4",
+          "label": "Vegan"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "5",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38013",
+      "station": "<strong>@Cold Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "5",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "0",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "15",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "< 1",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "0",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "0",
+          "unit": "g"
+        }
+      },
+      "ingredients": "water, espresso shot (water, espresso)",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202455",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "2",
+      "monotony": {}
+    },
+    "35567331": {
+      "id": "35567331",
+      "label": "Croissant",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "85739745",
+            "recipe_name": "Croissant (Santa Clara)"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "298": "Sesame",
+        "257": "Wheat/Gluten",
+        "258": "Milk",
+        "259": "Egg"
+      },
+      "ordered_cor_icon": {
+        "0280-0298": {
+          "id": "298",
+          "label": "Sesame"
+        },
+        "0283-0257": {
+          "id": "257",
+          "label": "Wheat/Gluten"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        },
+        "0285-0259": {
+          "id": "259",
+          "label": "Egg"
+        }
+      },
+      "nextepid": null,
+      "price": "$4.65",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "330",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38014",
+      "station": "<strong>@Pastries</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "330",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "3.3",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "18",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "11",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "60",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "260",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "35",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "< 1",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "6",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "6",
+          "unit": "g"
+        }
+      },
+      "ingredients": "croissant dough",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202459",
+      "sub_station": "muffins, scones, and croissants",
+      "sub_station_order": "6",
+      "monotony": {}
+    },
+    "35567286": {
+      "id": "35567286",
+      "label": "Steamer",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "76180730",
+            "recipe_name": "vanilla steamer"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "160",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38012",
+      "station": "<strong>@Hot Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "160",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "11.5",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "6",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "4",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0.5",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "25",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "150",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "16",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "16",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "11",
+          "unit": "g"
+        }
+      },
+      "ingredients": "2% milk, cinnamon, vanilla coffee syrup",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202452",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "4",
+      "monotony": {}
+    },
+    "35567306": {
+      "id": "35567306",
+      "label": "Iced Mocha",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "79075.7",
+            "recipe_name": "iced caffe mocha "
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "150",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38013",
+      "station": "<strong>@Cold Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "150",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "2",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "1",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "5",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "80",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "30",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "30",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "3",
+          "unit": "g"
+        }
+      },
+      "ingredients": "water, 2% milk, espresso shot (water, espresso), dark chocolate coffee syrup",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202455",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "2",
+      "monotony": {}
+    },
+    "35567332": {
+      "id": "35567332",
+      "label": "Ham & Cheese Croissant",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "85492427",
+            "recipe_name": "Ham & Cheese Croissant (Santa Clara)"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "298": "Sesame",
+        "257": "Wheat/Gluten",
+        "258": "Milk",
+        "259": "Egg"
+      },
+      "ordered_cor_icon": {
+        "0280-0298": {
+          "id": "298",
+          "label": "Sesame"
+        },
+        "0283-0257": {
+          "id": "257",
+          "label": "Wheat/Gluten"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        },
+        "0285-0259": {
+          "id": "259",
+          "label": "Egg"
+        }
+      },
+      "nextepid": null,
+      "price": "$5.40",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "450",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38014",
+      "station": "<strong>@Pastries</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "450",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "5.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "26",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "14",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "95",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "570",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "37",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "1",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "6",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "16",
+          "unit": "g"
+        }
+      },
+      "ingredients": "croissant dough, smoked ham, swiss cheese",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202459",
+      "sub_station": "muffins, scones, and croissants",
+      "sub_station_order": "6",
+      "monotony": {}
+    },
+    "35567287": {
+      "id": "35567287",
+      "label": "Espresso",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "78903",
+            "recipe_name": "espresso shot"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "4": "Vegan"
+      },
+      "ordered_cor_icon": {
+        "0002-0004": {
+          "id": "4",
+          "label": "Vegan"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "5",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38012",
+      "station": "<strong>@Hot Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "5",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "2.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "0",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "10",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "< 1",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "0",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "0",
+          "unit": "g"
+        }
+      },
+      "ingredients": "water, espresso",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202452",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "4",
+      "monotony": {}
+    },
+    "35567307": {
+      "id": "35567307",
+      "label": "Iced White Chocolate Mocha",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "79081.12",
+            "recipe_name": "iced white chocolate mocha"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "150",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38013",
+      "station": "<strong>@Cold Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "150",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "2",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "1",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "5",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "55",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "31",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "30",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "3",
+          "unit": "g"
+        }
+      },
+      "ingredients": "water, 2% milk, espresso shot (water, espresso), white chocolate coffee syrup",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202455",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "2",
+      "monotony": {}
+    },
+    "35567288": {
+      "id": "35567288",
+      "label": "Hot Americano",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "78962",
+            "recipe_name": "caffè americano"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "4": "Vegan"
+      },
+      "ordered_cor_icon": {
+        "0002-0004": {
+          "id": "4",
+          "label": "Vegan"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "5",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38012",
+      "station": "<strong>@Hot Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "5",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "0",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "15",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "< 1",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "0",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "0",
+          "unit": "g"
+        }
+      },
+      "ingredients": "water, espresso shot (water, espresso)",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202452",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "4",
+      "monotony": {}
+    },
+    "35567308": {
+      "id": "35567308",
+      "label": "Iced Matcha Latte",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "79254.16",
+            "recipe_name": "matcha tea latte"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "90",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38013",
+      "station": "<strong>@Cold Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "90",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "1.5",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "1",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "5",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "45",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "17",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "17",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "3",
+          "unit": "g"
+        }
+      },
+      "ingredients": "tea (water, tea bag earl grey), 2% milk, vanilla coffee syrup, matcha green tea",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202455",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "2",
+      "monotony": {}
+    },
+    "35567290": {
+      "id": "35567290",
+      "label": "Mocha",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "79050.3",
+            "recipe_name": "caffè mocha"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "170",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38012",
+      "station": "<strong>@Hot Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "170",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "3",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "2",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "10",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "100",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "33",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "32",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "5",
+          "unit": "g"
+        }
+      },
+      "ingredients": "2% milk, espresso shot (water, espresso), dark chocolate coffee syrup",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202452",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "4",
+      "monotony": {}
+    },
+    "35567310": {
+      "id": "35567310",
+      "label": "Iced Cappuccino",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "78966.3",
+            "recipe_name": "cappuccino"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "80",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38013",
+      "station": "<strong>@Cold Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "80",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "3",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "2",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "10",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "80",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "8",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "8",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "5",
+          "unit": "g"
+        }
+      },
+      "ingredients": "2% milk, espresso shot (water, espresso)",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202455",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "2",
+      "monotony": {}
+    },
+    "35567291": {
+      "id": "35567291",
+      "label": "Hot Matcha Latte",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "79254.16",
+            "recipe_name": "matcha tea latte"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "90",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38012",
+      "station": "<strong>@Hot Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "90",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "1.5",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "1",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "5",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "45",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "17",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "17",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "3",
+          "unit": "g"
+        }
+      },
+      "ingredients": "tea (water, tea bag earl grey), 2% milk, vanilla coffee syrup, matcha green tea",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202452",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "4",
+      "monotony": {}
+    },
+    "35567311": {
+      "id": "35567311",
+      "label": "Cold Brew",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "73373745",
+            "recipe_name": "coffee"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "4": "Vegan"
+      },
+      "ordered_cor_icon": {
+        "0002-0004": {
+          "id": "4",
+          "label": "Vegan"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "0",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38013",
+      "station": "<strong>@Cold Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "0",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "0",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "5",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "0",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "0",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "0",
+          "unit": "g"
+        }
+      },
+      "ingredients": "coffee (water, coffee)",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202455",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "2",
+      "monotony": {}
+    },
+    "35567292": {
+      "id": "35567292",
+      "label": "Hot Cappuccino",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "78966.3",
+            "recipe_name": "cappuccino"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "80",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38012",
+      "station": "<strong>@Hot Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "80",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "3",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "2",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "10",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "80",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "8",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "8",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "5",
+          "unit": "g"
+        }
+      },
+      "ingredients": "2% milk, espresso shot (water, espresso)",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202452",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "4",
+      "monotony": {}
+    },
+    "35567312": {
+      "id": "35567312",
+      "label": "Shaken Lemonade Tea",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "76181130",
+            "recipe_name": "arnold palmer"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": [],
+      "ordered_cor_icon": [],
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "15",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38013",
+      "station": "<strong>@Cold Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "15",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.6",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "0",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "15",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "4",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "3",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "0",
+          "unit": "g"
+        }
+      },
+      "ingredients": "tea (water, tea bag earl grey), water, lemon juice, simple syrup (water, sugar)",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202455",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "2",
+      "monotony": {}
+    },
+    "35567294": {
+      "id": "35567294",
+      "label": "Hot White Chocolate Mocha",
+      "recipes": {
+        "entrees": [
+          {
+            "recipe_id": "79081.12",
+            "recipe_name": "iced white chocolate mocha"
+          }
+        ]
+      },
+      "description": "",
+      "short_name": "",
+      "raw_cooked": "0",
+      "is_rotating": "0",
+      "zero_entree": "0",
+      "cor_icon": {
+        "1": "Vegetarian",
+        "258": "Milk"
+      },
+      "ordered_cor_icon": {
+        "0001-0001": {
+          "id": "1",
+          "label": "Vegetarian"
+        },
+        "0284-0258": {
+          "id": "258",
+          "label": "Milk"
+        }
+      },
+      "nextepid": null,
+      "price": "",
+      "sizes": [],
+      "nutrition": {
+        "kcal": "150",
+        "well_being": "",
+        "well_being_image": ""
+      },
+      "special": 0,
+      "tier3": 0,
+      "tier": "2",
+      "rating": "",
+      "connector": "",
+      "options": [],
+      "station_id": "38012",
+      "station": "<strong>@Hot Drinks</strong>",
+      "nutrition_details": {
+        "calories": {
+          "label": "Calories",
+          "value": "150",
+          "unit": ""
+        },
+        "servingSize": {
+          "label": "Serving Size",
+          "value": "12.0",
+          "unit": "oz"
+        },
+        "fatContent": {
+          "label": "Total Fat",
+          "value": "2",
+          "unit": "g"
+        },
+        "saturatedFatContent": {
+          "label": "Saturated Fat",
+          "value": "1",
+          "unit": "g"
+        },
+        "transFatContent": {
+          "label": "Trans Fat",
+          "value": "0",
+          "unit": "g"
+        },
+        "cholesterolContent": {
+          "label": "Cholesterol",
+          "value": "5",
+          "unit": "mg"
+        },
+        "sodiumContent": {
+          "label": "Sodium",
+          "value": "55",
+          "unit": "mg"
+        },
+        "carbohydrateContent": {
+          "label": "Total Carbohydrate",
+          "value": "31",
+          "unit": "g"
+        },
+        "fiberContent": {
+          "label": "Dietary Fiber",
+          "value": "0",
+          "unit": "g"
+        },
+        "sugarContent": {
+          "label": "Sugars",
+          "value": "30",
+          "unit": "g"
+        },
+        "proteinContent": {
+          "label": "Protein",
+          "value": "3",
+          "unit": "g"
+        }
+      },
+      "ingredients": "water, 2% milk, espresso shot (water, espresso), white chocolate coffee syrup",
+      "nutrition_link": "nutrition + ingredients",
+      "sub_station_id": "202452",
+      "sub_station": "coffee, tea and hot chocolate",
+      "sub_station_order": "4",
+      "monotony": {}
+    }
+  },
+  "placements": {
+    "36631787": [
+      {
+        "daypart": "Open",
+        "station": "all day",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "36631811": [
+      {
+        "daypart": "Open",
+        "station": "all day",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "36631793": [
+      {
+        "daypart": "Open",
+        "station": "all day",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "36631817": [
+      {
+        "daypart": "Open",
+        "station": "all day",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "36631799": [
+      {
+        "daypart": "Open",
+        "station": "all day",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "36631823": [
+      {
+        "daypart": "Open",
+        "station": "all day",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "36631805": [
+      {
+        "daypart": "Open",
+        "station": "all day",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "36631829": [
+      {
+        "daypart": "Open",
+        "station": "all day",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567280": [
+      {
+        "daypart": "Open",
+        "station": "Hot Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567281": [
+      {
+        "daypart": "Open",
+        "station": "Hot Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567282": [
+      {
+        "daypart": "Open",
+        "station": "Hot Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567283": [
+      {
+        "daypart": "Open",
+        "station": "Hot Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567284": [
+      {
+        "daypart": "Open",
+        "station": "Hot Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567285": [
+      {
+        "daypart": "Open",
+        "station": "Hot Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567286": [
+      {
+        "daypart": "Open",
+        "station": "Hot Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567287": [
+      {
+        "daypart": "Open",
+        "station": "Hot Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567288": [
+      {
+        "daypart": "Open",
+        "station": "Hot Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567290": [
+      {
+        "daypart": "Open",
+        "station": "Hot Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567291": [
+      {
+        "daypart": "Open",
+        "station": "Hot Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567292": [
+      {
+        "daypart": "Open",
+        "station": "Hot Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567294": [
+      {
+        "daypart": "Open",
+        "station": "Hot Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567296": [
+      {
+        "daypart": "Open",
+        "station": "Cold Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567309": [
+      {
+        "daypart": "Open",
+        "station": "Cold Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567300": [
+      {
+        "daypart": "Open",
+        "station": "Cold Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567301": [
+      {
+        "daypart": "Open",
+        "station": "Cold Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567302": [
+      {
+        "daypart": "Open",
+        "station": "Cold Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567303": [
+      {
+        "daypart": "Open",
+        "station": "Cold Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567304": [
+      {
+        "daypart": "Open",
+        "station": "Cold Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567305": [
+      {
+        "daypart": "Open",
+        "station": "Cold Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567306": [
+      {
+        "daypart": "Open",
+        "station": "Cold Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567307": [
+      {
+        "daypart": "Open",
+        "station": "Cold Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567308": [
+      {
+        "daypart": "Open",
+        "station": "Cold Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567310": [
+      {
+        "daypart": "Open",
+        "station": "Cold Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567311": [
+      {
+        "daypart": "Open",
+        "station": "Cold Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567312": [
+      {
+        "daypart": "Open",
+        "station": "Cold Drinks",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567319": [
+      {
+        "daypart": "Open",
+        "station": "Pastries",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567323": [
+      {
+        "daypart": "Open",
+        "station": "Pastries",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567320": [
+      {
+        "daypart": "Open",
+        "station": "Pastries",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567324": [
+      {
+        "daypart": "Open",
+        "station": "Pastries",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567321": [
+      {
+        "daypart": "Open",
+        "station": "Pastries",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567325": [
+      {
+        "daypart": "Open",
+        "station": "Pastries",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567322": [
+      {
+        "daypart": "Open",
+        "station": "Pastries",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567326": [
+      {
+        "daypart": "Open",
+        "station": "Pastries",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567327": [
+      {
+        "daypart": "Open",
+        "station": "Pastries",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567328": [
+      {
+        "daypart": "Open",
+        "station": "Pastries",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567329": [
+      {
+        "daypart": "Open",
+        "station": "Pastries",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567333": [
+      {
+        "daypart": "Open",
+        "station": "Pastries",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567330": [
+      {
+        "daypart": "Open",
+        "station": "Pastries",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567331": [
+      {
+        "daypart": "Open",
+        "station": "Pastries",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ],
+    "35567332": [
+      {
+        "daypart": "Open",
+        "station": "Pastries",
+        "start": "08:30",
+        "end": "23:00"
+      }
+    ]
+  }
+}

@@ -1,0 +1,399 @@
+{
+  "catalog_records": 570,
+  "errors": 0,
+  "fixture_mode": false,
+  "results": [
+    {
+      "cafe": "marketplace-2",
+      "date": "2026-11-17",
+      "source": "https://scudining.cafebonappetit.com/cafe/marketplace-2/2026-11-17/",
+      "status": "menu",
+      "items": 458
+    },
+    {
+      "cafe": "marketplace-2",
+      "date": "2026-11-18",
+      "source": "https://scudining.cafebonappetit.com/cafe/marketplace-2/2026-11-18/",
+      "status": "menu",
+      "items": 463
+    },
+    {
+      "cafe": "marketplace-2",
+      "date": "2026-11-19",
+      "source": "https://scudining.cafebonappetit.com/cafe/marketplace-2/2026-11-19/",
+      "status": "menu",
+      "items": 451
+    },
+    {
+      "cafe": "marketplace-2",
+      "date": "2026-11-20",
+      "source": "https://scudining.cafebonappetit.com/cafe/marketplace-2/2026-11-20/",
+      "status": "menu",
+      "items": 422
+    },
+    {
+      "cafe": "marketplace-2",
+      "date": "2026-11-21",
+      "source": "https://scudining.cafebonappetit.com/cafe/marketplace-2/2026-11-21/",
+      "status": "menu",
+      "items": 304
+    },
+    {
+      "cafe": "marketplace-2",
+      "date": "2026-11-22",
+      "source": "https://scudining.cafebonappetit.com/cafe/marketplace-2/2026-11-22/",
+      "status": "menu",
+      "items": 324
+    },
+    {
+      "cafe": "marketplace-2",
+      "date": "2026-11-23",
+      "source": "https://scudining.cafebonappetit.com/cafe/marketplace-2/2026-11-23/",
+      "status": "menu",
+      "items": 430
+    },
+    {
+      "cafe": "marketplace-2",
+      "date": "2026-11-24",
+      "source": "https://scudining.cafebonappetit.com/cafe/marketplace-2/2026-11-24/",
+      "status": "menu",
+      "items": 430
+    },
+    {
+      "cafe": "fresh-bytes",
+      "date": "2026-11-17",
+      "source": "https://scudining.cafebonappetit.com/cafe/fresh-bytes/2026-11-17/",
+      "status": "menu",
+      "items": 2
+    },
+    {
+      "cafe": "fresh-bytes",
+      "date": "2026-11-18",
+      "source": "https://scudining.cafebonappetit.com/cafe/fresh-bytes/2026-11-18/",
+      "status": "menu",
+      "items": 2
+    },
+    {
+      "cafe": "fresh-bytes",
+      "date": "2026-11-19",
+      "source": "https://scudining.cafebonappetit.com/cafe/fresh-bytes/2026-11-19/",
+      "status": "menu",
+      "items": 2
+    },
+    {
+      "cafe": "fresh-bytes",
+      "date": "2026-11-20",
+      "source": "https://scudining.cafebonappetit.com/cafe/fresh-bytes/2026-11-20/",
+      "status": "menu",
+      "items": 2
+    },
+    {
+      "cafe": "fresh-bytes",
+      "date": "2026-11-23",
+      "source": "https://scudining.cafebonappetit.com/cafe/fresh-bytes/2026-11-23/",
+      "status": "menu",
+      "items": 8
+    },
+    {
+      "cafe": "fresh-bytes",
+      "date": "2026-11-24",
+      "source": "https://scudining.cafebonappetit.com/cafe/fresh-bytes/2026-11-24/",
+      "status": "menu",
+      "items": 8
+    },
+    {
+      "cafe": "fresh-bytes",
+      "date": "2026-11-25",
+      "source": "https://scudining.cafebonappetit.com/cafe/fresh-bytes/2026-11-25/",
+      "status": "menu",
+      "items": 8
+    },
+    {
+      "cafe": "fresh-bytes",
+      "date": "2026-11-26",
+      "source": "https://scudining.cafebonappetit.com/cafe/fresh-bytes/2026-11-26/",
+      "status": "menu",
+      "items": 8
+    },
+    {
+      "cafe": "side-bar-cafe",
+      "date": "2026-11-17",
+      "source": "https://scudining.cafebonappetit.com/cafe/side-bar-cafe/2026-11-17/",
+      "status": "menu",
+      "items": 51
+    },
+    {
+      "cafe": "side-bar-cafe",
+      "date": "2026-11-18",
+      "source": "https://scudining.cafebonappetit.com/cafe/side-bar-cafe/2026-11-18/",
+      "status": "menu",
+      "items": 51
+    },
+    {
+      "cafe": "side-bar-cafe",
+      "date": "2026-11-19",
+      "source": "https://scudining.cafebonappetit.com/cafe/side-bar-cafe/2026-11-19/",
+      "status": "menu",
+      "items": 51
+    },
+    {
+      "cafe": "side-bar-cafe",
+      "date": "2026-11-20",
+      "source": "https://scudining.cafebonappetit.com/cafe/side-bar-cafe/2026-11-20/",
+      "status": "menu",
+      "items": 51
+    },
+    {
+      "cafe": "side-bar-cafe",
+      "date": "2026-11-21",
+      "source": "https://scudining.cafebonappetit.com/cafe/side-bar-cafe/2026-11-21/",
+      "status": "no_menu_posted",
+      "items": 0
+    },
+    {
+      "cafe": "side-bar-cafe",
+      "date": "2026-11-22",
+      "source": "https://scudining.cafebonappetit.com/cafe/side-bar-cafe/2026-11-22/",
+      "status": "no_menu_posted",
+      "items": 0
+    },
+    {
+      "cafe": "side-bar-cafe",
+      "date": "2026-11-23",
+      "source": "https://scudining.cafebonappetit.com/cafe/side-bar-cafe/2026-11-23/",
+      "status": "menu",
+      "items": 43
+    },
+    {
+      "cafe": "side-bar-cafe",
+      "date": "2026-11-24",
+      "source": "https://scudining.cafebonappetit.com/cafe/side-bar-cafe/2026-11-24/",
+      "status": "menu",
+      "items": 43
+    },
+    {
+      "cafe": "mission-bakery",
+      "date": "2026-11-17",
+      "source": "https://scudining.cafebonappetit.com/cafe/mission-bakery/2026-11-17/",
+      "status": "menu",
+      "items": 60
+    },
+    {
+      "cafe": "mission-bakery",
+      "date": "2026-11-18",
+      "source": "https://scudining.cafebonappetit.com/cafe/mission-bakery/2026-11-18/",
+      "status": "menu",
+      "items": 62
+    },
+    {
+      "cafe": "mission-bakery",
+      "date": "2026-11-19",
+      "source": "https://scudining.cafebonappetit.com/cafe/mission-bakery/2026-11-19/",
+      "status": "menu",
+      "items": 62
+    },
+    {
+      "cafe": "mission-bakery",
+      "date": "2026-11-20",
+      "source": "https://scudining.cafebonappetit.com/cafe/mission-bakery/2026-11-20/",
+      "status": "menu",
+      "items": 62
+    },
+    {
+      "cafe": "mission-bakery",
+      "date": "2026-11-21",
+      "source": "https://scudining.cafebonappetit.com/cafe/mission-bakery/2026-11-21/",
+      "status": "menu",
+      "items": 49
+    },
+    {
+      "cafe": "mission-bakery",
+      "date": "2026-11-22",
+      "source": "https://scudining.cafebonappetit.com/cafe/mission-bakery/2026-11-22/",
+      "status": "menu",
+      "items": 49
+    },
+    {
+      "cafe": "mission-bakery",
+      "date": "2026-11-23",
+      "source": "https://scudining.cafebonappetit.com/cafe/mission-bakery/2026-11-23/",
+      "status": "menu",
+      "items": 52
+    },
+    {
+      "cafe": "mission-bakery",
+      "date": "2026-11-24",
+      "source": "https://scudining.cafebonappetit.com/cafe/mission-bakery/2026-11-24/",
+      "status": "menu",
+      "items": 52
+    },
+    {
+      "cafe": "the-sunstream-cafe",
+      "date": "2026-11-17",
+      "source": "https://scudining.cafebonappetit.com/cafe/the-sunstream-cafe/2026-11-17/",
+      "status": "menu",
+      "items": 50
+    },
+    {
+      "cafe": "the-sunstream-cafe",
+      "date": "2026-11-18",
+      "source": "https://scudining.cafebonappetit.com/cafe/the-sunstream-cafe/2026-11-18/",
+      "status": "menu",
+      "items": 50
+    },
+    {
+      "cafe": "the-sunstream-cafe",
+      "date": "2026-11-19",
+      "source": "https://scudining.cafebonappetit.com/cafe/the-sunstream-cafe/2026-11-19/",
+      "status": "menu",
+      "items": 50
+    },
+    {
+      "cafe": "the-sunstream-cafe",
+      "date": "2026-11-20",
+      "source": "https://scudining.cafebonappetit.com/cafe/the-sunstream-cafe/2026-11-20/",
+      "status": "menu",
+      "items": 50
+    },
+    {
+      "cafe": "the-sunstream-cafe",
+      "date": "2026-11-22",
+      "source": "https://scudining.cafebonappetit.com/cafe/the-sunstream-cafe/2026-11-22/",
+      "status": "menu",
+      "items": 49
+    },
+    {
+      "cafe": "the-sunstream-cafe",
+      "date": "2026-11-23",
+      "source": "https://scudining.cafebonappetit.com/cafe/the-sunstream-cafe/2026-11-23/",
+      "status": "menu",
+      "items": 42
+    },
+    {
+      "cafe": "the-sunstream-cafe",
+      "date": "2026-11-24",
+      "source": "https://scudining.cafebonappetit.com/cafe/the-sunstream-cafe/2026-11-24/",
+      "status": "menu",
+      "items": 42
+    },
+    {
+      "cafe": "the-sunstream-cafe",
+      "date": "2026-11-25",
+      "source": "https://scudining.cafebonappetit.com/cafe/the-sunstream-cafe/2026-11-25/",
+      "status": "menu",
+      "items": 42
+    },
+    {
+      "cafe": "cadence-cyber-cafe",
+      "date": "2026-11-17",
+      "source": "https://scudining.cafebonappetit.com/cafe/cadence-cyber-cafe/2026-11-17/",
+      "status": "menu",
+      "items": 44
+    },
+    {
+      "cafe": "cadence-cyber-cafe",
+      "date": "2026-11-18",
+      "source": "https://scudining.cafebonappetit.com/cafe/cadence-cyber-cafe/2026-11-18/",
+      "status": "menu",
+      "items": 44
+    },
+    {
+      "cafe": "cadence-cyber-cafe",
+      "date": "2026-11-19",
+      "source": "https://scudining.cafebonappetit.com/cafe/cadence-cyber-cafe/2026-11-19/",
+      "status": "menu",
+      "items": 44
+    },
+    {
+      "cafe": "cadence-cyber-cafe",
+      "date": "2026-11-20",
+      "source": "https://scudining.cafebonappetit.com/cafe/cadence-cyber-cafe/2026-11-20/",
+      "status": "menu",
+      "items": 44
+    },
+    {
+      "cafe": "cadence-cyber-cafe",
+      "date": "2026-11-21",
+      "source": "https://scudining.cafebonappetit.com/cafe/cadence-cyber-cafe/2026-11-21/",
+      "status": "no_menu_posted",
+      "items": 0
+    },
+    {
+      "cafe": "cadence-cyber-cafe",
+      "date": "2026-11-22",
+      "source": "https://scudining.cafebonappetit.com/cafe/cadence-cyber-cafe/2026-11-22/",
+      "status": "no_menu_posted",
+      "items": 0
+    },
+    {
+      "cafe": "cadence-cyber-cafe",
+      "date": "2026-11-23",
+      "source": "https://scudining.cafebonappetit.com/cafe/cadence-cyber-cafe/2026-11-23/",
+      "status": "menu",
+      "items": 44
+    },
+    {
+      "cafe": "cadence-cyber-cafe",
+      "date": "2026-11-24",
+      "source": "https://scudining.cafebonappetit.com/cafe/cadence-cyber-cafe/2026-11-24/",
+      "status": "menu",
+      "items": 44
+    },
+    {
+      "cafe": "cellar-market",
+      "date": "2026-11-17",
+      "source": "https://scudining.cafebonappetit.com/cafe/cellar-market/2026-11-17/",
+      "status": "no_menu_posted",
+      "items": 0
+    },
+    {
+      "cafe": "cellar-market",
+      "date": "2026-11-18",
+      "source": "https://scudining.cafebonappetit.com/cafe/cellar-market/2026-11-18/",
+      "status": "no_menu_posted",
+      "items": 0
+    },
+    {
+      "cafe": "cellar-market",
+      "date": "2026-11-19",
+      "source": "https://scudining.cafebonappetit.com/cafe/cellar-market/2026-11-19/",
+      "status": "no_menu_posted",
+      "items": 0
+    },
+    {
+      "cafe": "cellar-market",
+      "date": "2026-11-20",
+      "source": "https://scudining.cafebonappetit.com/cafe/cellar-market/2026-11-20/",
+      "status": "no_menu_posted",
+      "items": 0
+    },
+    {
+      "cafe": "cellar-market",
+      "date": "2026-11-21",
+      "source": "https://scudining.cafebonappetit.com/cafe/cellar-market/2026-11-21/",
+      "status": "no_menu_posted",
+      "items": 0
+    },
+    {
+      "cafe": "cellar-market",
+      "date": "2026-11-22",
+      "source": "https://scudining.cafebonappetit.com/cafe/cellar-market/2026-11-22/",
+      "status": "no_menu_posted",
+      "items": 0
+    },
+    {
+      "cafe": "cellar-market",
+      "date": "2026-11-23",
+      "source": "https://scudining.cafebonappetit.com/cafe/cellar-market/2026-11-23/",
+      "status": "no_menu_posted",
+      "items": 0
+    },
+    {
+      "cafe": "cellar-market",
+      "date": "2026-11-24",
+      "source": "https://scudining.cafebonappetit.com/cafe/cellar-market/2026-11-24/",
+      "status": "no_menu_posted",
+      "items": 0
+    }
+  ]
+}

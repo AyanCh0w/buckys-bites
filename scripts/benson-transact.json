@@ -1,0 +1,35 @@
+{
+  "observed": "2026-11-19",
+  "source": "Transact Mobile Ordering, Santa Clara University, Benson, observed in iPhone Mirroring on 2026-11-19",
+  "namespace": "transact-benson",
+  "mission-bakery": [
+    ["sausage-egg-cheese-sandwich", "Sausage Egg and Cheese Sandwich", 6.95],
+    ["bacon-egg-cheese-breakfast-sandwich", "Bacon Egg and Cheese Breakfast Sandwich", 7.25],
+    ["egg-cheese-breakfast-sandwich", "Egg and Cheese Breakfast Sandwich", 6.25],
+    ["ham-croissant-breakfast-sandwich", "Ham Croissant Breakfast Sandwich", 7.10],
+    ["lox-bagel-sandwich", "Lox Bagel Sandwich", 12.60],
+    ["strawberry-yogurt-parfait", "Strawberry Yogurt Parfait", 7.45],
+    ["chia-seed-pudding", "Chia Seed Pudding", 6.05],
+    ["overnight-oats", "Overnight Oats", 5.95],
+    ["hard-boiled-eggs-2", "Hard Boiled Eggs (2ea)", 3.95],
+    ["whole-fruit", "Whole Fruit", 1.04],
+    ["fruit-cup-12oz", "Fruit cup (12oz)", 4.95]
+  ],
+  "trattoria": [
+    ["byo-pasta-full", "BYO Pasta - Full Portion", 12.30],
+    ["byo-pasta-half", "BYO Pasta - Half Portion", 8.50],
+    ["garlic-bread-1", "Garlic Bread (1)", 0.79]
+  ],
+  "pasta-groups": [
+    {"name": "Pasta", "min": 1, "max": 1, "options": [["Regular Penne", null, "default"], ["Spaghetti"], ["Whole Wheat Penne"], ["Made Without Gluten Penne"], ["Cheese Ravioli", 2.38, "observed-unavailable"]]},
+    {"name": "Sauce", "min": 1, "max": 1, "options": [["No Sauce", null, "default"], ["Marinara Sauce"], ["Alfredo Sauce"], ["Half Marinara and Half Alfredo"], ["Basil Sauce"], ["Garlic Olive Oil"]]},
+    {"name": "Protein", "min": 0, "options": [["Bacon Bits", 3.25], ["Bay Shrimp", 3.25], ["Diced Mary’s Halal Chicken Breast", 3.25], ["Ground Beef", 3.25], ["Italian Sausage", 3.25], ["Tofu", 3.25]]},
+    {"name": "Vegetables", "min": 0, "max": 3, "options": [["Broccoli"], ["Cherry Tomato"], ["Mushroom"], ["Olives"], ["Onions"], ["Spinach"], ["Zucchini"]]}
+  ],
+  "pending_verification": [
+    {"station": "Trattoria", "fields": ["additional full-portion groups", "half-portion choices and limits", "recipe and portion equivalence of mobile modifiers"]},
+    {"station": "Acai", "fields": ["official orderable label", "sizes", "prices", "choice limits"]},
+    {"station": "Poke & Sushi", "fields": ["prepared sushi product names, prices and weekend availability", "poke bowl mobile price and choice limits"]},
+    {"station": "Mission Bakery", "fields": ["Grab & Go ingredients, allergens and nutrition"] }
+  ]
+}
