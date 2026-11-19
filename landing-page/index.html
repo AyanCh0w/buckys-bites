@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#fbf8ef">
+  <meta name="description" content="Find your next meal at Santa Clara University. Join the Bucky’s Bites waitlist for campus menus, student reviews, and nutrition information.">
+  <title>Bucky’s Bites · SCU dining waitlist</title>
+  <link rel="icon" href="assets/bucky-classic.webp">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="page.js"></script>
+</head>
+<body>
+  <header class="masthead wrap">
+    <a class="brand" href="#top"><img src="assets/bucky-classic.webp" alt="" width="42" height="42">Bucky’s Bites</a>
+    <nav aria-label="Main navigation"><a class="explore" href="#inside">Inside the app</a><a class="nav-cta" href="#waitlist">Join the waitlist</a></nav>
+  </header>
+  <main id="top">
+    <section class="hero wrap" aria-labelledby="headline">
+      <div class="intro">
+        <p class="eyebrow"><span class="line"></span> Dining at Santa Clara University</p>
+        <h1 id="headline">What’s good<br>at <em>Benson?</em></h1>
+        <p class="lede">Meet Bucky’s Bites, your inside scoop on SCU dining. See what’s cooking, find the dishes Broncos love, and keep track of what fuels you.</p>
+        <a class="button" href="#waitlist">Join the waitlist</a>
+      </div>
+      <figure class="scene" aria-label="Six illustrated campus dishes surround Bucky on a plate">
+        <div class="napkin"></div>
+        <div class="plate">
+          <div class="orbit">
+            <div style="--angle:-110deg"><img src="assets/signature-smash-burger.webp" alt="Smash burger and fries"></div>
+            <div style="--angle:-50deg"><img src="assets/build-your-own-acai-bowl.webp" alt="Açaí bowl"></div>
+            <div style="--angle:10deg"><img src="assets/teriyaki-chicken-bowl.webp" alt="Teriyaki chicken bowl"></div>
+            <div style="--angle:70deg"><img src="assets/chicken-supreme-pizza.webp" alt="Chicken supreme pizza"></div>
+            <div style="--angle:130deg"><img src="assets/build-your-own-salad.webp" alt="Build-your-own salad"></div>
+            <div style="--angle:190deg"><img src="assets/chocolate-chip-cookie.webp" alt="Chocolate chip cookie"></div>
+          </div>
+          <button class="bucky" type="button" aria-label="Spin the dishes around Bucky" title="Spin the plate"><img src="assets/bucky-classic.webp" alt=""></button>
+        </div>
+        <figcaption>Give Bucky a tap</figcaption>
+      </figure>
+    </section>
+    <section id="inside" class="features" aria-label="Inside the app">
+      <div class="wrap feature-grid">
+        <article><img src="assets/bucky-chef.webp" alt="" loading="lazy"><div><h2>Explore the menu</h2><p>See what each kitchen is serving for lunch and dinner.</p></div></article>
+        <article><img src="assets/bucky-5-star.png" alt="" loading="lazy"><div><h2>Hear from Broncos</h2><p>Read dish reviews and leave a rating after your meal.</p></div></article>
+        <article><img src="assets/teriyaki-chicken-bowl.webp" alt="" loading="lazy"><div><h2>Know your meal</h2><p>Check calories and macros, then log what you ate.</p></div></article>
+      </div>
+    </section>
+    <section id="waitlist" class="signup">
+      <div class="wrap signup-grid">
+        <div class="invitation"><p class="eyebrow"><span class="line"></span> The waitlist</p><h2>Pull up <br>a chair.</h2>
+          <p>Leave your email and we’ll let you know when Bucky’s Bites is ready.</p>
+          <div class="mascots" aria-hidden="true"><img src="assets/bucky-beanie.webp" alt=""><img src="assets/bucky-chef.webp" alt=""><img src="assets/bucky-sunglasses.webp" alt=""></div>
+        </div>
+        <form id="signup" method="post" action="https://docs.google.com/forms/d/e/1FAIpQLSeGeL68l1XPWeKpHJBOoOsAhkVZ-lBTv9PYLKkOTIixNDj-9Q/formResponse">
+          <fieldset>
+            <legend>Join the waitlist</legend>
+            <label for="name">Name</label><input id="name" name="entry.1768473134" autocomplete="name" required placeholder="Your name">
+            <label for="email">Email</label><input id="email" name="entry.1901053329" type="email" autocomplete="email" required placeholder="you@example.com">
+            <label for="notes">Notes <small>(optional)</small></label><textarea id="notes" name="entry.785857002" rows="2" placeholder="Anything you’d like us to know?"></textarea>
+            <button class="button submit" type="submit">Join the waitlist</button>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap"><span class="brand"><img src="assets/bucky-classic.webp" alt="" width="30" height="30">Bucky’s Bites</span><span>Santa Clara, California</span></footer>
+</body>
+</html>
