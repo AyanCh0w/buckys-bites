@@ -62,7 +62,9 @@ function ThemedRoot() {
 }
 function AppShell() {
   const pathname = usePathname();
-  const bakeryMenu = pathname === `/kitchen/${BAKERY_KEY}`;
+  const bakeryPath = `/kitchen/${BAKERY_KEY}`;
+  const bakeryMenu =
+    pathname === bakeryPath || pathname.startsWith(`${bakeryPath}/`);
   const [opensOnMenu] = useState(pathname === "/menu" || bakeryMenu);
   const { pending: thumbnailsPending } = useBakeryThumbnails();
   const { colors, scheme } = useTheme();
@@ -145,6 +147,8 @@ function AppShell() {
               }}
             />
             <Stack.Screen name="kitchen/[key]" />
+            <Stack.Screen name="kitchen/[key]/[category]" />
+            <Stack.Screen name="cafe/[key]/[category]" />
             <Stack.Screen name="dish-info" />
             <Stack.Screen name="food-history" />
             <Stack.Screen name="nutrients" />

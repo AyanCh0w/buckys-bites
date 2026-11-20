@@ -6,12 +6,18 @@ import {
   type DiningLocation,
 } from "../lib/dining-locations";
 import { campusDate } from "../lib/domain";
-import { CafeMenu } from "./cafe-menu";
+import { CafeCategory, CafeMenu } from "./cafe-menu";
 import { useApp } from "../state/AppProvider";
 import { useTheme } from "../state/ThemeProvider";
 import { EmptyState, T } from "./ui";
 
-export function CampusMenu({ location }: { location: DiningLocation }) {
+export function CampusMenu({
+  location,
+  category,
+}: {
+  location: DiningLocation;
+  category?: string;
+}) {
   const { catalog, data, refreshing, refresh, syncError } = useApp();
   const { s, colors } = useTheme();
   const [now, setNow] = useState(() => new Date());
@@ -32,7 +38,6 @@ export function CampusMenu({ location }: { location: DiningLocation }) {
     : hasMenu
       ? kitchenHours(services, now).label
       : undefined;
-  const [category, setCategory] = useState("");
   const items = useMemo(
     () =>
       campusMenuEntries(catalog, location.key, date, data.profile.dietary).map(
@@ -45,20 +50,33 @@ export function CampusMenu({ location }: { location: DiningLocation }) {
     [catalog, location, date, data.profile.dietary],
   );
   const filtered = hasMenu && data.profile.dietary.length > 0;
+  const refreshControl = (
+    <RefreshControl
+      refreshing={refreshing}
+      onRefresh={refresh}
+      tintColor={colors.accent}
+    />
+  );
+  if (category) {
+    return (
+      <CafeCategory
+        category={category}
+        cafeName={location.name}
+        items={items}
+        date={date}
+        refreshControl={refreshControl}
+      />
+    );
+  }
   return (
     <CafeMenu
       tab
       items={items}
-      date={date}
-      category={category}
-      onSelect={setCategory}
-      refreshControl={
-        <RefreshControl
-          refreshing={refreshing}
-          onRefresh={refresh}
-          tintColor={colors.accent}
-        />
-      }
+      categoryHref={(category) => ({
+        pathname: "/cafe/[key]/[category]",
+        params: { key: location.key, category },
+      })}
+      refreshControl={refreshControl}
     >
       <View style={{ marginTop: 16, marginBottom: 6, gap: 2 }}>
         <T accessibilityRole="header" style={s.sectionTitle}>

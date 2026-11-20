@@ -53,15 +53,20 @@ export function BakeryThumbnailProvider({ children }: { children: ReactNode }) {
     onError: () => setFailed(true),
   });
 
-  // Prepare the next visit when leaving. Changing a category only changes the query.
+  // Keep category covers stable when opening a bakery category and going back.
   useEffect(() => {
     const last = previousPath.current;
     previousPath.current = pathname;
-    if (last === pathname) return;
+    const bakeryPath = `/kitchen/${BAKERY_KEY}`;
+    if (
+      last === pathname ||
+      (last === bakeryPath && pathname.startsWith(`${bakeryPath}/`))
+    )
+      return;
     const area =
       last === "/menu"
         ? "menu"
-        : last === `/kitchen/${BAKERY_KEY}`
+        : last === bakeryPath
           ? "categories"
           : undefined;
     if (area) {

@@ -1,4 +1,5 @@
-import { useRef, type ComponentRef, type ReactNode } from "react";
+import { type ReactNode } from "react";
+import { Link, type Href } from "expo-router";
 import {
   ScrollView,
   StyleSheet,
@@ -16,7 +17,15 @@ import type { Food, Offering } from "../lib/types";
 import { useApp } from "../state/AppProvider";
 import { useTheme } from "../state/ThemeProvider";
 import { foodArtwork, openDish } from "./Food";
-import { AssetImage, Icon, T, Tap, tabContentBottomPadding } from "./ui";
+import {
+  AssetImage,
+  EmptyState,
+  FixedScreen,
+  Icon,
+  T,
+  Tap,
+  tabContentBottomPadding,
+} from "./ui";
 import { MenuEntrance } from "./MenuEntrance";
 import { BakeryThumbnail, useBakeryThumbnails } from "./bakery-thumbnail";
 
@@ -42,19 +51,21 @@ function menuPrice(offering?: Offering) {
 
 type MenuItem = { food: Food; offering?: Offering; meal?: string };
 
+function categoryLabel(category: string) {
+  return (
+    sectionLabels.get(category) ?? (menuSectionLabel(category) || "Other Items")
+  );
+}
+
 export function CafeMenu({
   items,
-  date,
-  category,
-  onSelect,
+  categoryHref,
   children,
   refreshControl,
   tab = false,
 }: {
   items: MenuItem[];
-  date: string;
-  category?: string;
-  onSelect: (section: string) => void;
+  categoryHref: (category: string) => Href;
   children?: ReactNode;
   refreshControl?: ScrollViewProps["refreshControl"];
   tab?: boolean;
@@ -62,8 +73,6 @@ export function CafeMenu({
   const { colors, s } = useTheme();
   const { bottom } = useSafeAreaInsets();
   const { catalog } = useApp();
-  const scroll = useRef<ComponentRef<typeof ScrollView>>(null);
-  const reveal = useRef(category);
   const { picks } = useBakeryThumbnails();
   const groups = new Map<string, MenuItem[]>();
   for (const item of items) {
@@ -73,12 +82,10 @@ export function CafeMenu({
     else groups.set(key, [item]);
   }
   const ordered = [...new Set([...sectionLabels.keys(), ...groups.keys()])];
-  const fillRows =
-    groups.size >= sectionLabels.size && !groups.has(category ?? "");
+  const fillRows = groups.size >= sectionLabels.size;
 
   return (
     <ScrollView
-      ref={scroll}
       refreshControl={refreshControl}
       style={styles.fill}
       contentInsetAdjustmentBehavior="never"
@@ -94,47 +101,31 @@ export function CafeMenu({
         .map((key, sectionIndex) => {
           const items = groups.get(key);
           if (!items) return null;
-          const expanded = category === key;
-          const label =
-            sectionLabels.get(key) ?? (menuSectionLabel(key) || "Other Items");
+          const label = categoryLabel(key);
           const count = `${items.length} ${items.length === 1 ? "item" : "items"}`;
           const cover = picks.categories(
             items.map(({ food }) => foodArtwork(catalog, food)),
           );
           return (
-            <View
+            <MenuEntrance
               key={key}
+              sequence={sectionIndex}
               style={[
                 styles.section,
                 { borderColor: colors.rule },
                 fillRows && styles.grow,
               ]}
-              onLayout={({ nativeEvent: { layout } }) => {
-                if (expanded && reveal.current === key) {
-                  reveal.current = undefined;
-                  scroll.current?.scrollTo({ y: layout.y, animated: false });
-                }
-              }}
             >
-              <MenuEntrance
-                sequence={sectionIndex}
-                style={fillRows && styles.grow}
-              >
+              <Link href={categoryHref(key)} asChild push>
                 <Tap
                   padding="none"
-                  accessibilityRole="button"
+                  accessibilityRole="link"
                   accessibilityLabel={`${label}, ${count}`}
-                  aria-expanded={expanded}
-                  haptic={expanded ? "release" : "tap"}
-                  accessibilityState={{ expanded }}
-                  onPress={() => {
-                    reveal.current = expanded ? undefined : key;
-                    onSelect(expanded ? "" : key);
+                  style={{
+                    flexGrow: fillRows ? 1 : undefined,
+                    marginHorizontal: -12,
+                    marginVertical: 4,
                   }}
-                  style={[
-                    fillRows && styles.grow,
-                    { marginHorizontal: -12, marginVertical: 4 },
-                  ]}
                   contentStyle={[styles.categoryRow, fillRows && styles.grow]}
                 >
                   <BakeryThumbnail
@@ -152,70 +143,100 @@ export function CafeMenu({
                     <T style={styles.categoryName}>{label}</T>
                     <T style={s.caption}>{count}</T>
                   </View>
-                  <Icon
-                    name={expanded ? "chevron-down" : "chevron-forward"}
-                    size={16}
-                    color={colors.muted}
-                  />
+                  <Icon name="chevron-forward" size={16} color={colors.muted} />
                 </Tap>
-              </MenuEntrance>
-              {expanded && (
-                <View style={styles.grid}>
-                  {items.map(({ food, offering, meal }, index) => {
-                    const name = displayName(food.name);
-                    const price = menuPrice(offering);
-                    return (
-                      <MenuEntrance
-                        key={offering?.id ?? food.id}
-                        sequence={Math.floor(index / 3)}
-                        style={[
-                          styles.product,
-                          items.length === 2 && styles.pair,
-                        ]}
-                      >
-                        <Tap
-                          padding="card"
-                          accessibilityRole="button"
-                          accessibilityLabel={[name, price]
-                            .filter(Boolean)
-                            .join(", ")}
-                          onPress={() =>
-                            openDish(food, date, meal, offering?.id)
-                          }
-                        >
-                          <View style={styles.photo}>
-                            <AssetImage
-                              source={foodArtwork(catalog, food)}
-                              style={styles.art}
-                              fallback={
-                                <Icon
-                                  name="restaurant-outline"
-                                  size={28}
-                                  color={colors.faint}
-                                />
-                              }
-                            />
-                          </View>
-                          <Text
-                            style={[styles.productName, { color: colors.ink }]}
-                          >
-                            {name}
-                          </Text>
-                          {price && (
-                            <T numeric style={s.caption}>
-                              {price}
-                            </T>
-                          )}
-                        </Tap>
-                      </MenuEntrance>
-                    );
-                  })}
-                </View>
-              )}
-            </View>
+              </Link>
+            </MenuEntrance>
           );
         })}
     </ScrollView>
+  );
+}
+
+export function CafeCategory({
+  category,
+  cafeName,
+  items,
+  date,
+  refreshControl,
+}: {
+  category: string;
+  cafeName: string;
+  items: MenuItem[];
+  date: string;
+  refreshControl?: ScrollViewProps["refreshControl"];
+}) {
+  const { colors, s } = useTheme();
+  const { bottom } = useSafeAreaInsets();
+  const { catalog } = useApp();
+  const categoryItems = items.filter(
+    ({ food, offering }) => cafeMenuCategory(food, offering) === category,
+  );
+
+  return (
+    <FixedScreen back extendToBottom title={categoryLabel(category)}>
+      <ScrollView
+        style={styles.fill}
+        contentInsetAdjustmentBehavior="never"
+        contentContainerStyle={[s.inset, { paddingBottom: bottom + 12 }]}
+        refreshControl={refreshControl}
+      >
+        <T style={[s.caption, styles.cafeName]}>{cafeName}</T>
+        {categoryItems.length === 0 ? (
+          <EmptyState
+            title="No Items Listed"
+            text="There are no matching items in this category today."
+          />
+        ) : (
+          <View style={styles.grid}>
+            {categoryItems.map(({ food, offering, meal }, index) => {
+              const name = displayName(food.name);
+              const price = menuPrice(offering);
+              return (
+                <MenuEntrance
+                  key={offering?.id ?? food.id}
+                  sequence={Math.floor(index / 3)}
+                  style={[
+                    styles.product,
+                    categoryItems.length === 2 && styles.pair,
+                  ]}
+                >
+                  <Tap
+                    padding="card"
+                    accessibilityLabel={[name, price]
+                      .filter(Boolean)
+                      .join(", ")}
+                    onPress={() => openDish(food, date, meal, offering?.id)}
+                  >
+                    <View style={styles.photo}>
+                      <AssetImage
+                        source={foodArtwork(catalog, food)}
+                        style={styles.art}
+                        fallback={
+                          <Icon
+                            name="restaurant-outline"
+                            size={28}
+                            color={colors.faint}
+                          />
+                        }
+                      />
+                    </View>
+                    <Text style={[styles.productName, { color: colors.ink }]}>
+                      {name}
+                    </Text>
+                    {price && (
+                      <T numeric style={s.caption}>
+                        {price}
+                      </T>
+                    )}
+                  </Tap>
+                </MenuEntrance>
+              );
+            })}
+          </View>
+        )}
+      </ScrollView>
+    </FixedScreen>
   );
 }
 
@@ -233,6 +254,7 @@ const styles = StyleSheet.create({
   },
   categoryCopy: { flex: 1, gap: 4 },
   categoryName: { fontSize: 17, fontWeight: "600", letterSpacing: -0.4 },
+  cafeName: { marginTop: 12, marginBottom: 12 },
   grid: {
     flexDirection: "row",
     flexWrap: "wrap",
