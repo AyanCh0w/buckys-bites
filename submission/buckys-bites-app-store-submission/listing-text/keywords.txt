@@ -1,0 +1,1 @@
+campus,dining,college,student,lunch,dinner,bakery,ingredients,calories,macros,food,tracker,ratings

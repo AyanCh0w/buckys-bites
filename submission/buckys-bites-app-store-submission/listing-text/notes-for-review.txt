@@ -1,0 +1,5 @@
+Bucky’s Bites is an independent student dining app for Santa Clara University. Complete the introduction to browse as a guest. In Menu, select a kitchen and then a dish. The Nutrition tab on a dish shows available ingredients and nutrients. Ratings shows written dish reviews.
+
+To test contributions, open a dish and tap “Add to today’s food.” Sign in with Apple and save a portion. Return to the dish and tap “Write a review.” A new review requires a meal logged for that dish within the last 72 hours and is limited to one per dish in a rolling seven-day period. Nutrition shows the user’s private food log and totals.
+
+A signed-in user can open Me → Privacy to export data or initiate an account deletion request. The artwork for the Ratings screen uses fictional sample data.

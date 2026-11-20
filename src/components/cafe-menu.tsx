@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
-import { Link, usePathname, type Href } from "expo-router";
+import { useState, type ReactNode } from "react";
+import { Link, type Href } from "expo-router";
 import {
   ScrollView,
   StyleSheet,
@@ -140,15 +140,6 @@ export function CafeMenu({
   const [pickCollage, setPickCollage] = useState(() =>
     collage ? makePicker() : picks.categories,
   );
-  const pathname = usePathname();
-  const menuPath = useRef(pathname);
-  const previousPath = useRef(pathname);
-  useEffect(() => {
-    const returned =
-      pathname === menuPath.current && pathname !== previousPath.current;
-    previousPath.current = pathname;
-    if (collage && returned) setPickCollage(makePicker);
-  }, [collage, pathname]);
   const pickCovers = collage ? pickCollage : picks.categories;
   const groups = new Map<string, MenuItem[]>();
   for (const item of items) {
@@ -196,7 +187,12 @@ export function CafeMenu({
                 fillRows && styles.grow,
               ]}
             >
-              <Link href={categoryHref(key)} asChild push>
+              <Link
+                href={categoryHref(key)}
+                asChild
+                push
+                onPress={collage ? () => setPickCollage(makePicker) : undefined}
+              >
                 <Tap
                   padding="none"
                   accessibilityRole="link"

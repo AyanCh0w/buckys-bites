@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bucky’s Bites · iPhone App Store artwork</title>
+<style>
+@font-face{font-family:BDO;src:url('../../assets/fonts/BDOGrotesk-Bold.ttf');font-weight:700}
+@font-face{font-family:BDO;src:url('../../assets/fonts/BDOGrotesk-Medium.ttf');font-weight:500}
+*{box-sizing:border-box}
+body{margin:0;background:#383537;color:#211e1b;font-family:BDO,Arial,sans-serif}
+main{display:flex;gap:24px;padding:24px;width:max-content}
+.poster{width:440px;height:956px;position:relative;isolation:isolate;overflow:hidden;background:var(--ground);color:var(--ink)}
+.lead{--ground:#a32134;--ink:#fff5dc;--accent:#ffce58;--shadow:#661629}
+.reviews{--ground:#c4d6be;--ink:#21362d;--accent:#355942;--shadow:#98b299}
+.reviews .illustration{width:82px;height:84px;right:18px;top:115px;transform:rotate(8deg)}
+.reviews .phone{top:263px;transform:rotate(-1.5deg)}
+.hours{--ground:#f7ca5b;--ink:#302319;--accent:#8c2931;--shadow:#cc9a3a}
+.facts{--ground:#f8f2df;--ink:#502b27;--accent:#ab2537;--shadow:#d5c9ae}
+.drinks{--ground:#482923;--ink:#fff4df;--accent:#f7c766;--shadow:#2f1713}
+header{position:absolute;left:26px;top:21px;right:26px;height:30px;display:flex;align-items:flex-start;justify-content:space-between;border-bottom:1.25px solid currentColor}
+.brand{font-size:17px;line-height:21px;font-weight:700;letter-spacing:-1px}
+.section{font-family:Arial,sans-serif;font-weight:700;font-size:9px;letter-spacing:1.5px;padding-top:5px}
+h1{position:absolute;z-index:2;top:74px;left:24px;margin:0;font:700 64px/.93 BDO,Arial,sans-serif;letter-spacing:-4.4px}
+h1 em{font:italic 64px/.98 Georgia,serif;letter-spacing:-4px;color:var(--accent)}
+.hours h1,.drinks h1{font-size:67px}
+.illustration{position:absolute;object-fit:contain;z-index:1;right:14px;top:110px;width:111px;height:113px;transform:rotate(9deg)}
+.lead .illustration{width:101px;height:101px;right:13px;top:119px;transform:rotate(8deg)}
+.hours .illustration{width:102px;height:100px;right:20px;top:119px;transform:rotate(-8deg)}
+.facts .illustration{width:119px;height:118px;top:110px;right:12px}
+.drinks .illustration{width:101px;height:106px;top:117px;right:15px;transform:rotate(13deg)}
+.caption{position:absolute;left:28px;top:213px;font-size:16px;font-weight:500;line-height:20px;letter-spacing:-.35px}
+.placemat{position:absolute;bottom:-82px;height:350px;left:-140px;width:790px;transform:rotate(-15deg);background-color:var(--ground);background-image:repeating-linear-gradient(0deg,transparent 0 13px,var(--ink) 13px 23px,transparent 23px 32px),repeating-linear-gradient(90deg,transparent 0 13px,var(--ink) 13px 23px,transparent 23px 32px);opacity:.13}
+.hours .placemat,.drinks .placemat{transform:rotate(14deg)}
+.phone{position:absolute;top:269px;width:346px;left:47px;border-radius:52px;background:linear-gradient(105deg,#827970,#ece8df 8%,#5f5853 20%,#1c1a19 48%,#8c8379 87%,#f9f4e9 93%,#5b5651);padding:2px;box-shadow:8px 12px 0 var(--shadow),0 4px 8px #0002}
+.glass{padding:5px;background:#141312;border-radius:50px}
+.screen{overflow:hidden;position:relative;border-radius:45px;background:white}
+.screen img{width:100%;height:auto;display:block}
+.island{position:absolute;top:1.25%;left:50%;transform:translateX(-50%);width:22%;height:2.8%;border-radius:24px;background:#070707}
+.hours .phone{top:267px;transform:rotate(2deg)}
+.drinks .phone{top:264px;transform:rotate(-2deg)}
+.facts .phone{top:262px}
+@media print{main{padding:0;display:block}body{background:white}.poster{break-after:page}}
+</style></head>
+<body><main>
+  <article class="poster lead" id="01-benson">
+    <header><span class="brand">Bucky’s Bites</span><span class="section">CAMPUS DINING</span></header>
+    <h1>What’s good<br><em>at Benson?</em></h1>
+    <img class="illustration" src="../../assets/icons/bucky-chef.webp" alt="">
+    <div class="caption">Browse a kitchen’s menu before you go.</div>
+    <div class="placemat"></div><div class="phone"><div class="glass"><div class="screen"><img src="captures/fire.png" alt="The Fire lunch menu on iPhone"><div class="island"></div></div></div></div>
+  </article>
+  <article class="poster reviews" id="02-reviews">
+    <header><span class="brand">Bucky’s Bites</span><span class="section">STUDENT REVIEWS</span></header>
+    <h1>Worth a<br><em>second bite?</em></h1>
+    <img class="illustration" src="../../assets/ratings/bucky-5-star.png" alt="">
+    <div class="caption">Read dish reviews from fellow Broncos.</div>
+    <div class="placemat"></div><div class="phone"><div class="glass"><div class="screen"><img src="captures/reviews.png" alt="Native Ratings feed with sample student reviews of three dishes"><div class="island"></div></div></div></div>
+  </article>
+  <article class="poster hours" id="03-kitchens">
+    <header><span class="brand">Bucky’s Bites</span><span class="section">KITCHEN HOURS</span></header>
+    <h1>See what’s<br><em>open.</em></h1>
+    <img class="illustration" src="../../assets/dishes/signature-smash-burger.webp" alt="">
+    <div class="caption">Find closing times and star your usual spots.</div>
+    <div class="placemat"></div><div class="phone"><div class="glass"><div class="screen"><img src="captures/menu.png" alt="Menu showing campus kitchens and closing times"><div class="island"></div></div></div></div>
+  </article>
+  <article class="poster facts" id="04-nutrition">
+    <header><span class="brand">Bucky’s Bites</span><span class="section">DISH DETAILS</span></header>
+    <h1>What’s in<br><em>your bowl?</em></h1>
+    <img class="illustration" src="../../assets/dishes/teriyaki-chicken-bowl.webp" alt="">
+    <div class="caption">Check ingredients, calories, and macros.</div>
+    <div class="placemat"></div><div class="phone"><div class="glass"><div class="screen"><img src="captures/facts.png" alt="Teriyaki Chicken Bowl with nutrition and ingredients"><div class="island"></div></div></div></div>
+  </article>
+  <article class="poster drinks" id="05-coffee">
+    <header><span class="brand">Bucky’s Bites</span><span class="section">MISSION BAKERY</span></header>
+    <h1>Make it a<br><em>coffee run.</em></h1>
+    <img class="illustration" src="../../assets/dishes/hot-matcha-latte.webp" alt="">
+    <div class="caption">Pick your drink between classes.</div>
+    <div class="placemat"></div><div class="phone"><div class="glass"><div class="screen"><img src="captures/drinks.png" alt="Mission Bakery’s hot drinks and prices"><div class="island"></div></div></div></div>
+  </article>
+</main></body></html>
