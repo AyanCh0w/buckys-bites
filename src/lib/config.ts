@@ -1,3 +1,6 @@
-// Development-only visual profile. Meals and reviews always require a real cloud session.
+import { Platform } from "react-native";
+
+// Allow layout previews in the browser. Native development uses the normal sign-in flow.
 export const previewAccountEnabled =
-  __DEV__ || process.env.EXPO_PUBLIC_PREVIEW_ACCOUNT === "true";
+  (__DEV__ && Platform.OS === "web") ||
+  process.env.EXPO_PUBLIC_PREVIEW_ACCOUNT === "true";

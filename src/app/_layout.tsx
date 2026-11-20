@@ -44,7 +44,8 @@ function ThemedRoot() {
   );
 }
 function AppShell() {
-  const bakeryMenu = usePathname() === `/kitchen/${BAKERY_KEY}`;
+  const pathname = usePathname();
+  const bakeryMenu = pathname === `/kitchen/${BAKERY_KEY}`;
   const { colors, scheme } = useTheme();
   const reduced = useReducedMotion();
   const { ready, userId, session, profileStatus, introComplete } = useApp();
@@ -61,10 +62,12 @@ function AppShell() {
       notification: colors.accent,
     },
   };
+  // Keep a requested contribution mounted while its new session loads.
+  const contribution = pathname === "/log" || pathname === "/review";
   if (
     !ready ||
     introComplete === null ||
-    (introComplete && userId && profileStatus === "loading")
+    (!contribution && introComplete && userId && profileStatus === "loading")
   )
     return (
       <View
@@ -108,38 +111,10 @@ function AppShell() {
             gestureEnabled: true,
           }}
         >
-          <Stack.Protected guard={introComplete && Boolean(userId)}>
+          <Stack.Protected guard={introComplete}>
             <Stack.Screen name="(tabs)" />
             <Stack.Screen name="dish/[id]" />
             <Stack.Screen name="component/[id]" />
-            <Stack.Screen
-              name="log"
-              options={{
-                presentation: Platform.OS === "web" ? "modal" : "formSheet",
-                sheetGrabberVisible: true,
-                sheetAllowedDetents: [0.85, 1],
-                sheetCornerRadius: 32,
-              }}
-            />
-            <Stack.Screen
-              name="review"
-              options={({ route }) => ({
-                presentation: "modal",
-                // Changing an iOS modal's header visibility remounts its form.
-                // Configure it here, before the review screen first renders.
-                headerShown: Platform.OS === "ios",
-                title: (route.params as { edit?: string } | undefined)?.edit
-                  ? "Edit review"
-                  : "Review dish",
-                headerBackButtonDisplayMode: "minimal",
-                headerShadowVisible: false,
-                headerTintColor: colors.ink,
-                headerTitleStyle: {
-                  fontFamily: "BDOGrotesk-Bold",
-                  fontSize: 28,
-                },
-              })}
-            />
             <Stack.Screen
               name="settings"
               options={{
@@ -160,9 +135,42 @@ function AppShell() {
             <Stack.Screen name="dish-info" />
             <Stack.Screen name="food-history" />
             <Stack.Screen name="nutrients" />
+            <Stack.Screen
+              name="log"
+              options={{
+                presentation: Platform.OS === "web" ? "modal" : "formSheet",
+                sheetGrabberVisible: true,
+                sheetAllowedDetents: [
+                  Platform.OS === "ios" && !session ? 0.5 : 0.85,
+                  1,
+                ],
+                sheetCornerRadius: 32,
+              }}
+            />
           </Stack.Protected>
           <Stack.Protected guard={introComplete && !session}>
             <Stack.Screen name="auth" />
+          </Stack.Protected>
+          <Stack.Protected guard={introComplete && Boolean(session)}>
+            <Stack.Screen
+              name="review"
+              options={({ route }) => ({
+                presentation: "modal",
+                // Changing an iOS modal's header visibility remounts its form.
+                // Configure it here, before the review screen first renders.
+                headerShown: Platform.OS === "ios",
+                title: (route.params as { edit?: string } | undefined)?.edit
+                  ? "Edit review"
+                  : "Review dish",
+                headerBackButtonDisplayMode: "minimal",
+                headerShadowVisible: false,
+                headerTintColor: colors.ink,
+                headerTitleStyle: {
+                  fontFamily: "BDOGrotesk-Bold",
+                  fontSize: 28,
+                },
+              })}
+            />
           </Stack.Protected>
           <Stack.Screen name="onboarding" options={{ gestureEnabled: false }} />
         </Stack>

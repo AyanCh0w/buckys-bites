@@ -8,11 +8,11 @@ import React, {
 } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AppState, Platform } from "react-native";
-import { router } from "expo-router";
 import * as Haptics from "expo-haptics";
 import type { Session } from "@supabase/supabase-js";
 import snapshot from "../data/catalog.json";
 import { supabase } from "../lib/supabase";
+import { accountSession } from "../lib/account-auth";
 import { previewAccountEnabled } from "../lib/config";
 import { avatarId, isAvatarId } from "../lib/avatars";
 import { DEFAULT_STARRED_KITCHENS } from "../lib/menu";
@@ -77,7 +77,6 @@ type AppContext = {
   dismissToast: () => void;
   refresh: () => Promise<void>;
   refreshAccount: () => Promise<void>;
-  requireAccount: () => boolean;
   signOut: () => Promise<void>;
   addFood: (
     food: Food,
@@ -386,6 +385,7 @@ export function AppProvider({ children }: React.PropsWithChildren) {
 
   useEffect(() => {
     let alive = true;
+    let receivedAuthEvent = false;
     Promise.all([
       supabase.auth.getSession(),
       AsyncStorage.getItem(CATALOG_KEY),
@@ -419,26 +419,34 @@ export function AppProvider({ children }: React.PropsWithChildren) {
               }));
           } catch {}
         }
-        if (auth.data.session) setSession(auth.data.session);
-        else if (previewAccountEnabled) setLocal(true);
+        if (!receivedAuthEvent) {
+          const restored = accountSession(auth.data.session);
+          setSession(restored);
+          setLocal(!restored && previewAccountEnabled);
+        }
         setReady(true);
       })
       .catch(() => {
         if (alive) {
-          if (previewAccountEnabled) setLocal(true);
+          if (!receivedAuthEvent && previewAccountEnabled) setLocal(true);
           setReady(true);
         }
       });
     const { data: listener } = supabase.auth.onAuthStateChange(
-      (_event, next) => {
+      (event, next) => {
         if (!alive) return;
-        setSession(next);
-        if (next) {
-          setLocal(false);
-          if (identity.current !== next.user.id) {
-            setLoadedProfile(null);
-            setData(initial);
-          }
+        receivedAuthEvent = true;
+        const account = accountSession(next);
+        setSession(account);
+        if (event === "SIGNED_OUT") setToast(null);
+        if (account || event === "SIGNED_OUT") setLocal(false);
+        else if (event === "INITIAL_SESSION") setLocal(previewAccountEnabled);
+        if (
+          (account && identity.current !== account.user.id) ||
+          (!account && identity.current && identity.current !== "local")
+        ) {
+          setLoadedProfile(null);
+          setData(initial);
         }
       },
     );
@@ -467,11 +475,6 @@ export function AppProvider({ children }: React.PropsWithChildren) {
   useEffect(() => {
     if (ready) void refreshAccount().catch((e) => notify(e.message));
   }, [ready, refreshAccount, notify]);
-  const requireAccount = () => {
-    if (session) return true;
-    router.push("/auth");
-    return false;
-  };
   const feedback = () => {
     if (data.profile.haptics && Platform.OS !== "web")
       void Haptics.notificationAsync(
@@ -479,11 +482,9 @@ export function AppProvider({ children }: React.PropsWithChildren) {
       ).catch(() => {});
   };
   const signOut = async () => {
-    if (session) checked(await supabase.auth.signOut());
-    setSession(null);
-    setLoadedProfile(null);
-    setLocal(false);
-    setData(initial);
+    const { error } = await supabase.auth.signOut({ scope: "local" });
+    // Local sign-out can clear the device session before server revocation fails.
+    if (error && (await supabase.auth.getSession()).data.session) throw error;
   };
   const refreshAfterMutation = async () => {
     try {
@@ -586,11 +587,9 @@ export function AppProvider({ children }: React.PropsWithChildren) {
     await refreshAfterMutation();
   };
   const vote = async (review: Review, direction: number) => {
-    if (!requireAccount()) return;
+    if (!session) return;
     const reason = voteEligibility(data.history, review, userId!);
     if (reason) throw new Error(reason);
-    if (local)
-      throw new Error("Sign in to participate in the campus community.");
     checked(
       await supabase.rpc("bites_vote", {
         p_review_id: review.id,
@@ -684,7 +683,6 @@ export function AppProvider({ children }: React.PropsWithChildren) {
         dismissToast: () => setToast(null),
         refresh,
         refreshAccount,
-        requireAccount,
         signOut,
         addFood,
         updateLog,

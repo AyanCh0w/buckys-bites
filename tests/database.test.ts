@@ -22,6 +22,21 @@ test("database authorization, atomic logs, eligibility, history, votes, and dele
       .sort();
     for (const name of migrations)
       await db.exec(await fs.readFile("supabase/migrations/" + name, "utf8"));
+    await db.exec(`create function auth.jwt() returns jsonb language sql stable as $$
+      select nullif(current_setting('request.jwt.claims', true), '')::jsonb
+    $$`);
+    await db.exec(
+      await fs.readFile(
+        "supabase/migrations/20261120000000_apple_account_contributions.sql",
+        "utf8",
+      ),
+    );
+    await db.exec(
+      await fs.readFile(
+        "supabase/migrations/20261120005239_password_account_contributions.sql",
+        "utf8",
+      ),
+    );
     await db.query(`insert into auth.users(id) values ($1),($2)`, [a, b]);
     await db.query(
       `insert into public.food_items(id,source_item_id,name) values ($1,'fixture','Test dish')`,
@@ -41,6 +56,27 @@ test("database authorization, atomic logs, eligibility, history, votes, and dele
         await db.exec("reset role");
       }
     }
+    const setClaims = (claims: object) =>
+      db.query("select set_config('request.jwt.claims', $1, false)", [
+        JSON.stringify(claims),
+      ]);
+    const linked = {
+      app_metadata: { provider: "email", providers: ["email", "apple"] },
+    };
+    const emailOnly = { app_metadata: { provider: "email" } };
+    const unsupported = { app_metadata: { provider: "github" } };
+    for (const claims of [
+      unsupported,
+      {},
+      { ...emailOnly, is_anonymous: true },
+    ]) {
+      await setClaims(claims);
+      await assert.rejects(
+        asUser(a, "select bites_log_food($1,1,'Lunch')", [version]),
+        /Sign in to write/,
+      );
+    }
+    await setClaims(linked);
     await assert.rejects(
       asUser(a, "select bites_save_review($1,4)", [food]),
       /72 hours/,
@@ -75,6 +111,12 @@ test("database authorization, atomic logs, eligibility, history, votes, and dele
       1,
     );
     assert.equal((await asUser(b, "select * from food_logs")).rows.length, 0);
+    await setClaims(unsupported);
+    await assert.rejects(
+      asUser(a, "select bites_save_review($1,4)", [food]),
+      /Sign in to write/,
+    );
+    await setClaims(emailOnly);
     const r = (
       await asUser(a, "select bites_save_review($1,5,$2) as id", [
         food,

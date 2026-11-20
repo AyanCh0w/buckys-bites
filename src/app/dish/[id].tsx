@@ -50,7 +50,7 @@ export default function DishDetail() {
     meal?: string;
     offering?: string;
   }>();
-  const { catalog, data, userId, requireAccount } = useApp();
+  const { catalog, data, userId, session } = useApp();
   const { height, width } = useWindowDimensions();
   const [section, setSection] = useState("Reviews");
   const [draft, setDraft] = useState<MenuSelection>();
@@ -116,11 +116,10 @@ export default function DishDetail() {
     .sort((a, b) => b.created_at.localeCompare(a.created_at));
   const imageSize = Math.min(156, (width - 48) * 0.46);
   const openReview = () => {
-    if (requireAccount())
-      router.push({
-        pathname: "/review",
-        params: { food: id, ...(recentReview && { edit: recentReview.id }) },
-      });
+    router.push({
+      pathname: "/review",
+      params: { food: id, ...(recentReview && { edit: recentReview.id }) },
+    });
   };
   return (
     <FixedScreen back title={kitchenName(station?.name ?? "Dish")}>
@@ -230,11 +229,15 @@ export default function DishDetail() {
         {section === "Reviews" ? (
           <View style={s.inset}>
             <View style={{ alignItems: "flex-end", marginTop: 8 }}>
-              <Tap onPress={openReview}>
-                <T style={s.link}>
-                  {recentReview ? "Edit review" : "Write a review"}
-                </T>
-              </Tap>
+              {session ? (
+                <Tap onPress={openReview}>
+                  <T style={s.link}>
+                    {recentReview ? "Edit review" : "Write a review"}
+                  </T>
+                </Tap>
+              ) : (
+                <T style={s.caption}>Log this dish to write a review.</T>
+              )}
             </View>
             {reviews.length ? (
               reviews
@@ -341,21 +344,20 @@ export default function DishDetail() {
           title="Add to today’s food"
           icon="add"
           onPress={() => {
-            if (requireAccount())
-              router.push({
-                pathname: "/log",
-                params: {
-                  food: id,
-                  meal:
-                    service?.name === "Brunch"
-                      ? (meal ?? "Breakfast")
-                      : (meal ?? service?.name ?? ""),
-                  ...(offering ? { offering: offering.id } : {}),
-                  ...(selection
-                    ? { size, choices: JSON.stringify(choices) }
-                    : {}),
-                },
-              });
+            router.push({
+              pathname: "/log",
+              params: {
+                food: id,
+                meal:
+                  service?.name === "Brunch"
+                    ? (meal ?? "Breakfast")
+                    : (meal ?? service?.name ?? ""),
+                ...(offering ? { offering: offering.id } : {}),
+                ...(selection
+                  ? { size, choices: JSON.stringify(choices) }
+                  : {}),
+              },
+            });
           }}
         />
       </View>

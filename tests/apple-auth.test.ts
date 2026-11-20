@@ -8,7 +8,43 @@ import {
   appleSignInErrorMessage,
 } from "../src/lib/apple-auth-flow";
 
-const session = { user: { id: "apple-user" } } as Session;
+import {
+  accountSession,
+  loginEmail,
+  passwordErrorMessage,
+} from "../src/lib/account-auth";
+
+const session = {
+  user: { id: "apple-user", app_metadata: { provider: "apple" } },
+} as Session;
+test("Apple and email accounts restore sessions and anonymous or unsupported accounts stay guests", () => {
+  const restored = (app_metadata: object, is_anonymous = false) =>
+    ({ user: { id: "user", app_metadata, is_anonymous } }) as Session;
+  for (const metadata of [
+    { provider: "apple" },
+    { provider: "email" },
+    { providers: ["email"] },
+    { provider: "email", providers: ["email", "apple"] },
+  ]) {
+    const account = restored(metadata);
+    assert.equal(accountSession(account), account);
+  }
+  assert.equal(accountSession(null), null);
+  assert.equal(accountSession(restored({ provider: "email" }), "apple"), null);
+  assert.equal(accountSession(restored({ provider: "email" }, true)), null);
+  assert.equal(accountSession(restored({ provider: "github" })), null);
+  assert.equal(accountSession(restored({ provider: "apple" }, true)), null);
+});
+
+test("password login accepts short usernames and full email addresses", () => {
+  assert.equal(loginEmail("  AppReview  "), "appreview@accounts.bucky.eat");
+  assert.equal(loginEmail(" Guest@Example.org "), "guest@example.org");
+  assert.match(
+    passwordErrorMessage({ code: "invalid_credentials" }),
+    /Incorrect username or password/,
+  );
+});
+
 function challenge() {
   const nonce = randomBytes(32).toString("hex");
   return {

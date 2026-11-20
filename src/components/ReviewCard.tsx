@@ -86,7 +86,7 @@ export function ReviewCard({
   onEdit?: () => void;
 }) {
   const { colors } = useTheme();
-  const { data, userId, vote, notify } = useApp();
+  const { data, userId, session, vote, notify } = useApp();
   const written = hasReviewText(review);
   return (
     <View
@@ -130,6 +130,7 @@ export function ReviewCard({
               <ReviewVotes
                 upvotes={review.upvotes}
                 downvotes={review.downvotes}
+                disabled={!session}
                 selectedVote={data.votes[review.id]}
                 subject={`${review.display_name}’s review`}
                 onVote={(direction) =>

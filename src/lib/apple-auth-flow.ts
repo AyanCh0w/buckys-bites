@@ -1,5 +1,7 @@
 import type { Session } from "@supabase/supabase-js";
 
+import { accountSession } from "./account-auth";
+
 export type AppleChallenge = {
   nonce: string;
   hashedNonce: string;
@@ -48,6 +50,10 @@ export async function performAppleSignIn(services: AppleAuthServices) {
   if (!data.session)
     throw new Error(
       "Apple sign-in did not create a session. Please try again.",
+    );
+  if (!accountSession(data.session, "apple"))
+    throw new Error(
+      "Apple sign-in did not return an Apple account. Please try again.",
     );
   return data.session;
 }

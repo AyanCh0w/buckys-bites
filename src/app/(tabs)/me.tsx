@@ -10,7 +10,7 @@ import { ReviewCard } from "../../components/ReviewCard";
 
 export default function Me() {
   const { colors, s } = useTheme();
-  const { data, userId, local } = useApp();
+  const { data, userId, session } = useApp();
   const insets = useSafeAreaInsets();
   const mine = data.reviews
     .filter((r) => r.user_id === userId)
@@ -97,9 +97,12 @@ export default function Me() {
                 onPress={() => settings("general")}
               />
             </View>
-            {local && (
+            {!session && (
               <View style={{ marginBottom: 16 }}>
-                <Button title="Sign in" onPress={() => router.push("/auth")} />
+                <Button
+                  title="Sign in"
+                  onPress={() => router.push("/auth")}
+                />
               </View>
             )}
             <T

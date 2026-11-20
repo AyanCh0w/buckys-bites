@@ -15,7 +15,7 @@ Open the app in a compatible Expo Go or development build. For a browser preview
 
 Public Supabase defaults already exist in `src/lib/supabase.ts`. To override them, copy `.env.example` to `.env.local` and uncomment the two configuration values. Never put a service-role key or other private credentials in `EXPO_PUBLIC_*` variables; those values are embedded in the app.
 
-Sign in with Apple is the app’s login method. See [Apple sign-in setup](docs/apple-sign-in.md) for provider configuration and native verification. Development builds also provide a visual preview profile; saving meals and reviews requires a real session.
+Guests can browse the menu and reviews. Sign in with Apple or an existing username and password to log food and write reviews. Browser development provides a visual preview profile. [Sign-in and App Review setup](docs/apple-sign-in.md)
 
 ## Project layout
 

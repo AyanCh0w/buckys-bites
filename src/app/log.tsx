@@ -1,8 +1,9 @@
+import AccountPrompt from "../components/account-prompt";
 import { useTheme } from "../state/ThemeProvider";
 import { backOrReplace } from "../lib/navigation";
 import React, { useState } from "react";
-import { ScrollView, View } from "react-native";
-import { useLocalSearchParams } from "expo-router";
+import { Platform, ScrollView, View } from "react-native";
+import { Redirect, useLocalSearchParams } from "expo-router";
 import { useApp } from "../state/AppProvider";
 import { Art, BackHeader, Button, Chip, T } from "../components/ui";
 import { MenuOptions } from "../components/MenuOptions";
@@ -19,6 +20,21 @@ import { isEstimatedNutrient } from "../lib/nutrition-display";
 import { NutrientAmount } from "../components/nutrient-display";
 
 export default function LogFood() {
+  const { session } = useApp();
+  const { food, edit } = useLocalSearchParams<{ food?: string; edit?: string }>();
+  if (!session) {
+    if (edit || !food) return <Redirect href={edit ? "/nutrition" : "/menu"} />;
+    return (
+      <AccountPrompt
+        inSheet={Platform.OS === "ios"}
+        prompt="Sign in to log your food."
+      />
+    );
+  }
+  return <FoodLogForm />;
+}
+
+function FoodLogForm() {
   const { colors, s } = useTheme();
   const {
     food: foodId,

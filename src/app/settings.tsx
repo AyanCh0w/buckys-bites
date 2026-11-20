@@ -30,6 +30,30 @@ const nutritionSections = {
   goals: "Nutritional Goals",
 };
 
+function SignOutButton({ disabled = false }: { disabled?: boolean }) {
+  const { session, signOut, notify } = useApp();
+  const [pending, setPending] = useState(false);
+  if (!session) return null;
+  return (
+    <Button
+      secondary
+      title={pending ? "Signing out…" : "Sign out"}
+      disabled={disabled || pending}
+      onPress={async () => {
+        setPending(true);
+        try {
+          await signOut();
+          router.dismissTo("/");
+        } catch {
+          notify("Couldn’t sign out. Please try again.");
+        } finally {
+          setPending(false);
+        }
+      }}
+    />
+  );
+}
+
 export default function Settings() {
   const { profileStatus, refreshProfile, notify, userId } = useApp();
   const { section = "profile" } = useLocalSearchParams<{ section: string }>();
@@ -52,11 +76,12 @@ export default function Settings() {
               )
             }
           />
+          {section === "general" && <SignOutButton />}
         </View>
       </View>
     );
   }
-  return <SettingsForm key={section} section={section} />;
+  return <SettingsForm key={`${userId}:${section}`} section={section} />;
 }
 function SettingsForm({ section }: { section: string }) {
   const { colors, s } = useTheme();
@@ -444,10 +469,14 @@ function SettingsForm({ section }: { section: string }) {
                 onPress={save}
               />
             ) : (
-              <Button title="Sign in" onPress={() => router.push("/auth")} />
+              <Button
+                title="Sign in"
+                onPress={() => router.push("/auth")}
+              />
             )}
           </>
         )}
+        {section === "general" && <SignOutButton disabled={busy} />}
         {section === "privacy" && (
           <>
             <T style={s.sectionTitle}>How Your Data Is Stored</T>

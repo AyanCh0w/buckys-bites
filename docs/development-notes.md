@@ -54,9 +54,9 @@ After editing the document in Icon Composer, run `npm run icons` on macOS with I
 - For You combines net helpfulness and recency with eating history, personal scores, current availability, and dietary preferences. Its deterministic ranking does not collect engagement telemetry.
 - App controls use Santa Clara Red, with supporting SCU palette colors from [the university’s brand guide](https://www.scu.edu/umc/brand/colors/). Large transparent food artwork stays unboxed.
 
-## Apple sign-in
+## Sign-in
 
-Sign in with Apple is the app’s only login option. The iOS account screen uses Apple’s native button, and Me offers Sign in while using the development preview profile. Email/password, sign-up, and preview-login controls have been removed. Other platforms direct users to the iPhone app. The flow uses Supabase’s existing cloud account and session storage. Native configuration, type checking, 29 tests, and iOS/web exports pass. Live activation and a successful sign-in remain unverified: dashboard access was declined and setup continued manually. Follow [Apple sign-in setup](apple-sign-in.md) for the two Client IDs and iPhone verification.
+Me and the food-log prompt offer Sign in with Apple on supported iOS devices and username/password sign-in for existing accounts. Both use the same Supabase session storage and contribution permissions. See the [account setup guide](apple-sign-in.md) for Apple’s client IDs and reviewer access.
 
 ## Backend status
 
