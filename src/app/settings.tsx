@@ -18,7 +18,6 @@ import { useHaptic } from "../lib/haptics";
 import { useGoalEstimateDraft } from "../state/GoalEstimateDraftProvider";
 import {
   ACTIVE_STUDENT_GOALS,
-  activeStudentReference,
   isDailyLimit,
 } from "../lib/nutrition-goals";
 import { NUTRIENTS } from "../lib/domain";
@@ -427,12 +426,6 @@ function SettingsForm({
                 }}
               >
                 <T style={s.link}>Use active student goals</T>
-              </Tap>
-              <Tap
-                accessibilityRole="link"
-                onPress={() => Linking.openURL(activeStudentReference)}
-              >
-                <T style={s.caption}>Nutrition for young athletes</T>
               </Tap>
             </View>
           </>

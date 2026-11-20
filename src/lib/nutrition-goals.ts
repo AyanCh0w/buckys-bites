@@ -1,8 +1,5 @@
 import type { Goals, Nutrient, Profile } from "./types";
 
-export const activeStudentReference =
-  "https://www.sportsdietitians.com.au/wp-content/uploads/2020/07/Adolescent-Nutrition-Factsheeet.pdf";
-
 // An example day for an active student. Protein uses 1.5 g/kg at a reference
 // weight of 70 kg. Carbs and fat supply the remaining energy, and fiber
 // follows the DRI density of 14 g per 1,000 kcal.
