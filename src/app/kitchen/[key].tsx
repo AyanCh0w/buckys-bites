@@ -1,5 +1,6 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { ScrollView, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { router, useLocalSearchParams } from "expo-router";
 import { FixedScreen, EmptyState } from "../../components/ui";
 import { BakeryMenu } from "../../components/bakery-menu";
@@ -16,6 +17,7 @@ import {
   stationServices,
 } from "../../lib/menu";
 export default function Kitchen() {
+  const { bottom } = useSafeAreaInsets();
   const {
     key,
     cafe,
@@ -119,7 +121,11 @@ export default function Kitchen() {
     services.every((service) => service.name.startsWith("All Day"));
   const bakery = key === BAKERY_KEY;
   return (
-    <FixedScreen back title={kitchenName(stations[0]?.name ?? "Menu")}>
+    <FixedScreen
+      back
+      extendToBottom
+      title={kitchenName(stations[0]?.name ?? "Menu")}
+    >
       {services.length > 0 && !allDayOnly && (
         <ServiceTimeline
           services={services}
@@ -153,7 +159,10 @@ export default function Kitchen() {
           <ScrollView
             style={{ flex: 1 }}
             contentInsetAdjustmentBehavior="never"
-            contentContainerStyle={{ paddingHorizontal: 24, paddingBottom: 24 }}
+            contentContainerStyle={{
+              paddingHorizontal: 24,
+              paddingBottom: bottom + 24,
+            }}
           >
             <EmptyState
               title={closure ? "Closed" : "No Dishes Listed"}

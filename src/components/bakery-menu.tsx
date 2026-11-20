@@ -1,5 +1,6 @@
 import { useRef, type ComponentRef } from "react";
 import { ScrollView, StyleSheet, View, Text } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { displayName } from "../lib/domain";
 import { menuSectionLabel } from "../lib/menu";
 import { fontFamily, textSizes } from "../lib/fonts";
@@ -47,6 +48,7 @@ export function BakeryMenu({
   onSelect: (section: string) => void;
 }) {
   const { colors, s } = useTheme();
+  const { bottom } = useSafeAreaInsets();
   const { catalog } = useApp();
   const scroll = useRef<ComponentRef<typeof ScrollView>>(null);
   const reveal = useRef(category);
@@ -66,7 +68,11 @@ export function BakeryMenu({
       ref={scroll}
       style={styles.fill}
       contentInsetAdjustmentBehavior="never"
-      contentContainerStyle={[s.inset, styles.content]}
+      contentContainerStyle={[
+        s.inset,
+        styles.grow,
+        { paddingBottom: bottom + 12 },
+      ]}
     >
       {ordered
         .filter((key) => groups.has(key))
@@ -195,7 +201,6 @@ export function BakeryMenu({
 
 const styles = StyleSheet.create({
   fill: { flex: 1 },
-  content: { flexGrow: 1, paddingBottom: 12 },
   grow: { flexGrow: 1 },
   section: { borderBottomWidth: StyleSheet.hairlineWidth },
   categoryRow: {

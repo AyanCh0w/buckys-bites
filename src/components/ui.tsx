@@ -629,27 +629,36 @@ export function FixedScreen({
   right,
   back = false,
   tab = false,
+  extendToBottom = false,
 }: React.PropsWithChildren<{
   title: string;
   right?: React.ReactNode;
   back?: boolean;
   tab?: boolean;
+  extendToBottom?: boolean;
 }>) {
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
   return (
     <NativeSafeAreaView
-      // Floating tab bars overlay the scroll view; other screens keep their
-      // native bottom inset for fixed footers.
       edges={{
         top: Platform.OS === "ios" && back,
-        bottom: Platform.OS !== "web" && !(tab && Platform.OS === "ios"),
+        bottom:
+          !extendToBottom &&
+          Platform.OS !== "web" &&
+          !(tab && Platform.OS === "ios"),
       }}
       style={{
         flex: 1,
         backgroundColor: colors.paper,
         paddingTop: Platform.OS === "web" ? 12 : back ? 0 : insets.top + 4,
-        paddingBottom: tab ? (Platform.OS === "android" ? 12 : 0) : 16,
+        paddingBottom: extendToBottom
+          ? 0
+          : tab
+            ? Platform.OS === "android"
+              ? 12
+              : 0
+            : 16,
       }}
     >
       {back && Platform.OS === "ios" ? (

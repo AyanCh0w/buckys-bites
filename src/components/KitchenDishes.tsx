@@ -1,6 +1,7 @@
 import { useTheme } from "../state/ThemeProvider";
 import React, { useState } from "react";
 import { ScrollView, View, useWindowDimensions } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import type { Food, Offering } from "../lib/types";
 import { displayName } from "../lib/domain";
 import { menuSectionLabel } from "../lib/menu";
@@ -24,6 +25,8 @@ export function KitchenDishes({
 }) {
   const { colors, s } = useTheme();
   const [height, setHeight] = useState(0);
+  const { bottom } = useSafeAreaInsets();
+  const availableHeight = height - bottom;
   const { width, fontScale } = useWindowDimensions();
   const sections = new Map<string, Food[]>();
   for (const food of foods) {
@@ -34,7 +37,9 @@ export function KitchenDishes({
   }
   const single = foods.length === 1;
   const fits =
-    foods.length <= 2 && fontScale <= 1.2 && height >= (single ? 380 : 540);
+    foods.length <= 2 &&
+    fontScale <= 1.2 &&
+    availableHeight >= (single ? 380 : 540);
   let nextRow = 0;
   return (
     <View
@@ -44,7 +49,7 @@ export function KitchenDishes({
       {fits ? (
         <View style={{ paddingHorizontal: 24, flex: 1 }}>
           {foods.map((food, i) => {
-            const sectionHeight = (height - 16) / foods.length;
+            const sectionHeight = (availableHeight - 16) / foods.length;
             const imageHeight = single
               ? Math.min(width - 32, sectionHeight - 200)
               : Math.min(205, sectionHeight - 142);
@@ -109,7 +114,10 @@ export function KitchenDishes({
           style={{ flex: 1 }}
           contentInsetAdjustmentBehavior="never"
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ paddingHorizontal: 24, paddingBottom: 20 }}
+          contentContainerStyle={{
+            paddingHorizontal: 24,
+            paddingBottom: bottom + 20,
+          }}
         >
           {Array.from(sections, ([section, entries]) => (
             <View key={section}>
