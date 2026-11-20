@@ -158,6 +158,7 @@ export function KitchenMenu({
         {foods.length > 0 ? (
           cafeMenu ? (
             <CafeMenu
+              collage={kitchen !== BAKERY_KEY}
               items={cafeItems}
               categoryHref={(category) => ({
                 pathname: "/kitchen/[key]/[category]",

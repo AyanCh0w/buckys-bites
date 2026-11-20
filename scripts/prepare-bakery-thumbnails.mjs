@@ -2,24 +2,26 @@ import fs from "node:fs/promises";
 import sharp from "sharp";
 
 const catalog = JSON.parse(await fs.readFile("src/data/catalog.json", "utf8"));
+const campus = JSON.parse(await fs.readFile("src/data/campus-catalog.json", "utf8"));
 const stations = new Set(
   catalog.stations
     .filter((station) => station.source_key === "mission-bakery")
     .map((station) => station.id),
 );
 const versions = new Set(
-  catalog.offerings
-    .filter((offering) => stations.has(offering.station_id))
-    .map((offering) => offering.food_version_id),
+  [
+    ...catalog.offerings.filter((offering) => stations.has(offering.station_id)),
+    ...campus.offerings,
+  ].map((offering) => offering.food_version_id),
 );
 const foods = new Set(
-  catalog.foods
+  [...catalog.foods, ...campus.foods]
     .filter((food) => versions.has(food.id))
     .map((food) => food.food_item_id),
 );
 const keys = [
   ...new Set(
-    catalog.images
+    [...catalog.images, ...campus.images]
       .filter((image) => foods.has(image.foodId) && image.path)
       .map((image) => image.path.replace(/\.png$/, "")),
   ),

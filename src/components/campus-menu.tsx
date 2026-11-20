@@ -71,6 +71,7 @@ export function CampusMenu({
   return (
     <CafeMenu
       tab
+      collage
       items={items}
       categoryHref={(category) => ({
         pathname: "/cafe/[key]/[category]",

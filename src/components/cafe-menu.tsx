@@ -1,5 +1,5 @@
-import { type ReactNode } from "react";
-import { Link, type Href } from "expo-router";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import { Link, usePathname, type Href } from "expo-router";
 import {
   ScrollView,
   StyleSheet,
@@ -27,7 +27,11 @@ import {
   tabContentBottomPadding,
 } from "./ui";
 import { MenuEntrance } from "./MenuEntrance";
-import { BakeryThumbnail, useBakeryThumbnails } from "./bakery-thumbnail";
+import {
+  BakeryThumbnail,
+  makePicker,
+  useBakeryThumbnails,
+} from "./bakery-thumbnail";
 
 const sectionLabels = new Map([
   ["Pastries", "Pastries"],
@@ -51,6 +55,58 @@ function menuPrice(offering?: Offering) {
 
 type MenuItem = { food: Food; offering?: Offering; meal?: string };
 
+const coverSize = 96;
+const collageSize = 120;
+const pairLayout = [
+  { size: 64, left: 2, top: 10, angle: "-8deg" },
+  { size: 61, left: 30, top: 25, angle: "7deg" },
+];
+const trioLayout = [
+  { size: 57, left: 3, top: 10, angle: "-9deg" },
+  { size: 54, left: 39, top: 12, angle: "8deg" },
+  { size: 57, left: 21, top: 33, angle: "-3deg" },
+];
+
+function CafeCategoryCover({
+  sources,
+  size,
+  fallback,
+}: {
+  sources: number[];
+  size: number;
+  fallback: ReactNode;
+}) {
+  if (sources.length < 2)
+    return (
+      <BakeryThumbnail source={sources[0]} size={size} fallback={fallback} />
+    );
+
+  const layout = sources.length === 2 ? pairLayout : trioLayout;
+  const scale = size / coverSize;
+  return (
+    <View
+      style={{ width: size, height: size }}
+      accessibilityElementsHidden
+      importantForAccessibility="no-hide-descendants"
+    >
+      {layout.map(({ size: itemSize, left, top, angle }, index) => (
+        <BakeryThumbnail
+          key={sources[index]}
+          source={sources[index]}
+          size={itemSize * scale}
+          style={{
+            position: "absolute",
+            left: left * scale,
+            top: top * scale,
+            transform: [{ rotate: angle }],
+          }}
+          fallback={null}
+        />
+      ))}
+    </View>
+  );
+}
+
 function categoryLabel(category: string) {
   return (
     sectionLabels.get(category) ?? (menuSectionLabel(category) || "Other Items")
@@ -63,17 +119,32 @@ export function CafeMenu({
   children,
   refreshControl,
   tab = false,
+  collage = false,
 }: {
   items: MenuItem[];
   categoryHref: (category: string) => Href;
   children?: ReactNode;
   refreshControl?: ScrollViewProps["refreshControl"];
   tab?: boolean;
+  collage?: boolean;
 }) {
   const { colors, s } = useTheme();
   const { bottom } = useSafeAreaInsets();
   const { catalog } = useApp();
   const { picks } = useBakeryThumbnails();
+  const [pickCollage, setPickCollage] = useState(() =>
+    collage ? makePicker() : picks.categories,
+  );
+  const pathname = usePathname();
+  const menuPath = useRef(pathname);
+  const previousPath = useRef(pathname);
+  useEffect(() => {
+    const returned =
+      pathname === menuPath.current && pathname !== previousPath.current;
+    previousPath.current = pathname;
+    if (collage && returned) setPickCollage(makePicker);
+  }, [collage, pathname]);
+  const pickCovers = collage ? pickCollage : picks.categories;
   const groups = new Map<string, MenuItem[]>();
   for (const item of items) {
     const key = cafeMenuCategory(item.food, item.offering);
@@ -103,8 +174,9 @@ export function CafeMenu({
           if (!items) return null;
           const label = categoryLabel(key);
           const count = `${items.length} ${items.length === 1 ? "item" : "items"}`;
-          const cover = picks.categories(
+          const covers = pickCovers(
             items.map(({ food }) => foodArtwork(catalog, food)),
+            collage ? 3 : 1,
           );
           return (
             <MenuEntrance
@@ -126,11 +198,15 @@ export function CafeMenu({
                     marginHorizontal: -12,
                     marginVertical: 4,
                   }}
-                  contentStyle={[styles.categoryRow, fillRows && styles.grow]}
+                  contentStyle={[
+                    styles.categoryRow,
+                    collage && styles.collageRow,
+                    fillRows && styles.grow,
+                  ]}
                 >
-                  <BakeryThumbnail
-                    source={cover}
-                    size={96}
+                  <CafeCategoryCover
+                    sources={covers}
+                    size={collage ? collageSize : coverSize}
                     fallback={
                       <Icon
                         name="restaurant-outline"
@@ -252,6 +328,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 12,
   },
+  collageRow: { paddingVertical: 4 },
   categoryCopy: { flex: 1, gap: 4 },
   categoryName: { fontSize: 17, fontWeight: "600", letterSpacing: -0.4 },
   cafeName: { marginTop: 12, marginBottom: 12 },

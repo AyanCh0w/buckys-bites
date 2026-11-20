@@ -18,23 +18,14 @@ const bakeryThumbnailSheet = require("../../assets/bakery-thumbnails.webp");
 const tiles = new Map(sheet.keys.map((key, index) => [assets[key], index]));
 
 // One random priority per image keeps a visit's choices stable if the menu is re-ranked.
-function makePicker() {
+export function makePicker() {
   const priorities = new Map(
     Object.values(assets).map((source) => [source, Math.random()]),
   );
-  return (sources: Iterable<number | undefined>) => {
-    let best: number | undefined;
-    let lowest = Infinity;
-    for (const source of sources) {
-      if (source == null) continue;
-      const priority = priorities.get(source) ?? 1;
-      if (priority < lowest) {
-        best = source;
-        lowest = priority;
-      }
-    }
-    return best;
-  };
+  return (sources: (number | undefined)[], count = 1) =>
+    [...new Set(sources.filter((source) => source != null))]
+      .sort((a, b) => (priorities.get(a) ?? 1) - (priorities.get(b) ?? 1))
+      .slice(0, count);
 }
 
 const initialPicks = { menu: makePicker(), categories: makePicker() };

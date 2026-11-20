@@ -54,7 +54,7 @@ export function BakeryMenuArt({ date }: { date: string }) {
     ];
   }, [catalog, date]);
 
-  const [drink, pastry] = pools.map(picks.menu);
+  const [drink, pastry] = pools.map((pool) => picks.menu(pool)[0]);
   if (drink == null && pastry == null)
     return (
       <BakeryThumbnail source={assets["cafes/mission-bakery"]} size={96} />
