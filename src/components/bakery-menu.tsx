@@ -11,6 +11,7 @@ import { useTheme } from "../state/ThemeProvider";
 import { foodArtwork, openDish } from "./Food";
 import { AssetImage, Icon, T, Tap } from "./ui";
 import { MenuEntrance } from "./MenuEntrance";
+import { BakeryThumbnail, useBakeryThumbnails } from "./bakery-thumbnail";
 
 const sectionLabels = new Map([
   ["Pastries", "Pastries"],
@@ -52,6 +53,7 @@ export function BakeryMenu({
   const { catalog } = useApp();
   const scroll = useRef<ComponentRef<typeof ScrollView>>(null);
   const reveal = useRef(category);
+  const { picks } = useBakeryThumbnails();
   const groups = new Map<string, Food[]>();
   for (const food of foods) {
     const key = placements.get(food.id)?.menu_section || "Other items";
@@ -83,7 +85,9 @@ export function BakeryMenu({
           const label =
             sectionLabels.get(key) ?? (menuSectionLabel(key) || "Other Items");
           const count = `${items.length} ${items.length === 1 ? "item" : "items"}`;
-          const cover = foodArtwork(catalog, items[0]);
+          const cover = picks.categories(
+            items.map((item) => foodArtwork(catalog, item)),
+          );
           return (
             <View
               key={key}
@@ -120,9 +124,9 @@ export function BakeryMenu({
                   ]}
                   contentStyle={[styles.categoryRow, fillRows && styles.grow]}
                 >
-                  <AssetImage
+                  <BakeryThumbnail
                     source={cover}
-                    style={styles.categoryPhoto}
+                    size={96}
                     fallback={
                       <Icon
                         name="restaurant-outline"
@@ -212,7 +216,6 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 12,
   },
-  categoryPhoto: { width: 96, height: 96 },
   categoryCopy: { flex: 1, gap: 4 },
   categoryName: { fontSize: 17, fontWeight: "600", letterSpacing: -0.4 },
   grid: {

@@ -1,20 +1,15 @@
-import { useFocusEffect } from "expo-router";
-import { useCallback, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { View } from "react-native";
+import { assets } from "../data/assets";
 import { BAKERY_KEY } from "../lib/menu";
 import { kitchenKey } from "../lib/theme";
 import { useApp } from "../state/AppProvider";
 import { foodArtwork } from "./Food";
-import { Art, AssetImage } from "./ui";
+import { BakeryThumbnail, useBakeryThumbnails } from "./bakery-thumbnail";
 
 export function BakeryMenuArt({ date }: { date: string }) {
   const { catalog } = useApp();
-  const [roll, setRoll] = useState([0, 0]);
-  useFocusEffect(
-    useCallback(() => {
-      setRoll([Math.random(), Math.random()]);
-    }, []),
-  );
+  const { picks } = useBakeryThumbnails();
 
   const pools = useMemo(() => {
     const stations = new Set(
@@ -59,11 +54,11 @@ export function BakeryMenuArt({ date }: { date: string }) {
     ];
   }, [catalog, date]);
 
-  const [drink, pastry] = pools.map(
-    (pool, index) => pool[Math.floor(roll[index] * pool.length)],
-  );
+  const [drink, pastry] = pools.map(picks.menu);
   if (drink == null && pastry == null)
-    return <Art name="cafes/mission-bakery" size={96} />;
+    return (
+      <BakeryThumbnail source={assets["cafes/mission-bakery"]} size={96} />
+    );
 
   return (
     <View
@@ -77,27 +72,23 @@ export function BakeryMenuArt({ date }: { date: string }) {
         justifyContent: "center",
       }}
     >
-      <AssetImage
+      <BakeryThumbnail
         source={drink}
+        size={pastry == null ? 76 : 61}
         style={
           pastry == null
-            ? { width: 76, height: 76 }
-            : { position: "absolute", left: 0, top: 9, width: 61, height: 70 }
+            ? undefined
+            : { position: "absolute", left: 0, top: 13.5 }
         }
         fallback={null}
       />
-      <AssetImage
+      <BakeryThumbnail
         source={pastry}
+        size={drink == null ? 76 : 54}
         style={
           drink == null
-            ? { width: 76, height: 76 }
-            : {
-                position: "absolute",
-                right: 0,
-                bottom: 8,
-                width: 63,
-                height: 54,
-              }
+            ? undefined
+            : { position: "absolute", right: 4.5, bottom: 8 }
         }
         fallback={null}
       />

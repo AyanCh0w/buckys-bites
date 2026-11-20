@@ -1,5 +1,5 @@
 import { useTheme } from "../state/ThemeProvider";
-import React from "react";
+import React, { useState } from "react";
 import { ActivityIndicator, Platform, View } from "react-native";
 import {
   usePathname,
@@ -15,6 +15,10 @@ import { useReducedMotion } from "react-native-reanimated";
 import { AppProvider, useApp } from "../state/AppProvider";
 import { fontAssets } from "../lib/fonts";
 import { BAKERY_KEY } from "../lib/menu";
+import {
+  BakeryThumbnailProvider,
+  useBakeryThumbnails,
+} from "../components/bakery-thumbnail";
 import { ToastHost } from "../components/ui";
 import { NutrientRain } from "../components/NutrientRain";
 import { ThemeProvider } from "../state/ThemeProvider";
@@ -33,7 +37,9 @@ function detailOptions({ route }: { route: { params?: object } }) {
 export default function RootLayout() {
   return (
     <ThemeProvider>
-      <ThemedRoot />
+      <BakeryThumbnailProvider>
+        <ThemedRoot />
+      </BakeryThumbnailProvider>
     </ThemeProvider>
   );
 }
@@ -57,6 +63,8 @@ function ThemedRoot() {
 function AppShell() {
   const pathname = usePathname();
   const bakeryMenu = pathname === `/kitchen/${BAKERY_KEY}`;
+  const [opensOnMenu] = useState(pathname === "/menu" || bakeryMenu);
+  const { pending: thumbnailsPending } = useBakeryThumbnails();
   const { colors, scheme } = useTheme();
   const reduced = useReducedMotion();
   const { ready, session, introComplete, toast } = useApp();
@@ -73,7 +81,7 @@ function AppShell() {
       notification: colors.accent,
     },
   };
-  if (!ready || introComplete === null)
+  if (!ready || introComplete === null || (opensOnMenu && thumbnailsPending))
     return (
       <View
         style={{
