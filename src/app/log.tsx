@@ -21,7 +21,11 @@ import { NutrientAmount } from "../components/nutrient-display";
 
 export default function LogFood() {
   const { session } = useApp();
-  const { food, edit } = useLocalSearchParams<{ food?: string; edit?: string }>();
+  const { food, edit, offering } = useLocalSearchParams<{
+    food?: string;
+    edit?: string;
+    offering?: string;
+  }>();
   if (!session) {
     if (edit || !food) return <Redirect href={edit ? "/nutrition" : "/menu"} />;
     return (
@@ -31,7 +35,11 @@ export default function LogFood() {
       />
     );
   }
-  return <FoodLogForm />;
+  return (
+    <FoodLogForm
+      key={JSON.stringify([session.user.id, edit, food, offering])}
+    />
+  );
 }
 
 function FoodLogForm() {
@@ -70,12 +78,13 @@ function FoodLogForm() {
     (!offering?.serving_options?.length || Boolean(size)) &&
     validChoices(offering, choices);
   const servings = previous?.servings ?? 1;
-  const [period, setPeriod] = useState(
-    previous?.meal_label ??
-      (["Breakfast", "Lunch", "Dinner", "Dessert", "Snack"].includes(meal ?? "")
-        ? meal!
-        : currentMeal()),
+  const [defaultPeriod] = useState(() =>
+    ["Breakfast", "Lunch", "Dinner", "Dessert", "Snack"].includes(meal ?? "")
+      ? meal!
+      : currentMeal(),
   );
+  const [chosenPeriod, setPeriod] = useState<string>();
+  const period = chosenPeriod ?? previous?.meal_label ?? defaultPeriod;
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [deleting, setDeleting] = useState(false);
@@ -83,7 +92,7 @@ function FoodLogForm() {
   if (!food)
     return (
       <>
-        <BackHeader />
+        {Platform.OS !== "ios" && <BackHeader />}
         <T style={s.inset}>
           {edit
             ? "Food log unavailable."
@@ -137,7 +146,9 @@ function FoodLogForm() {
       keyboardShouldPersistTaps="handled"
       contentContainerStyle={{ paddingBottom: 50 }}
     >
-      <BackHeader title={edit ? "Edit Your Food" : "A Bite for Your Day"} />
+      {Platform.OS !== "ios" && (
+        <BackHeader title={edit ? "Edit Your Food" : "A Bite for Your Day"} />
+      )}
       <View style={[s.inset, { gap: 19, paddingTop: 10 }]}>
         <View style={{ flexDirection: "row", alignItems: "center", gap: 15 }}>
           <View>
@@ -300,7 +311,10 @@ function FoodLogForm() {
             <Button
               secondary
               title="Keep my log"
-              onPress={() => setDeleting(false)}
+              onPress={() => {
+                setDeleting(false);
+                setSelectedReview(undefined);
+              }}
             />
           </View>
         )}

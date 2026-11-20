@@ -1,11 +1,10 @@
-import { router } from "expo-router";
 import { View, useWindowDimensions } from "react-native";
 import type { Offering } from "../lib/types";
 import { campusDate, displayName } from "../lib/domain";
 import { groupLimit, money, toggleChoice } from "../lib/menu-options";
 import { useApp } from "../state/AppProvider";
 import { useTheme } from "../state/ThemeProvider";
-import { ingredientArtwork } from "./ingredient-row";
+import { ingredientArtwork, useOpenIngredient } from "./ingredient-row";
 import { AssetImage, Icon, T, Tap } from "./ui";
 
 type Selection = {
@@ -27,6 +26,7 @@ export function MenuOptions({
   serviceDate?: string;
 }) {
   const { catalog } = useApp();
+  const openIngredient = useOpenIngredient();
   const { s } = useTheme();
   const { width, fontScale } = useWindowDimensions();
   const columns = width < 360 || fontScale > 1.3 ? "100%" : "48%";
@@ -84,6 +84,7 @@ export function MenuOptions({
               style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}
             >
               {group.options.map((option) => {
+                const componentId = option.component_id;
                 const checked = selection.choices.includes(option.key);
                 const unavailable =
                   serviceDate && option.observed_unavailable_on === serviceDate;
@@ -105,7 +106,11 @@ export function MenuOptions({
                           : "Unavailable when this menu was checked"
                         : undefined
                     }
-                    componentId={showDetails ? option.component_id : undefined}
+                    onShowDetails={
+                      showDetails && componentId
+                        ? () => openIngredient(componentId)
+                        : undefined
+                    }
                     single={single}
                     checked={checked}
                     disabled={
@@ -136,7 +141,7 @@ function OptionTile({
   price,
   artwork,
   detail,
-  componentId,
+  onShowDetails,
   single,
   checked,
   disabled,
@@ -147,7 +152,7 @@ function OptionTile({
   price?: string;
   artwork?: ReturnType<typeof ingredientArtwork>;
   detail?: string;
-  componentId?: string;
+  onShowDetails?: () => void;
   single: boolean;
   checked: boolean;
   disabled?: boolean;
@@ -209,7 +214,7 @@ function OptionTile({
                   flex: 1,
                   fontSize: 14,
                   fontWeight: "600",
-                  marginRight: componentId ? 22 : 0,
+                  marginRight: onShowDetails ? 22 : 0,
                 }}
               >
                 {name}
@@ -238,18 +243,13 @@ function OptionTile({
           {detail && <T style={s.caption}>{detail}</T>}
         </View>
       </Tap>
-      {componentId && (
+      {onShowDetails && (
         <Tap
           padding="none"
           highlightRadius={22}
           style={{ position: "absolute", top: 0, right: 0 }}
           accessibilityLabel={`View ingredient details for ${name}`}
-          onPress={() =>
-            router.push({
-              pathname: "/component/[id]",
-              params: { id: componentId },
-            })
-          }
+          onPress={onShowDetails}
         >
           <View
             style={{

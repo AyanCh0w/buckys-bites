@@ -19,6 +19,16 @@ import { ToastHost } from "../components/ui";
 import { ThemeProvider } from "../state/ThemeProvider";
 import Stack from "../components/navigation-stack";
 import { GoalEstimateDraftProvider } from "../state/GoalEstimateDraftProvider";
+
+function detailOptions({ route }: { route: { params?: object } }) {
+  const modal =
+    (route.params as { presentation?: string } | undefined)?.presentation ===
+    "modal";
+  return {
+    presentation: modal ? "modal" : "card",
+    headerShown: Platform.OS === "ios",
+  } as const;
+}
 export default function RootLayout() {
   return (
     <ThemeProvider>
@@ -48,7 +58,7 @@ function AppShell() {
   const bakeryMenu = pathname === `/kitchen/${BAKERY_KEY}`;
   const { colors, scheme } = useTheme();
   const reduced = useReducedMotion();
-  const { ready, userId, session, profileStatus, introComplete } = useApp();
+  const { ready, session, introComplete } = useApp();
   const baseTheme = scheme === "dark" ? DarkTheme : DefaultTheme;
   const navigationTheme = {
     ...baseTheme,
@@ -62,13 +72,7 @@ function AppShell() {
       notification: colors.accent,
     },
   };
-  // Keep a requested contribution mounted while its new session loads.
-  const contribution = pathname === "/log" || pathname === "/review";
-  if (
-    !ready ||
-    introComplete === null ||
-    (!contribution && introComplete && userId && profileStatus === "loading")
-  )
+  if (!ready || introComplete === null)
     return (
       <View
         style={{
@@ -113,8 +117,8 @@ function AppShell() {
         >
           <Stack.Protected guard={introComplete}>
             <Stack.Screen name="(tabs)" />
-            <Stack.Screen name="dish/[id]" />
-            <Stack.Screen name="component/[id]" />
+            <Stack.Screen name="dish/[id]" options={detailOptions} />
+            <Stack.Screen name="component/[id]" options={detailOptions} />
             <Stack.Screen
               name="settings"
               options={{
@@ -137,18 +141,27 @@ function AppShell() {
             <Stack.Screen name="nutrients" />
             <Stack.Screen
               name="log"
-              options={{
+              options={({ route }) => ({
                 presentation: Platform.OS === "web" ? "modal" : "formSheet",
+                headerShown: Platform.OS === "ios" && Boolean(session),
+                title: (route.params as { edit?: string } | undefined)?.edit
+                  ? "Edit Your Food"
+                  : "A Bite for Your Day",
+                headerBackButtonDisplayMode: "minimal",
+                headerShadowVisible: false,
+                headerTintColor: colors.ink,
+                headerTitleStyle: {
+                  fontFamily: "BDOGrotesk-Bold",
+                  fontSize: 28,
+                },
                 sheetGrabberVisible: true,
                 sheetAllowedDetents: [
                   Platform.OS === "ios" && !session ? 0.5 : 0.85,
                   1,
                 ],
                 sheetCornerRadius: 32,
-              }}
+              })}
             />
-          </Stack.Protected>
-          <Stack.Protected guard={introComplete && !session}>
             <Stack.Screen name="auth" />
           </Stack.Protected>
           <Stack.Protected guard={introComplete && Boolean(session)}>

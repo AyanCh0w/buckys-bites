@@ -1,6 +1,6 @@
 import { useTheme } from "../state/ThemeProvider";
 import { backOrReplace } from "../lib/navigation";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import {
   Linking,
   Platform,
@@ -10,7 +10,7 @@ import {
   View,
   useWindowDimensions,
 } from "react-native";
-import { router, useLocalSearchParams } from "expo-router";
+import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
 import { Art, BackHeader, Button, Icon, Input, T, Tap } from "../components/ui";
 import { useApp } from "../state/AppProvider";
 
@@ -22,12 +22,19 @@ import {
 } from "../lib/nutrition-goals";
 import { NUTRIENTS } from "../lib/domain";
 import type { Goals } from "../lib/types";
-import { AVATARS, avatarId } from "../lib/avatars";
+import { AVATARS, avatarId, type AvatarId } from "../lib/avatars";
 import { Avatar } from "../components/Avatar";
 
 const nutritionSections = {
   dietary: "Dietary Preferences",
   goals: "Nutritional Goals",
+};
+
+type PreferenceDraft = {
+  name?: string;
+  avatar?: AvatarId;
+  haptics?: boolean;
+  goals?: Record<string, string>;
 };
 
 function SignOutButton({ disabled = false }: { disabled?: boolean }) {
@@ -58,32 +65,62 @@ export default function Settings() {
   const { profileStatus, refreshProfile, notify, userId } = useApp();
   const { section = "profile" } = useLocalSearchParams<{ section: string }>();
   const { s } = useTheme();
+  const pendingSignIn = useRef<PreferenceDraft | undefined>(undefined);
+  useFocusEffect(
+    useCallback(() => {
+      // The new editor has consumed the draft, or the guest canceled sign-in.
+      if (!userId || profileStatus === "saved")
+        pendingSignIn.current = undefined;
+    }, [userId, profileStatus]),
+  );
   if (
     userId &&
-    profileStatus === "error" &&
+    profileStatus !== "saved" &&
     ["goals", "profile", "general", "dietary"].includes(section)
   ) {
     return (
       <View>
         <BackHeader />
-        <View style={[s.inset, { gap: 12 }]}>
-          <T>Your preferences couldn’t load.</T>
-          <Button
-            title="Try again"
-            onPress={() =>
-              refreshProfile().catch(() =>
-                notify("Couldn’t load your preferences."),
-              )
-            }
-          />
-          {section === "general" && <SignOutButton />}
-        </View>
+        {profileStatus === "loading" ? (
+          <T style={s.inset}>Loading preferences…</T>
+        ) : (
+          <View style={[s.inset, { gap: 12 }]}>
+            <T>Your preferences couldn’t load.</T>
+            <Button
+              title="Try again"
+              onPress={() =>
+                refreshProfile().catch(() =>
+                  notify("Couldn’t load your preferences."),
+                )
+              }
+            />
+            {section === "general" && <SignOutButton />}
+          </View>
+        )}
       </View>
     );
   }
-  return <SettingsForm key={`${userId}:${section}`} section={section} />;
+  return (
+    <SettingsForm
+      key={`${userId}:${section}`}
+      section={section}
+      initialDraft={userId ? pendingSignIn.current : undefined}
+      onSignIn={(draft) => {
+        pendingSignIn.current = draft;
+        router.push("/auth");
+      }}
+    />
+  );
 }
-function SettingsForm({ section }: { section: string }) {
+function SettingsForm({
+  section,
+  initialDraft,
+  onSignIn,
+}: {
+  section: string;
+  initialDraft?: PreferenceDraft;
+  onSignIn: (draft: PreferenceDraft) => void;
+}) {
   const { colors, s } = useTheme();
   const { setDraft } = useGoalEstimateDraft();
   const {
@@ -95,31 +132,24 @@ function SettingsForm({ section }: { section: string }) {
     requestAccountDeletion,
     notify,
   } = useApp();
-  const [name, setName] = useState(data.profile.display_name);
-  const [avatar, setAvatar] = useState(avatarId(data.profile.avatar_id));
+  const [editedName, setName] = useState(initialDraft?.name);
+  const [editedAvatar, setAvatar] = useState(initialDraft?.avatar);
+  const name = editedName ?? data.profile.display_name;
+  const avatar = editedAvatar ?? avatarId(data.profile.avatar_id);
   const { width } = useWindowDimensions();
-  const [goals, setGoals] = useState<Record<string, string>>(
-    Object.fromEntries(
-      Object.entries(data.profile.goals).map(([k, v]) => [k, String(v)]),
+  const [editedGoals, setGoals] = useState(initialDraft?.goals);
+  const goals = {
+    ...Object.fromEntries(
+      Object.entries(data.profile.goals).map(([key, value]) => [
+        key,
+        String(value),
+      ]),
     ),
-  );
-  const savedGoals = useRef(data.profile.goals);
-  useEffect(() => {
-    // A successful estimate updates the page underneath it. Returning without
-    // saving leaves every manual edit and the editor's scroll position intact.
-    if (savedGoals.current === data.profile.goals) return;
-    savedGoals.current = data.profile.goals;
-    setGoals(
-      Object.fromEntries(
-        Object.entries(data.profile.goals).map(([key, value]) => [
-          key,
-          String(value),
-        ]),
-      ),
-    );
-  }, [data.profile.goals]);
+    ...editedGoals,
+  };
   const [dietary, setDietary] = useState(data.profile.dietary);
-  const [haptics, setHaptics] = useState(data.profile.haptics);
+  const [editedHaptics, setHaptics] = useState(initialDraft?.haptics);
+  const haptics = editedHaptics ?? data.profile.haptics;
   const [deleting, setDeleting] = useState(false);
   const [confirm, setConfirm] = useState("");
   const [busy, setBusy] = useState(false);
@@ -335,7 +365,7 @@ function SettingsForm({ section }: { section: string }) {
               padding="none"
               highlightRadius={18}
               onPress={() => {
-                setDraft({ ...goals });
+                setDraft({ goals, onApplied: () => setGoals(undefined) });
                 router.push("/goal-estimate");
               }}
               accessibilityLabel="Estimate from my measurements"
@@ -391,9 +421,9 @@ function SettingsForm({ section }: { section: string }) {
                 onPress={() => {
                   setGoals(
                     Object.fromEntries(
-                      Object.entries(FDA_DAILY_VALUES).map(([key, value]) => [
+                      NUTRIENTS.map(({ key }) => [
                         key,
-                        String(value),
+                        String(FDA_DAILY_VALUES[key] ?? ""),
                       ]),
                     ),
                   );
@@ -471,7 +501,14 @@ function SettingsForm({ section }: { section: string }) {
             ) : (
               <Button
                 title="Sign in"
-                onPress={() => router.push("/auth")}
+                onPress={() =>
+                  onSignIn({
+                    name: editedName,
+                    avatar: editedAvatar,
+                    haptics: editedHaptics,
+                    goals: editedGoals,
+                  })
+                }
               />
             )}
           </>

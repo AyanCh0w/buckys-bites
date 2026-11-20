@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { router, useLocalSearchParams } from "expo-router";
+import { backOrReplace } from "../lib/navigation";
 import { Onboarding } from "../components/onboarding";
 import { useApp } from "../state/AppProvider";
 
@@ -10,7 +11,8 @@ export default function OnboardingScreen() {
   // Wait for the route guards to reflect the persisted completion before leaving.
   useEffect(() => {
     if (!leaving || !introComplete) return;
-    if (replay) router.dismissTo("/");
+    if (replay)
+      backOrReplace({ pathname: "/settings", params: { section: "general" } });
     else router.replace("/");
   }, [leaving, introComplete, replay]);
   return (

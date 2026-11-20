@@ -1,5 +1,5 @@
 import { useTheme } from "../../state/ThemeProvider";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FlatList, ScrollView, View } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import {
@@ -31,10 +31,6 @@ export default function Ratings() {
   const { data, catalog, userId, backendAvailable } = useApp();
   const [mode, setMode] = useState<FeedMode>("For You");
   const [period, setPeriod] = useState<TopPeriod>("Day");
-  const [filter, setFilter] = useState(dish ?? "");
-  useEffect(() => {
-    setFilter(dish ?? "");
-  }, [dish]);
   if (reviewId) {
     const selected = data.reviews.find(
       (review) => review.id === reviewId && hasReviewText(review),
@@ -55,7 +51,6 @@ export default function Ratings() {
             style={{ marginLeft: -12, alignSelf: "flex-start" }}
             accessibilityLabel="View all reviews"
             onPress={() => {
-              setFilter("");
               router.setParams({ reviewId: "", dish: "" });
             }}
           >
@@ -88,9 +83,9 @@ export default function Ratings() {
     userId,
   }).filter(
     (r) =>
-      !filter ||
+      !dish ||
       catalog.foods.some(
-        (f) => f.food_item_id === r.food_item_id && f.name === filter,
+        (f) => f.food_item_id === r.food_item_id && f.name === dish,
       ),
   );
   return (
@@ -113,9 +108,12 @@ export default function Ratings() {
           onMode={setMode}
           onPeriod={setPeriod}
         />
-        {Boolean(filter) && (
+        {Boolean(dish) && (
           <View style={{ marginTop: 14, alignSelf: "flex-start" }}>
-            <Chip title={filter + " ×"} onPress={() => setFilter("")} />
+            <Chip
+              title={dish + " ×"}
+              onPress={() => router.setParams({ dish: "" })}
+            />
           </View>
         )}
       </View>

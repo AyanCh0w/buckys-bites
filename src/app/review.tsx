@@ -2,7 +2,7 @@ import { useTheme } from "../state/ThemeProvider";
 import { backOrReplace } from "../lib/navigation";
 import React, { useState } from "react";
 import { Keyboard, Platform, ScrollView, View } from "react-native";
-import { useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import { useApp } from "../state/AppProvider";
 import { Art, BackHeader, Button, Icon, Input, T, Tap } from "../components/ui";
 import { FoodImage } from "../components/Food";
@@ -258,7 +258,12 @@ function ReviewForm({ food, previous }: { food: Food; previous?: Review }) {
           <Button
             secondary
             title="View dish"
-            onPress={() => backOrReplace("/ratings")}
+            onPress={() =>
+              router.push({
+                pathname: "/dish/[id]",
+                params: { id: food.id, presentation: "modal" },
+              })
+            }
           />
         )}
       </View>

@@ -1,4 +1,4 @@
-import { router } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import { View } from "react-native";
 import { assets } from "../data/assets";
 import { displayName } from "../lib/domain";
@@ -15,6 +15,15 @@ export function ingredientArtwork(catalog: Catalog, componentId?: string) {
   return key ? assets[key] : undefined;
 }
 
+export function useOpenIngredient() {
+  const { presentation } = useLocalSearchParams<{ presentation?: string }>();
+  return (id: string) =>
+    router.push({
+      pathname: "/component/[id]",
+      params: { id, ...(presentation === "modal" && { presentation }) },
+    });
+}
+
 export function IngredientRow({
   componentId,
   label,
@@ -25,6 +34,7 @@ export function IngredientRow({
   imageSize?: number;
 }) {
   const { catalog } = useApp();
+  const openIngredient = useOpenIngredient();
   const { colors } = useTheme();
   const name = displayName(label);
   const content = (
@@ -58,12 +68,7 @@ export function IngredientRow({
           style={{ marginHorizontal: -12, marginVertical: 4 }}
           contentStyle={{ paddingVertical: 0 }}
           accessibilityLabel={name}
-          onPress={() =>
-            router.push({
-              pathname: "/component/[id]",
-              params: { id: componentId },
-            })
-          }
+          onPress={() => openIngredient(componentId)}
         >
           {content}
         </Tap>

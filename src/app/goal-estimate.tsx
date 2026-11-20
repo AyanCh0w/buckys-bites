@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Platform, ScrollView, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { GoalEstimator } from "../components/goal-estimator";
@@ -12,10 +12,11 @@ import { useTheme } from "../state/ThemeProvider";
 export default function GoalEstimate() {
   const { colors, s } = useTheme();
   const insets = useSafeAreaInsets();
-  const { data, saveProfile, notify, profileStatus, refreshProfile } = useApp();
+  const { data, saveProfile, notify, profileStatus, refreshProfile, userId } =
+    useApp();
   const { draft, setDraft } = useGoalEstimateDraft();
+  useEffect(() => () => setDraft(null), [setDraft]);
   const close = () => {
-    setDraft(null);
     backOrReplace({ pathname: "/settings", params: { section: "goals" } });
   };
   return (
@@ -34,7 +35,9 @@ export default function GoalEstimate() {
       />
       <View style={[s.inset, { gap: 21, paddingTop: 14 }]}>
         {Platform.OS !== "ios" && <T style={s.title}>Estimate Your Goals</T>}
-        {profileStatus === "error" ? (
+        {userId && profileStatus === "loading" ? (
+          <T>Loading preferences…</T>
+        ) : profileStatus === "error" ? (
           <>
             <T>Your preferences couldn’t load.</T>
             <Button
@@ -54,7 +57,7 @@ export default function GoalEstimate() {
               for (const nutrient of NUTRIENTS) {
                 if (nutrient.key in estimated) continue;
                 const raw = draft
-                  ? draft[nutrient.key]?.trim()
+                  ? draft.goals[nutrient.key]?.trim()
                   : data.profile.goals[nutrient.key];
                 if (raw == null || raw === "") continue;
                 const value = Number(raw);
@@ -65,6 +68,7 @@ export default function GoalEstimate() {
                 saved[nutrient.key] = value;
               }
               await saveProfile({ ...data.profile, goals: saved });
+              draft?.onApplied();
               close();
               notify("Your estimated goals are saved");
             }}
