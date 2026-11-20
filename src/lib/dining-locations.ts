@@ -1,3 +1,5 @@
+import { kitchenHours } from "./availability";
+import { campusDate } from "./domain";
 import { matchesDietary } from "./discovery";
 import type { Catalog } from "./types";
 
@@ -62,6 +64,23 @@ export function locationCatalog(
       ids.has(offering.cafe_id),
     ),
   };
+}
+
+export function campusCafeStatus(catalog: Catalog, key: string, now: Date) {
+  const cafe = catalog.cafes.find((entry) => entry.source_key === key);
+  const services = catalog.services.filter(
+    (service) => service.cafe_id === cafe?.id,
+  );
+  const date = campusDate(now);
+  const today = services.filter((service) => service.service_date === date);
+  const closure = today.find((service) => service.status === "closed");
+  const hasMenu = today.some((service) => service.status === "published");
+  const hours = closure
+    ? { open: false, label: closure.closure_message ?? "Closed today" }
+    : hasMenu
+      ? kitchenHours(services, now)
+      : undefined;
+  return { closure, hasMenu, hours };
 }
 
 export function campusMenuEntries(

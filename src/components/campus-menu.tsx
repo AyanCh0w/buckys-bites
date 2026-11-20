@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { RefreshControl, View } from "react-native";
-import { kitchenHours } from "../lib/availability";
 import {
+  campusCafeStatus,
   campusMenuEntries,
   type DiningLocation,
 } from "../lib/dining-locations";
@@ -26,18 +26,11 @@ export function CampusMenu({
     return () => clearInterval(timer);
   }, []);
   const date = campusDate(now);
-  const services = useMemo(() => {
-    const cafe = catalog.cafes.find((c) => c.source_key === location.key);
-    return catalog.services.filter((service) => service.cafe_id === cafe?.id);
-  }, [catalog, location]);
-  const today = services.filter((service) => service.service_date === date);
-  const closure = today.find((service) => service.status === "closed");
-  const hasMenu = today.some((service) => service.status === "published");
-  const hours = closure
-    ? (closure.closure_message ?? "Closed today")
-    : hasMenu
-      ? kitchenHours(services, now).label
-      : undefined;
+  const { closure, hasMenu, hours } = campusCafeStatus(
+    catalog,
+    location.key,
+    now,
+  );
   const items = useMemo(
     () =>
       campusMenuEntries(catalog, location.key, date, data.profile.dietary).map(
@@ -72,6 +65,7 @@ export function CampusMenu({
     <CafeMenu
       tab
       collage
+      closed={hours?.open === false}
       items={items}
       categoryHref={(category) => ({
         pathname: "/cafe/[key]/[category]",
@@ -85,7 +79,7 @@ export function CampusMenu({
         </T>
         <T style={s.caption}>
           {location.building}
-          {hours ? ` · ${hours}` : ""}
+          {hours ? ` · ${hours.label}` : ""}
         </T>
         {syncError && <T style={s.caption}>{syncError}</T>}
       </View>

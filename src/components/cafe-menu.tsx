@@ -121,6 +121,7 @@ export function CafeMenu({
   refreshControl,
   tab = false,
   collage = false,
+  closed = false,
   topInset = 0,
 }: {
   items: MenuItem[];
@@ -129,6 +130,7 @@ export function CafeMenu({
   refreshControl?: ScrollViewProps["refreshControl"];
   tab?: boolean;
   collage?: boolean;
+  closed?: boolean;
   topInset?: number;
 }) {
   const { colors, s } = useTheme();
@@ -210,22 +212,35 @@ export function CafeMenu({
                     fillRows && styles.grow,
                   ]}
                 >
-                  <CafeCategoryCover
-                    sources={covers}
-                    size={collage ? collageSize : coverSize}
-                    fallback={
-                      <Icon
-                        name="restaurant-outline"
-                        size={36}
-                        color={colors.faint}
-                      />
-                    }
-                  />
+                  <View style={{ opacity: closed ? 0.35 : 1 }}>
+                    <CafeCategoryCover
+                      sources={covers}
+                      size={collage ? collageSize : coverSize}
+                      fallback={
+                        <Icon
+                          name="restaurant-outline"
+                          size={36}
+                          color={colors.faint}
+                        />
+                      }
+                    />
+                  </View>
                   <View style={styles.categoryCopy}>
-                    <T style={styles.categoryName}>{label}</T>
+                    <T
+                      style={[
+                        styles.categoryName,
+                        closed && { color: colors.muted },
+                      ]}
+                    >
+                      {label}
+                    </T>
                     <T style={s.caption}>{count}</T>
                   </View>
-                  <Icon name="chevron-forward" size={16} color={colors.muted} />
+                  <Icon
+                    name="chevron-forward"
+                    size={16}
+                    color={closed ? colors.faint : colors.muted}
+                  />
                 </Tap>
               </Link>
             </MenuEntrance>
