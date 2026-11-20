@@ -16,8 +16,8 @@ import { useApp } from "../state/AppProvider";
 
 import { useGoalEstimateDraft } from "../state/GoalEstimateDraftProvider";
 import {
-  FDA_DAILY_VALUES,
-  dailyValuesReference,
+  ACTIVE_STUDENT_GOALS,
+  activeStudentReference,
   isDailyLimit,
 } from "../lib/nutrition-goals";
 import { NUTRIENTS } from "../lib/domain";
@@ -386,6 +386,12 @@ function SettingsForm({
               </View>
               <Icon name="chevron-forward" size={17} color={colors.accent} />
             </Tap>
+            <T style={s.caption}>
+              The active student preset starts at{" "}
+              {ACTIVE_STUDENT_GOALS.calories_kcal?.toLocaleString()} calories
+              and {ACTIVE_STUDENT_GOALS.protein_g} g of protein a day. Your
+              needs can change with growth and training.
+            </T>
             {NUTRIENTS.map((n) => (
               <View
                 key={n.key}
@@ -412,8 +418,7 @@ function SettingsForm({
               </View>
             ))}
             <T style={s.caption}>
-              Leave a field blank to track it without a target. General values
-              use a 2,000-calorie reference; your needs may differ.
+              Leave a field blank to track it without a target.
             </T>
             <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}>
               <Tap
@@ -423,20 +428,20 @@ function SettingsForm({
                     Object.fromEntries(
                       NUTRIENTS.map(({ key }) => [
                         key,
-                        String(FDA_DAILY_VALUES[key] ?? ""),
+                        String(ACTIVE_STUDENT_GOALS[key] ?? ""),
                       ]),
                     ),
                   );
                   setError("");
                 }}
               >
-                <T style={s.link}>Use general daily goals</T>
+                <T style={s.link}>Use active student goals</T>
               </Tap>
               <Tap
                 accessibilityRole="link"
-                onPress={() => Linking.openURL(dailyValuesReference)}
+                onPress={() => Linking.openURL(activeStudentReference)}
               >
-                <T style={s.caption}>About Daily Values</T>
+                <T style={s.caption}>Nutrition for young athletes</T>
               </Tap>
             </View>
           </>

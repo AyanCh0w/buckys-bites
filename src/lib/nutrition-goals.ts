@@ -1,12 +1,22 @@
-import type { Goals, Nutrient } from "./types";
+import type { Goals, Nutrient, Profile } from "./types";
 
-export const dailyValuesReference =
-  "https://www.fda.gov/food/nutrition-facts-label/daily-value-nutrition-and-supplement-facts-labels";
+export const activeStudentReference =
+  "https://www.sportsdietitians.com.au/wp-content/uploads/2020/07/Adolescent-Nutrition-Factsheeet.pdf";
 
-// FDA label reference values, not a personalized energy prescription. Only
-// include nutrients the app tracks as goals. Total sugar has no FDA Daily Value;
-// the 50 g added-sugars value must not be applied to the menu's total sugars.
-export const FDA_DAILY_VALUES: Readonly<Goals> = Object.freeze({
+// An example day for an active student. Protein uses 1.5 g/kg at a reference
+// weight of 70 kg. Carbs and fat supply the remaining energy, and fiber
+// follows the DRI density of 14 g per 1,000 kcal.
+export const ACTIVE_STUDENT_GOALS: Readonly<Goals> = Object.freeze({
+  calories_kcal: 2600,
+  protein_g: 105,
+  carbohydrate_g: 365,
+  total_fat_g: 80,
+  fiber_g: 36,
+  sodium_mg: 2300,
+  saturated_fat_g: 25,
+});
+
+const legacyDailyValues: Readonly<Goals> = {
   calories_kcal: 2000,
   protein_g: 50,
   carbohydrate_g: 275,
@@ -14,19 +24,26 @@ export const FDA_DAILY_VALUES: Readonly<Goals> = Object.freeze({
   fiber_g: 28,
   sodium_mg: 2300,
   saturated_fat_g: 20,
-});
+};
 
-// Older profiles started with no targets. Seed those once, while preserving
-// personal targets and an explicit choice to clear goals after initialization.
-export function goalsForProfile(
-  saved?: Goals | null,
-  initialized = false,
-): Goals {
-  return {
-    ...(saved && (initialized || Object.keys(saved).length > 0)
-      ? saved
-      : FDA_DAILY_VALUES),
-  };
+export function goalsForProfile(profile?: Partial<Profile> | null): Goals {
+  const goals = profile?.goals;
+  if (!goals || (!profile.goals_initialized && Object.keys(goals).length === 0))
+    return { ...ACTIVE_STUDENT_GOALS };
+
+  // Old automatic inserts contained just the goals and initialization flag.
+  // Explicit saves stored the full profile, even when the values matched.
+  if (
+    profile.goals_initialized &&
+    Object.keys(profile).length === 2 &&
+    Object.keys(goals).length === Object.keys(legacyDailyValues).length &&
+    Object.entries(legacyDailyValues).every(
+      ([key, value]) => goals[key as Nutrient] === value,
+    )
+  )
+    return { ...ACTIVE_STUDENT_GOALS };
+
+  return { ...goals };
 }
 
 export const activityLevels = [

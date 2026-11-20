@@ -277,10 +277,7 @@ export function AppProvider({ children }: React.PropsWithChildren) {
           ...initial.profile,
           ...(userId === "local" ? { dietary: d.profile.dietary } : {}),
           ...preferences,
-          goals: goalsForProfile(
-            preferences?.goals,
-            preferences?.goals_initialized,
-          ),
+          goals: goalsForProfile(preferences),
           goals_initialized: true,
           display_name:
             publicProfile?.display_name ??

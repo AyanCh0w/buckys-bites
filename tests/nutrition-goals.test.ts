@@ -1,15 +1,44 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  ACTIVE_STUDENT_GOALS,
   activityLevels,
   estimateFromMeasurements,
   estimateGoals,
-  FDA_DAILY_VALUES,
   goalsForProfile,
 } from "../src/lib/nutrition-goals";
 
-test("generic goals use FDA Daily Values without applying added sugar to total sugar", () => {
-  assert.deepEqual(FDA_DAILY_VALUES, {
+test("the active student preset supplies its energy from protein, carbs, and fat", () => {
+  const preset = goalsForProfile();
+  assert.deepEqual(preset, {
+    calories_kcal: 2600,
+    protein_g: 105,
+    carbohydrate_g: 365,
+    total_fat_g: 80,
+    fiber_g: 36,
+    sodium_mg: 2300,
+    saturated_fat_g: 25,
+  });
+  assert.equal(
+    4 * preset.protein_g + 4 * preset.carbohydrate_g + 9 * preset.total_fat_g,
+    preset.calories_kcal,
+  );
+});
+
+test("new and legacy empty profiles receive independent defaults; personal and cleared goals survive", () => {
+  const first = goalsForProfile();
+  const second = goalsForProfile(null);
+  first.calories_kcal = 2400;
+  assert.deepEqual(second, ACTIVE_STUDENT_GOALS);
+  assert.deepEqual(goalsForProfile({ goals: {} }), ACTIVE_STUDENT_GOALS);
+  assert.deepEqual(goalsForProfile({ goals: { protein_g: 100 } }), {
+    protein_g: 100,
+  });
+  assert.deepEqual(goalsForProfile({ goals: {}, goals_initialized: true }), {});
+});
+
+test("only the untouched FDA seed switches automatically to the active student preset", () => {
+  const goals = {
     calories_kcal: 2000,
     protein_g: 50,
     carbohydrate_g: 275,
@@ -17,23 +46,12 @@ test("generic goals use FDA Daily Values without applying added sugar to total s
     fiber_g: 28,
     sodium_mg: 2300,
     saturated_fat_g: 20,
-  });
-  assert.equal(Object.hasOwn(FDA_DAILY_VALUES, "sugar_g"), false);
-  // Editing a user's copied defaults cannot alter another user's starting goals.
-  const personal = { ...FDA_DAILY_VALUES, calories_kcal: 2200 };
-  assert.equal(personal.calories_kcal, 2200);
-  assert.equal(FDA_DAILY_VALUES.calories_kcal, 2000);
-});
-
-test("new and legacy empty profiles receive independent defaults; personal and intentionally cleared goals survive", () => {
-  const first = goalsForProfile();
-  const second = goalsForProfile(null);
-  assert.deepEqual(first, FDA_DAILY_VALUES);
-  first.calories_kcal = 2400;
-  assert.equal(second.calories_kcal, 2000);
-  assert.deepEqual(goalsForProfile({ protein_g: 100 }), { protein_g: 100 });
-  assert.deepEqual(goalsForProfile({}), FDA_DAILY_VALUES);
-  assert.deepEqual(goalsForProfile({}, true), {});
+  };
+  const seed = { goals, goals_initialized: true };
+  assert.deepEqual(goalsForProfile(seed), ACTIVE_STUDENT_GOALS);
+  assert.deepEqual(goalsForProfile({ ...seed, display_name: "Bronco" }), goals);
+  for (const edited of [{ ...goals, protein_g: 75 }, { ...goals, sugar_g: 60 }])
+    assert.deepEqual(goalsForProfile({ ...seed, goals: edited }), edited);
 });
 
 const measurements = {
