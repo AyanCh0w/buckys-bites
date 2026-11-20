@@ -1,7 +1,7 @@
 import AccountPrompt from "../components/account-prompt";
 import { useTheme } from "../state/ThemeProvider";
 import { backOrReplace } from "../lib/navigation";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Platform, ScrollView, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Redirect, useLocalSearchParams } from "expo-router";
@@ -64,8 +64,9 @@ function FoodLogForm() {
     size?: string;
     choices?: string;
   }>();
-  const { catalog, data, addFood, updateLog, deleteLog, notify } = useApp();
-  const previous = data.logs.find((l) => l.id === edit);
+  const { catalog, data, addFood, updateLog, deleteLog, notify, resolveId } =
+    useApp();
+  const previous = data.logs.find((l) => edit && l.id === resolveId(edit));
   const food = edit
     ? previous?.food
     : catalog.foods.find((f) => f.id === foodId);
@@ -90,7 +91,7 @@ function FoodLogForm() {
   );
   const [chosenPeriod, setPeriod] = useState<string>();
   const period = chosenPeriod ?? previous?.meal_label ?? defaultPeriod;
-  const [busy, setBusy] = useState(false);
+  const submitted = useRef(false);
   const [error, setError] = useState("");
   const [deleting, setDeleting] = useState(false);
   const [selectedReview, setSelectedReview] = useState<string | undefined>();
@@ -112,21 +113,24 @@ function FoodLogForm() {
     hasOptions || previous?.menu_selection
       ? menuNutritionNote(nutrition)
       : undefined;
-  const history = data.history.filter((h) => h.log_id === edit);
+  const history = data.history.filter(
+    (h) => edit && h.log_id === resolveId(edit),
+  );
   const reviews = data.reviews.filter(
     (r) => r.eating_id && history.some((h) => h.id === r.eating_id),
   );
-  const submit = async () => {
-    setBusy(true);
+  const submit = () => {
+    if (submitted.current) return;
+    submitted.current = true;
     setError("");
     try {
       if (previous) {
-        await updateLog(previous.id, previous.servings, period);
+        updateLog(previous.id, previous.servings, period);
         playHaptic("success");
         backOrReplace("/nutrition");
         notify("Food log updated");
       } else {
-        const id = await addFood(
+        const id = addFood(
           food,
           period,
           undefined,
@@ -146,8 +150,7 @@ function FoodLogForm() {
     } catch (e) {
       playHaptic("error");
       setError((e as Error).message);
-    } finally {
-      setBusy(false);
+      submitted.current = false;
     }
   };
   const form = (
@@ -281,26 +284,23 @@ function FoodLogForm() {
             ))}
             <Button
               title={
-                busy
-                  ? "Deleting…"
-                  : selectedReview
-                    ? "Delete log and selected review"
-                    : "Delete log only"
+                selectedReview
+                  ? "Delete log and selected review"
+                  : "Delete log only"
               }
-              disabled={busy}
               haptic={false}
-              onPress={async () => {
-                setBusy(true);
+              onPress={() => {
+                if (submitted.current) return;
+                submitted.current = true;
                 try {
-                  await deleteLog(edit!, selectedReview);
+                  deleteLog(edit!, selectedReview);
                   playHaptic("release");
                   backOrReplace("/nutrition");
                   notify("Food log deleted");
                 } catch (e) {
                   playHaptic("error");
                   setError((e as Error).message);
-                } finally {
-                  setBusy(false);
+                  submitted.current = false;
                 }
               }}
             />
@@ -347,14 +347,8 @@ function FoodLogForm() {
           )}
           {!deleting && (
             <Button
-              title={
-                busy
-                  ? "Saving…"
-                  : edit
-                    ? "Save changes"
-                    : "I ate this · Add to my food"
-              }
-              disabled={busy || (!previous && !valid)}
+              title={edit ? "Save changes" : "I ate this · Add to my food"}
+              disabled={!previous && !valid}
               onPress={submit}
               haptic={false}
             />

@@ -28,12 +28,12 @@ export default function Ratings() {
     dish?: string;
     reviewId?: string;
   }>();
-  const { data, catalog, userId, backendAvailable } = useApp();
+  const { data, catalog, userId, backendAvailable, resolveId } = useApp();
   const [mode, setMode] = useState<FeedMode>("For You");
   const [period, setPeriod] = useState<TopPeriod>("Day");
   if (reviewId) {
     const selected = data.reviews.find(
-      (review) => review.id === reviewId && hasReviewText(review),
+      (review) => review.id === resolveId(reviewId) && hasReviewText(review),
     );
     return (
       <FixedScreen tab title="Ratings">

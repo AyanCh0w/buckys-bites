@@ -37,7 +37,7 @@ export default function Menu() {
     refresh,
     syncError,
     profileStatus,
-    saveProfile,
+    toggleKitchenStar,
   } = useApp();
   const catalog = useMemo(
     () => browsingCatalog(fullCatalog, data.profile.dietary),
@@ -45,28 +45,10 @@ export default function Menu() {
   );
   const [now, setNow] = useState(new Date());
   const starred = data.profile.starred_kitchens ?? DEFAULT_STARRED_KITCHENS;
-  const [savingStar, setSavingStar] = useState(false);
-  const [starError, setStarError] = useState<string | null>(null);
   useEffect(() => {
     const timer = setInterval(() => setNow(new Date()), 30000);
     return () => clearInterval(timer);
   }, []);
-  const toggleStar = async (key: string) => {
-    const next = starred.includes(key)
-      ? starred.filter((value) => value !== key)
-      : [...starred, key];
-    setSavingStar(true);
-    setStarError(null);
-    try {
-      await saveProfile({ ...data.profile, starred_kitchens: next });
-      playHaptic(next.includes(key) ? "attach" : "release");
-    } catch {
-      playHaptic("error");
-      setStarError("Couldn’t save your starred kitchens. Try again.");
-    } finally {
-      setSavingStar(false);
-    }
-  };
   const kitchens = kitchenMenus(
     catalog,
     now,
@@ -119,14 +101,6 @@ export default function Menu() {
           />
         }
       >
-        {starError && (
-          <T
-            accessibilityRole="alert"
-            style={[s.caption, { color: colors.red }]}
-          >
-            {starError}
-          </T>
-        )}
         {!kitchens.length && (
           <EmptyState
             title="No Matching Meals"
@@ -217,8 +191,8 @@ export default function Menu() {
                   accessibilityLabel={`${isStarred ? "Unstar" : "Star"} ${kitchen.name}`}
                   haptic={false}
                   accessibilityState={{ selected: isStarred }}
-                  disabled={profileStatus !== "saved" || savingStar}
-                  onPress={() => void toggleStar(kitchen.key)}
+                  disabled={profileStatus !== "saved"}
+                  onPress={() => toggleKitchenStar(kitchen.key)}
                 >
                   <View style={s.iconButton}>
                     <Icon

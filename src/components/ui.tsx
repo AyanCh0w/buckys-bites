@@ -605,10 +605,11 @@ export function ToastHost() {
             <Tap
               haptic={toast.actionHaptic ? false : "tap"}
               onPress={async () => {
+                dismissToast();
                 try {
-                  await toast.onAction?.();
+                  const result = toast.onAction?.();
                   if (toast.actionHaptic) playHaptic(toast.actionHaptic);
-                  dismissToast();
+                  await result;
                 } catch (e) {
                   playHaptic("error");
                   notify((e as Error).message);

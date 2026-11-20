@@ -38,25 +38,16 @@ type PreferenceDraft = {
   goals?: Record<string, string>;
 };
 
-function SignOutButton({ disabled = false }: { disabled?: boolean }) {
-  const { session, signOut, notify } = useApp();
-  const [pending, setPending] = useState(false);
+function SignOutButton() {
+  const { session, signOut } = useApp();
   if (!session) return null;
   return (
     <Button
       secondary
-      title={pending ? "Signing out…" : "Sign out"}
-      disabled={disabled || pending}
-      onPress={async () => {
-        setPending(true);
-        try {
-          await signOut();
-          router.dismissTo("/");
-        } catch {
-          notify("Couldn’t sign out. Please try again.");
-        } finally {
-          setPending(false);
-        }
+      title="Sign out"
+      onPress={() => {
+        signOut();
+        router.dismissTo("/");
       }}
     />
   );
@@ -154,7 +145,6 @@ function SettingsForm({
   const haptics = editedHaptics ?? data.profile.haptics;
   const [deleting, setDeleting] = useState(false);
   const [confirm, setConfirm] = useState("");
-  const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const title =
     (
@@ -166,12 +156,11 @@ function SettingsForm({
         about: "About Bucky’s Bites",
       } as Record<string, string>
     )[section] ?? "Settings";
-  const save = async () => {
-    setBusy(true);
+  const save = () => {
     setError("");
     try {
       if (section === "dietary") {
-        await saveMealPreferences(dietary);
+        saveMealPreferences(dietary);
         playHaptic("success");
         notify("Dietary preferences saved");
         backOrReplace("/nutrition");
@@ -187,12 +176,11 @@ function SettingsForm({
             throw new Error("Goals must be positive numbers, or left blank.");
           parsed[n.key] = value;
         }
-        await saveProfile({ ...data.profile, goals: parsed });
+        saveProfile({ goals: parsed });
       } else if (section === "general") {
-        await saveProfile({ ...data.profile, haptics });
+        saveProfile({ haptics });
       } else {
-        await saveProfile({
-          ...data.profile,
+        saveProfile({
           display_name: name,
           avatar_id: avatar,
         });
@@ -203,8 +191,6 @@ function SettingsForm({
     } catch (e) {
       playHaptic("error");
       setError((e as Error).message);
-    } finally {
-      setBusy(false);
     }
   };
   const exportData = async () => {
@@ -428,7 +414,6 @@ function SettingsForm({
             </T>
             <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}>
               <Tap
-                disabled={busy}
                 onPress={() => {
                   setGoals(
                     Object.fromEntries(
@@ -505,12 +490,7 @@ function SettingsForm({
               </T>
             )}
             {userId || section === "dietary" ? (
-              <Button
-                title={busy ? "Saving…" : "Save preferences"}
-                haptic={false}
-                disabled={busy}
-                onPress={save}
-              />
+              <Button title="Save preferences" haptic={false} onPress={save} />
             ) : (
               <Button
                 title="Sign in"
@@ -526,7 +506,7 @@ function SettingsForm({
             )}
           </>
         )}
-        {section === "general" && <SignOutButton disabled={busy} />}
+        {section === "general" && <SignOutButton />}
         {section === "privacy" && (
           <>
             <T style={s.sectionTitle}>How Your Data Is Stored</T>
@@ -585,21 +565,19 @@ function SettingsForm({
                   autoCapitalize="characters"
                 />
                 <Button
-                  title={busy ? "Sending…" : "Submit deletion request"}
+                  title="Submit deletion request"
                   haptic={false}
-                  disabled={confirm !== "DELETE" || busy}
-                  onPress={async () => {
-                    setBusy(true);
+                  disabled={confirm !== "DELETE"}
+                  onPress={() => {
                     try {
-                      await requestAccountDeletion();
+                      requestAccountDeletion();
                       playHaptic("success");
                       setDeleting(false);
-                      notify("Your deletion request has been submitted");
+                      setConfirm("");
+                      notify("Submitting your deletion request…");
                     } catch (e) {
                       playHaptic("error");
                       setError((e as Error).message);
-                    } finally {
-                      setBusy(false);
                     }
                   }}
                 />

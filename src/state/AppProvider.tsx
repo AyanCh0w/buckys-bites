@@ -11,6 +11,16 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AppState, Platform } from "react-native";
 import { HapticContext, useHapticPlayer, type HapticCue } from "../lib/haptics";
 import type { Session } from "@supabase/supabase-js";
+import {
+  AccountMutations,
+  applyProfile,
+  insertLog,
+  putReview,
+  removeLog,
+  removeReview,
+  type AccountWrite,
+} from "./account-mutations";
+import { menuNutrition } from "../lib/menu-nutrition";
 import snapshot from "../data/catalog.json";
 import { supabase } from "../lib/supabase";
 import { accountSession } from "../lib/account-auth";
@@ -34,6 +44,9 @@ import type {
   Profile,
   Review,
 } from "../lib/types";
+
+let nextTemporaryId = 0;
+const temporaryId = () => `pending-${Date.now()}-${++nextTemporaryId}`;
 
 const initial: AppData = {
   submissions: [],
@@ -64,7 +77,20 @@ type Toast = {
   nutrientRain?: { logId: string; icons: string[] };
 };
 type ProfileStatus = "loading" | "saved" | "error";
+type PublicProfile = Pick<Profile, "display_name" | "avatar_id">;
+type Preferences = Omit<Partial<Profile>, keyof PublicProfile> & {
+  display_name?: never;
+  avatar_id?: never;
+};
+type ReviewDraft = {
+  foodItemId: string;
+  edit?: string;
+  stars: number;
+  comment: string;
+};
 type AppContext = {
+  reviewDraft: ReviewDraft | null;
+  signingOut: boolean;
   introComplete: boolean | null;
   finishIntro: () => Promise<void>;
   profileStatus: ProfileStatus;
@@ -82,27 +108,30 @@ type AppContext = {
   dismissToast: () => void;
   refresh: () => Promise<void>;
   refreshAccount: () => Promise<void>;
-  signOut: () => Promise<void>;
+  signOut: () => void;
+  resolveId: (id: string) => string;
   addFood: (
     food: Food,
     meal: string,
     eatenAt?: string,
     selection?: MenuSelection,
-  ) => Promise<string>;
-  updateLog: (id: string, servings: number, meal: string) => Promise<void>;
-  deleteLog: (id: string, reviewId?: string, undo?: boolean) => Promise<void>;
+  ) => string;
+  updateLog: (id: string, servings: number, meal: string) => void;
+  deleteLog: (id: string, reviewId?: string, undo?: boolean) => void;
   saveReview: (
     food: Food,
     stars: number,
     comment: string,
     id?: string,
-  ) => Promise<void>;
-  deleteReview: (id: string) => Promise<void>;
-  vote: (review: Review, direction: 1 | -1) => Promise<void>;
-  saveMealPreferences: (dietary: string[]) => Promise<void>;
-  saveProfile: (profile: Profile) => Promise<void>;
-  report: (id: string, reason: string) => Promise<void>;
-  requestAccountDeletion: () => Promise<void>;
+    recoverDraft?: (edit?: string) => void,
+  ) => void;
+  deleteReview: (id: string) => void;
+  vote: (review: Review, direction: 1 | -1) => void;
+  saveMealPreferences: (dietary: string[]) => void;
+  saveProfile: (changes: PublicProfile | Preferences) => void;
+  toggleKitchenStar: (key: string) => void;
+  report: (id: string, reason: string) => void;
+  requestAccountDeletion: () => void;
   userId: string | null;
 };
 const Context = createContext<AppContext | null>(null);
@@ -140,7 +169,11 @@ export function AppProvider({ children }: React.PropsWithChildren) {
     () => withBurgerBreadOptions(sourceCatalog),
     [sourceCatalog],
   );
-  const [data, setData] = useState<AppData>(initial);
+  const [data, renderData] = useState<AppData>(initial);
+  const [account] = useState(() => new AccountMutations(initial, renderData));
+  const setData = account.update;
+  const [reviewDraft, setReviewDraft] = useState<ReviewDraft | null>(null);
+  const [signingOut, setSigningOut] = useState(false);
   const [session, setSession] = useState<Session | null>(null);
   const [local, setLocal] = useState(false);
   const [ready, setReady] = useState(false);
@@ -323,57 +356,57 @@ export function AppProvider({ children }: React.PropsWithChildren) {
     };
   }, [ready, refreshProfile, notify]);
 
-  const reviewRequest = useRef(0);
-  const savedVotes = useRef<AppData["votes"]>({});
-  const pendingVotes = useRef(new Map<string, { target: number }>());
-  const refreshReviews = useCallback(async () => {
-    // The last pending write will fetch a fresh pair of totals and selections.
-    if (pendingVotes.current.size) return;
-    const request = ++reviewRequest.current;
-    const [reviews, selections] = await Promise.all([
+  const accountRequest = useRef(0);
+  const refreshAccount = useCallback(async () => {
+    if (account.pending) return;
+    const revision = account.revision;
+    const request = ++accountRequest.current;
+    const signedIn = Boolean(userId && userId !== "local");
+    const [reviews, selections, privateRows] = await Promise.all([
       selectAll("bites_public_reviews").catch(() => null),
-      userId && userId !== "local"
+      signedIn
         ? selectAll("bites_votes", "review_id,vote", "review_id").catch(
             () => null,
           )
         : Promise.resolve({ data: [] }),
+      signedIn
+        ? Promise.all([
+            selectAll("food_logs", "*,food:food_versions(*)"),
+            selectAll("bites_eating_history"),
+            supabase.from("favorites").select("food_item_id").then(checked),
+            selectAll("bites_review_submissions"),
+          ]).catch(() => null)
+        : null,
     ]);
-    if (request !== reviewRequest.current || identity.current !== userId)
+    // A response from before a tap (even one already confirmed) is stale.
+    if (
+      revision !== account.revision ||
+      request !== accountRequest.current ||
+      identity.current !== userId
+    )
       return;
     setBackendAvailable(!!reviews);
-    if (!reviews) return;
-    if (!selections) {
-      // Public reviews are still readable if the account's votes fail to load.
-      setData((d) => (d.reviews.length ? d : { ...d, reviews: reviews.data }));
-      throw new Error("Couldn’t refresh your review votes.");
-    }
-    const votes = Object.fromEntries(
-      selections.data.map((x) => [x.review_id, x.vote]),
-    );
-    savedVotes.current = { ...votes };
-    setData((d) => ({ ...d, reviews: reviews.data, votes }));
-  }, [userId]);
-
-  const refreshAccount = useCallback(async () => {
-    await refreshReviews();
-    const expected = session?.user.id;
-    if (!expected || identity.current !== expected) return;
-    const results = await Promise.all([
-      selectAll("food_logs", "*,food:food_versions(*)"),
-      selectAll("bites_eating_history"),
-      supabase.from("favorites").select("food_item_id"),
-      selectAll("bites_review_submissions"),
-    ]);
-    results.forEach(checked);
-    if (identity.current !== expected) return;
     setData((d) => ({
       ...d,
-      submissions: results[3].data ?? [],
-      logs: results[0].data as FoodLog[],
-      history: results[1].data ?? [],
-      favorites: (results[2].data ?? []).map((x) => x.food_item_id),
+      ...(reviews &&
+        (selections || !d.reviews.length) && { reviews: reviews.data }),
+      ...(reviews &&
+        selections && {
+          votes: Object.fromEntries(
+            selections.data.map((v) => [v.review_id, v.vote]),
+          ),
+        }),
+      ...(privateRows && {
+        logs: privateRows[0].data as FoodLog[],
+        history: privateRows[1].data,
+        favorites: (privateRows[2].data ?? []).map((x) => x.food_item_id),
+        submissions: privateRows[3].data,
+      }),
     }));
-  }, [session, refreshReviews]);
+    if (!selections) throw new Error("Couldn’t refresh your review votes.");
+    if (signedIn && !privateRows)
+      throw new Error("Couldn’t refresh your account.");
+  }, [account, setData, userId]);
 
   const catalogRefreshRunning = useRef(false);
   const refresh = useCallback(async () => {
@@ -468,20 +501,22 @@ export function AppProvider({ children }: React.PropsWithChildren) {
       (event, next) => {
         if (!alive) return;
         receivedAuthEvent = true;
-        const account = accountSession(next);
-        setSession(account);
+        const nextSession = accountSession(next);
+        setSession(nextSession);
         if (event === "SIGNED_OUT") setToast(null);
-        if (account || event === "SIGNED_OUT") setLocal(false);
+        if (nextSession || event === "SIGNED_OUT") setLocal(false);
         else if (event === "INITIAL_SESSION") setLocal(previewAccountEnabled);
         if (
-          (account && identity.current !== account.user.id) ||
-          (!account && identity.current && identity.current !== "local")
+          (nextSession && identity.current !== nextSession.user.id) ||
+          (!nextSession && identity.current && identity.current !== "local")
         ) {
-          reviewRequest.current++;
-          pendingVotes.current.clear();
-          savedVotes.current = {};
+          setToast(null);
+          profileRequest.current++;
+          setSigningOut(false);
+          identity.current = nextSession?.user.id ?? null;
           setLoadedProfile(null);
-          setData(initial);
+          setReviewDraft(null);
+          account.reset(initial);
         }
       },
     );
@@ -506,242 +541,448 @@ export function AppProvider({ children }: React.PropsWithChildren) {
       sub.remove();
       clearInterval(checkDay);
     };
-  }, [refresh]);
+  }, [refresh, account]);
   useEffect(() => {
     if (ready) void refreshAccount().catch((e) => notify(e.message));
   }, [ready, refreshAccount, notify]);
-  const signOut = async () => {
-    const { error } = await supabase.auth.signOut({ scope: "local" });
-    // Local sign-out can clear the device session before server revocation fails.
-    if (error && (await supabase.auth.getSession()).data.session) throw error;
+  const enqueue = (
+    write: Omit<AccountWrite, "failed">,
+    failure: string,
+    recoverDraft?: () => void,
+  ) => {
+    if (identity.current !== userId || signingOut)
+      throw new Error(
+        "Your account is changing. Please try again in a moment.",
+      );
+    account.enqueue(
+      {
+        ...write,
+        failed: (error) => {
+          playHaptic("error");
+          const detail = error instanceof Error ? error.message : "";
+          notify(
+            detail ? `${failure} ${detail}` : failure,
+            recoverDraft
+              ? { action: "Edit", onAction: recoverDraft }
+              : undefined,
+          );
+        },
+      },
+      () => {
+        if (identity.current === userId) void refreshAccount().catch(() => {});
+      },
+    );
   };
-  const refreshAfterMutation = async () => {
-    try {
-      await refreshAccount();
-    } catch {
-      notify("Saved. Your account will refresh when you reconnect.");
-    }
+  const resolveId = account.resolveId;
+  const serverId = (id: string) => {
+    const resolved = resolveId(id);
+    if (resolved.startsWith("pending-"))
+      throw new Error("The original item couldn’t be saved.");
+    return resolved;
   };
-  const addFood = async (
-    food: Food,
-    meal: string,
+  const signOut = () => {
+    if (!session || signingOut || identity.current !== session.user.id) return;
+    setSigningOut(true);
+    setToast(null);
+    // Finish already accepted writes using their original session.
+    enqueue(
+      {
+        apply: (d) => d,
+        persist: async () => {
+          try {
+            const { error } = await supabase.auth.signOut({ scope: "local" });
+            if (error && (await supabase.auth.getSession()).data.session)
+              throw error;
+          } finally {
+            if (identity.current === userId) setSigningOut(false);
+          }
+        },
+      },
+      "Couldn’t sign out.",
+    );
+  };
+  const addFood: AppContext["addFood"] = (
+    food,
+    meal,
     eatenAt = new Date().toISOString(),
-    selection?: MenuSelection,
+    selection,
   ) => {
     if (!session) throw new Error("Sign in to save your food online.");
-    const time = new Date(eatenAt).getTime();
+    const time = Date.parse(eatenAt);
     if (
       !Number.isFinite(time) ||
       time > Date.now() ||
       time < Date.now() - 30 * 86400000
     )
       throw new Error("Choose an eating time in the past 30 days.");
+    const id = temporaryId();
+    const offering =
+      selection &&
+      catalog.offerings.find(
+        (o) => o.id === selection.offering_id && o.food_version_id === food.id,
+      );
+    if (selection && !offering)
+      throw new Error("This dish option is unavailable.");
+    const log: FoodLog = {
+      id,
+      user_id: session.user.id,
+      food_version_id: food.id,
+      eaten_at: eatenAt,
+      local_date: campusDate(eatenAt),
+      meal_label: meal,
+      servings: 1,
+      food: selection
+        ? menuNutrition(
+            food,
+            offering,
+            catalog.components,
+            selection.size,
+            selection.choices,
+          )
+        : food,
+      menu_selection: selection && {
+        offering_id: selection.offering_id,
+        size: selection.size,
+        choices: (offering?.modifier_groups ?? []).flatMap((group) =>
+          group.options
+            .filter((option) => selection.choices.includes(option.key))
+            .map((option) => ({ group: group.name, label: option.label })),
+        ),
+      },
+    };
     const details = { p_servings: 1, p_meal: meal, p_eaten_at: eatenAt };
-    const result = checked(
-      selection
-        ? await supabase.rpc("bites_log_configured_food", {
-            ...details,
-            p_offering_id: selection.offering_id,
-            p_size: selection.size ?? null,
-            p_choices: selection.choices,
-          })
-        : await supabase.rpc("bites_log_food", {
-            ...details,
-            p_food_version_id: food.id,
-          }),
+    enqueue(
+      {
+        temporaryId: id,
+        apply: (d) =>
+          insertLog(d, { ...log, id: resolveId(id) }, id + "-eating"),
+        persist: async () =>
+          checked(
+            selection
+              ? await supabase.rpc("bites_log_configured_food", {
+                  ...details,
+                  p_offering_id: selection.offering_id,
+                  p_size: selection.size ?? null,
+                  p_choices: selection.choices,
+                })
+              : await supabase.rpc("bites_log_food", {
+                  ...details,
+                  p_food_version_id: food.id,
+                }),
+          ).data as string,
+      },
+      "Couldn’t add your food.",
     );
-    await refreshAfterMutation();
-    return result.data as string;
+    return id;
   };
-  const updateLog = async (logId: string, servings: number, meal: string) => {
+  const updateLog: AppContext["updateLog"] = (id, servings, meal) => {
     if (!session) throw new Error("Sign in to update your food log.");
     if (!(servings > 0 && servings <= 100))
       throw new Error("Enter a valid portion.");
-    checked(
-      await supabase.rpc("bites_update_log", {
-        p_log_id: logId,
-        p_servings: servings,
-        p_meal: meal,
-      }),
+    enqueue(
+      {
+        apply: (d) => ({
+          ...d,
+          logs: d.logs.map((l) =>
+            l.id === resolveId(id) ? { ...l, servings, meal_label: meal } : l,
+          ),
+          history: d.history.map((h) =>
+            h.log_id === resolveId(id) ? { ...h, meal_label: meal } : h,
+          ),
+        }),
+        persist: async () => {
+          checked(
+            await supabase.rpc("bites_update_log", {
+              p_log_id: serverId(id),
+              p_servings: servings,
+              p_meal: meal,
+            }),
+          );
+        },
+      },
+      "Couldn’t update your food log.",
     );
-    await refreshAfterMutation();
   };
-  const deleteLog = async (logId: string, reviewId?: string, undo = false) => {
+  const deleteLog: AppContext["deleteLog"] = (id, reviewId, undo = false) => {
     if (!session) throw new Error("Sign in to update your food log.");
-    checked(
-      await supabase.rpc("bites_delete_log", {
-        p_log_id: logId,
-        p_review_id: reviewId ?? null,
-        p_undo: undo,
-      }),
+    enqueue(
+      {
+        apply: (d) =>
+          removeLog(d, resolveId(id), reviewId && resolveId(reviewId), undo),
+        persist: async () => {
+          // Undoing a failed add has already achieved the requested state.
+          if (undo && resolveId(id).startsWith("pending-")) return;
+          checked(
+            await supabase.rpc("bites_delete_log", {
+              p_log_id: serverId(id),
+              p_review_id: reviewId ? serverId(reviewId) : null,
+              p_undo: undo,
+            }),
+          );
+        },
+      },
+      undo
+        ? "Couldn’t undo adding your food."
+        : "Couldn’t delete your food log.",
     );
-    await refreshAfterMutation();
   };
-  const saveReview = async (
-    food: Food,
-    stars: number,
-    comment: string,
-    reviewId?: string,
+  const saveReview: AppContext["saveReview"] = (
+    food,
+    stars,
+    comment,
+    reviewId,
+    recoverDraft,
   ) => {
     if (!session) throw new Error("Sign in to publish a review.");
     if (!Number.isInteger(stars) || stars < 1 || stars > 5)
       throw new Error("Choose 1–5 Bucky stars.");
     if (comment.length > 2000)
       throw new Error("Keep your review under 2,000 characters.");
-    const eligible = reviewEligibility(
-      data.history,
-      data.reviews,
-      session.user.id,
-      food.food_item_id,
-      new Date(),
-      reviewId,
-      data.submissions,
-    );
+    const owner = session.user.id;
+    const now = new Date();
+    const eligibility = (d: AppData) =>
+      reviewEligibility(
+        d.history,
+        d.reviews,
+        owner,
+        food.food_item_id,
+        now,
+        reviewId,
+        d.submissions,
+      );
+    const eligible = eligibility(account.current);
     if (!eligible.eligible) throw new Error(eligible.reason);
-    checked(
-      await supabase.rpc("bites_save_review", {
-        p_food_item_id: food.food_item_id,
-        p_stars: stars,
-        p_comment: comment,
-        p_review_id: reviewId ?? null,
-      }),
+    if (
+      reviewId &&
+      !account.current.reviews.some(
+        (review) =>
+          review.id === resolveId(reviewId) &&
+          review.user_id === owner &&
+          review.food_item_id === food.food_item_id,
+      )
+    )
+      throw new Error("This review is unavailable.");
+    const id = reviewId ?? temporaryId();
+    setReviewDraft(null);
+    enqueue(
+      {
+        temporaryId: reviewId ? undefined : id,
+        apply: (d) => {
+          const eating = eligibility(d).eating;
+          const prior = d.reviews.find((r) => r.id === resolveId(id));
+          if (!eating || (reviewId && !prior)) return d;
+          return putReview(d, {
+            id: resolveId(id),
+            user_id: owner,
+            food_item_id: food.food_item_id,
+            created_at: now.toISOString(),
+            upvotes: 0,
+            downvotes: 0,
+            score: 0,
+            karma: d.reviews.find((r) => r.user_id === owner)?.karma ?? 0,
+            ...prior,
+            updated_at: now.toISOString(),
+            eating_id: eating.id,
+            eaten_at: eating.eaten_at,
+            meal_label: eating.meal_label,
+            display_name: d.profile.display_name,
+            avatar_id: d.profile.avatar_id,
+            stars,
+            comment: comment.trim() || null,
+          });
+        },
+        persist: async () =>
+          checked(
+            await supabase.rpc("bites_save_review", {
+              p_food_item_id: food.food_item_id,
+              p_stars: stars,
+              p_comment: comment,
+              p_review_id: reviewId ? serverId(reviewId) : null,
+            }),
+          ).data as string,
+      },
+      "Couldn’t save your review.",
+      recoverDraft &&
+        (() => {
+          const edit =
+            reviewId &&
+            account.current.reviews.find((r) => r.id === resolveId(reviewId))
+              ?.id;
+          setReviewDraft({
+            foodItemId: food.food_item_id,
+            edit,
+            stars,
+            comment,
+          });
+          recoverDraft(edit);
+        }),
     );
-    await refreshAfterMutation();
   };
-  const deleteReview = async (reviewId: string) => {
+  const deleteReview = (id: string) => {
     if (!session) throw new Error("Sign in to delete your review.");
-    checked(await supabase.from("bites_reviews").delete().eq("id", reviewId));
-    await refreshAfterMutation();
+    enqueue(
+      {
+        apply: (d) => removeReview(d, resolveId(id)),
+        persist: async () => {
+          checked(
+            await supabase
+              .from("bites_reviews")
+              .delete()
+              .eq("id", serverId(id)),
+          );
+        },
+      },
+      "Couldn’t delete your review.",
+    );
   };
-  const vote = async (review: Review, direction: 1 | -1) => {
+  const vote: AppContext["vote"] = (review, direction) => {
     if (!session || identity.current !== session.user.id) return;
-    const id = review.id;
-    const pending = pendingVotes.current.get(id);
-    const current = pending?.target ?? savedVotes.current[id] ?? 0;
-    const next = current === direction ? 0 : direction;
+    const next = account.current.votes[review.id] === direction ? 0 : direction;
     if (next) {
-      const reason = voteEligibility(data.history, review, session.user.id);
+      const reason = voteEligibility(
+        account.current.history,
+        review,
+        session.user.id,
+      );
       if (reason) {
         playHaptic("error");
         throw new Error(reason);
       }
     }
-    reviewRequest.current++;
-    setData((d) => applyReviewVote(d, review, next));
-    playHaptic(next ? "attach" : "release");
-    if (pending) {
-      pending.target = next;
-      return;
-    }
-
-    // One writer per review. Taps during a save replace its next target.
-    const write = { target: next };
-    pendingVotes.current.set(id, write);
-    const isCurrent = () => pendingVotes.current.get(id) === write;
-    try {
-      for (;;) {
-        const target = write.target;
-        try {
+    enqueue(
+      {
+        apply: (d) => applyReviewVote(d, review, next),
+        voteKey: review.id,
+        persist: async () => {
           checked(
             await supabase.rpc("bites_vote", {
-              p_review_id: id,
-              p_vote: target,
+              p_review_id: serverId(review.id),
+              p_vote: next,
             }),
           );
-        } catch (error) {
-          if (!isCurrent()) return;
-          if (write.target !== target) continue;
-          const confirmed = savedVotes.current[id] ?? 0;
-          setData((d) => applyReviewVote(d, review, confirmed));
-          playHaptic("error");
-          throw error;
-        }
-        if (!isCurrent()) return;
-        savedVotes.current[id] = target;
-        if (write.target === target) return;
-      }
-    } finally {
-      if (isCurrent()) {
-        pendingVotes.current.delete(id);
-        void refreshReviews().catch((e) => notify(e.message));
-      }
-    }
+        },
+      },
+      "Couldn’t save your vote.",
+    );
+    playHaptic(next ? "attach" : "release");
   };
-  const saveProfile = async (profile: Profile) => {
+  const changeProfile = (
+    patch: (profile: Profile) => PublicProfile | Preferences,
+  ) => {
     if (!userId) throw new Error("Sign in to save preferences.");
     if (profileStatus !== "saved")
       throw new Error("Load your saved preferences before editing.");
-    if (!profile.display_name.trim() || profile.display_name.length > 40)
-      throw new Error("Use a display name of 1–40 characters.");
-    if (!isAvatarId(profile.avatar_id))
-      throw new Error("Choose one of the eight Bucky avatars.");
-    profile = {
-      ...profile,
-      goals_initialized: true,
-      display_name: profile.display_name.trim(),
-      avatar_id: avatarId(profile.avatar_id),
-    };
-    if (!local) {
-      checked(
-        await supabase.from("bites_profiles").upsert({
-          id: userId,
-          display_name: profile.display_name,
-          avatar_id: profile.avatar_id,
-        }),
-      );
-      checked(
-        await supabase
-          .from("bites_preferences")
-          .upsert({ user_id: userId, preferences: profile }),
-      );
-    } else {
-      await AsyncStorage.setItem(LOCAL_KEY, JSON.stringify(profile));
-    }
-    if (identity.current !== userId) return;
+    const apply = (d: AppData) => applyProfile(d, userId, patch(d.profile));
     profileRequest.current++;
-    setData((d) => ({
-      ...d,
-      profile,
-      reviews: d.reviews.map((r) =>
-        r.user_id === userId
-          ? {
-              ...r,
-              display_name: profile.display_name,
-              avatar_id: profile.avatar_id,
-            }
-          : r,
-      ),
-    }));
-  };
-  const saveMealPreferences = async (dietary: string[]) => {
-    const selected = dietary.filter((x) => ["Vegetarian", "Vegan"].includes(x));
-    if (userId) await saveProfile({ ...data.profile, dietary: selected });
-    else {
-      await AsyncStorage.setItem(DIETARY_KEY, JSON.stringify(selected));
-      setData((d) => ({ ...d, profile: { ...d.profile, dietary: selected } }));
-    }
-  };
-  const report = async (reviewId: string, reason: string) => {
-    if (!session) throw new Error("Sign in to report a review.");
-    checked(
-      await supabase
-        .from("bites_reports")
-        .upsert(
-          { user_id: userId, review_id: reviewId, reason },
-          { onConflict: "user_id,review_id" },
-        ),
+    enqueue(
+      {
+        apply,
+        persist: async (confirmed) => {
+          const changes = patch(confirmed.profile);
+          const profile = { ...confirmed.profile, ...changes };
+          if (local) {
+            await AsyncStorage.setItem(LOCAL_KEY, JSON.stringify(profile));
+          } else if (changes.display_name !== undefined) {
+            checked(
+              await supabase.from("bites_profiles").upsert({
+                id: userId,
+                display_name: profile.display_name,
+                avatar_id: profile.avatar_id,
+              }),
+            );
+          } else {
+            checked(
+              await supabase.from("bites_preferences").upsert({
+                user_id: userId,
+                preferences: profile,
+              }),
+            );
+          }
+          if (identity.current === userId) profileRequest.current++;
+        },
+      },
+      "Couldn’t save your preferences.",
     );
   };
-  const requestAccountDeletion = async () => {
+  const saveProfile: AppContext["saveProfile"] = (changes) => {
+    if (changes.display_name !== undefined) {
+      if (!changes.display_name.trim() || changes.display_name.length > 40)
+        throw new Error("Use a display name of 1–40 characters.");
+      if (!isAvatarId(changes.avatar_id))
+        throw new Error("Choose one of the eight Bucky avatars.");
+      changes = { ...changes, display_name: changes.display_name.trim() };
+    }
+    changeProfile(() => changes);
+  };
+  const toggleKitchenStar = (key: string) => {
+    if (profileStatus !== "saved") return;
+    const selected = !(
+      account.current.profile.starred_kitchens ?? DEFAULT_STARRED_KITCHENS
+    ).includes(key);
+    changeProfile((profile) => {
+      const keys = profile.starred_kitchens ?? DEFAULT_STARRED_KITCHENS;
+      return {
+        starred_kitchens: selected
+          ? [...new Set([...keys, key])]
+          : keys.filter((other) => other !== key),
+      };
+    });
+    playHaptic(selected ? "attach" : "release");
+  };
+  const saveMealPreferences = (dietary: string[]) => {
+    const selected = dietary.filter((x) => ["Vegetarian", "Vegan"].includes(x));
+    if (userId) return saveProfile({ dietary: selected });
+    enqueue(
+      {
+        apply: (d) => applyProfile(d, null, { dietary: selected }),
+        persist: () =>
+          AsyncStorage.setItem(DIETARY_KEY, JSON.stringify(selected)),
+      },
+      "Couldn’t save your dietary preferences.",
+    );
+  };
+  const report = (id: string, reason: string) => {
+    if (!session) throw new Error("Sign in to report a review.");
+    enqueue(
+      {
+        apply: (d) => d,
+        persist: async () => {
+          checked(
+            await supabase
+              .from("bites_reports")
+              .upsert(
+                { user_id: userId, review_id: serverId(id), reason },
+                { onConflict: "user_id,review_id" },
+              ),
+          );
+        },
+      },
+      "Couldn’t submit your report.",
+    );
+  };
+  const requestAccountDeletion = () => {
     if (!session) throw new Error("Sign in to request account deletion.");
-    checked(await supabase.rpc("bites_request_account_deletion"));
+    enqueue(
+      {
+        apply: (d) => d,
+        persist: async () => {
+          checked(await supabase.rpc("bites_request_account_deletion"));
+          if (identity.current === userId)
+            notify("Your deletion request has been submitted");
+        },
+      },
+      "Couldn’t submit your deletion request.",
+    );
   };
   return (
     <Context.Provider
       value={{
         catalog,
-        data,
-        session,
+        data: signingOut ? initial : data,
+        signingOut,
+        reviewDraft: signingOut ? null : reviewDraft,
+        session: signingOut ? null : session,
+        resolveId,
         local,
         ready,
         backendAvailable,
@@ -760,14 +1001,15 @@ export function AppProvider({ children }: React.PropsWithChildren) {
         deleteReview,
         vote,
         saveProfile,
+        toggleKitchenStar,
         introComplete,
         finishIntro,
         refreshProfile,
-        profileStatus,
+        profileStatus: signingOut ? "loading" : profileStatus,
         saveMealPreferences,
         report,
         requestAccountDeletion,
-        userId,
+        userId: signingOut ? null : userId,
       }}
     >
       <HapticContext.Provider value={playHaptic}>

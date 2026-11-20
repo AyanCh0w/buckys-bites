@@ -56,7 +56,7 @@ export default function DishDetail() {
     offering?: string;
     log?: string;
   }>();
-  const { catalog, data, userId, session } = useApp();
+  const { catalog, data, userId, session, resolveId } = useApp();
   const { height, width } = useWindowDimensions();
   const [section, setSection] = useState("Reviews");
   const [draft, setDraft] = useState<MenuSelection>();
@@ -69,7 +69,16 @@ export default function DishDetail() {
     scroll.current?.scrollTo({ y: 0, animated: false });
   }, [id, logId, offeringId]);
   const logged = logId
-    ? data.logs.find((entry) => entry.id === logId)
+    ? data.logs.find(
+        (entry) =>
+          entry.id === resolveId(logId) &&
+          (entry.food_version_id === id ||
+            catalog.offerings.some(
+              (o) =>
+                o.id === entry.menu_selection?.offering_id &&
+                o.food_version_id === id,
+            )),
+      )
     : undefined;
   const saved = logged?.menu_selection;
   const original =

@@ -9,6 +9,7 @@ import {
   passwordErrorMessage,
 } from "../lib/account-auth";
 import { supabase } from "../lib/supabase";
+import { useApp } from "../state/AppProvider";
 import AppleSignIn from "./apple-sign-in";
 import { signInWithApple } from "../lib/apple-auth";
 import {
@@ -24,6 +25,7 @@ export default function AccountPrompt({
   inSheet?: boolean;
 }) {
   const { colors, s } = useTheme();
+  const { signingOut } = useApp();
   const [message, setMessage] = useState("");
   const [showPasswordForm, setShowPasswordForm] = useState(false);
   const [username, setUsername] = useState("");
@@ -31,7 +33,7 @@ export default function AccountPrompt({
   const [busy, setBusy] = useState<"apple" | "password" | null>(null);
   const pending = useRef(false);
   async function signIn(method: "apple" | "password") {
-    if (pending.current) return;
+    if (pending.current || signingOut) return;
     if (method === "password" && (!username.trim() || !password)) {
       setMessage("Enter your username and password.");
       return;
@@ -96,11 +98,11 @@ export default function AccountPrompt({
             Your Bucky’s Bites
           </T>
           <T style={[s.body, { textAlign: "center", marginTop: 10 }]}>
-            {prompt}
+            {signingOut ? "Finishing sign-out…" : prompt}
           </T>
         </View>
         <AppleSignIn
-          disabled={busy !== null}
+          disabled={busy !== null || signingOut}
           busy={busy === "apple"}
           onPress={() => signIn("apple")}
         />
@@ -132,14 +134,14 @@ export default function AccountPrompt({
             <Button
               title={busy === "password" ? "Signing in…" : "Sign in"}
               onPress={() => signIn("password")}
-              disabled={busy !== null}
+              disabled={busy !== null || signingOut}
             />
           </View>
         ) : (
           <Button
             secondary
             title="Sign in with username and password"
-            disabled={busy !== null}
+            disabled={busy !== null || signingOut}
             onPress={() => {
               setMessage("");
               setShowPasswordForm(true);

@@ -1,6 +1,6 @@
 import { useTheme } from "../state/ThemeProvider";
 import { backOrReplace } from "../lib/navigation";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Keyboard, Platform, ScrollView, View } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import { useApp } from "../state/AppProvider";
@@ -16,9 +16,9 @@ export default function WriteReview() {
     food?: string;
     edit?: string;
   }>();
-  const { catalog, data, userId } = useApp();
+  const { catalog, data, userId, resolveId, reviewDraft } = useApp();
   const previous = edit
-    ? data.reviews.find((r) => r.id === edit && r.user_id === userId)
+    ? data.reviews.find((r) => r.id === resolveId(edit) && r.user_id === userId)
     : undefined;
   const matchesFood = (f: Food) =>
     foodId ? f.id === foodId : f.food_item_id === previous?.food_item_id;
@@ -37,20 +37,43 @@ export default function WriteReview() {
         </T>
       </>
     );
+  const draft =
+    reviewDraft?.foodItemId === food.food_item_id &&
+    (reviewDraft.edit && resolveId(reviewDraft.edit)) === previous?.id
+      ? reviewDraft
+      : null;
   return (
-    <ReviewForm key={previous?.id ?? food.id} food={food} previous={previous} />
+    <ReviewForm
+      key={edit ?? food.id}
+      food={food}
+      previous={previous}
+      draftStars={draft?.stars}
+      draftComment={draft?.comment}
+    />
   );
 }
 
-function ReviewForm({ food, previous }: { food: Food; previous?: Review }) {
+function ReviewForm({
+  food,
+  previous,
+  draftStars,
+  draftComment,
+}: {
+  food: Food;
+  previous?: Review;
+  draftStars?: number;
+  draftComment?: string;
+}) {
   const playHaptic = useHaptic();
   const { colors, s } = useTheme();
   const { data, userId, saveReview, notify } = useApp();
   const edit = previous?.id;
-  const [stars, setStars] = useState(previous?.stars ?? 0);
-  const [comment, setComment] = useState(previous?.comment ?? "");
+  const [stars, setStars] = useState(draftStars ?? previous?.stars ?? 0);
+  const [comment, setComment] = useState(
+    draftComment ?? previous?.comment ?? "",
+  );
   const [editingComment, setEditingComment] = useState(false);
-  const [busy, setBusy] = useState(false);
+  const submitted = useRef(false);
   const [error, setError] = useState("");
   const eligibility = reviewEligibility(
     data.history,
@@ -228,22 +251,29 @@ function ReviewForm({ food, previous }: { food: Food; previous?: Review }) {
         )}
         <Button
           title={
-            busy
-              ? "Saving…"
-              : edit
-                ? "Save changes"
-                : comment.trim()
-                  ? "Publish review"
-                  : "Save rating"
+            edit
+              ? "Save changes"
+              : comment.trim()
+                ? "Publish review"
+                : "Save rating"
           }
-          disabled={!stars || !eligibility.eligible || busy}
+          disabled={!stars || !eligibility.eligible}
           haptic={false}
-          onPress={async () => {
+          onPress={() => {
+            if (submitted.current) return;
+            submitted.current = true;
             Keyboard.dismiss();
-            setBusy(true);
             setError("");
             try {
-              await saveReview(food, stars, comment, edit);
+              saveReview(food, stars, comment, edit, (savedId) => {
+                router.push({
+                  pathname: "/review",
+                  params: {
+                    food: food.id,
+                    ...(savedId && { edit: savedId }),
+                  },
+                });
+              });
               playHaptic("success");
               backOrReplace("/ratings");
               notify(
@@ -256,8 +286,7 @@ function ReviewForm({ food, previous }: { food: Food; previous?: Review }) {
             } catch (e) {
               playHaptic("error");
               setError((e as Error).message);
-            } finally {
-              setBusy(false);
+              submitted.current = false;
             }
           }}
         />

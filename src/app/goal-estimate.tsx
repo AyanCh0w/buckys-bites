@@ -67,7 +67,7 @@ export default function GoalEstimate() {
                   );
                 saved[nutrient.key] = value;
               }
-              await saveProfile({ ...data.profile, goals: saved });
+              saveProfile({ goals: saved });
               draft?.onApplied();
               close();
               notify("Your estimated goals are saved");

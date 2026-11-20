@@ -133,9 +133,13 @@ export function ReviewCard({
                 disabled={!session}
                 selectedVote={data.votes[review.id]}
                 subject={`${review.display_name}’s review`}
-                onVote={(direction) =>
-                  vote(review, direction).catch((e) => notify(e.message))
-                }
+                onVote={(direction) => {
+                  try {
+                    vote(review, direction);
+                  } catch (error) {
+                    notify((error as Error).message);
+                  }
+                }}
               />
             ) : undefined
           }
