@@ -1,10 +1,12 @@
 import type { AppData, Catalog, Food, Review } from "./types";
+import { campusMenuEntries, diningLocations } from "./dining-locations";
 import { campusDate } from "./domain";
 import { foodIsOpen, serviceIsOpen } from "./availability";
 import { serviceMatchesMeal } from "./menu";
 import { kitchenKey } from "./theme";
 import { preferredOfferings, rotatingStations } from "./menu-variants";
 import {
+  compareFoodPreference,
   hasReviewText,
   matchesDietary,
   rankMenuFoods,
@@ -282,4 +284,41 @@ export function currentMealPicks(
     .filter((food) => foodIsOpen(catalog, food, now, services))
     .slice(0, 2);
   return { meal, dishes };
+}
+
+/** Keep the originating offering so shared drinks open with this café’s sizes and price. */
+export function campusPicks(
+  catalog: Catalog,
+  date: string,
+  dietary: string[],
+  reviews: Review[],
+  userId: string | null,
+  now: Date,
+) {
+  const shown = new Set<string>();
+  const active = new Set(
+    catalog.services
+      .filter(
+        (service) =>
+          service.service_date === date && serviceIsOpen(service, now),
+      )
+      .map((service) => service.id),
+  );
+  return diningLocations.flatMap((location) => {
+    if (location.key === "benson") return [];
+    const entries = campusMenuEntries(catalog, location.key, date, dietary);
+    const [pick] = entries.sort(
+      (a, b) =>
+        Number(active.has(b.service.id)) - Number(active.has(a.service.id)) ||
+        Number(shown.has(a.food.food_item_id)) -
+          Number(shown.has(b.food.food_item_id)) ||
+        Number(Boolean(b.offering.is_special)) -
+          Number(Boolean(a.offering.is_special)) ||
+        compareFoodPreference(a.food, b.food, reviews, userId) ||
+        a.offering.sort_order - b.offering.sort_order,
+    );
+    if (!pick) return [];
+    shown.add(pick.food.food_item_id);
+    return [pick];
+  });
 }

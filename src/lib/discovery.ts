@@ -63,26 +63,33 @@ export function rankMenuFoods(
   now = new Date(),
   serviceIds?: Set<string>,
 ) {
-  const order = (food: Food) =>
-    Math.min(
-      ...catalog.offerings
-        .filter(
-          (o) =>
-            o.is_listed &&
-            o.food_version_id === food.id &&
-            (!serviceIds || serviceIds.has(o.menu_service_id)),
-        )
-        .map((o) => o.sort_order),
-      100000,
+  const firstPlacement = new Map<string, number>();
+  for (const offering of catalog.offerings) {
+    if (
+      !offering.is_listed ||
+      (serviceIds && !serviceIds.has(offering.menu_service_id))
+    )
+      continue;
+    const previous = firstPlacement.get(offering.food_version_id) ?? 100000;
+    firstPlacement.set(
+      offering.food_version_id,
+      Math.min(previous, offering.sort_order),
     );
-  return [...foods].sort(
-    (a, b) =>
-      Number(foodIsOpen(catalog, b, now, serviceIds)) -
-        Number(foodIsOpen(catalog, a, now, serviceIds)) ||
-      compareFoodPreference(a, b, reviews, userId) ||
-      order(a) - order(b) ||
-      a.name.localeCompare(b.name),
-  );
+  }
+  const ranked = foods.map((food) => ({
+    food,
+    open: foodIsOpen(catalog, food, now, serviceIds),
+    order: firstPlacement.get(food.id) ?? 100000,
+  }));
+  return ranked
+    .sort(
+      (a, b) =>
+        Number(b.open) - Number(a.open) ||
+        compareFoodPreference(a.food, b.food, reviews, userId) ||
+        a.order - b.order ||
+        a.food.name.localeCompare(b.food.name),
+    )
+    .map((entry) => entry.food);
 }
 export const hasReviewText = (review: Review) =>
   Boolean(review.comment?.trim());

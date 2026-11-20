@@ -13,7 +13,7 @@ import {
   dateLabel,
   ratingFor,
 } from "../../lib/domain";
-import { homeSelection } from "../../lib/home";
+import { campusPicks, homeSelection } from "../../lib/home";
 import { useHaptic } from "../../lib/haptics";
 import { browsingCatalog } from "../../lib/menu";
 
@@ -62,6 +62,14 @@ export default function Home() {
     now,
   );
   const today = campusDate(now);
+  const cafePicks = campusPicks(
+    catalog,
+    today,
+    data.profile.dietary,
+    data.reviews,
+    userId,
+    now,
+  );
   const initialMeal = currentMeal(now) === "Dinner" ? "Dinner" : "Lunch";
   return (
     <Page
@@ -110,6 +118,24 @@ export default function Home() {
         preferredMeal={initialMeal}
         dietary={data.profile.dietary}
       />
+      {cafePicks.length > 0 && (
+        <View style={[s.inset, { marginBottom: 20 }]}>
+          <T accessibilityRole="header" style={s.sectionTitle}>
+            Around Campus
+          </T>
+          {cafePicks.map(({ food, offering, service }) => (
+            <FoodRow
+              key={offering.id}
+              compact
+              showKitchen
+              food={food}
+              date={today}
+              offering={offering}
+              meal={service.name === "All Day" ? undefined : service.name}
+            />
+          ))}
+        </View>
+      )}
       {pick && (
         <View style={s.inset}>
           <T

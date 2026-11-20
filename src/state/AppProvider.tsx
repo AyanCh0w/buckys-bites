@@ -22,6 +22,7 @@ import {
 } from "./account-mutations";
 import { menuNutrition } from "../lib/menu-nutrition";
 import snapshot from "../data/catalog.json";
+import { withCampusMenus } from "../lib/campus-catalog";
 import { supabase } from "../lib/supabase";
 import { accountSession } from "../lib/account-auth";
 import { previewAccountEnabled } from "../lib/config";
@@ -166,7 +167,7 @@ async function selectAll(table: string, columns = "*", orderBy = "id") {
 export function AppProvider({ children }: React.PropsWithChildren) {
   const [sourceCatalog, setCatalog] = useState<Catalog>(snapshot as Catalog);
   const catalog = useMemo(
-    () => withBurgerBreadOptions(sourceCatalog),
+    () => withBurgerBreadOptions(withCampusMenus(sourceCatalog)),
     [sourceCatalog],
   );
   const [data, renderData] = useState<AppData>(initial);

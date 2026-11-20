@@ -8,6 +8,6 @@
 - Raster originals, thumbnails, and rejected/review image attempts under `menu/scu-images/` remain on disk and are ignored by Git. A fresh checkout will contain their metadata but not the original images.
 - The remaining JSON, Markdown, CSV, and HTML files preserve saved menu extracts, image prompts, and image targets. HTML/image previews that reference originals require those local files.
 
-The app reads the committed runtime bundle in `src/data/catalog.json`, not this directory. Do not exclude the whole `data/` directory or regenerate the bundle as part of ordinary setup.
+The app reads the committed runtime bundles in `src/data/catalog.json` and `src/data/campus-catalog.json`. The latter supplies dated café menus when a cached or hosted catalog contains only Benson. The café snapshot migration uses the same food and offering IDs as the bundled data for logging and reviews. Do not exclude the whole `data/` directory or regenerate the bundle as part of ordinary setup.
 
 The [nutrition audit spreadsheet](../docs/reports/benson-nutrition-audit.xlsx) is retained under documentation. See [maintenance scripts](../scripts/README.md) for commands that update this data.

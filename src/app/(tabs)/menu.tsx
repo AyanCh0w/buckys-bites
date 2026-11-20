@@ -26,7 +26,29 @@ import {
   kitchenMenus,
 } from "../../lib/menu";
 
+import {
+  diningLocations,
+  locationCatalog,
+  type DiningLocation,
+} from "../../lib/dining-locations";
+import { LocationTabs } from "../../components/location-tabs";
+import { CampusMenu } from "../../components/campus-menu";
+
 export default function Menu() {
+  const [location, setLocation] = useState<DiningLocation>(diningLocations[0]);
+  return (
+    <FixedScreen title="Menu" tab>
+      <LocationTabs selected={location} onSelect={setLocation} />
+      {location.key === "benson" ? (
+        <BensonMenu />
+      ) : (
+        <CampusMenu key={location.key} location={location} />
+      )}
+    </FixedScreen>
+  );
+}
+
+function BensonMenu() {
   const playHaptic = useHaptic();
   const { colors, s } = useTheme();
   const {
@@ -40,7 +62,11 @@ export default function Menu() {
     toggleKitchenStar,
   } = useApp();
   const catalog = useMemo(
-    () => browsingCatalog(fullCatalog, data.profile.dietary),
+    () =>
+      browsingCatalog(
+        locationCatalog(fullCatalog, "benson"),
+        data.profile.dietary,
+      ),
     [fullCatalog, data.profile.dietary],
   );
   const [now, setNow] = useState(new Date());
@@ -81,148 +107,143 @@ export default function Menu() {
     />
   );
   return (
-    <FixedScreen title="Menu" tab>
-      <ScrollView
-        style={{ flex: 1 }}
-        contentInsetAdjustmentBehavior="automatic"
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{
-          paddingHorizontal: 24,
-          paddingBottom: tabContentBottomPadding,
-        }}
-        refreshControl={
-          <RefreshControl
-            refreshing={refreshing}
-            onRefresh={() => {
-              if (Platform.OS === "android") playHaptic("release");
-              void refresh();
-            }}
-            tintColor={colors.accent}
-          />
-        }
-      >
-        {!kitchens.length && (
-          <EmptyState
-            title="No Matching Meals"
-            text="You can change your dietary preferences in Nutrition settings."
-          />
-        )}
-        {kitchens.map((kitchen, index) => {
-          const isStarred = starred.includes(kitchen.key);
-          return (
-            <React.Fragment key={kitchen.key}>
-              {index === highlightPosition && mealHighlights}
-              <MenuEntrance
-                sequence={
-                  index +
-                  (mealHighlights &&
-                  index >= highlightPosition &&
-                  highlightPosition >= 0
-                    ? 1
-                    : 0)
+    <ScrollView
+      style={{ flex: 1 }}
+      contentInsetAdjustmentBehavior="automatic"
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{
+        paddingHorizontal: 24,
+        paddingBottom: tabContentBottomPadding,
+      }}
+      refreshControl={
+        <RefreshControl
+          refreshing={refreshing}
+          onRefresh={() => {
+            if (Platform.OS === "android") playHaptic("release");
+            void refresh();
+          }}
+          tintColor={colors.accent}
+        />
+      }
+    >
+      {!kitchens.length && (
+        <EmptyState
+          title="No Matching Meals"
+          text="You can change your dietary preferences in Nutrition settings."
+        />
+      )}
+      {kitchens.map((kitchen, index) => {
+        const isStarred = starred.includes(kitchen.key);
+        return (
+          <React.Fragment key={kitchen.key}>
+            {index === highlightPosition && mealHighlights}
+            <MenuEntrance
+              sequence={
+                index +
+                (mealHighlights &&
+                index >= highlightPosition &&
+                highlightPosition >= 0
+                  ? 1
+                  : 0)
+              }
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                borderBottomWidth: 0.5,
+                borderColor: colors.rule,
+              }}
+            >
+              <Tap
+                padding="none"
+                style={{ flex: 1, marginLeft: -12, marginVertical: 4 }}
+                contentStyle={{ paddingHorizontal: 12, paddingVertical: 4 }}
+                onPress={() =>
+                  router.push({
+                    pathname: "/kitchen/[key]",
+                    params: {
+                      key: kitchen.key,
+                      cafe: kitchen.cafe,
+                    },
+                  })
                 }
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  borderBottomWidth: 0.5,
-                  borderColor: colors.rule,
-                }}
+                accessibilityLabel={`${kitchen.name}, ${kitchen.hours.label}. Open menu`}
               >
-                <Tap
-                  padding="none"
-                  style={{ flex: 1, marginLeft: -12, marginVertical: 4 }}
-                  contentStyle={{ paddingHorizontal: 12, paddingVertical: 4 }}
-                  onPress={() =>
-                    router.push({
-                      pathname: "/kitchen/[key]",
-                      params: {
-                        key: kitchen.key,
-                        cafe: kitchen.cafe,
-                      },
-                    })
-                  }
-                  accessibilityLabel={`${kitchen.name}, ${kitchen.hours.label}. Open menu`}
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    gap: 14,
+                    minHeight: 108,
+                  }}
                 >
-                  <View
-                    style={{
-                      flexDirection: "row",
-                      alignItems: "center",
-                      gap: 14,
-                      minHeight: 108,
-                    }}
-                  >
-                    <View style={{ opacity: kitchen.open ? 1 : 0.35 }}>
-                      {kitchen.key === BAKERY_KEY ? (
-                        <BakeryMenuArt date={kitchen.date} />
-                      ) : kitchen.key === "fire" ? (
-                        <Art name="dishes/signature-smash-burger" size={96} />
-                      ) : kitchen.featured ? (
-                        <FoodImage food={kitchen.featured} size={96} />
-                      ) : (
-                        <Art size={96} />
-                      )}
-                    </View>
-                    <View style={{ flex: 1, gap: 4 }}>
-                      <T
-                        style={{
-                          fontSize: 19,
-                          fontWeight: "600",
-                          letterSpacing: -0.4,
-                          color: kitchen.open ? colors.ink : colors.muted,
-                        }}
-                      >
-                        {kitchen.name}
-                      </T>
-                      <T style={[s.caption, { fontSize: 12, lineHeight: 17 }]}>
-                        {kitchen.hours.label}
-                      </T>
-                    </View>
-                    <Icon
-                      name="chevron-forward"
-                      size={16}
-                      color={kitchen.open ? colors.muted : colors.faint}
-                    />
+                  <View style={{ opacity: kitchen.open ? 1 : 0.35 }}>
+                    {kitchen.key === BAKERY_KEY ? (
+                      <BakeryMenuArt date={kitchen.date} />
+                    ) : kitchen.key === "fire" ? (
+                      <Art name="dishes/signature-smash-burger" size={96} />
+                    ) : kitchen.featured ? (
+                      <FoodImage food={kitchen.featured} size={96} />
+                    ) : (
+                      <Art size={96} />
+                    )}
                   </View>
-                </Tap>
-                <Tap
-                  padding="none"
-                  feedback="scale"
-                  highlightRadius={22}
-                  accessibilityLabel={`${isStarred ? "Unstar" : "Star"} ${kitchen.name}`}
-                  haptic={false}
-                  accessibilityState={{ selected: isStarred }}
-                  disabled={profileStatus !== "saved"}
-                  onPress={() => toggleKitchenStar(kitchen.key)}
-                >
-                  <View style={s.iconButton}>
-                    <Icon
-                      name={isStarred ? "star" : "star-outline"}
-                      sf={isStarred ? "star.fill" : "star"}
-                      color={isStarred ? colors.accent : colors.muted}
-                      size={21}
-                    />
+                  <View style={{ flex: 1, gap: 4 }}>
+                    <T
+                      style={{
+                        fontSize: 19,
+                        fontWeight: "600",
+                        letterSpacing: -0.4,
+                        color: kitchen.open ? colors.ink : colors.muted,
+                      }}
+                    >
+                      {kitchen.name}
+                    </T>
+                    <T style={[s.caption, { fontSize: 12, lineHeight: 17 }]}>
+                      {kitchen.hours.label}
+                    </T>
                   </View>
-                </Tap>
-              </MenuEntrance>
-            </React.Fragment>
-          );
-        })}
-        {highlightPosition === -1 && mealHighlights}
-        <T
-          style={[
-            s.caption,
-            { fontSize: 11, marginTop: 22, textAlign: "center" },
-          ]}
-        >
-          {syncError ??
-            (sync
-              ? "Updated " +
-                dateLabel(campusDate(sync)) +
-                ", " +
-                timeLabel(sync)
-              : "Menu saved on this device")}
-        </T>
-      </ScrollView>
-    </FixedScreen>
+                  <Icon
+                    name="chevron-forward"
+                    size={16}
+                    color={kitchen.open ? colors.muted : colors.faint}
+                  />
+                </View>
+              </Tap>
+              <Tap
+                padding="none"
+                feedback="scale"
+                highlightRadius={22}
+                accessibilityLabel={`${isStarred ? "Unstar" : "Star"} ${kitchen.name}`}
+                haptic={false}
+                accessibilityState={{ selected: isStarred }}
+                disabled={profileStatus !== "saved"}
+                onPress={() => toggleKitchenStar(kitchen.key)}
+              >
+                <View style={s.iconButton}>
+                  <Icon
+                    name={isStarred ? "star" : "star-outline"}
+                    sf={isStarred ? "star.fill" : "star"}
+                    color={isStarred ? colors.accent : colors.muted}
+                    size={21}
+                  />
+                </View>
+              </Tap>
+            </MenuEntrance>
+          </React.Fragment>
+        );
+      })}
+      {highlightPosition === -1 && mealHighlights}
+      <T
+        style={[
+          s.caption,
+          { fontSize: 11, marginTop: 22, textAlign: "center" },
+        ]}
+      >
+        {syncError ??
+          (sync
+            ? "Updated " + dateLabel(campusDate(sync)) + ", " + timeLabel(sync)
+            : "Menu saved on this device")}
+      </T>
+    </ScrollView>
   );
 }

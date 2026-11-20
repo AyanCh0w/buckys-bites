@@ -3,7 +3,8 @@ import { ScrollView, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { router, useLocalSearchParams } from "expo-router";
 import { FixedScreen, EmptyState } from "../../components/ui";
-import { BakeryMenu } from "../../components/bakery-menu";
+import { CafeMenu } from "../../components/cafe-menu";
+import { diningLocations } from "../../lib/dining-locations";
 import { KitchenDishes } from "../../components/KitchenDishes";
 import { ServiceTimeline } from "../../components/ServiceTimeline";
 import { useApp } from "../../state/AppProvider";
@@ -119,7 +120,12 @@ export default function Kitchen() {
   const allDayOnly =
     services.length > 0 &&
     services.every((service) => service.name.startsWith("All Day"));
-  const bakery = key === BAKERY_KEY;
+  const cafeMenu =
+    key === BAKERY_KEY ||
+    diningLocations.some(
+      (location) =>
+        location.key !== "benson" && kitchenKey(location.name) === key,
+    );
   return (
     <FixedScreen
       back
@@ -138,13 +144,15 @@ export default function Kitchen() {
         style={{ flex: 1 }}
       >
         {foods.length > 0 ? (
-          bakery ? (
-            <BakeryMenu
-              foods={foods}
-              placements={placementByFood}
+          cafeMenu ? (
+            <CafeMenu
+              items={foods.map((food) => ({
+                food,
+                offering: placementByFood.get(food.id),
+                meal: selected,
+              }))}
               category={category}
               date={date}
-              meal={selected}
               onSelect={(category) => router.setParams({ category })}
             />
           ) : (

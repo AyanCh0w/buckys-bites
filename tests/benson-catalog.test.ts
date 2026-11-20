@@ -310,6 +310,33 @@ test("dated Benson ingestion preserves recurring items, rotation, holiday hours 
       "Broccoli",
     ]);
     assert.equal(pastaWithSauce.calories, 310);
+
+    // Apply the campus rollout after a Benson installation already has its
+    // own UUIDs, then exercise the same dated sync and authenticated log RPC.
+    await db.exec("reset role");
+    await db.exec(await readMigration("20261120080000_campus_cafe_menus"));
+    await db.exec(await readMigration("20261120080100_campus_cafe_snapshot"));
+    const campusRows = () =>
+      db.query<{ id: string; food_item_id: string }>(
+        "select id,food_item_id from test_menu where station='Fresh Bytes' and service_date='2026-11-19' order by id",
+      );
+    const before = (await campusRows()).rows;
+    assert.equal(before.length, 2);
+    await ingest("fresh-bytes", "2026-11-19");
+    assert.deepEqual((await campusRows()).rows, before);
+    await assert.rejects(
+      ingest("cellar-market", "2026-11-19"),
+      /Unsupported cafe/,
+    );
+    const drink = await db.query<{ id: string }>(
+      "select id from test_menu where station='Sunstream Café' and name='Holiday Spice Latte' and service_date='2026-11-19'",
+    );
+    await db.exec("set role authenticated");
+    const drinkLog = await db.query<{ id: string }>(
+      "select bites_log_configured_food($1,1,'Snack',now(),'16 fl oz','{}') id",
+      [drink.rows[0].id],
+    );
+    assert.ok(drinkLog.rows[0].id);
   } finally {
     await db.close();
   }

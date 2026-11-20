@@ -1,7 +1,14 @@
-import { useRef, type ComponentRef } from "react";
-import { ScrollView, StyleSheet, View, Text } from "react-native";
+import { useRef, type ComponentRef, type ReactNode } from "react";
+import {
+  ScrollView,
+  StyleSheet,
+  View,
+  Text,
+  type ScrollViewProps,
+} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { displayName } from "../lib/domain";
+import { cafeMenuCategory } from "../lib/dining-locations";
 import { menuSectionLabel } from "../lib/menu";
 import { fontFamily, textSizes } from "../lib/fonts";
 import { money } from "../lib/menu-options";
@@ -9,7 +16,7 @@ import type { Food, Offering } from "../lib/types";
 import { useApp } from "../state/AppProvider";
 import { useTheme } from "../state/ThemeProvider";
 import { foodArtwork, openDish } from "./Food";
-import { AssetImage, Icon, T, Tap } from "./ui";
+import { AssetImage, Icon, T, Tap, tabContentBottomPadding } from "./ui";
 import { MenuEntrance } from "./MenuEntrance";
 import { BakeryThumbnail, useBakeryThumbnails } from "./bakery-thumbnail";
 
@@ -33,20 +40,24 @@ function menuPrice(offering?: Offering) {
     : `From ${money(lowest)}`;
 }
 
-export function BakeryMenu({
-  foods,
-  placements,
+type MenuItem = { food: Food; offering?: Offering; meal?: string };
+
+export function CafeMenu({
+  items,
   date,
-  meal,
   category,
   onSelect,
+  children,
+  refreshControl,
+  tab = false,
 }: {
-  foods: Food[];
-  placements: Map<string, Offering>;
+  items: MenuItem[];
   date: string;
-  meal: string;
   category?: string;
   onSelect: (section: string) => void;
+  children?: ReactNode;
+  refreshControl?: ScrollViewProps["refreshControl"];
+  tab?: boolean;
 }) {
   const { colors, s } = useTheme();
   const { bottom } = useSafeAreaInsets();
@@ -54,12 +65,12 @@ export function BakeryMenu({
   const scroll = useRef<ComponentRef<typeof ScrollView>>(null);
   const reveal = useRef(category);
   const { picks } = useBakeryThumbnails();
-  const groups = new Map<string, Food[]>();
-  for (const food of foods) {
-    const key = placements.get(food.id)?.menu_section || "Other items";
-    const items = groups.get(key);
-    if (items) items.push(food);
-    else groups.set(key, [food]);
+  const groups = new Map<string, MenuItem[]>();
+  for (const item of items) {
+    const key = cafeMenuCategory(item.food, item.offering);
+    const group = groups.get(key);
+    if (group) group.push(item);
+    else groups.set(key, [item]);
   }
   const ordered = [...new Set([...sectionLabels.keys(), ...groups.keys()])];
   const fillRows =
@@ -68,14 +79,16 @@ export function BakeryMenu({
   return (
     <ScrollView
       ref={scroll}
+      refreshControl={refreshControl}
       style={styles.fill}
       contentInsetAdjustmentBehavior="never"
       contentContainerStyle={[
         s.inset,
         styles.grow,
-        { paddingBottom: bottom + 12 },
+        { paddingBottom: tab ? tabContentBottomPadding : bottom + 12 },
       ]}
     >
+      {children}
       {ordered
         .filter((key) => groups.has(key))
         .map((key, sectionIndex) => {
@@ -86,7 +99,7 @@ export function BakeryMenu({
             sectionLabels.get(key) ?? (menuSectionLabel(key) || "Other Items");
           const count = `${items.length} ${items.length === 1 ? "item" : "items"}`;
           const cover = picks.categories(
-            items.map((item) => foodArtwork(catalog, item)),
+            items.map(({ food }) => foodArtwork(catalog, food)),
           );
           return (
             <View
@@ -148,15 +161,17 @@ export function BakeryMenu({
               </MenuEntrance>
               {expanded && (
                 <View style={styles.grid}>
-                  {items.map((food, index) => {
-                    const offering = placements.get(food.id);
+                  {items.map(({ food, offering, meal }, index) => {
                     const name = displayName(food.name);
                     const price = menuPrice(offering);
                     return (
                       <MenuEntrance
-                        key={food.id}
+                        key={offering?.id ?? food.id}
                         sequence={Math.floor(index / 3)}
-                        style={styles.product}
+                        style={[
+                          styles.product,
+                          items.length === 2 && styles.pair,
+                        ]}
                       >
                         <Tap
                           padding="card"
@@ -226,6 +241,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   product: { width: "33.3333%", paddingHorizontal: 4 },
+  pair: { width: "50%" },
   photo: {
     width: "100%",
     aspectRatio: 1.12,

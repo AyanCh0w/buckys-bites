@@ -1,6 +1,7 @@
 import type { Catalog, Component, Food, Offering, Service } from "./types";
 import { campusDate, displayName } from "./domain";
 import { kitchenKey, kitchenName } from "./theme";
+import { diningLocations } from "./dining-locations";
 import { preferredOfferings } from "./menu-variants";
 
 export { serviceIsOpen } from "./availability";
@@ -13,7 +14,7 @@ import {
 } from "./discovery";
 import type { Review } from "./types";
 
-// Public kitchen menus include the dedicated bakery cafe.
+// Each satellite café publishes one menu with its own dish sections.
 const visibleKitchens = new Set([
   "global-grill",
   "la-parrilla",
@@ -28,6 +29,9 @@ const visibleKitchens = new Set([
   "simply-oasis",
   "stacks-deli",
   "garden",
+  ...diningLocations
+    .filter((location) => location.key !== "benson")
+    .map((location) => kitchenKey(location.name)),
 ]);
 
 export const BAKERY_KEY = "mission-bakery";

@@ -108,6 +108,7 @@ export type Offering = {
   menu_section?: string | null;
   menu_source_url?: string | null;
   source_occurrence_key?: string;
+  is_special?: boolean;
   serving_options?: ServingOption[];
   modifier_groups?: ModifierGroup[];
 };
