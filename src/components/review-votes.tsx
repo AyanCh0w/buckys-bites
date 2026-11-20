@@ -1,4 +1,13 @@
 import { View } from "react-native";
+import Animated, {
+  Easing,
+  useAnimatedStyle,
+  useReducedMotion,
+  useSharedValue,
+  withSequence,
+  withSpring,
+  withTiming,
+} from "react-native-reanimated";
 import { useTheme } from "../state/ThemeProvider";
 import { AssetImage, T, Tap } from "./ui";
 
@@ -8,6 +17,7 @@ const compactCount = new Intl.NumberFormat(undefined, {
   notation: "compact",
   maximumFractionDigits: 1,
 });
+const bounceOut = Easing.bezier(0.23, 1, 0.32, 1);
 
 type ReviewVotesProps = {
   upvotes: number;
@@ -18,6 +28,99 @@ type ReviewVotesProps = {
   subject?: string;
 };
 
+function VoteButton({
+  direction,
+  count,
+  selected,
+  disabled,
+  subject,
+  onVote,
+}: {
+  direction: 1 | -1;
+  count: number;
+  selected: boolean;
+  disabled: boolean;
+  subject: string;
+  onVote: ReviewVotesProps["onVote"];
+}) {
+  const { colors } = useTheme();
+  const helpful = direction === 1;
+  const label = helpful ? "Helpful" : "Not helpful";
+  const offset = useSharedValue(0);
+  const reduced = useReducedMotion();
+  const handStyle = useAnimatedStyle(() => ({
+    transform: [{ translateY: offset.get() }],
+  }));
+  const press = () => {
+    if (!reduced) {
+      offset.set(
+        withSequence(
+          withTiming(-6 * direction, { duration: 80, easing: bounceOut }),
+          withSpring(0, { duration: 200, dampingRatio: 0.8 }),
+        ),
+      );
+    }
+    onVote(direction);
+  };
+  return (
+    <Tap
+      padding="none"
+      onPress={press}
+      disabled={disabled}
+      accessible
+      accessibilityRole="button"
+      accessibilityLabel={`${label} for ${subject}, ${count.toLocaleString()} ${label.toLowerCase()} ${count === 1 ? "vote" : "votes"}`}
+      accessibilityHint={
+        selected
+          ? "Removes your vote."
+          : `Marks ${subject} as ${label.toLowerCase()}.`
+      }
+      accessibilityState={{ selected, disabled }}
+      aria-pressed={selected}
+      highlightRadius={10}
+      contentStyle={{
+        minWidth: 44,
+        minHeight: 44,
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 4,
+        paddingHorizontal: 8,
+        paddingVertical: 8,
+        borderRadius: 10,
+        borderCurve: "continuous",
+        borderWidth: 1,
+        borderColor: selected ? colors.accent : "transparent",
+        backgroundColor: selected ? colors.accentLight : "transparent",
+      }}
+    >
+      <Animated.View
+        style={handStyle}
+        accessible={false}
+        accessibilityElementsHidden
+        importantForAccessibility="no-hide-descendants"
+        pointerEvents="none"
+      >
+        <AssetImage
+          source={helpful ? helpfulIcon : notHelpfulIcon}
+          style={{ width: 28, height: 28 }}
+        />
+      </Animated.View>
+      <T
+        accessible={false}
+        numeric
+        style={{
+          fontSize: 14,
+          fontVariant: ["tabular-nums"],
+          color: selected ? colors.accent : colors.muted,
+        }}
+      >
+        {compactCount.format(count)}
+      </T>
+    </Tap>
+  );
+}
+
 export function ReviewVotes({
   upvotes,
   downvotes,
@@ -26,9 +129,6 @@ export function ReviewVotes({
   disabled = false,
   subject = "this review",
 }: ReviewVotesProps) {
-  const { colors } = useTheme();
-  const reviewSubject = subject.trim() || "this review";
-
   return (
     <View
       style={{
@@ -39,70 +139,17 @@ export function ReviewVotes({
         gap: 4,
       }}
     >
-      {([1, -1] as const).map((direction) => {
-        const helpful = direction === 1;
-        const count = helpful ? upvotes : downvotes;
-        const label = helpful ? "Helpful" : "Not helpful";
-        const selected = selectedVote === direction;
-
-        return (
-          <Tap
-            padding="none"
-            key={direction}
-            onPress={() => onVote(direction)}
-            disabled={disabled}
-            accessible
-            accessibilityRole="button"
-            accessibilityLabel={`${label} for ${reviewSubject}, ${count.toLocaleString()} ${label.toLowerCase()} ${count === 1 ? "vote" : "votes"}`}
-            accessibilityHint={
-              selected
-                ? "Removes your vote."
-                : `Marks ${reviewSubject} as ${label.toLowerCase()}.`
-            }
-            accessibilityState={{ selected, disabled }}
-            feedback="scale"
-            highlightRadius={10}
-            contentStyle={{
-              minWidth: 44,
-              minHeight: 44,
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 4,
-              paddingHorizontal: 8,
-              paddingVertical: 8,
-              borderRadius: 10,
-              borderCurve: "continuous",
-              borderWidth: 1,
-              borderColor: selected ? colors.accent : "transparent",
-              backgroundColor: selected ? colors.accentLight : "transparent",
-            }}
-          >
-            <View
-              accessible={false}
-              accessibilityElementsHidden
-              importantForAccessibility="no-hide-descendants"
-              pointerEvents="none"
-            >
-              <AssetImage
-                source={helpful ? helpfulIcon : notHelpfulIcon}
-                style={{ width: 28, height: 28 }}
-              />
-            </View>
-            <T
-              accessible={false}
-              numeric
-              style={{
-                fontSize: 14,
-                fontVariant: ["tabular-nums"],
-                color: selected ? colors.accent : colors.muted,
-              }}
-            >
-              {compactCount.format(count)}
-            </T>
-          </Tap>
-        );
-      })}
+      {([1, -1] as const).map((direction) => (
+        <VoteButton
+          key={direction}
+          direction={direction}
+          count={direction === 1 ? upvotes : downvotes}
+          selected={selectedVote === direction}
+          disabled={disabled}
+          subject={subject.trim() || "this review"}
+          onVote={onVote}
+        />
+      ))}
     </View>
   );
 }

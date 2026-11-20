@@ -17,7 +17,12 @@ import { previewAccountEnabled } from "../lib/config";
 import { avatarId, isAvatarId } from "../lib/avatars";
 import { DEFAULT_STARRED_KITCHENS } from "../lib/menu";
 import { goalsForProfile } from "../lib/nutrition-goals";
-import { campusDate, reviewEligibility, voteEligibility } from "../lib/domain";
+import {
+  applyReviewVote,
+  campusDate,
+  reviewEligibility,
+  voteEligibility,
+} from "../lib/domain";
 import type {
   AppData,
   Catalog,
@@ -93,7 +98,7 @@ type AppContext = {
     id?: string,
   ) => Promise<void>;
   deleteReview: (id: string) => Promise<void>;
-  vote: (review: Review, direction: number) => Promise<void>;
+  vote: (review: Review, direction: 1 | -1) => Promise<void>;
   saveMealPreferences: (dietary: string[]) => Promise<void>;
   saveProfile: (profile: Profile) => Promise<void>;
   report: (id: string, reason: string) => Promise<void>;
@@ -106,7 +111,7 @@ function checked<T extends { error: { message: string } | null }>(r: T): T {
   return r;
 }
 
-async function selectAll(table: string, columns = "*") {
+async function selectAll(table: string, columns = "*", orderBy = "id") {
   const data: any[] = [];
   for (let from = 0; ; from += 1000) {
     const controller = new AbortController();
@@ -117,7 +122,7 @@ async function selectAll(table: string, columns = "*") {
         await supabase
           .from(table)
           .select(columns)
-          .order("id")
+          .order(orderBy)
           .range(from, from + 999)
           .abortSignal(controller.signal),
       );
@@ -311,37 +316,57 @@ export function AppProvider({ children }: React.PropsWithChildren) {
     };
   }, [ready, refreshProfile, notify]);
 
-  const refreshAccount = useCallback(async () => {
-    const expected = session?.user.id;
-    try {
-      const publicReviews = await selectAll("bites_public_reviews");
-      setData((d) => ({ ...d, reviews: publicReviews.data }));
-      setBackendAvailable(true);
-    } catch {
-      setBackendAvailable(false);
+  const reviewRequest = useRef(0);
+  const savedVotes = useRef<AppData["votes"]>({});
+  const pendingVotes = useRef(new Map<string, { target: number }>());
+  const refreshReviews = useCallback(async () => {
+    // The last pending write will fetch a fresh pair of totals and selections.
+    if (pendingVotes.current.size) return;
+    const request = ++reviewRequest.current;
+    const [reviews, selections] = await Promise.all([
+      selectAll("bites_public_reviews").catch(() => null),
+      userId && userId !== "local"
+        ? selectAll("bites_votes", "review_id,vote", "review_id").catch(
+            () => null,
+          )
+        : Promise.resolve({ data: [] }),
+    ]);
+    if (request !== reviewRequest.current || identity.current !== userId)
       return;
+    setBackendAvailable(!!reviews);
+    if (!reviews) return;
+    if (!selections) {
+      // Public reviews are still readable if the account's votes fail to load.
+      setData((d) => (d.reviews.length ? d : { ...d, reviews: reviews.data }));
+      throw new Error("Couldn’t refresh your review votes.");
     }
-    if (!expected) return;
+    const votes = Object.fromEntries(
+      selections.data.map((x) => [x.review_id, x.vote]),
+    );
+    savedVotes.current = { ...votes };
+    setData((d) => ({ ...d, reviews: reviews.data, votes }));
+  }, [userId]);
+
+  const refreshAccount = useCallback(async () => {
+    await refreshReviews();
+    const expected = session?.user.id;
+    if (!expected || identity.current !== expected) return;
     const results = await Promise.all([
       selectAll("food_logs", "*,food:food_versions(*)"),
       selectAll("bites_eating_history"),
       supabase.from("favorites").select("food_item_id"),
-      supabase.from("bites_votes").select("review_id,vote"),
       selectAll("bites_review_submissions"),
     ]);
     results.forEach(checked);
     if (identity.current !== expected) return;
     setData((d) => ({
       ...d,
-      submissions: results[4].data ?? [],
+      submissions: results[3].data ?? [],
       logs: results[0].data as FoodLog[],
       history: results[1].data ?? [],
       favorites: (results[2].data ?? []).map((x) => x.food_item_id),
-      votes: Object.fromEntries(
-        (results[3].data ?? []).map((x) => [x.review_id, x.vote]),
-      ),
     }));
-  }, [session, local]);
+  }, [session, refreshReviews]);
 
   const catalogRefreshRunning = useRef(false);
   const refresh = useCallback(async () => {
@@ -445,6 +470,9 @@ export function AppProvider({ children }: React.PropsWithChildren) {
           (account && identity.current !== account.user.id) ||
           (!account && identity.current && identity.current !== "local")
         ) {
+          reviewRequest.current++;
+          pendingVotes.current.clear();
+          savedVotes.current = {};
           setLoadedProfile(null);
           setData(initial);
         }
@@ -586,17 +614,54 @@ export function AppProvider({ children }: React.PropsWithChildren) {
     checked(await supabase.from("bites_reviews").delete().eq("id", reviewId));
     await refreshAfterMutation();
   };
-  const vote = async (review: Review, direction: number) => {
-    if (!session) return;
-    const reason = voteEligibility(data.history, review, userId!);
-    if (reason) throw new Error(reason);
-    checked(
-      await supabase.rpc("bites_vote", {
-        p_review_id: review.id,
-        p_vote: data.votes[review.id] === direction ? 0 : direction,
-      }),
-    );
-    await refreshAfterMutation();
+  const vote = async (review: Review, direction: 1 | -1) => {
+    if (!session || identity.current !== session.user.id) return;
+    const id = review.id;
+    const pending = pendingVotes.current.get(id);
+    const current = pending?.target ?? savedVotes.current[id] ?? 0;
+    const next = current === direction ? 0 : direction;
+    if (next) {
+      const reason = voteEligibility(data.history, review, session.user.id);
+      if (reason) throw new Error(reason);
+    }
+    reviewRequest.current++;
+    setData((d) => applyReviewVote(d, review, next));
+    if (pending) {
+      pending.target = next;
+      return;
+    }
+
+    // One writer per review. Taps during a save replace its next target.
+    const write = { target: next };
+    pendingVotes.current.set(id, write);
+    const isCurrent = () => pendingVotes.current.get(id) === write;
+    try {
+      for (;;) {
+        const target = write.target;
+        try {
+          checked(
+            await supabase.rpc("bites_vote", {
+              p_review_id: id,
+              p_vote: target,
+            }),
+          );
+        } catch (error) {
+          if (!isCurrent()) return;
+          if (write.target !== target) continue;
+          const confirmed = savedVotes.current[id] ?? 0;
+          setData((d) => applyReviewVote(d, review, confirmed));
+          throw error;
+        }
+        if (!isCurrent()) return;
+        savedVotes.current[id] = target;
+        if (write.target === target) return;
+      }
+    } finally {
+      if (isCurrent()) {
+        pendingVotes.current.delete(id);
+        void refreshReviews().catch((e) => notify(e.message));
+      }
+    }
   };
   const saveProfile = async (profile: Profile) => {
     if (!userId) throw new Error("Sign in to save preferences.");

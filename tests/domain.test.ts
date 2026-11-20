@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {
+  applyReviewVote,
   campusDate,
   nutritionTotals,
   ratingFor,
@@ -8,7 +9,7 @@ import {
   reviewEligibility,
   voteEligibility,
 } from "../src/lib/domain";
-import type { Eating, Food, FoodLog, Review } from "../src/lib/types";
+import type { AppData, Eating, Food, FoodLog, Review } from "../src/lib/types";
 const now = new Date("2026-11-19T06:00:00Z");
 const eating = (date: string): Eating => ({
   id: "e",
@@ -143,6 +144,44 @@ test("retained history grants lifetime voting, self-votes do not", () => {
   assert.equal(voteEligibility([eating("2020-01-01")], r, "a"), null);
   assert.match(voteEligibility([], r, "a")!, /eaten/);
   assert.match(voteEligibility([eating("2020-01-01")], r, "b")!, /own/);
+});
+test("switching and undoing a vote keeps review counts and author karma in sync", () => {
+  const target = {
+    ...review("b", 4, "2026-11-19", "r1"),
+    upvotes: 4,
+    downvotes: 1,
+    score: 3,
+    karma: 3,
+  };
+  const sameAuthor = { ...review("b", 3, "2026-11-18", "r2"), karma: 3 };
+  const otherAuthor = review("c", 5, "2026-11-18", "r3");
+  const initial: AppData = {
+    reviews: [target, sameAuthor, otherAuthor],
+    votes: {},
+    history: [],
+    logs: [],
+    favorites: [],
+    submissions: [],
+    profile: {
+      display_name: "Voter",
+      avatar_id: "classic",
+      goals: {},
+      dietary: [],
+      haptics: false,
+    },
+  };
+  const up = applyReviewVote(initial, target, 1);
+  const down = applyReviewVote(up, target, -1);
+  assert.deepEqual(up.votes, { r1: 1 });
+  assert.deepEqual(down.votes, { r1: -1 });
+  assert.deepEqual(down.reviews, [
+    { ...target, downvotes: 2, score: 2, karma: 2 },
+    { ...sameAuthor, karma: 2 },
+    otherAuthor,
+  ]);
+  assert.equal(down.reviews[2], otherAuthor);
+  assert.deepEqual(applyReviewVote(down, target, 1), up);
+  assert.deepEqual(applyReviewVote(down, target, 0), initial);
 });
 
 test("deleted reviews do not erase the submission cooldown", () => {

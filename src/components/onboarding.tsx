@@ -501,7 +501,9 @@ function DemoReview({ review }: { review: (typeof exampleReviews)[number] }) {
             downvotes={review.down + (vote === -1 ? 1 : 0)}
             selectedVote={vote}
             subject={`${review.name}’s example review`}
-            onVote={(direction) => setVote(vote === direction ? 0 : direction)}
+            onVote={(direction) =>
+              setVote((previous) => (previous === direction ? 0 : direction))
+            }
           />
         }
       />

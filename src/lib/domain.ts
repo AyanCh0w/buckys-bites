@@ -1,4 +1,5 @@
 import type {
+  AppData,
   Catalog,
   Eating,
   Food,
@@ -318,6 +319,31 @@ export function voteEligibility(
   )
     return "You can vote on reviews of dishes you’ve eaten. Add this dish to your food after eating it.";
   return null;
+}
+export function applyReviewVote(
+  data: AppData,
+  review: Review,
+  next: number,
+): AppData {
+  const previous = data.votes[review.id] ?? 0;
+  if (previous === next) return data;
+  const votes = { ...data.votes };
+  if (next === 0) delete votes[review.id];
+  else votes[review.id] = next;
+  const delta = next - previous;
+  const reviews = data.reviews.map((r) => {
+    if (r.user_id !== review.user_id) return r;
+    const karma = r.karma + delta;
+    if (r.id !== review.id) return { ...r, karma };
+    return {
+      ...r,
+      karma,
+      score: r.score + delta,
+      upvotes: r.upvotes + Number(next === 1) - Number(previous === 1),
+      downvotes: r.downvotes + Number(next === -1) - Number(previous === -1),
+    };
+  });
+  return { ...data, votes, reviews };
 }
 export function formatAmount(
   value: number | null | undefined,
