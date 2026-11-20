@@ -58,6 +58,7 @@ type Toast = {
   message: string;
   action?: string;
   onAction?: () => void | Promise<void>;
+  nutrientRain?: { logId: string; icons: string[] };
 };
 type ProfileStatus = "loading" | "saved" | "error";
 type AppContext = {
@@ -74,11 +75,7 @@ type AppContext = {
   refreshing: boolean;
   syncError: string | null;
   toast: Toast | null;
-  notify: (
-    message: string,
-    action?: string,
-    onAction?: Toast["onAction"],
-  ) => void;
+  notify: (message: string, options?: Omit<Toast, "message">) => void;
   dismissToast: () => void;
   refresh: () => Promise<void>;
   refreshAccount: () => Promise<void>;
@@ -168,8 +165,8 @@ export function AppProvider({ children }: React.PropsWithChildren) {
   const identity = useRef(userId);
   identity.current = userId;
   const notify = useCallback(
-    (message: string, action?: string, onAction?: Toast["onAction"]) =>
-      setToast({ message, action, onAction }),
+    (message: string, options?: Omit<Toast, "message">) =>
+      setToast({ message, ...options }),
     [],
   );
   useEffect(() => {
@@ -305,7 +302,10 @@ export function AppProvider({ children }: React.PropsWithChildren) {
   useEffect(() => {
     const load = () =>
       refreshProfile().catch(() =>
-        notify("Couldn’t load your preferences.", "Retry", load),
+        notify("Couldn’t load your preferences.", {
+          action: "Retry",
+          onAction: load,
+        }),
       );
     if (ready) void load();
     return () => {

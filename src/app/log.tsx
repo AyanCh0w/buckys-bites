@@ -17,6 +17,7 @@ import {
   NUTRIENTS,
 } from "../lib/domain";
 import { isEstimatedNutrient } from "../lib/nutrition-display";
+import { nutrientRainIcons } from "../lib/nutrient-rain";
 import { NutrientAmount } from "../components/nutrient-display";
 
 export default function LogFood() {
@@ -129,9 +130,11 @@ function FoodLogForm() {
             : undefined,
         );
         backOrReplace("/nutrition");
-        notify("Added to your food", "Undo", () =>
-          deleteLog(id, undefined, true),
-        );
+        notify("Added to your food", {
+          action: "Undo",
+          onAction: () => deleteLog(id, undefined, true),
+          nutrientRain: { logId: id, icons: nutrientRainIcons(nutrition) },
+        });
       }
     } catch (e) {
       setError((e as Error).message);

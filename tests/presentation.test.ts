@@ -11,6 +11,10 @@ import {
 } from "../src/lib/nutrition-display";
 import { formatAmount, nutritionTotals } from "../src/lib/domain";
 import { menuNutritionNote } from "../src/lib/menu-nutrition";
+import {
+  createNutrientDrops,
+  nutrientRainIcons,
+} from "../src/lib/nutrient-rain";
 import type { Catalog, Food, FoodLog, Service } from "../src/lib/types";
 
 function chartLog(food: Partial<Food>, servings = 1) {
@@ -46,6 +50,91 @@ test("calorie stacks keep each dish within its energy total and preserve unattri
     fat: 0,
     unassigned: 80,
   });
+});
+
+test("nutrition rain scales each icon in its own units and stays bounded", () => {
+  const food = {
+    calories_kcal: 120,
+    protein_g: 8,
+    sodium_mg: 300,
+    sugar_g: 10,
+    fiber_g: null,
+    total_fat_g: 0,
+    carbohydrate_g: null,
+    saturated_fat_g: null,
+  };
+  assert.deepEqual(nutrientRainIcons(food).sort(), [
+    "calories",
+    "protein",
+    "sodium",
+    "sugar",
+  ]);
+  const richer = nutrientRainIcons({
+    ...food,
+    calories_kcal: 720,
+    protein_g: 32,
+    fiber_g: 6,
+  });
+  assert.equal(richer.filter((icon) => icon === "calories").length, 4);
+  assert.equal(richer.filter((icon) => icon === "protein").length, 4);
+  assert.equal(richer.filter((icon) => icon === "fiber").length, 3);
+  const large = Object.fromEntries(
+    Object.keys(food).map((key) => [key, 10000]),
+  );
+  assert.equal(nutrientRainIcons({ ...food, ...large }).length, 16);
+});
+
+test("nutrition rain only uses available positive amounts", () => {
+  const food = {
+    calories_kcal: null,
+    protein_g: null,
+    carbohydrate_g: 0,
+    total_fat_g: 0,
+    fiber_g: null,
+    sugar_g: null,
+    sodium_mg: NaN,
+    saturated_fat_g: -1,
+  };
+  assert.deepEqual(nutrientRainIcons(food), []);
+  assert.deepEqual(nutrientRainIcons({ ...food, fiber_g: 0.5 }), ["fiber"]);
+});
+
+test("randomized tumbles preserve the mix and space each wave", () => {
+  const icons = Array.from({ length: 16 }, (_, i) =>
+    i % 3 ? "calories" : "sodium",
+  );
+  const clockwise = createNutrientDrops(icons, () => 0.9);
+  const counterclockwise = createNutrientDrops(icons, () => 0.1);
+  assert.ok(clockwise.every((drop) => drop.spin > 0));
+  assert.ok(counterclockwise.every((drop) => drop.spin < 0));
+  assert.notEqual(clockwise[0].left, counterclockwise[0].left);
+  for (const burst of [clockwise, counterclockwise]) {
+    assert.deepEqual(burst.map((drop) => drop.icon).sort(), [...icons].sort());
+    assert.equal(burst.filter((drop) => Math.abs(drop.spin) >= 355).length, 1);
+    for (let i = 0; i < burst.length; i += 4) {
+      const lanes = burst
+        .slice(i, i + 4)
+        .map((drop) => drop.left)
+        .sort((a, b) => a - b);
+      assert.ok(lanes.slice(1).every((left, j) => left - lanes[j] >= 16));
+    }
+  }
+});
+
+test("every shower runs for 2.5 seconds and reaches the lower screen", () => {
+  for (let count = 1; count <= 16; count++) {
+    const drops = createNutrientDrops(Array<string>(count).fill("calories"));
+    assert.equal(Math.min(...drops.map((drop) => drop.delay)), 0);
+    assert.equal(
+      Math.max(...drops.map((drop) => drop.delay + drop.duration)),
+      2500,
+    );
+    assert.ok(
+      drops.every(
+        (drop) => drop.duration > 0 && drop.depth >= 0.86 && drop.depth <= 1,
+      ),
+    );
+  }
 });
 
 const breakfast = {

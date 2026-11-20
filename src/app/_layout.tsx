@@ -16,6 +16,7 @@ import { AppProvider, useApp } from "../state/AppProvider";
 import { fontAssets } from "../lib/fonts";
 import { BAKERY_KEY } from "../lib/menu";
 import { ToastHost } from "../components/ui";
+import { NutrientRain } from "../components/NutrientRain";
 import { ThemeProvider } from "../state/ThemeProvider";
 import Stack from "../components/navigation-stack";
 import { GoalEstimateDraftProvider } from "../state/GoalEstimateDraftProvider";
@@ -58,7 +59,7 @@ function AppShell() {
   const bakeryMenu = pathname === `/kitchen/${BAKERY_KEY}`;
   const { colors, scheme } = useTheme();
   const reduced = useReducedMotion();
-  const { ready, session, introComplete } = useApp();
+  const { ready, session, introComplete, toast } = useApp();
   const baseTheme = scheme === "dark" ? DarkTheme : DefaultTheme;
   const navigationTheme = {
     ...baseTheme,
@@ -187,6 +188,12 @@ function AppShell() {
           </Stack.Protected>
           <Stack.Screen name="onboarding" options={{ gestureEnabled: false }} />
         </Stack>
+        {toast?.nutrientRain?.icons.length ? (
+          <NutrientRain
+            key={toast.nutrientRain.logId}
+            icons={toast.nutrientRain.icons}
+          />
+        ) : null}
         <ToastHost />
       </View>
     </NavigationThemeProvider>
