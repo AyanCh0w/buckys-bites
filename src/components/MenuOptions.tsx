@@ -127,6 +127,28 @@ export function MenuOptions({
                   />
                 );
               })}
+              {single && !group.min && (
+                <OptionTile
+                  width={columns}
+                  name={
+                    group.options.some((option) => option.default)
+                      ? group.name === "Bread and wraps"
+                        ? "No bun"
+                        : "None"
+                      : "As served"
+                  }
+                  single
+                  checked={selectedCount === 0}
+                  onPress={() =>
+                    selection.onChoices(
+                      selection.choices.filter(
+                        (key) =>
+                          !group.options.some((option) => option.key === key),
+                      ),
+                    )
+                  }
+                />
+              )}
             </View>
           </View>
         );
@@ -174,15 +196,13 @@ function OptionTile({
       <Tap
         padding="none"
         highlightRadius={14}
-        style={{ flex: 1 }}
+        style={{ flexGrow: 1 }}
         accessibilityRole={single ? "radio" : "checkbox"}
         haptic={
-          single
-            ? checked ? false : "select"
-            : checked ? "release" : "attach"
+          single ? (checked ? false : "select") : checked ? "release" : "attach"
         }
         accessibilityLabel={[name, price, detail].filter(Boolean).join(", ")}
-        aria-checked={checked}
+        accessibilityState={{ checked, disabled: Boolean(disabled) }}
         disabled={disabled}
         onPress={onPress}
       >
@@ -192,6 +212,7 @@ function OptionTile({
               style={{
                 width: 18,
                 height: 18,
+                flexShrink: 0,
                 borderRadius: single ? 9 : 4,
                 borderColor: checked ? colors.accent : colors.muted,
                 borderWidth: 1,

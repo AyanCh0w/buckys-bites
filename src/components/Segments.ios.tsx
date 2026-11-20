@@ -20,9 +20,9 @@ export default function Segments({
   return (
     <Host
       colorScheme={scheme}
-      matchContents={{ vertical: true }}
+      ignoreSafeArea="all"
       seedColor={colors.accent}
-      style={{ minHeight: 36 }}
+      style={{ height: 36, flexShrink: 0 }}
     >
       <Picker
         selection={value}

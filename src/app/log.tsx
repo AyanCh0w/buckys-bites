@@ -3,6 +3,7 @@ import { useTheme } from "../state/ThemeProvider";
 import { backOrReplace } from "../lib/navigation";
 import React, { useState } from "react";
 import { Platform, ScrollView, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Redirect, useLocalSearchParams } from "expo-router";
 import { useApp } from "../state/AppProvider";
 import { Art, BackHeader, Button, Chip, T } from "../components/ui";
@@ -45,6 +46,7 @@ export default function LogFood() {
 }
 
 function FoodLogForm() {
+  const insets = useSafeAreaInsets();
   const playHaptic = useHaptic();
   const { colors, s } = useTheme();
   const {
@@ -148,12 +150,12 @@ function FoodLogForm() {
       setBusy(false);
     }
   };
-  return (
+  const form = (
     <ScrollView
       contentInsetAdjustmentBehavior="automatic"
-      style={{ backgroundColor: colors.paper }}
+      style={{ flex: 1, backgroundColor: colors.paper }}
       keyboardShouldPersistTaps="handled"
-      contentContainerStyle={{ paddingBottom: 50 }}
+      contentContainerStyle={{ paddingBottom: 24 }}
     >
       {Platform.OS !== "ios" && (
         <BackHeader title={edit ? "Edit Your Food" : "A Bite for Your Day"} />
@@ -184,22 +186,6 @@ function FoodLogForm() {
             </T>
           </View>
         </View>
-        {!previous && offering && hasOptions && (
-          <MenuOptions
-            offering={offering}
-            serviceDate={
-              catalog.services.find(
-                (service) => service.id === offering.menu_service_id,
-              )?.service_date
-            }
-            selection={{
-              size,
-              choices,
-              onSize: setSize,
-              onChoices: setChoices,
-            }}
-          />
-        )}
         {Boolean(previous?.menu_selection?.choices.length) && (
           <T style={s.body}>
             {previous?.menu_selection?.choices
@@ -226,6 +212,22 @@ function FoodLogForm() {
             )}
           </ScrollView>
         </View>
+        {!previous && offering && hasOptions && (
+          <MenuOptions
+            offering={offering}
+            serviceDate={
+              catalog.services.find(
+                (service) => service.id === offering.menu_service_id,
+              )?.service_date
+            }
+            selection={{
+              size,
+              choices,
+              onSize: setSize,
+              onChoices: setChoices,
+            }}
+          />
+        )}
         <View style={{ gap: 12 }}>
           <T style={{ fontSize: 14 }}>
             Added to your nutrition
@@ -252,26 +254,6 @@ function FoodLogForm() {
           </View>
           {nutritionNote && <T style={s.caption}>{nutritionNote}</T>}
         </View>
-        {Boolean(error) && (
-          <T
-            accessibilityRole="alert"
-            style={{ color: colors.red, fontSize: 14 }}
-          >
-            {error}
-          </T>
-        )}
-        <Button
-          title={
-            busy
-              ? "Saving…"
-              : edit
-                ? "Save changes"
-                : "I ate this · Add to my food"
-          }
-          disabled={busy || (!previous && !valid)}
-          onPress={submit}
-          haptic={false}
-        />
         {Boolean(edit) && (
           <Button
             secondary
@@ -335,5 +317,50 @@ function FoodLogForm() {
         )}
       </View>
     </ScrollView>
+  );
+  return (
+    <View style={{ flex: 1, backgroundColor: colors.paper }}>
+      {form}
+      {(!deleting || Boolean(error)) && (
+        <View
+          style={[
+            s.inset,
+            {
+              flexShrink: 0,
+              zIndex: 1,
+              backgroundColor: colors.paper,
+              gap: 8,
+              paddingTop: 10,
+              paddingBottom: Math.max(12, insets.bottom),
+              borderTopWidth: 1,
+              borderColor: colors.rule,
+            },
+          ]}
+        >
+          {Boolean(error) && (
+            <T
+              accessibilityRole="alert"
+              style={{ color: colors.red, fontSize: 14 }}
+            >
+              {error}
+            </T>
+          )}
+          {!deleting && (
+            <Button
+              title={
+                busy
+                  ? "Saving…"
+                  : edit
+                    ? "Save changes"
+                    : "I ate this · Add to my food"
+              }
+              disabled={busy || (!previous && !valid)}
+              onPress={submit}
+              haptic={false}
+            />
+          )}
+        </View>
+      )}
+    </View>
   );
 }

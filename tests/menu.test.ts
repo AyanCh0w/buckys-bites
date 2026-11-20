@@ -14,8 +14,10 @@ import { menuNutrition } from "../src/lib/menu-nutrition";
 import {
   initialChoices,
   initialSize,
+  savedChoiceKeys,
   toggleChoice,
   validChoices,
+  withBurgerBreadOptions,
 } from "../src/lib/menu-options";
 import type { Catalog, Component, FoodLog, Service } from "../src/lib/types";
 const service = {
@@ -340,6 +342,80 @@ test("dated dish options reach the log with defaults and the observed group limi
   };
   assert.equal(initialSize(sizes, "Large"), "Large");
   assert.equal(initialSize(sizes, "Unknown"), "Small");
+});
+
+test("a burger has one bread choice and keeps its toppings through logging", () => {
+  const model = withBurgerBreadOptions(catalog as Catalog);
+  const burgers = model.foods.filter((food) => /burger/i.test(food.name));
+  assert.ok(burgers.some((food) => food.name === "Signature Smash Burger"));
+  for (const food of burgers) {
+    const { offering } = dishContext(model, food, "2026-11-19");
+    assert.ok(offering);
+    const groups = offering.modifier_groups!;
+    const bread = groups.find((group) => group.name === "Bread and wraps")!;
+    const toppings = groups.find((group) => group.name === "Toppings")!;
+    const wrap = bread.options.find(
+      (option) => option.label === "Lettuce wrap",
+    )!;
+    const defaults = initialChoices(offering);
+    const standardBun = bread.options.find(
+      (option) => option.label === "Hamburger bun",
+    )!;
+    assert.ok(defaults.includes(standardBun.key));
+    assert.equal(
+      menuNutrition(food, offering, model.components, undefined, defaults),
+      food,
+    );
+    const switched = toggleChoice(defaults, bread, wrap);
+    assert.ok(!switched.includes(standardBun.key));
+    assert.equal(switched.length, defaults.length);
+    assert.deepEqual(
+      initialChoices(offering, JSON.stringify(switched)),
+      switched,
+    );
+    const historical = { offering_id: offering.id, choices: [] };
+    assert.deepEqual(savedChoiceKeys(offering, historical, true), defaults);
+    assert.deepEqual(savedChoiceKeys(offering, historical, false), []);
+    assert.equal(bread.max, 1);
+    assert.ok(validChoices(offering, []));
+    const first = toggleChoice(
+      [toppings.options[0].key],
+      bread,
+      bread.options[0],
+    );
+    const changed = toggleChoice(first, bread, wrap);
+    assert.deepEqual(changed, [toppings.options[0].key, wrap.key]);
+    assert.deepEqual(toggleChoice(changed, bread, wrap), changed);
+    assert.deepEqual(
+      initialChoices(offering, JSON.stringify(changed)),
+      changed,
+    );
+    assert.equal(
+      validChoices(offering, [...changed, bread.options[0].key]),
+      false,
+    );
+    assert.deepEqual(
+      new Set(
+        savedChoiceKeys(offering, {
+          offering_id: offering.id,
+          choices: [
+            { group: "Vegetables", label: wrap.label },
+            { group: toppings.name, label: toppings.options[0].label },
+          ],
+        }),
+      ),
+      new Set(changed),
+    );
+  }
+  const sandwich = model.foods.find(
+    (food) => food.name === "Build Your Own Deli Sandwich",
+  )!;
+  const { offering } = dishContext(model, sandwich, "2026-11-19");
+  assert.ok(offering);
+  assert.equal(
+    offering,
+    (catalog as Catalog).offerings.find((entry) => entry.id === offering.id),
+  );
 });
 
 test("menu selections preview published ingredients, add-ons and partial meals", () => {

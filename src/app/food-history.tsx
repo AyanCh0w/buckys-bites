@@ -2,7 +2,7 @@ import { useTheme } from "../state/ThemeProvider";
 import { ScrollView, View } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import { FixedScreen, IconButton, T, Tap } from "../components/ui";
-import { FoodImage, openDish } from "../components/Food";
+import { FoodImage, openLoggedDish } from "../components/Food";
 import { useApp } from "../state/AppProvider";
 import { campusDate, dateLabel, displayName } from "../lib/domain";
 import { FoodNutrition } from "../components/nutrient-display";
@@ -30,9 +30,7 @@ export default function FoodHistory() {
                     <Tap
                       padding="row"
                       style={{ flex: 1, marginLeft: -12 }}
-                      onPress={() =>
-                        openDish(log.food, log.local_date, log.meal_label)
-                      }
+                      onPress={() => openLoggedDish(log)}
                     >
                       <View style={s.inline}>
                         <FoodImage food={log.food} size={65} />

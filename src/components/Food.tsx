@@ -6,7 +6,7 @@ import { assets } from "../data/assets";
 import { useApp } from "../state/AppProvider";
 
 import { dishContext, displayName, ratingFor } from "../lib/domain";
-import type { Catalog, Food, Offering } from "../lib/types";
+import type { Catalog, Food, FoodLog, Offering } from "../lib/types";
 import { AssetImage, Icon, T, Tap } from "./ui";
 import { money } from "../lib/menu-options";
 import { FoodNutrition } from "./nutrient-display";
@@ -103,6 +103,17 @@ export function openDish(
       ...(date ? { date } : {}),
       ...(meal ? { meal } : {}),
       ...(offering ? { offering } : {}),
+    },
+  });
+}
+export function openLoggedDish(log: FoodLog) {
+  router.push({
+    pathname: "/dish/[id]",
+    params: {
+      id: log.food_version_id,
+      date: log.local_date,
+      meal: log.meal_label,
+      log: log.id,
     },
   });
 }

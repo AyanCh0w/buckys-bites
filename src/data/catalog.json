@@ -46685,12 +46685,24 @@
       "serving_options": [],
       "modifier_groups": [
         {
+          "max": 1,
           "name": "Bread and wraps",
           "options": [
+            {
+              "key": "burger-recipe:70647210",
+              "label": "Hamburger bun",
+              "default": true,
+              "component_id": "fe521909-d5db-44f1-9e8c-2b49135c651f"
+            },
             {
               "key": "component:benson:18696:23020294",
               "label": "Udi's hamburger bun",
               "component_id": "6e2d478f-8e9e-476b-a00e-7d108140b42f"
+            },
+            {
+              "key": "component:benson:18696:23020296",
+              "label": "Lettuce wrap",
+              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
             },
             {
               "key": "component:benson:18696:23020295",
@@ -46713,14 +46725,15 @@
           "name": "Proteins",
           "options": [
             {
+              "key": "component:benson:18696:23020297",
+              "label": "Single beef patty",
+              "default": true,
+              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
+            },
+            {
               "key": "component:benson:18696:23020298",
               "label": "Grilled chicken breast",
               "component_id": "f11501d4-96cb-4a42-ac68-e05fb6b89c64"
-            },
-            {
-              "key": "component:benson:18696:23020297",
-              "label": "Single beef patty",
-              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
             },
             {
               "key": "component:benson:18696:23020300",
@@ -46778,6 +46791,7 @@
               "key": "component:benson:18696:23020647",
               "label": "bacon",
               "price": 2.9,
+              "default": true,
               "component_id": "21a01c56-16e1-40d3-a7b6-e2d90b659c68"
             }
           ]
@@ -46785,6 +46799,12 @@
         {
           "name": "Cheese",
           "options": [
+            {
+              "key": "component:benson:18696:23020304",
+              "label": "American cheese",
+              "default": true,
+              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
+            },
             {
               "key": "component:benson:18696:23020302",
               "label": "Pepper jack cheese",
@@ -46794,11 +46814,6 @@
               "key": "component:benson:18696:23020303",
               "label": "Provolone cheese",
               "component_id": "7c2c5bdd-f791-44cf-810f-2e6e036a5527"
-            },
-            {
-              "key": "component:benson:18696:23020304",
-              "label": "American cheese",
-              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
             },
             {
               "key": "component:benson:18696:23020305",
@@ -46818,6 +46833,7 @@
             {
               "key": "component:benson:18696:36667109",
               "label": "Coke",
+              "default": true,
               "component_id": "88e4085b-7718-42c8-a91c-f0f926a8798a"
             },
             {
@@ -46913,12 +46929,13 @@
           ]
         },
         {
-          "name": "Vegetables",
+          "name": "Side",
           "options": [
             {
-              "key": "component:benson:18696:23020296",
-              "label": "Lettuce wrap",
-              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
+              "key": "burger-recipe:46495",
+              "label": "French fries",
+              "default": true,
+              "component_id": "d9bfb7f4-b309-440b-a356-fa74fa83daae"
             }
           ]
         }
@@ -48371,12 +48388,24 @@
       "serving_options": [],
       "modifier_groups": [
         {
+          "max": 1,
           "name": "Bread and wraps",
           "options": [
+            {
+              "key": "burger-recipe:70647210",
+              "label": "Hamburger bun",
+              "default": true,
+              "component_id": "fe521909-d5db-44f1-9e8c-2b49135c651f"
+            },
             {
               "key": "component:benson:18696:23020294",
               "label": "Udi's hamburger bun",
               "component_id": "6e2d478f-8e9e-476b-a00e-7d108140b42f"
+            },
+            {
+              "key": "component:benson:18696:23020296",
+              "label": "Lettuce wrap",
+              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
             },
             {
               "key": "component:benson:18696:23020295",
@@ -48399,14 +48428,15 @@
           "name": "Proteins",
           "options": [
             {
+              "key": "component:benson:18696:23020297",
+              "label": "Single beef patty",
+              "default": true,
+              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
+            },
+            {
               "key": "component:benson:18696:23020298",
               "label": "Grilled chicken breast",
               "component_id": "f11501d4-96cb-4a42-ac68-e05fb6b89c64"
-            },
-            {
-              "key": "component:benson:18696:23020297",
-              "label": "Single beef patty",
-              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
             },
             {
               "key": "component:benson:18696:23020300",
@@ -48472,6 +48502,12 @@
           "name": "Cheese",
           "options": [
             {
+              "key": "component:benson:18696:23020304",
+              "label": "American cheese",
+              "default": true,
+              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
+            },
+            {
               "key": "component:benson:18696:23020302",
               "label": "Pepper jack cheese",
               "component_id": "ff3f881b-94a5-4276-90d5-a26212ee8cbc"
@@ -48480,11 +48516,6 @@
               "key": "component:benson:18696:23020303",
               "label": "Provolone cheese",
               "component_id": "7c2c5bdd-f791-44cf-810f-2e6e036a5527"
-            },
-            {
-              "key": "component:benson:18696:23020304",
-              "label": "American cheese",
-              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
             },
             {
               "key": "component:benson:18696:23020305",
@@ -48504,6 +48535,7 @@
             {
               "key": "component:benson:18696:36667109",
               "label": "Coke",
+              "default": true,
               "component_id": "88e4085b-7718-42c8-a91c-f0f926a8798a"
             },
             {
@@ -48599,12 +48631,13 @@
           ]
         },
         {
-          "name": "Vegetables",
+          "name": "Side",
           "options": [
             {
-              "key": "component:benson:18696:23020296",
-              "label": "Lettuce wrap",
-              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
+              "key": "burger-recipe:46495",
+              "label": "French fries",
+              "default": true,
+              "component_id": "d9bfb7f4-b309-440b-a356-fa74fa83daae"
             }
           ]
         }
@@ -49606,12 +49639,24 @@
       "serving_options": [],
       "modifier_groups": [
         {
+          "max": 1,
           "name": "Bread and wraps",
           "options": [
+            {
+              "key": "burger-recipe:70647210",
+              "label": "Hamburger bun",
+              "default": true,
+              "component_id": "fe521909-d5db-44f1-9e8c-2b49135c651f"
+            },
             {
               "key": "component:benson:18696:23020294",
               "label": "Udi's hamburger bun",
               "component_id": "6e2d478f-8e9e-476b-a00e-7d108140b42f"
+            },
+            {
+              "key": "component:benson:18696:23020296",
+              "label": "Lettuce wrap",
+              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
             },
             {
               "key": "component:benson:18696:23020295",
@@ -49634,14 +49679,15 @@
           "name": "Proteins",
           "options": [
             {
+              "key": "component:benson:18696:23020297",
+              "label": "Single beef patty",
+              "default": true,
+              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
+            },
+            {
               "key": "component:benson:18696:23020298",
               "label": "Grilled chicken breast",
               "component_id": "f11501d4-96cb-4a42-ac68-e05fb6b89c64"
-            },
-            {
-              "key": "component:benson:18696:23020297",
-              "label": "Single beef patty",
-              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
             },
             {
               "key": "component:benson:18696:23020300",
@@ -49699,6 +49745,7 @@
               "key": "component:benson:18696:23020647",
               "label": "bacon",
               "price": 2.9,
+              "default": true,
               "component_id": "21a01c56-16e1-40d3-a7b6-e2d90b659c68"
             }
           ]
@@ -49706,6 +49753,12 @@
         {
           "name": "Cheese",
           "options": [
+            {
+              "key": "component:benson:18696:23020304",
+              "label": "American cheese",
+              "default": true,
+              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
+            },
             {
               "key": "component:benson:18696:23020302",
               "label": "Pepper jack cheese",
@@ -49715,11 +49768,6 @@
               "key": "component:benson:18696:23020303",
               "label": "Provolone cheese",
               "component_id": "7c2c5bdd-f791-44cf-810f-2e6e036a5527"
-            },
-            {
-              "key": "component:benson:18696:23020304",
-              "label": "American cheese",
-              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
             },
             {
               "key": "component:benson:18696:23020305",
@@ -49739,6 +49787,7 @@
             {
               "key": "component:benson:18696:36667109",
               "label": "Coke",
+              "default": true,
               "component_id": "88e4085b-7718-42c8-a91c-f0f926a8798a"
             },
             {
@@ -49834,12 +49883,13 @@
           ]
         },
         {
-          "name": "Vegetables",
+          "name": "Side",
           "options": [
             {
-              "key": "component:benson:18696:23020296",
-              "label": "Lettuce wrap",
-              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
+              "key": "burger-recipe:46495",
+              "label": "French fries",
+              "default": true,
+              "component_id": "d9bfb7f4-b309-440b-a356-fa74fa83daae"
             }
           ]
         }
@@ -51635,12 +51685,24 @@
       "serving_options": [],
       "modifier_groups": [
         {
+          "max": 1,
           "name": "Bread and wraps",
           "options": [
+            {
+              "key": "burger-recipe:75613196",
+              "label": "Hamburger bun",
+              "default": true,
+              "component_id": "fe521909-d5db-44f1-9e8c-2b49135c651f"
+            },
             {
               "key": "component:benson:18696:23020294",
               "label": "Udi's hamburger bun",
               "component_id": "6e2d478f-8e9e-476b-a00e-7d108140b42f"
+            },
+            {
+              "key": "component:benson:18696:23020296",
+              "label": "Lettuce wrap",
+              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
             },
             {
               "key": "component:benson:18696:23020295",
@@ -51663,14 +51725,15 @@
           "name": "Proteins",
           "options": [
             {
+              "key": "component:benson:18696:23020297",
+              "label": "Single beef patty",
+              "default": true,
+              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
+            },
+            {
               "key": "component:benson:18696:23020298",
               "label": "Grilled chicken breast",
               "component_id": "f11501d4-96cb-4a42-ac68-e05fb6b89c64"
-            },
-            {
-              "key": "component:benson:18696:23020297",
-              "label": "Single beef patty",
-              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
             },
             {
               "key": "component:benson:18696:23020300",
@@ -51699,6 +51762,17 @@
         {
           "name": "Toppings",
           "options": [
+            {
+              "key": "burger-recipe:51721",
+              "label": "Caramelized onions",
+              "default": true,
+              "component_id": "48314eee-fc0e-48fb-b1b7-e1350178fa13"
+            },
+            {
+              "key": "burger-recipe:70818653",
+              "label": "Dill pickle relish",
+              "default": true
+            },
             {
               "key": "component:benson:18696:16878404",
               "label": "sliced red onion",
@@ -51736,6 +51810,12 @@
           "name": "Cheese",
           "options": [
             {
+              "key": "component:benson:18696:23020304",
+              "label": "American cheese",
+              "default": true,
+              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
+            },
+            {
               "key": "component:benson:18696:23020302",
               "label": "Pepper jack cheese",
               "component_id": "ff3f881b-94a5-4276-90d5-a26212ee8cbc"
@@ -51744,11 +51824,6 @@
               "key": "component:benson:18696:23020303",
               "label": "Provolone cheese",
               "component_id": "7c2c5bdd-f791-44cf-810f-2e6e036a5527"
-            },
-            {
-              "key": "component:benson:18696:23020304",
-              "label": "American cheese",
-              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
             },
             {
               "key": "component:benson:18696:23020305",
@@ -51768,27 +51843,31 @@
             {
               "key": "component:benson:18696:16878410",
               "label": "mayonnaise",
+              "default": true,
               "component_id": "80bf6c69-2f8b-4424-b8a5-c73bcd096f6b"
             },
             {
               "key": "component:benson:18696:16878408",
               "label": "mustard",
+              "default": true,
               "component_id": "ec132284-fe1e-42d6-979d-f8dc1f4e5a08"
             },
             {
               "key": "component:benson:18696:16878409",
               "label": "ketchup",
+              "default": true,
               "component_id": "8d038037-b57b-477a-b745-4c65ec8f366f"
             }
           ]
         },
         {
-          "name": "Vegetables",
+          "name": "Side",
           "options": [
             {
-              "key": "component:benson:18696:23020296",
-              "label": "Lettuce wrap",
-              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
+              "key": "burger-recipe:35685",
+              "label": "Seasoned fries",
+              "default": true,
+              "component_id": "fa62453f-b3d6-495c-a148-a8b7521881a3"
             }
           ]
         }
@@ -55088,12 +55167,24 @@
       "serving_options": [],
       "modifier_groups": [
         {
+          "max": 1,
           "name": "Bread and wraps",
           "options": [
+            {
+              "key": "burger-recipe:70647210",
+              "label": "Hamburger bun",
+              "default": true,
+              "component_id": "fe521909-d5db-44f1-9e8c-2b49135c651f"
+            },
             {
               "key": "component:benson:18696:23020294",
               "label": "Udi's hamburger bun",
               "component_id": "6e2d478f-8e9e-476b-a00e-7d108140b42f"
+            },
+            {
+              "key": "component:benson:18696:23020296",
+              "label": "Lettuce wrap",
+              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
             },
             {
               "key": "component:benson:18696:23020295",
@@ -55116,14 +55207,15 @@
           "name": "Proteins",
           "options": [
             {
+              "key": "component:benson:18696:23020297",
+              "label": "Single beef patty",
+              "default": true,
+              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
+            },
+            {
               "key": "component:benson:18696:23020298",
               "label": "Grilled chicken breast",
               "component_id": "f11501d4-96cb-4a42-ac68-e05fb6b89c64"
-            },
-            {
-              "key": "component:benson:18696:23020297",
-              "label": "Single beef patty",
-              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
             },
             {
               "key": "component:benson:18696:23020300",
@@ -55181,6 +55273,7 @@
               "key": "component:benson:18696:23020647",
               "label": "bacon",
               "price": 2.9,
+              "default": true,
               "component_id": "21a01c56-16e1-40d3-a7b6-e2d90b659c68"
             }
           ]
@@ -55188,6 +55281,12 @@
         {
           "name": "Cheese",
           "options": [
+            {
+              "key": "component:benson:18696:23020304",
+              "label": "American cheese",
+              "default": true,
+              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
+            },
             {
               "key": "component:benson:18696:23020302",
               "label": "Pepper jack cheese",
@@ -55197,11 +55296,6 @@
               "key": "component:benson:18696:23020303",
               "label": "Provolone cheese",
               "component_id": "7c2c5bdd-f791-44cf-810f-2e6e036a5527"
-            },
-            {
-              "key": "component:benson:18696:23020304",
-              "label": "American cheese",
-              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
             },
             {
               "key": "component:benson:18696:23020305",
@@ -55221,6 +55315,7 @@
             {
               "key": "component:benson:18696:36667109",
               "label": "Coke",
+              "default": true,
               "component_id": "88e4085b-7718-42c8-a91c-f0f926a8798a"
             },
             {
@@ -55316,12 +55411,13 @@
           ]
         },
         {
-          "name": "Vegetables",
+          "name": "Side",
           "options": [
             {
-              "key": "component:benson:18696:23020296",
-              "label": "Lettuce wrap",
-              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
+              "key": "burger-recipe:46495",
+              "label": "French fries",
+              "default": true,
+              "component_id": "d9bfb7f4-b309-440b-a356-fa74fa83daae"
             }
           ]
         }
@@ -56534,12 +56630,24 @@
       "serving_options": [],
       "modifier_groups": [
         {
+          "max": 1,
           "name": "Bread and wraps",
           "options": [
+            {
+              "key": "burger-recipe:70647210",
+              "label": "Hamburger bun",
+              "default": true,
+              "component_id": "fe521909-d5db-44f1-9e8c-2b49135c651f"
+            },
             {
               "key": "component:benson:18696:23020294",
               "label": "Udi's hamburger bun",
               "component_id": "6e2d478f-8e9e-476b-a00e-7d108140b42f"
+            },
+            {
+              "key": "component:benson:18696:23020296",
+              "label": "Lettuce wrap",
+              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
             },
             {
               "key": "component:benson:18696:23020295",
@@ -56562,14 +56670,15 @@
           "name": "Proteins",
           "options": [
             {
+              "key": "component:benson:18696:23020297",
+              "label": "Single beef patty",
+              "default": true,
+              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
+            },
+            {
               "key": "component:benson:18696:23020298",
               "label": "Grilled chicken breast",
               "component_id": "f11501d4-96cb-4a42-ac68-e05fb6b89c64"
-            },
-            {
-              "key": "component:benson:18696:23020297",
-              "label": "Single beef patty",
-              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
             },
             {
               "key": "component:benson:18696:23020300",
@@ -56635,6 +56744,12 @@
           "name": "Cheese",
           "options": [
             {
+              "key": "component:benson:18696:23020304",
+              "label": "American cheese",
+              "default": true,
+              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
+            },
+            {
               "key": "component:benson:18696:23020302",
               "label": "Pepper jack cheese",
               "component_id": "ff3f881b-94a5-4276-90d5-a26212ee8cbc"
@@ -56643,11 +56758,6 @@
               "key": "component:benson:18696:23020303",
               "label": "Provolone cheese",
               "component_id": "7c2c5bdd-f791-44cf-810f-2e6e036a5527"
-            },
-            {
-              "key": "component:benson:18696:23020304",
-              "label": "American cheese",
-              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
             },
             {
               "key": "component:benson:18696:23020305",
@@ -56667,6 +56777,7 @@
             {
               "key": "component:benson:18696:36667109",
               "label": "Coke",
+              "default": true,
               "component_id": "88e4085b-7718-42c8-a91c-f0f926a8798a"
             },
             {
@@ -56762,12 +56873,13 @@
           ]
         },
         {
-          "name": "Vegetables",
+          "name": "Side",
           "options": [
             {
-              "key": "component:benson:18696:23020296",
-              "label": "Lettuce wrap",
-              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
+              "key": "burger-recipe:46495",
+              "label": "French fries",
+              "default": true,
+              "component_id": "d9bfb7f4-b309-440b-a356-fa74fa83daae"
             }
           ]
         }
@@ -57489,12 +57601,24 @@
       "serving_options": [],
       "modifier_groups": [
         {
+          "max": 1,
           "name": "Bread and wraps",
           "options": [
+            {
+              "key": "burger-recipe:70647210",
+              "label": "Hamburger bun",
+              "default": true,
+              "component_id": "fe521909-d5db-44f1-9e8c-2b49135c651f"
+            },
             {
               "key": "component:benson:18696:23020294",
               "label": "Udi's hamburger bun",
               "component_id": "6e2d478f-8e9e-476b-a00e-7d108140b42f"
+            },
+            {
+              "key": "component:benson:18696:23020296",
+              "label": "Lettuce wrap",
+              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
             },
             {
               "key": "component:benson:18696:23020295",
@@ -57517,14 +57641,15 @@
           "name": "Proteins",
           "options": [
             {
+              "key": "component:benson:18696:23020297",
+              "label": "Single beef patty",
+              "default": true,
+              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
+            },
+            {
               "key": "component:benson:18696:23020298",
               "label": "Grilled chicken breast",
               "component_id": "f11501d4-96cb-4a42-ac68-e05fb6b89c64"
-            },
-            {
-              "key": "component:benson:18696:23020297",
-              "label": "Single beef patty",
-              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
             },
             {
               "key": "component:benson:18696:23020300",
@@ -57590,6 +57715,12 @@
           "name": "Cheese",
           "options": [
             {
+              "key": "component:benson:18696:23020304",
+              "label": "American cheese",
+              "default": true,
+              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
+            },
+            {
               "key": "component:benson:18696:23020302",
               "label": "Pepper jack cheese",
               "component_id": "ff3f881b-94a5-4276-90d5-a26212ee8cbc"
@@ -57598,11 +57729,6 @@
               "key": "component:benson:18696:23020303",
               "label": "Provolone cheese",
               "component_id": "7c2c5bdd-f791-44cf-810f-2e6e036a5527"
-            },
-            {
-              "key": "component:benson:18696:23020304",
-              "label": "American cheese",
-              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
             },
             {
               "key": "component:benson:18696:23020305",
@@ -57622,6 +57748,7 @@
             {
               "key": "component:benson:18696:36667109",
               "label": "Coke",
+              "default": true,
               "component_id": "88e4085b-7718-42c8-a91c-f0f926a8798a"
             },
             {
@@ -57717,12 +57844,13 @@
           ]
         },
         {
-          "name": "Vegetables",
+          "name": "Side",
           "options": [
             {
-              "key": "component:benson:18696:23020296",
-              "label": "Lettuce wrap",
-              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
+              "key": "burger-recipe:46495",
+              "label": "French fries",
+              "default": true,
+              "component_id": "d9bfb7f4-b309-440b-a356-fa74fa83daae"
             }
           ]
         }
@@ -59193,12 +59321,24 @@
       "serving_options": [],
       "modifier_groups": [
         {
+          "max": 1,
           "name": "Bread and wraps",
           "options": [
+            {
+              "key": "burger-recipe:70647210",
+              "label": "Hamburger bun",
+              "default": true,
+              "component_id": "fe521909-d5db-44f1-9e8c-2b49135c651f"
+            },
             {
               "key": "component:benson:18696:23020294",
               "label": "Udi's hamburger bun",
               "component_id": "6e2d478f-8e9e-476b-a00e-7d108140b42f"
+            },
+            {
+              "key": "component:benson:18696:23020296",
+              "label": "Lettuce wrap",
+              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
             },
             {
               "key": "component:benson:18696:23020295",
@@ -59221,14 +59361,15 @@
           "name": "Proteins",
           "options": [
             {
+              "key": "component:benson:18696:23020297",
+              "label": "Single beef patty",
+              "default": true,
+              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
+            },
+            {
               "key": "component:benson:18696:23020298",
               "label": "Grilled chicken breast",
               "component_id": "f11501d4-96cb-4a42-ac68-e05fb6b89c64"
-            },
-            {
-              "key": "component:benson:18696:23020297",
-              "label": "Single beef patty",
-              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
             },
             {
               "key": "component:benson:18696:23020300",
@@ -59286,6 +59427,7 @@
               "key": "component:benson:18696:23020647",
               "label": "bacon",
               "price": 2.9,
+              "default": true,
               "component_id": "21a01c56-16e1-40d3-a7b6-e2d90b659c68"
             }
           ]
@@ -59293,6 +59435,12 @@
         {
           "name": "Cheese",
           "options": [
+            {
+              "key": "component:benson:18696:23020304",
+              "label": "American cheese",
+              "default": true,
+              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
+            },
             {
               "key": "component:benson:18696:23020302",
               "label": "Pepper jack cheese",
@@ -59302,11 +59450,6 @@
               "key": "component:benson:18696:23020303",
               "label": "Provolone cheese",
               "component_id": "7c2c5bdd-f791-44cf-810f-2e6e036a5527"
-            },
-            {
-              "key": "component:benson:18696:23020304",
-              "label": "American cheese",
-              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
             },
             {
               "key": "component:benson:18696:23020305",
@@ -59326,6 +59469,7 @@
             {
               "key": "component:benson:18696:36667109",
               "label": "Coke",
+              "default": true,
               "component_id": "88e4085b-7718-42c8-a91c-f0f926a8798a"
             },
             {
@@ -59421,12 +59565,13 @@
           ]
         },
         {
-          "name": "Vegetables",
+          "name": "Side",
           "options": [
             {
-              "key": "component:benson:18696:23020296",
-              "label": "Lettuce wrap",
-              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
+              "key": "burger-recipe:46495",
+              "label": "French fries",
+              "default": true,
+              "component_id": "d9bfb7f4-b309-440b-a356-fa74fa83daae"
             }
           ]
         }
@@ -60563,12 +60708,24 @@
       "serving_options": [],
       "modifier_groups": [
         {
+          "max": 1,
           "name": "Bread and wraps",
           "options": [
+            {
+              "key": "burger-recipe:75613196",
+              "label": "Hamburger bun",
+              "default": true,
+              "component_id": "fe521909-d5db-44f1-9e8c-2b49135c651f"
+            },
             {
               "key": "component:benson:18696:23020294",
               "label": "Udi's hamburger bun",
               "component_id": "6e2d478f-8e9e-476b-a00e-7d108140b42f"
+            },
+            {
+              "key": "component:benson:18696:23020296",
+              "label": "Lettuce wrap",
+              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
             },
             {
               "key": "component:benson:18696:23020295",
@@ -60591,14 +60748,15 @@
           "name": "Proteins",
           "options": [
             {
+              "key": "component:benson:18696:23020297",
+              "label": "Single beef patty",
+              "default": true,
+              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
+            },
+            {
               "key": "component:benson:18696:23020298",
               "label": "Grilled chicken breast",
               "component_id": "f11501d4-96cb-4a42-ac68-e05fb6b89c64"
-            },
-            {
-              "key": "component:benson:18696:23020297",
-              "label": "Single beef patty",
-              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
             },
             {
               "key": "component:benson:18696:23020300",
@@ -60627,6 +60785,17 @@
         {
           "name": "Toppings",
           "options": [
+            {
+              "key": "burger-recipe:51721",
+              "label": "Caramelized onions",
+              "default": true,
+              "component_id": "48314eee-fc0e-48fb-b1b7-e1350178fa13"
+            },
+            {
+              "key": "burger-recipe:70818653",
+              "label": "Dill pickle relish",
+              "default": true
+            },
             {
               "key": "component:benson:18696:16878404",
               "label": "sliced red onion",
@@ -60664,6 +60833,12 @@
           "name": "Cheese",
           "options": [
             {
+              "key": "component:benson:18696:23020304",
+              "label": "American cheese",
+              "default": true,
+              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
+            },
+            {
               "key": "component:benson:18696:23020302",
               "label": "Pepper jack cheese",
               "component_id": "ff3f881b-94a5-4276-90d5-a26212ee8cbc"
@@ -60672,11 +60847,6 @@
               "key": "component:benson:18696:23020303",
               "label": "Provolone cheese",
               "component_id": "7c2c5bdd-f791-44cf-810f-2e6e036a5527"
-            },
-            {
-              "key": "component:benson:18696:23020304",
-              "label": "American cheese",
-              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
             },
             {
               "key": "component:benson:18696:23020305",
@@ -60696,27 +60866,31 @@
             {
               "key": "component:benson:18696:16878410",
               "label": "mayonnaise",
+              "default": true,
               "component_id": "80bf6c69-2f8b-4424-b8a5-c73bcd096f6b"
             },
             {
               "key": "component:benson:18696:16878408",
               "label": "mustard",
+              "default": true,
               "component_id": "ec132284-fe1e-42d6-979d-f8dc1f4e5a08"
             },
             {
               "key": "component:benson:18696:16878409",
               "label": "ketchup",
+              "default": true,
               "component_id": "8d038037-b57b-477a-b745-4c65ec8f366f"
             }
           ]
         },
         {
-          "name": "Vegetables",
+          "name": "Side",
           "options": [
             {
-              "key": "component:benson:18696:23020296",
-              "label": "Lettuce wrap",
-              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
+              "key": "burger-recipe:35685",
+              "label": "Seasoned fries",
+              "default": true,
+              "component_id": "fa62453f-b3d6-495c-a148-a8b7521881a3"
             }
           ]
         }
@@ -64548,12 +64722,24 @@
       "serving_options": [],
       "modifier_groups": [
         {
+          "max": 1,
           "name": "Bread and wraps",
           "options": [
+            {
+              "key": "burger-recipe:70647210",
+              "label": "Hamburger bun",
+              "default": true,
+              "component_id": "fe521909-d5db-44f1-9e8c-2b49135c651f"
+            },
             {
               "key": "component:benson:18696:23020294",
               "label": "Udi's hamburger bun",
               "component_id": "6e2d478f-8e9e-476b-a00e-7d108140b42f"
+            },
+            {
+              "key": "component:benson:18696:23020296",
+              "label": "Lettuce wrap",
+              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
             },
             {
               "key": "component:benson:18696:23020295",
@@ -64576,14 +64762,15 @@
           "name": "Proteins",
           "options": [
             {
+              "key": "component:benson:18696:23020297",
+              "label": "Single beef patty",
+              "default": true,
+              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
+            },
+            {
               "key": "component:benson:18696:23020298",
               "label": "Grilled chicken breast",
               "component_id": "f11501d4-96cb-4a42-ac68-e05fb6b89c64"
-            },
-            {
-              "key": "component:benson:18696:23020297",
-              "label": "Single beef patty",
-              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
             },
             {
               "key": "component:benson:18696:23020300",
@@ -64649,6 +64836,12 @@
           "name": "Cheese",
           "options": [
             {
+              "key": "component:benson:18696:23020304",
+              "label": "American cheese",
+              "default": true,
+              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
+            },
+            {
               "key": "component:benson:18696:23020302",
               "label": "Pepper jack cheese",
               "component_id": "ff3f881b-94a5-4276-90d5-a26212ee8cbc"
@@ -64657,11 +64850,6 @@
               "key": "component:benson:18696:23020303",
               "label": "Provolone cheese",
               "component_id": "7c2c5bdd-f791-44cf-810f-2e6e036a5527"
-            },
-            {
-              "key": "component:benson:18696:23020304",
-              "label": "American cheese",
-              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
             },
             {
               "key": "component:benson:18696:23020305",
@@ -64681,6 +64869,7 @@
             {
               "key": "component:benson:18696:36667109",
               "label": "Coke",
+              "default": true,
               "component_id": "88e4085b-7718-42c8-a91c-f0f926a8798a"
             },
             {
@@ -64776,12 +64965,13 @@
           ]
         },
         {
-          "name": "Vegetables",
+          "name": "Side",
           "options": [
             {
-              "key": "component:benson:18696:23020296",
-              "label": "Lettuce wrap",
-              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
+              "key": "burger-recipe:46495",
+              "label": "French fries",
+              "default": true,
+              "component_id": "d9bfb7f4-b309-440b-a356-fa74fa83daae"
             }
           ]
         }
@@ -65908,12 +66098,24 @@
       "serving_options": [],
       "modifier_groups": [
         {
+          "max": 1,
           "name": "Bread and wraps",
           "options": [
+            {
+              "key": "burger-recipe:70647210",
+              "label": "Hamburger bun",
+              "default": true,
+              "component_id": "fe521909-d5db-44f1-9e8c-2b49135c651f"
+            },
             {
               "key": "component:benson:18696:23020294",
               "label": "Udi's hamburger bun",
               "component_id": "6e2d478f-8e9e-476b-a00e-7d108140b42f"
+            },
+            {
+              "key": "component:benson:18696:23020296",
+              "label": "Lettuce wrap",
+              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
             },
             {
               "key": "component:benson:18696:23020295",
@@ -65936,14 +66138,15 @@
           "name": "Proteins",
           "options": [
             {
+              "key": "component:benson:18696:23020297",
+              "label": "Single beef patty",
+              "default": true,
+              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
+            },
+            {
               "key": "component:benson:18696:23020298",
               "label": "Grilled chicken breast",
               "component_id": "f11501d4-96cb-4a42-ac68-e05fb6b89c64"
-            },
-            {
-              "key": "component:benson:18696:23020297",
-              "label": "Single beef patty",
-              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
             },
             {
               "key": "component:benson:18696:23020300",
@@ -66001,6 +66204,7 @@
               "key": "component:benson:18696:23020647",
               "label": "bacon",
               "price": 2.9,
+              "default": true,
               "component_id": "21a01c56-16e1-40d3-a7b6-e2d90b659c68"
             }
           ]
@@ -66008,6 +66212,12 @@
         {
           "name": "Cheese",
           "options": [
+            {
+              "key": "component:benson:18696:23020304",
+              "label": "American cheese",
+              "default": true,
+              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
+            },
             {
               "key": "component:benson:18696:23020302",
               "label": "Pepper jack cheese",
@@ -66017,11 +66227,6 @@
               "key": "component:benson:18696:23020303",
               "label": "Provolone cheese",
               "component_id": "7c2c5bdd-f791-44cf-810f-2e6e036a5527"
-            },
-            {
-              "key": "component:benson:18696:23020304",
-              "label": "American cheese",
-              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
             },
             {
               "key": "component:benson:18696:23020305",
@@ -66041,6 +66246,7 @@
             {
               "key": "component:benson:18696:36667109",
               "label": "Coke",
+              "default": true,
               "component_id": "88e4085b-7718-42c8-a91c-f0f926a8798a"
             },
             {
@@ -66136,12 +66342,13 @@
           ]
         },
         {
-          "name": "Vegetables",
+          "name": "Side",
           "options": [
             {
-              "key": "component:benson:18696:23020296",
-              "label": "Lettuce wrap",
-              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
+              "key": "burger-recipe:46495",
+              "label": "French fries",
+              "default": true,
+              "component_id": "d9bfb7f4-b309-440b-a356-fa74fa83daae"
             }
           ]
         }
@@ -68489,12 +68696,24 @@
       "serving_options": [],
       "modifier_groups": [
         {
+          "max": 1,
           "name": "Bread and wraps",
           "options": [
+            {
+              "key": "burger-recipe:70647210",
+              "label": "Hamburger bun",
+              "default": true,
+              "component_id": "fe521909-d5db-44f1-9e8c-2b49135c651f"
+            },
             {
               "key": "component:benson:18696:23020294",
               "label": "Udi's hamburger bun",
               "component_id": "6e2d478f-8e9e-476b-a00e-7d108140b42f"
+            },
+            {
+              "key": "component:benson:18696:23020296",
+              "label": "Lettuce wrap",
+              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
             },
             {
               "key": "component:benson:18696:23020295",
@@ -68517,14 +68736,15 @@
           "name": "Proteins",
           "options": [
             {
+              "key": "component:benson:18696:23020297",
+              "label": "Single beef patty",
+              "default": true,
+              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
+            },
+            {
               "key": "component:benson:18696:23020298",
               "label": "Grilled chicken breast",
               "component_id": "f11501d4-96cb-4a42-ac68-e05fb6b89c64"
-            },
-            {
-              "key": "component:benson:18696:23020297",
-              "label": "Single beef patty",
-              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
             },
             {
               "key": "component:benson:18696:23020300",
@@ -68582,6 +68802,7 @@
               "key": "component:benson:18696:23020647",
               "label": "bacon",
               "price": 2.9,
+              "default": true,
               "component_id": "21a01c56-16e1-40d3-a7b6-e2d90b659c68"
             }
           ]
@@ -68589,6 +68810,12 @@
         {
           "name": "Cheese",
           "options": [
+            {
+              "key": "component:benson:18696:23020304",
+              "label": "American cheese",
+              "default": true,
+              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
+            },
             {
               "key": "component:benson:18696:23020302",
               "label": "Pepper jack cheese",
@@ -68598,11 +68825,6 @@
               "key": "component:benson:18696:23020303",
               "label": "Provolone cheese",
               "component_id": "7c2c5bdd-f791-44cf-810f-2e6e036a5527"
-            },
-            {
-              "key": "component:benson:18696:23020304",
-              "label": "American cheese",
-              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
             },
             {
               "key": "component:benson:18696:23020305",
@@ -68622,6 +68844,7 @@
             {
               "key": "component:benson:18696:36667109",
               "label": "Coke",
+              "default": true,
               "component_id": "88e4085b-7718-42c8-a91c-f0f926a8798a"
             },
             {
@@ -68717,12 +68940,13 @@
           ]
         },
         {
-          "name": "Vegetables",
+          "name": "Side",
           "options": [
             {
-              "key": "component:benson:18696:23020296",
-              "label": "Lettuce wrap",
-              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
+              "key": "burger-recipe:46495",
+              "label": "French fries",
+              "default": true,
+              "component_id": "d9bfb7f4-b309-440b-a356-fa74fa83daae"
             }
           ]
         }
@@ -72350,12 +72574,24 @@
       "serving_options": [],
       "modifier_groups": [
         {
+          "max": 1,
           "name": "Bread and wraps",
           "options": [
+            {
+              "key": "burger-recipe:75613196",
+              "label": "Hamburger bun",
+              "default": true,
+              "component_id": "fe521909-d5db-44f1-9e8c-2b49135c651f"
+            },
             {
               "key": "component:benson:18696:23020294",
               "label": "Udi's hamburger bun",
               "component_id": "6e2d478f-8e9e-476b-a00e-7d108140b42f"
+            },
+            {
+              "key": "component:benson:18696:23020296",
+              "label": "Lettuce wrap",
+              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
             },
             {
               "key": "component:benson:18696:23020295",
@@ -72378,14 +72614,15 @@
           "name": "Proteins",
           "options": [
             {
+              "key": "component:benson:18696:23020297",
+              "label": "Single beef patty",
+              "default": true,
+              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
+            },
+            {
               "key": "component:benson:18696:23020298",
               "label": "Grilled chicken breast",
               "component_id": "f11501d4-96cb-4a42-ac68-e05fb6b89c64"
-            },
-            {
-              "key": "component:benson:18696:23020297",
-              "label": "Single beef patty",
-              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
             },
             {
               "key": "component:benson:18696:23020300",
@@ -72414,6 +72651,17 @@
         {
           "name": "Toppings",
           "options": [
+            {
+              "key": "burger-recipe:51721",
+              "label": "Caramelized onions",
+              "default": true,
+              "component_id": "48314eee-fc0e-48fb-b1b7-e1350178fa13"
+            },
+            {
+              "key": "burger-recipe:70818653",
+              "label": "Dill pickle relish",
+              "default": true
+            },
             {
               "key": "component:benson:18696:16878404",
               "label": "sliced red onion",
@@ -72451,6 +72699,12 @@
           "name": "Cheese",
           "options": [
             {
+              "key": "component:benson:18696:23020304",
+              "label": "American cheese",
+              "default": true,
+              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
+            },
+            {
               "key": "component:benson:18696:23020302",
               "label": "Pepper jack cheese",
               "component_id": "ff3f881b-94a5-4276-90d5-a26212ee8cbc"
@@ -72459,11 +72713,6 @@
               "key": "component:benson:18696:23020303",
               "label": "Provolone cheese",
               "component_id": "7c2c5bdd-f791-44cf-810f-2e6e036a5527"
-            },
-            {
-              "key": "component:benson:18696:23020304",
-              "label": "American cheese",
-              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
             },
             {
               "key": "component:benson:18696:23020305",
@@ -72483,27 +72732,31 @@
             {
               "key": "component:benson:18696:16878410",
               "label": "mayonnaise",
+              "default": true,
               "component_id": "80bf6c69-2f8b-4424-b8a5-c73bcd096f6b"
             },
             {
               "key": "component:benson:18696:16878408",
               "label": "mustard",
+              "default": true,
               "component_id": "ec132284-fe1e-42d6-979d-f8dc1f4e5a08"
             },
             {
               "key": "component:benson:18696:16878409",
               "label": "ketchup",
+              "default": true,
               "component_id": "8d038037-b57b-477a-b745-4c65ec8f366f"
             }
           ]
         },
         {
-          "name": "Vegetables",
+          "name": "Side",
           "options": [
             {
-              "key": "component:benson:18696:23020296",
-              "label": "Lettuce wrap",
-              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
+              "key": "burger-recipe:35685",
+              "label": "Seasoned fries",
+              "default": true,
+              "component_id": "fa62453f-b3d6-495c-a148-a8b7521881a3"
             }
           ]
         }
@@ -75443,12 +75696,24 @@
       "serving_options": [],
       "modifier_groups": [
         {
+          "max": 1,
           "name": "Bread and wraps",
           "options": [
+            {
+              "key": "burger-recipe:75613196",
+              "label": "Hamburger bun",
+              "default": true,
+              "component_id": "fe521909-d5db-44f1-9e8c-2b49135c651f"
+            },
             {
               "key": "component:benson:18696:23020294",
               "label": "Udi's hamburger bun",
               "component_id": "6e2d478f-8e9e-476b-a00e-7d108140b42f"
+            },
+            {
+              "key": "component:benson:18696:23020296",
+              "label": "Lettuce wrap",
+              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
             },
             {
               "key": "component:benson:18696:23020295",
@@ -75471,14 +75736,15 @@
           "name": "Proteins",
           "options": [
             {
+              "key": "component:benson:18696:23020297",
+              "label": "Single beef patty",
+              "default": true,
+              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
+            },
+            {
               "key": "component:benson:18696:23020298",
               "label": "Grilled chicken breast",
               "component_id": "f11501d4-96cb-4a42-ac68-e05fb6b89c64"
-            },
-            {
-              "key": "component:benson:18696:23020297",
-              "label": "Single beef patty",
-              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
             },
             {
               "key": "component:benson:18696:23020300",
@@ -75507,6 +75773,17 @@
         {
           "name": "Toppings",
           "options": [
+            {
+              "key": "burger-recipe:51721",
+              "label": "Caramelized onions",
+              "default": true,
+              "component_id": "48314eee-fc0e-48fb-b1b7-e1350178fa13"
+            },
+            {
+              "key": "burger-recipe:70818653",
+              "label": "Dill pickle relish",
+              "default": true
+            },
             {
               "key": "component:benson:18696:16878404",
               "label": "sliced red onion",
@@ -75544,6 +75821,12 @@
           "name": "Cheese",
           "options": [
             {
+              "key": "component:benson:18696:23020304",
+              "label": "American cheese",
+              "default": true,
+              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
+            },
+            {
               "key": "component:benson:18696:23020302",
               "label": "Pepper jack cheese",
               "component_id": "ff3f881b-94a5-4276-90d5-a26212ee8cbc"
@@ -75552,11 +75835,6 @@
               "key": "component:benson:18696:23020303",
               "label": "Provolone cheese",
               "component_id": "7c2c5bdd-f791-44cf-810f-2e6e036a5527"
-            },
-            {
-              "key": "component:benson:18696:23020304",
-              "label": "American cheese",
-              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
             },
             {
               "key": "component:benson:18696:23020305",
@@ -75576,27 +75854,31 @@
             {
               "key": "component:benson:18696:16878410",
               "label": "mayonnaise",
+              "default": true,
               "component_id": "80bf6c69-2f8b-4424-b8a5-c73bcd096f6b"
             },
             {
               "key": "component:benson:18696:16878408",
               "label": "mustard",
+              "default": true,
               "component_id": "ec132284-fe1e-42d6-979d-f8dc1f4e5a08"
             },
             {
               "key": "component:benson:18696:16878409",
               "label": "ketchup",
+              "default": true,
               "component_id": "8d038037-b57b-477a-b745-4c65ec8f366f"
             }
           ]
         },
         {
-          "name": "Vegetables",
+          "name": "Side",
           "options": [
             {
-              "key": "component:benson:18696:23020296",
-              "label": "Lettuce wrap",
-              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
+              "key": "burger-recipe:35685",
+              "label": "Seasoned fries",
+              "default": true,
+              "component_id": "fa62453f-b3d6-495c-a148-a8b7521881a3"
             }
           ]
         }
@@ -81313,12 +81595,24 @@
       "serving_options": [],
       "modifier_groups": [
         {
+          "max": 1,
           "name": "Bread and wraps",
           "options": [
+            {
+              "key": "burger-recipe:70647210",
+              "label": "Hamburger bun",
+              "default": true,
+              "component_id": "fe521909-d5db-44f1-9e8c-2b49135c651f"
+            },
             {
               "key": "component:benson:18696:23020294",
               "label": "Udi's hamburger bun",
               "component_id": "6e2d478f-8e9e-476b-a00e-7d108140b42f"
+            },
+            {
+              "key": "component:benson:18696:23020296",
+              "label": "Lettuce wrap",
+              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
             },
             {
               "key": "component:benson:18696:23020295",
@@ -81341,14 +81635,15 @@
           "name": "Proteins",
           "options": [
             {
+              "key": "component:benson:18696:23020297",
+              "label": "Single beef patty",
+              "default": true,
+              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
+            },
+            {
               "key": "component:benson:18696:23020298",
               "label": "Grilled chicken breast",
               "component_id": "f11501d4-96cb-4a42-ac68-e05fb6b89c64"
-            },
-            {
-              "key": "component:benson:18696:23020297",
-              "label": "Single beef patty",
-              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
             },
             {
               "key": "component:benson:18696:23020300",
@@ -81406,6 +81701,7 @@
               "key": "component:benson:18696:23020647",
               "label": "bacon",
               "price": 2.9,
+              "default": true,
               "component_id": "21a01c56-16e1-40d3-a7b6-e2d90b659c68"
             }
           ]
@@ -81413,6 +81709,12 @@
         {
           "name": "Cheese",
           "options": [
+            {
+              "key": "component:benson:18696:23020304",
+              "label": "American cheese",
+              "default": true,
+              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
+            },
             {
               "key": "component:benson:18696:23020302",
               "label": "Pepper jack cheese",
@@ -81422,11 +81724,6 @@
               "key": "component:benson:18696:23020303",
               "label": "Provolone cheese",
               "component_id": "7c2c5bdd-f791-44cf-810f-2e6e036a5527"
-            },
-            {
-              "key": "component:benson:18696:23020304",
-              "label": "American cheese",
-              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
             },
             {
               "key": "component:benson:18696:23020305",
@@ -81446,6 +81743,7 @@
             {
               "key": "component:benson:18696:36667109",
               "label": "Coke",
+              "default": true,
               "component_id": "88e4085b-7718-42c8-a91c-f0f926a8798a"
             },
             {
@@ -81541,12 +81839,13 @@
           ]
         },
         {
-          "name": "Vegetables",
+          "name": "Side",
           "options": [
             {
-              "key": "component:benson:18696:23020296",
-              "label": "Lettuce wrap",
-              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
+              "key": "burger-recipe:46495",
+              "label": "French fries",
+              "default": true,
+              "component_id": "d9bfb7f4-b309-440b-a356-fa74fa83daae"
             }
           ]
         }
@@ -81867,12 +82166,24 @@
       "serving_options": [],
       "modifier_groups": [
         {
+          "max": 1,
           "name": "Bread and wraps",
           "options": [
+            {
+              "key": "burger-recipe:70647210",
+              "label": "Hamburger bun",
+              "default": true,
+              "component_id": "fe521909-d5db-44f1-9e8c-2b49135c651f"
+            },
             {
               "key": "component:benson:18696:23020294",
               "label": "Udi's hamburger bun",
               "component_id": "6e2d478f-8e9e-476b-a00e-7d108140b42f"
+            },
+            {
+              "key": "component:benson:18696:23020296",
+              "label": "Lettuce wrap",
+              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
             },
             {
               "key": "component:benson:18696:23020295",
@@ -81895,14 +82206,15 @@
           "name": "Proteins",
           "options": [
             {
+              "key": "component:benson:18696:23020297",
+              "label": "Single beef patty",
+              "default": true,
+              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
+            },
+            {
               "key": "component:benson:18696:23020298",
               "label": "Grilled chicken breast",
               "component_id": "f11501d4-96cb-4a42-ac68-e05fb6b89c64"
-            },
-            {
-              "key": "component:benson:18696:23020297",
-              "label": "Single beef patty",
-              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
             },
             {
               "key": "component:benson:18696:23020300",
@@ -81960,6 +82272,7 @@
               "key": "component:benson:18696:23020647",
               "label": "bacon",
               "price": 2.9,
+              "default": true,
               "component_id": "21a01c56-16e1-40d3-a7b6-e2d90b659c68"
             }
           ]
@@ -81967,6 +82280,12 @@
         {
           "name": "Cheese",
           "options": [
+            {
+              "key": "component:benson:18696:23020304",
+              "label": "American cheese",
+              "default": true,
+              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
+            },
             {
               "key": "component:benson:18696:23020302",
               "label": "Pepper jack cheese",
@@ -81976,11 +82295,6 @@
               "key": "component:benson:18696:23020303",
               "label": "Provolone cheese",
               "component_id": "7c2c5bdd-f791-44cf-810f-2e6e036a5527"
-            },
-            {
-              "key": "component:benson:18696:23020304",
-              "label": "American cheese",
-              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
             },
             {
               "key": "component:benson:18696:23020305",
@@ -82000,6 +82314,7 @@
             {
               "key": "component:benson:18696:36667109",
               "label": "Coke",
+              "default": true,
               "component_id": "88e4085b-7718-42c8-a91c-f0f926a8798a"
             },
             {
@@ -82095,12 +82410,13 @@
           ]
         },
         {
-          "name": "Vegetables",
+          "name": "Side",
           "options": [
             {
-              "key": "component:benson:18696:23020296",
-              "label": "Lettuce wrap",
-              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
+              "key": "burger-recipe:46495",
+              "label": "French fries",
+              "default": true,
+              "component_id": "d9bfb7f4-b309-440b-a356-fa74fa83daae"
             }
           ]
         }
@@ -83738,12 +84054,24 @@
       "serving_options": [],
       "modifier_groups": [
         {
+          "max": 1,
           "name": "Bread and wraps",
           "options": [
+            {
+              "key": "burger-recipe:70647210",
+              "label": "Hamburger bun",
+              "default": true,
+              "component_id": "fe521909-d5db-44f1-9e8c-2b49135c651f"
+            },
             {
               "key": "component:benson:18696:23020294",
               "label": "Udi's hamburger bun",
               "component_id": "6e2d478f-8e9e-476b-a00e-7d108140b42f"
+            },
+            {
+              "key": "component:benson:18696:23020296",
+              "label": "Lettuce wrap",
+              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
             },
             {
               "key": "component:benson:18696:23020295",
@@ -83766,14 +84094,15 @@
           "name": "Proteins",
           "options": [
             {
+              "key": "component:benson:18696:23020297",
+              "label": "Single beef patty",
+              "default": true,
+              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
+            },
+            {
               "key": "component:benson:18696:23020298",
               "label": "Grilled chicken breast",
               "component_id": "f11501d4-96cb-4a42-ac68-e05fb6b89c64"
-            },
-            {
-              "key": "component:benson:18696:23020297",
-              "label": "Single beef patty",
-              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
             },
             {
               "key": "component:benson:18696:23020300",
@@ -83839,6 +84168,12 @@
           "name": "Cheese",
           "options": [
             {
+              "key": "component:benson:18696:23020304",
+              "label": "American cheese",
+              "default": true,
+              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
+            },
+            {
               "key": "component:benson:18696:23020302",
               "label": "Pepper jack cheese",
               "component_id": "ff3f881b-94a5-4276-90d5-a26212ee8cbc"
@@ -83847,11 +84182,6 @@
               "key": "component:benson:18696:23020303",
               "label": "Provolone cheese",
               "component_id": "7c2c5bdd-f791-44cf-810f-2e6e036a5527"
-            },
-            {
-              "key": "component:benson:18696:23020304",
-              "label": "American cheese",
-              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
             },
             {
               "key": "component:benson:18696:23020305",
@@ -83871,6 +84201,7 @@
             {
               "key": "component:benson:18696:36667109",
               "label": "Coke",
+              "default": true,
               "component_id": "88e4085b-7718-42c8-a91c-f0f926a8798a"
             },
             {
@@ -83966,12 +84297,13 @@
           ]
         },
         {
-          "name": "Vegetables",
+          "name": "Side",
           "options": [
             {
-              "key": "component:benson:18696:23020296",
-              "label": "Lettuce wrap",
-              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
+              "key": "burger-recipe:46495",
+              "label": "French fries",
+              "default": true,
+              "component_id": "d9bfb7f4-b309-440b-a356-fa74fa83daae"
             }
           ]
         }
@@ -90038,12 +90370,24 @@
       "serving_options": [],
       "modifier_groups": [
         {
+          "max": 1,
           "name": "Bread and wraps",
           "options": [
+            {
+              "key": "burger-recipe:70647210",
+              "label": "Hamburger bun",
+              "default": true,
+              "component_id": "fe521909-d5db-44f1-9e8c-2b49135c651f"
+            },
             {
               "key": "component:benson:18696:23020294",
               "label": "Udi's hamburger bun",
               "component_id": "6e2d478f-8e9e-476b-a00e-7d108140b42f"
+            },
+            {
+              "key": "component:benson:18696:23020296",
+              "label": "Lettuce wrap",
+              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
             },
             {
               "key": "component:benson:18696:23020295",
@@ -90066,14 +90410,15 @@
           "name": "Proteins",
           "options": [
             {
+              "key": "component:benson:18696:23020297",
+              "label": "Single beef patty",
+              "default": true,
+              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
+            },
+            {
               "key": "component:benson:18696:23020298",
               "label": "Grilled chicken breast",
               "component_id": "f11501d4-96cb-4a42-ac68-e05fb6b89c64"
-            },
-            {
-              "key": "component:benson:18696:23020297",
-              "label": "Single beef patty",
-              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
             },
             {
               "key": "component:benson:18696:23020300",
@@ -90139,6 +90484,12 @@
           "name": "Cheese",
           "options": [
             {
+              "key": "component:benson:18696:23020304",
+              "label": "American cheese",
+              "default": true,
+              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
+            },
+            {
               "key": "component:benson:18696:23020302",
               "label": "Pepper jack cheese",
               "component_id": "ff3f881b-94a5-4276-90d5-a26212ee8cbc"
@@ -90147,11 +90498,6 @@
               "key": "component:benson:18696:23020303",
               "label": "Provolone cheese",
               "component_id": "7c2c5bdd-f791-44cf-810f-2e6e036a5527"
-            },
-            {
-              "key": "component:benson:18696:23020304",
-              "label": "American cheese",
-              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
             },
             {
               "key": "component:benson:18696:23020305",
@@ -90171,6 +90517,7 @@
             {
               "key": "component:benson:18696:36667109",
               "label": "Coke",
+              "default": true,
               "component_id": "88e4085b-7718-42c8-a91c-f0f926a8798a"
             },
             {
@@ -90266,12 +90613,13 @@
           ]
         },
         {
-          "name": "Vegetables",
+          "name": "Side",
           "options": [
             {
-              "key": "component:benson:18696:23020296",
-              "label": "Lettuce wrap",
-              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
+              "key": "burger-recipe:46495",
+              "label": "French fries",
+              "default": true,
+              "component_id": "d9bfb7f4-b309-440b-a356-fa74fa83daae"
             }
           ]
         }
@@ -90957,12 +91305,24 @@
       "serving_options": [],
       "modifier_groups": [
         {
+          "max": 1,
           "name": "Bread and wraps",
           "options": [
+            {
+              "key": "burger-recipe:75613196",
+              "label": "Hamburger bun",
+              "default": true,
+              "component_id": "fe521909-d5db-44f1-9e8c-2b49135c651f"
+            },
             {
               "key": "component:benson:18696:23020294",
               "label": "Udi's hamburger bun",
               "component_id": "6e2d478f-8e9e-476b-a00e-7d108140b42f"
+            },
+            {
+              "key": "component:benson:18696:23020296",
+              "label": "Lettuce wrap",
+              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
             },
             {
               "key": "component:benson:18696:23020295",
@@ -90985,14 +91345,15 @@
           "name": "Proteins",
           "options": [
             {
+              "key": "component:benson:18696:23020297",
+              "label": "Single beef patty",
+              "default": true,
+              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
+            },
+            {
               "key": "component:benson:18696:23020298",
               "label": "Grilled chicken breast",
               "component_id": "f11501d4-96cb-4a42-ac68-e05fb6b89c64"
-            },
-            {
-              "key": "component:benson:18696:23020297",
-              "label": "Single beef patty",
-              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
             },
             {
               "key": "component:benson:18696:23020300",
@@ -91021,6 +91382,17 @@
         {
           "name": "Toppings",
           "options": [
+            {
+              "key": "burger-recipe:51721",
+              "label": "Caramelized onions",
+              "default": true,
+              "component_id": "48314eee-fc0e-48fb-b1b7-e1350178fa13"
+            },
+            {
+              "key": "burger-recipe:70818653",
+              "label": "Dill pickle relish",
+              "default": true
+            },
             {
               "key": "component:benson:18696:16878404",
               "label": "sliced red onion",
@@ -91058,6 +91430,12 @@
           "name": "Cheese",
           "options": [
             {
+              "key": "component:benson:18696:23020304",
+              "label": "American cheese",
+              "default": true,
+              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
+            },
+            {
               "key": "component:benson:18696:23020302",
               "label": "Pepper jack cheese",
               "component_id": "ff3f881b-94a5-4276-90d5-a26212ee8cbc"
@@ -91066,11 +91444,6 @@
               "key": "component:benson:18696:23020303",
               "label": "Provolone cheese",
               "component_id": "7c2c5bdd-f791-44cf-810f-2e6e036a5527"
-            },
-            {
-              "key": "component:benson:18696:23020304",
-              "label": "American cheese",
-              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
             },
             {
               "key": "component:benson:18696:23020305",
@@ -91090,27 +91463,31 @@
             {
               "key": "component:benson:18696:16878410",
               "label": "mayonnaise",
+              "default": true,
               "component_id": "80bf6c69-2f8b-4424-b8a5-c73bcd096f6b"
             },
             {
               "key": "component:benson:18696:16878408",
               "label": "mustard",
+              "default": true,
               "component_id": "ec132284-fe1e-42d6-979d-f8dc1f4e5a08"
             },
             {
               "key": "component:benson:18696:16878409",
               "label": "ketchup",
+              "default": true,
               "component_id": "8d038037-b57b-477a-b745-4c65ec8f366f"
             }
           ]
         },
         {
-          "name": "Vegetables",
+          "name": "Side",
           "options": [
             {
-              "key": "component:benson:18696:23020296",
-              "label": "Lettuce wrap",
-              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
+              "key": "burger-recipe:35685",
+              "label": "Seasoned fries",
+              "default": true,
+              "component_id": "fa62453f-b3d6-495c-a148-a8b7521881a3"
             }
           ]
         }
@@ -93149,12 +93526,24 @@
       "serving_options": [],
       "modifier_groups": [
         {
+          "max": 1,
           "name": "Bread and wraps",
           "options": [
+            {
+              "key": "burger-recipe:70647210",
+              "label": "Hamburger bun",
+              "default": true,
+              "component_id": "fe521909-d5db-44f1-9e8c-2b49135c651f"
+            },
             {
               "key": "component:benson:18696:23020294",
               "label": "Udi's hamburger bun",
               "component_id": "6e2d478f-8e9e-476b-a00e-7d108140b42f"
+            },
+            {
+              "key": "component:benson:18696:23020296",
+              "label": "Lettuce wrap",
+              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
             },
             {
               "key": "component:benson:18696:23020295",
@@ -93177,14 +93566,15 @@
           "name": "Proteins",
           "options": [
             {
+              "key": "component:benson:18696:23020297",
+              "label": "Single beef patty",
+              "default": true,
+              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
+            },
+            {
               "key": "component:benson:18696:23020298",
               "label": "Grilled chicken breast",
               "component_id": "f11501d4-96cb-4a42-ac68-e05fb6b89c64"
-            },
-            {
-              "key": "component:benson:18696:23020297",
-              "label": "Single beef patty",
-              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
             },
             {
               "key": "component:benson:18696:23020300",
@@ -93250,6 +93640,12 @@
           "name": "Cheese",
           "options": [
             {
+              "key": "component:benson:18696:23020304",
+              "label": "American cheese",
+              "default": true,
+              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
+            },
+            {
               "key": "component:benson:18696:23020302",
               "label": "Pepper jack cheese",
               "component_id": "ff3f881b-94a5-4276-90d5-a26212ee8cbc"
@@ -93258,11 +93654,6 @@
               "key": "component:benson:18696:23020303",
               "label": "Provolone cheese",
               "component_id": "7c2c5bdd-f791-44cf-810f-2e6e036a5527"
-            },
-            {
-              "key": "component:benson:18696:23020304",
-              "label": "American cheese",
-              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
             },
             {
               "key": "component:benson:18696:23020305",
@@ -93282,6 +93673,7 @@
             {
               "key": "component:benson:18696:36667109",
               "label": "Coke",
+              "default": true,
               "component_id": "88e4085b-7718-42c8-a91c-f0f926a8798a"
             },
             {
@@ -93377,12 +93769,13 @@
           ]
         },
         {
-          "name": "Vegetables",
+          "name": "Side",
           "options": [
             {
-              "key": "component:benson:18696:23020296",
-              "label": "Lettuce wrap",
-              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
+              "key": "burger-recipe:46495",
+              "label": "French fries",
+              "default": true,
+              "component_id": "d9bfb7f4-b309-440b-a356-fa74fa83daae"
             }
           ]
         }
@@ -95358,12 +95751,24 @@
       "serving_options": [],
       "modifier_groups": [
         {
+          "max": 1,
           "name": "Bread and wraps",
           "options": [
+            {
+              "key": "burger-recipe:70647210",
+              "label": "Hamburger bun",
+              "default": true,
+              "component_id": "fe521909-d5db-44f1-9e8c-2b49135c651f"
+            },
             {
               "key": "component:benson:18696:23020294",
               "label": "Udi's hamburger bun",
               "component_id": "6e2d478f-8e9e-476b-a00e-7d108140b42f"
+            },
+            {
+              "key": "component:benson:18696:23020296",
+              "label": "Lettuce wrap",
+              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
             },
             {
               "key": "component:benson:18696:23020295",
@@ -95386,14 +95791,15 @@
           "name": "Proteins",
           "options": [
             {
+              "key": "component:benson:18696:23020297",
+              "label": "Single beef patty",
+              "default": true,
+              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
+            },
+            {
               "key": "component:benson:18696:23020298",
               "label": "Grilled chicken breast",
               "component_id": "f11501d4-96cb-4a42-ac68-e05fb6b89c64"
-            },
-            {
-              "key": "component:benson:18696:23020297",
-              "label": "Single beef patty",
-              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
             },
             {
               "key": "component:benson:18696:23020300",
@@ -95459,6 +95865,12 @@
           "name": "Cheese",
           "options": [
             {
+              "key": "component:benson:18696:23020304",
+              "label": "American cheese",
+              "default": true,
+              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
+            },
+            {
               "key": "component:benson:18696:23020302",
               "label": "Pepper jack cheese",
               "component_id": "ff3f881b-94a5-4276-90d5-a26212ee8cbc"
@@ -95467,11 +95879,6 @@
               "key": "component:benson:18696:23020303",
               "label": "Provolone cheese",
               "component_id": "7c2c5bdd-f791-44cf-810f-2e6e036a5527"
-            },
-            {
-              "key": "component:benson:18696:23020304",
-              "label": "American cheese",
-              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
             },
             {
               "key": "component:benson:18696:23020305",
@@ -95491,6 +95898,7 @@
             {
               "key": "component:benson:18696:36667109",
               "label": "Coke",
+              "default": true,
               "component_id": "88e4085b-7718-42c8-a91c-f0f926a8798a"
             },
             {
@@ -95586,12 +95994,13 @@
           ]
         },
         {
-          "name": "Vegetables",
+          "name": "Side",
           "options": [
             {
-              "key": "component:benson:18696:23020296",
-              "label": "Lettuce wrap",
-              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
+              "key": "burger-recipe:46495",
+              "label": "French fries",
+              "default": true,
+              "component_id": "d9bfb7f4-b309-440b-a356-fa74fa83daae"
             }
           ]
         }
@@ -99725,12 +100134,24 @@
       "serving_options": [],
       "modifier_groups": [
         {
+          "max": 1,
           "name": "Bread and wraps",
           "options": [
+            {
+              "key": "burger-recipe:75613196",
+              "label": "Hamburger bun",
+              "default": true,
+              "component_id": "fe521909-d5db-44f1-9e8c-2b49135c651f"
+            },
             {
               "key": "component:benson:18696:23020294",
               "label": "Udi's hamburger bun",
               "component_id": "6e2d478f-8e9e-476b-a00e-7d108140b42f"
+            },
+            {
+              "key": "component:benson:18696:23020296",
+              "label": "Lettuce wrap",
+              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
             },
             {
               "key": "component:benson:18696:23020295",
@@ -99753,14 +100174,15 @@
           "name": "Proteins",
           "options": [
             {
+              "key": "component:benson:18696:23020297",
+              "label": "Single beef patty",
+              "default": true,
+              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
+            },
+            {
               "key": "component:benson:18696:23020298",
               "label": "Grilled chicken breast",
               "component_id": "f11501d4-96cb-4a42-ac68-e05fb6b89c64"
-            },
-            {
-              "key": "component:benson:18696:23020297",
-              "label": "Single beef patty",
-              "component_id": "6cd1f2bc-3875-4d28-97d7-c6d6e12681de"
             },
             {
               "key": "component:benson:18696:23020300",
@@ -99789,6 +100211,17 @@
         {
           "name": "Toppings",
           "options": [
+            {
+              "key": "burger-recipe:51721",
+              "label": "Caramelized onions",
+              "default": true,
+              "component_id": "48314eee-fc0e-48fb-b1b7-e1350178fa13"
+            },
+            {
+              "key": "burger-recipe:70818653",
+              "label": "Dill pickle relish",
+              "default": true
+            },
             {
               "key": "component:benson:18696:16878404",
               "label": "sliced red onion",
@@ -99826,6 +100259,12 @@
           "name": "Cheese",
           "options": [
             {
+              "key": "component:benson:18696:23020304",
+              "label": "American cheese",
+              "default": true,
+              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
+            },
+            {
               "key": "component:benson:18696:23020302",
               "label": "Pepper jack cheese",
               "component_id": "ff3f881b-94a5-4276-90d5-a26212ee8cbc"
@@ -99834,11 +100273,6 @@
               "key": "component:benson:18696:23020303",
               "label": "Provolone cheese",
               "component_id": "7c2c5bdd-f791-44cf-810f-2e6e036a5527"
-            },
-            {
-              "key": "component:benson:18696:23020304",
-              "label": "American cheese",
-              "component_id": "e24566dc-74b6-43ee-8832-5a85d55dcf03"
             },
             {
               "key": "component:benson:18696:23020305",
@@ -99858,27 +100292,31 @@
             {
               "key": "component:benson:18696:16878410",
               "label": "mayonnaise",
+              "default": true,
               "component_id": "80bf6c69-2f8b-4424-b8a5-c73bcd096f6b"
             },
             {
               "key": "component:benson:18696:16878408",
               "label": "mustard",
+              "default": true,
               "component_id": "ec132284-fe1e-42d6-979d-f8dc1f4e5a08"
             },
             {
               "key": "component:benson:18696:16878409",
               "label": "ketchup",
+              "default": true,
               "component_id": "8d038037-b57b-477a-b745-4c65ec8f366f"
             }
           ]
         },
         {
-          "name": "Vegetables",
+          "name": "Side",
           "options": [
             {
-              "key": "component:benson:18696:23020296",
-              "label": "Lettuce wrap",
-              "component_id": "f5f78832-5617-453d-93a1-d3338a17490d"
+              "key": "burger-recipe:35685",
+              "label": "Seasoned fries",
+              "default": true,
+              "component_id": "fa62453f-b3d6-495c-a148-a8b7521881a3"
             }
           ]
         }

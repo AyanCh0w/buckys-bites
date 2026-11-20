@@ -32,7 +32,11 @@ import {
 } from "../../lib/domain";
 import { hasReviewText } from "../../lib/discovery";
 import { kitchenName } from "../../lib/theme";
-import { initialChoices, initialSize } from "../../lib/menu-options";
+import {
+  initialChoices,
+  initialSize,
+  savedChoiceKeys,
+} from "../../lib/menu-options";
 import { menuNutrition, menuNutritionNote } from "../../lib/menu-nutrition";
 import { foodNutritionFacts } from "../../lib/nutrition-display";
 import type { MenuSelection } from "../../lib/types";
@@ -44,11 +48,13 @@ export default function DishDetail() {
     date,
     meal,
     offering: offeringId,
+    log: logId,
   } = useLocalSearchParams<{
     id: string;
     date?: string;
     meal?: string;
     offering?: string;
+    log?: string;
   }>();
   const { catalog, data, userId, session } = useApp();
   const { height, width } = useWindowDimensions();
@@ -61,9 +67,19 @@ export default function DishDetail() {
     setDraft(undefined);
     setShowFullIngredients(false);
     scroll.current?.scrollTo({ y: 0, animated: false });
-  }, [id]);
+  }, [id, logId, offeringId]);
+  const logged = logId
+    ? data.logs.find((entry) => entry.id === logId)
+    : undefined;
+  const saved = logged?.menu_selection;
+  const original =
+    saved &&
+    catalog.offerings.find(
+      (entry) => entry.id === saved.offering_id && entry.is_listed,
+    );
   const food =
-    catalog.foods.find((f) => f.id === id) ??
+    catalog.foods.find((f) => f.id === (original?.food_version_id ?? id)) ??
+    logged?.food ??
     data.logs.find((l) => l.food_version_id === id)?.food;
   const [now, setNow] = useState(() => new Date());
   const recentReview =
@@ -91,21 +107,26 @@ export default function DishDetail() {
     food,
     date,
     meal,
-    offeringId,
+    original?.id ?? offeringId,
   );
   const hasOptions = Boolean(
     offering?.modifier_groups?.length || offering?.serving_options?.length,
   );
   const selection = draft?.offering_id === offering?.id && draft;
-  const size = selection ? selection.size : initialSize(offering);
-  const choices = selection ? selection.choices : initialChoices(offering);
-  const nutrition = menuNutrition(
-    food,
-    offering,
-    catalog.components,
-    size,
-    choices,
-  );
+  const size = selection ? selection.size : initialSize(offering, saved?.size);
+  const choices = selection
+    ? selection.choices
+    : offering && saved && offering.id === saved.offering_id
+      ? savedChoiceKeys(
+          offering,
+          saved,
+          logged?.food_version_id === offering.food_version_id,
+        )
+      : initialChoices(offering);
+  const nutrition =
+    logged && !selection
+      ? logged.food
+      : menuNutrition(food, offering, catalog.components, size, choices);
   const nutritionNote = hasOptions ? menuNutritionNote(nutrition) : undefined;
   const facts = foodNutritionFacts(nutrition);
   const ingredients = catalog.links
@@ -118,7 +139,7 @@ export default function DishDetail() {
   const openReview = () => {
     router.push({
       pathname: "/review",
-      params: { food: id, ...(recentReview && { edit: recentReview.id }) },
+      params: { food: food.id, ...(recentReview && { edit: recentReview.id }) },
     });
   };
   return (
@@ -216,7 +237,7 @@ export default function DishDetail() {
           <Segments
             values={
               hasOptions
-                ? ["Reviews", "Menu options", "Nutrition"]
+                ? ["Reviews", "Customize", "Nutrition"]
                 : ["Reviews", "Nutrition"]
             }
             value={section}
@@ -268,7 +289,7 @@ export default function DishDetail() {
               </Tap>
             )}
           </View>
-        ) : section === "Menu options" && offering ? (
+        ) : section === "Customize" && offering ? (
           <View style={[s.inset, { paddingTop: 16, gap: 18 }]}>
             {nutritionNote && <T style={s.caption}>{nutritionNote}</T>}
             <MenuOptions
@@ -340,7 +361,15 @@ export default function DishDetail() {
           </View>
         )}
       </ScrollView>
-      <View style={{ paddingHorizontal: 24, paddingTop: 10 }}>
+      <View
+        style={{
+          flexShrink: 0,
+          zIndex: 1,
+          backgroundColor: colors.paper,
+          paddingHorizontal: 24,
+          paddingTop: 10,
+        }}
+      >
         <Button
           title="Add to today’s food"
           icon="add"
@@ -348,13 +377,13 @@ export default function DishDetail() {
             router.push({
               pathname: "/log",
               params: {
-                food: id,
+                food: food.id,
                 meal:
                   service?.name === "Brunch"
                     ? (meal ?? "Breakfast")
                     : (meal ?? service?.name ?? ""),
                 ...(offering ? { offering: offering.id } : {}),
-                ...(selection
+                ...(selection || (saved && original)
                   ? { size, choices: JSON.stringify(choices) }
                   : {}),
               },

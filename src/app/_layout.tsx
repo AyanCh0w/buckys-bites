@@ -143,7 +143,15 @@ function AppShell() {
             <Stack.Screen
               name="log"
               options={({ route }) => ({
-                presentation: Platform.OS === "web" ? "modal" : "formSheet",
+                // A multi-detent sheet resizes its first scroll view to the
+                // whole sheet during a swipe, covering a sibling action bar.
+                presentation:
+                  Platform.OS === "web" ||
+                  (session &&
+                    (route.params as { offering?: string } | undefined)
+                      ?.offering)
+                    ? "modal"
+                    : "formSheet",
                 headerShown: Platform.OS === "ios" && Boolean(session),
                 title: (route.params as { edit?: string } | undefined)?.edit
                   ? "Edit Your Food"

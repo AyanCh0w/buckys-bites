@@ -3,6 +3,7 @@ import React, {
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from "react";
@@ -16,6 +17,7 @@ import { accountSession } from "../lib/account-auth";
 import { previewAccountEnabled } from "../lib/config";
 import { avatarId, isAvatarId } from "../lib/avatars";
 import { DEFAULT_STARRED_KITCHENS } from "../lib/menu";
+import { withBurgerBreadOptions } from "../lib/menu-options";
 import { goalsForProfile } from "../lib/nutrition-goals";
 import {
   applyReviewVote,
@@ -53,7 +55,7 @@ const LOCAL_KEY = "buckys-bites:profile-preview:v1";
 const INTRO_KEY = "buckys-bites:intro:v1";
 const DIETARY_KEY = "buckys-bites:dietary:v1";
 const LEGACY_STARS_KEY = "buckys-bites:starred-kitchens:v1";
-const CATALOG_KEY = "buckys-bites:catalog:v2";
+const CATALOG_KEY = "buckys-bites:catalog:v3";
 type Toast = {
   message: string;
   action?: string;
@@ -133,7 +135,11 @@ async function selectAll(table: string, columns = "*", orderBy = "id") {
 }
 
 export function AppProvider({ children }: React.PropsWithChildren) {
-  const [catalog, setCatalog] = useState<Catalog>(snapshot as Catalog);
+  const [sourceCatalog, setCatalog] = useState<Catalog>(snapshot as Catalog);
+  const catalog = useMemo(
+    () => withBurgerBreadOptions(sourceCatalog),
+    [sourceCatalog],
+  );
   const [data, setData] = useState<AppData>(initial);
   const [session, setSession] = useState<Session | null>(null);
   const [local, setLocal] = useState(false);

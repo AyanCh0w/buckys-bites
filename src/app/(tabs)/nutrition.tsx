@@ -17,7 +17,7 @@ import {
   Tap,
   tabContentBottomPadding,
 } from "../../components/ui";
-import { FoodImage, openDish } from "../../components/Food";
+import { FoodImage, openLoggedDish } from "../../components/Food";
 import { NutritionHistory } from "../../components/nutrition-history";
 import {
   campusDate,
@@ -97,10 +97,12 @@ function percentage(ratio: number) {
 
 export default function Nutrition() {
   const { colors, s } = useTheme();
-  const { data, local } = useApp();
+  const { data } = useApp();
   const [date, setDate] = useState(campusDate());
   const [period, setPeriod] = useState("Day");
-  const logs = data.logs.filter((l) => l.local_date === date);
+  const logs = data.logs
+    .filter((log) => log.local_date === date)
+    .sort((a, b) => Date.parse(b.eaten_at) - Date.parse(a.eaten_at));
   const totals = nutritionTotals(logs);
   const partial = NUTRIENTS.some((n) => totals[n.key].missing > 0);
   const amount = (key: Nutrient) => {
@@ -139,7 +141,16 @@ export default function Nutrition() {
         />
       }
     >
+      <View style={s.inset}>
+        <Segments
+          values={["Day", "Week", "Month"]}
+          value={period}
+          onChange={setPeriod}
+        />
+      </View>
+      <DateNav value={date} onChange={setDate} compact />
       <ScrollView
+        key={date + period}
         style={{ flex: 1 }}
         contentInsetAdjustmentBehavior="automatic"
         contentContainerStyle={{
@@ -148,20 +159,6 @@ export default function Nutrition() {
         }}
         showsVerticalScrollIndicator={false}
       >
-        <View style={s.inset}>
-          <Segments
-            values={["Day", "Week", "Month"]}
-            value={period}
-            onChange={setPeriod}
-          />
-        </View>
-        <DateNav
-          value={date}
-          onChange={(value) => {
-            setDate(value);
-          }}
-          compact
-        />
         <View style={{ paddingHorizontal: 24, flexGrow: 1 }}>
           {period === "Day" ? (
             <>
@@ -312,7 +309,7 @@ export default function Nutrition() {
               </View>
               <View style={{ flexGrow: 1 }}>
                 {logs.length ? (
-                  logs.slice(0, 2).map((log) => (
+                  logs.map((log) => (
                     <View
                       key={log.id}
                       style={{
@@ -326,9 +323,7 @@ export default function Nutrition() {
                     >
                       <Tap
                         padding="row"
-                        onPress={() =>
-                          openDish(log.food, log.local_date, log.meal_label)
-                        }
+                        onPress={() => openLoggedDish(log)}
                         style={{ flex: 1, marginLeft: -12 }}
                       >
                         <View
@@ -353,6 +348,13 @@ export default function Nutrition() {
                             <T style={{ fontSize: 11, color: colors.muted }}>
                               {log.meal_label} · {log.servings}×
                             </T>
+                            {!!log.menu_selection?.choices.length && (
+                              <T style={s.caption}>
+                                {log.menu_selection.choices
+                                  .map((choice) => displayName(choice.label))
+                                  .join(" · ")}
+                              </T>
+                            )}
                             <FoodNutrition
                               food={log.food}
                               servings={log.servings}
@@ -384,22 +386,6 @@ export default function Nutrition() {
                   </Tap>
                 )}
               </View>
-              <>
-                {logs.length > 2 && (
-                  <Tap
-                    onPress={() =>
-                      router.push({
-                        pathname: "/food-history",
-                        params: { date },
-                      })
-                    }
-                  >
-                    <T style={[s.link, { textAlign: "center" }]}>
-                      All {logs.length} dishes
-                    </T>
-                  </Tap>
-                )}
-              </>
             </>
           ) : (
             <NutritionHistory

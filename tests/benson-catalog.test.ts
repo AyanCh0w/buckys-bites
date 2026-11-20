@@ -68,6 +68,7 @@ test("dated Benson ingestion preserves recurring items, rotation, holiday hours 
       "20261119120100_benson_catalog_rules",
       "20261119120200_benson_configured_food_logs",
       "20261119120300_benson_menu_option_nutrition",
+      "20261120073000_burger_recipe_defaults",
     ])
       await db.exec(await readMigration(name));
     await db.exec(`
@@ -232,6 +233,45 @@ test("dated Benson ingestion preserves recurring items, rotation, holiday hours 
       );
       return result.rows[0];
     };
+    const burger = await logSelection("Signature Smash Burger", [
+      "sourdough bread",
+      "Single beef patty",
+    ]);
+    assert.deepEqual(
+      burger.choices.map((choice) => choice.label),
+      ["sourdough bread", "Single beef patty"],
+    );
+    const smash = rows.find((row) => row.name === "Signature Smash Burger")!;
+    const included = smash.modifier_groups.flatMap((group) =>
+      group.options
+        .filter((option: any) => option.default)
+        .map((option: any) => option.label),
+    );
+    assert.deepEqual(
+      new Set(included.map((label) => label.toLowerCase())),
+      new Set([
+        "hamburger bun",
+        "single beef patty",
+        "american cheese",
+        "caramelized onions",
+        "dill pickle relish",
+        "mayonnaise",
+        "ketchup",
+        "mustard",
+        "seasoned fries",
+      ]),
+    );
+    assert.equal((await logSelection(smash.name, included)).calories, 1170);
+    const withoutCheese = await logSelection(
+      smash.name,
+      included.filter((label) => label !== "American cheese"),
+    );
+    assert.ok(
+      !withoutCheese.choices.some(
+        (choice) => choice.label === "American cheese",
+      ),
+    );
+    assert.ok(withoutCheese.incomplete_nutrients.includes("calories_kcal"));
     const bowl = await logSelection("Poke Bowl", [
       "Forsman Ranch Brown Rice",
       "tuna",
