@@ -18,17 +18,19 @@ export function KitchenDishes({
   date,
   meal,
   placements,
+  topInset = 0,
 }: {
   kitchen: string;
   foods: Food[];
   date?: string;
   meal?: string;
   placements?: Map<string, Offering>;
+  topInset?: number;
 }) {
   const { colors, s } = useTheme();
   const [height, setHeight] = useState(0);
   const { bottom } = useSafeAreaInsets();
-  const availableHeight = height - bottom;
+  const availableHeight = height - bottom - topInset;
   const { width, fontScale } = useWindowDimensions();
   const sections = kitchenDishSections(kitchen, foods, placements);
   const single = foods.length === 1;
@@ -44,7 +46,7 @@ export function KitchenDishes({
       onLayout={(e) => setHeight(e.nativeEvent.layout.height)}
     >
       {fits ? (
-        <View style={{ paddingHorizontal: 24, flex: 1 }}>
+        <View style={{ paddingHorizontal: 24, paddingTop: topInset, flex: 1 }}>
           {featuredFoods.map((food, i) => {
             const sectionHeight = (availableHeight - 16) / foods.length;
             const imageHeight = single
@@ -113,6 +115,7 @@ export function KitchenDishes({
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{
             paddingHorizontal: 24,
+            paddingTop: topInset,
             paddingBottom: bottom + 20,
           }}
         >

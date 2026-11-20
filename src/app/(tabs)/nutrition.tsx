@@ -19,6 +19,7 @@ import {
 } from "../../components/ui";
 import { FoodImage, openLoggedDish } from "../../components/Food";
 import { NutritionHistory } from "../../components/nutrition-history";
+import { ScrollEdgeFade } from "../../components/scroll-under-bar";
 import {
   campusDate,
   displayName,
@@ -149,6 +150,7 @@ export default function Nutrition() {
         />
       </View>
       <DateNav value={date} onChange={setDate} compact />
+      <ScrollEdgeFade inline edge="top" id="nutritionEdge" />
       <ScrollView
         key={date + period}
         style={{ flex: 1 }}

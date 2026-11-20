@@ -15,7 +15,6 @@ export default function TabsLayout() {
       }}
       tintColor={colors.accent}
       labelStyle={{ fontSize: 14, fontFamily: "HelveticaNeue-MediumCond" }}
-      disableTransparentOnScrollEdge
     >
       <NativeTabs.Trigger name="index">
         <NativeTabs.Trigger.Icon
@@ -24,21 +23,33 @@ export default function TabsLayout() {
         />
         <NativeTabs.Trigger.Label>Home</NativeTabs.Trigger.Label>
       </NativeTabs.Trigger>
-      <NativeTabs.Trigger name="menu" disableAutomaticContentInsets>
+      <NativeTabs.Trigger
+        name="menu"
+        disableAutomaticContentInsets
+        disableTransparentOnScrollEdge
+      >
         <NativeTabs.Trigger.Icon
           src={navigationIcons.menu}
           renderingMode="template"
         />
         <NativeTabs.Trigger.Label>Menu</NativeTabs.Trigger.Label>
       </NativeTabs.Trigger>
-      <NativeTabs.Trigger name="nutrition" disableAutomaticContentInsets>
+      <NativeTabs.Trigger
+        name="nutrition"
+        disableAutomaticContentInsets
+        disableTransparentOnScrollEdge
+      >
         <NativeTabs.Trigger.Icon
           src={navigationIcons.nutrition}
           renderingMode="template"
         />
         <NativeTabs.Trigger.Label>Nutrition</NativeTabs.Trigger.Label>
       </NativeTabs.Trigger>
-      <NativeTabs.Trigger name="ratings" disableAutomaticContentInsets>
+      <NativeTabs.Trigger
+        name="ratings"
+        disableAutomaticContentInsets
+        disableTransparentOnScrollEdge
+      >
         <NativeTabs.Trigger.Icon
           src={navigationIcons.ratings}
           renderingMode="template"

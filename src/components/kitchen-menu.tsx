@@ -6,6 +6,7 @@ import { CafeCategory, CafeMenu } from "./cafe-menu";
 import { diningLocations } from "../lib/dining-locations";
 import { KitchenDishes } from "./KitchenDishes";
 import { ServiceTimeline } from "./ServiceTimeline";
+import { ScrollEdgeFade, ScrollUnderBar } from "./scroll-under-bar";
 import { useApp } from "../state/AppProvider";
 import { campusDate, currentMeal } from "../lib/domain";
 import { matchesDietary, rankMenuFoods } from "../lib/discovery";
@@ -142,59 +143,77 @@ export function KitchenMenu({
       />
     );
   }
+  const showTimeline = services.length > 0 && !allDayOnly;
   return (
     <FixedScreen back extendToBottom title={title}>
-      {services.length > 0 && !allDayOnly && (
-        <ServiceTimeline
-          services={services}
-          selected={selected}
-          onSelect={(meal) => setSelection({ meal, period: automatic, date })}
-        />
+      {!showTimeline && (
+        <ScrollEdgeFade inline edge="top" id="kitchenHeaderEdge" />
       )}
-      <View
-        key={`${kitchen}:${cafe ?? ""}:${date}:${selected}`}
-        style={{ flex: 1 }}
-      >
-        {foods.length > 0 ? (
-          cafeMenu ? (
-            <CafeMenu
-              collage={kitchen !== BAKERY_KEY}
-              items={cafeItems}
-              categoryHref={(category) => ({
-                pathname: "/kitchen/[key]/[category]",
-                params: { key: kitchen, category, cafe, meal: selected },
-              })}
-            />
-          ) : (
-            <KitchenDishes
-              kitchen={kitchen}
-              foods={foods}
-              date={date}
-              meal={selected}
-              placements={placementByFood}
-            />
-          )
-        ) : (
-          <ScrollView
-            style={{ flex: 1 }}
-            contentInsetAdjustmentBehavior="never"
-            contentContainerStyle={{
-              paddingHorizontal: 24,
-              paddingBottom: bottom + 24,
-            }}
-          >
-            <EmptyState
-              title={closure ? "Closed" : "No Dishes Listed"}
-              text={
-                closure?.closure_message ??
-                (services.length
-                  ? "Try another service or change your dietary preferences in Nutrition settings."
-                  : "This kitchen hasn’t published a menu for today.")
+      <ScrollUnderBar
+        fadeId="kitchenServiceFade"
+        initialInset={48}
+        bar={
+          showTimeline ? (
+            <ServiceTimeline
+              services={services}
+              selected={selected}
+              onSelect={(meal) =>
+                setSelection({ meal, period: automatic, date })
               }
             />
-          </ScrollView>
+          ) : null
+        }
+      >
+        {(topInset) => (
+          <View
+            key={`${kitchen}:${cafe ?? ""}:${date}:${selected}`}
+            style={{ flex: 1 }}
+          >
+            {foods.length > 0 ? (
+              cafeMenu ? (
+                <CafeMenu
+                  topInset={topInset}
+                  collage={kitchen !== BAKERY_KEY}
+                  items={cafeItems}
+                  categoryHref={(category) => ({
+                    pathname: "/kitchen/[key]/[category]",
+                    params: { key: kitchen, category, cafe, meal: selected },
+                  })}
+                />
+              ) : (
+                <KitchenDishes
+                  topInset={topInset}
+                  kitchen={kitchen}
+                  foods={foods}
+                  date={date}
+                  meal={selected}
+                  placements={placementByFood}
+                />
+              )
+            ) : (
+              <ScrollView
+                style={{ flex: 1 }}
+                contentInsetAdjustmentBehavior="never"
+                contentContainerStyle={{
+                  paddingHorizontal: 24,
+                  paddingTop: topInset,
+                  paddingBottom: bottom + 24,
+                }}
+              >
+                <EmptyState
+                  title={closure ? "Closed" : "No Dishes Listed"}
+                  text={
+                    closure?.closure_message ??
+                    (services.length
+                      ? "Try another service or change your dietary preferences in Nutrition settings."
+                      : "This kitchen hasn’t published a menu for today.")
+                  }
+                />
+              </ScrollView>
+            )}
+          </View>
         )}
-      </View>
+      </ScrollUnderBar>
     </FixedScreen>
   );
 }

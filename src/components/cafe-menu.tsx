@@ -27,6 +27,7 @@ import {
   tabContentBottomPadding,
 } from "./ui";
 import { MenuEntrance } from "./MenuEntrance";
+import { ScrollEdgeFade } from "./scroll-under-bar";
 import {
   BakeryThumbnail,
   makePicker,
@@ -120,6 +121,7 @@ export function CafeMenu({
   refreshControl,
   tab = false,
   collage = false,
+  topInset = 0,
 }: {
   items: MenuItem[];
   categoryHref: (category: string) => Href;
@@ -127,6 +129,7 @@ export function CafeMenu({
   refreshControl?: ScrollViewProps["refreshControl"];
   tab?: boolean;
   collage?: boolean;
+  topInset?: number;
 }) {
   const { colors, s } = useTheme();
   const { bottom } = useSafeAreaInsets();
@@ -163,7 +166,10 @@ export function CafeMenu({
       contentContainerStyle={[
         s.inset,
         styles.grow,
-        { paddingBottom: tab ? tabContentBottomPadding : bottom + 12 },
+        {
+          paddingTop: topInset,
+          paddingBottom: tab ? tabContentBottomPadding : bottom + 12,
+        },
       ]}
     >
       {children}
@@ -251,6 +257,7 @@ export function CafeCategory({
 
   return (
     <FixedScreen back extendToBottom title={categoryLabel(category)}>
+      <ScrollEdgeFade inline edge="top" id="cafeCategoryEdge" />
       <ScrollView
         style={styles.fill}
         contentInsetAdjustmentBehavior="never"

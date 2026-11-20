@@ -14,6 +14,7 @@ import {
 } from "../../components/ui";
 import { ReviewCard } from "../../components/ReviewCard";
 import { ReviewSort } from "../../components/ReviewSort";
+import { ScrollEdgeFade } from "../../components/scroll-under-bar";
 import { useApp } from "../../state/AppProvider";
 import {
   hasReviewText,
@@ -21,6 +22,8 @@ import {
   type FeedMode,
   type TopPeriod,
 } from "../../lib/discovery";
+
+const ratingsHeaderStyle = { paddingTop: 8 };
 
 export default function Ratings() {
   const { colors, s } = useTheme();
@@ -36,7 +39,8 @@ export default function Ratings() {
       (review) => review.id === resolveId(reviewId) && hasReviewText(review),
     );
     return (
-      <FixedScreen tab title="Ratings">
+      <FixedScreen tab title="Ratings" headerStyle={ratingsHeaderStyle}>
+        <ScrollEdgeFade inline edge="top" id="reviewEdge" />
         <ScrollView
           key={reviewId}
           style={{ flex: 1 }}
@@ -92,24 +96,26 @@ export default function Ratings() {
     <FixedScreen
       tab
       title="Ratings"
+      headerStyle={ratingsHeaderStyle}
       right={
         <IconButton
           name="create-outline"
           sf="square.and.pencil"
           label="Choose a dish to review"
+          glass
           onPress={() => router.push("/menu")}
         />
       }
     >
-      <View style={s.inset}>
+      <View style={[s.inset, { paddingTop: 8, gap: 12 }]}>
         <ReviewSort
           mode={mode}
           period={period}
           onMode={setMode}
           onPeriod={setPeriod}
         />
-        {Boolean(dish) && (
-          <View style={{ marginTop: 14, alignSelf: "flex-start" }}>
+        {dish && (
+          <View style={{ alignSelf: "flex-start" }}>
             <Chip
               title={dish + " ×"}
               haptic="release"
@@ -118,6 +124,7 @@ export default function Ratings() {
           </View>
         )}
       </View>
+      <ScrollEdgeFade inline edge="top" id="ratingsEdge" />
       <FlatList
         style={{ flex: 1 }}
         contentInsetAdjustmentBehavior="automatic"

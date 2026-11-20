@@ -4,6 +4,7 @@ import { View } from "react-native";
 import { Image } from "expo-image";
 import { Glass, T, Tap } from "../../components/ui";
 import { navigationIcons } from "../../lib/navigation-icons.web";
+import { ScrollEdgeFade } from "../../components/scroll-under-bar";
 
 const icons = [
   navigationIcons.home,
@@ -19,7 +20,20 @@ export default function TabsLayout() {
     <Tabs
       screenOptions={{ headerShown: false, animation: "none", lazy: false }}
       tabBar={({ state }) => (
-        <View style={{ position: "absolute", bottom: 18, left: 16, right: 16 }}>
+        <View
+          pointerEvents="box-none"
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            paddingBottom: 18,
+            paddingHorizontal: 16,
+          }}
+        >
+          {["index", "me"].includes(state.routes[state.index]?.name) && (
+            <ScrollEdgeFade edge="bottom" id="tabBarFade" length={24} />
+          )}
           <Glass
             style={{
               borderRadius: 36,

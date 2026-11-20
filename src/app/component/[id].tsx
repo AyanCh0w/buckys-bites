@@ -2,6 +2,7 @@ import { useTheme } from "../../state/ThemeProvider";
 import { ScrollView } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import { AssetImage, FixedScreen, T } from "../../components/ui";
+import { ScrollEdgeFade } from "../../components/scroll-under-bar";
 import { ingredientArtwork } from "../../components/ingredient-row";
 import {
   NutritionSummary,
@@ -24,6 +25,7 @@ export default function IngredientDetail() {
   const serving = published?.servingSize;
   return (
     <FixedScreen back title="">
+      <ScrollEdgeFade inline edge="top" id="ingredientEdge" />
       <ScrollView
         key={id}
         style={{ flex: 1 }}

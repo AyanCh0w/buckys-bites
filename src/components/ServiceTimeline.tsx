@@ -14,7 +14,10 @@ export function ServiceTimeline({
   onSelect: (meal: string) => void;
 }) {
   return (
-    <View style={{ paddingHorizontal: 24, paddingTop: 6, paddingBottom: 16 }}>
+    <View
+      pointerEvents="box-none"
+      style={{ paddingHorizontal: 24, paddingVertical: 6 }}
+    >
       <Segments
         values={mealPeriods}
         value={selected}

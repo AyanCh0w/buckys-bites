@@ -649,12 +649,14 @@ export function FixedScreen({
   children,
   title,
   right,
+  headerStyle,
   back = false,
   tab = false,
   extendToBottom = false,
 }: React.PropsWithChildren<{
   title: string;
   right?: React.ReactNode;
+  headerStyle?: StyleProp<ViewStyle>;
   back?: boolean;
   tab?: boolean;
   extendToBottom?: boolean;
@@ -697,14 +699,17 @@ export function FixedScreen({
         />
       ) : (
         <View
-          style={{
-            paddingHorizontal: back ? 14 : 24,
-            flexDirection: "row",
-            gap: 10,
-            alignItems: "center",
-            minHeight: 54,
-            paddingBottom: 8,
-          }}
+          style={[
+            {
+              paddingHorizontal: back ? 14 : 24,
+              flexDirection: "row",
+              gap: 10,
+              alignItems: "center",
+              minHeight: 54,
+              paddingBottom: 8,
+            },
+            headerStyle,
+          ]}
         >
           {back && (
             <IconButton
