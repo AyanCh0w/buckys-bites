@@ -4,6 +4,7 @@ import catalog from "../src/data/catalog.json";
 import {
   serviceIsOpen,
   browsingCatalog,
+  kitchenDishSections,
   kitchenMenus,
   ingredientNutrition,
 } from "../src/lib/menu";
@@ -23,6 +24,53 @@ const service = {
   starts_at: "2026-11-18T19:00:00Z",
   ends_at: "2026-11-18T22:30:00Z",
 } as Service;
+
+test("The Fire leads with its smash burger and groups combos, mains and sides", () => {
+  const model = catalog as Catalog;
+  const fire = model.stations.find((station) => station.name === "The Fire")!;
+  const placements = new Map(
+    model.offerings
+      .filter(
+        (offering) => offering.is_listed && offering.station_id === fire.id,
+      )
+      .map((offering) => [offering.food_version_id, offering]),
+  );
+  const foods = model.foods.filter((food) => placements.has(food.id));
+  const sections = kitchenDishSections("fire", foods, placements);
+  assert.deepEqual(
+    [...sections.keys()],
+    [
+      "Burgers",
+      "Sandwiches & Tenders",
+      "Bowls",
+      "From the Grill",
+      "Fries & Sides",
+      "Drinks",
+    ],
+  );
+  const burgers = sections.get("Burgers")!;
+  assert.equal(burgers[0].name, "Signature Smash Burger");
+  assert.deepEqual(
+    new Set(burgers.map((food) => food.name)),
+    new Set([
+      "Signature Smash Burger",
+      "Cheese Burger Combo",
+      "Bacon Cheese Burger Combo",
+    ]),
+  );
+  assert.ok(
+    sections
+      .get("Sandwiches & Tenders")!
+      .some((food) => food.name.includes("Tenders w/ Fries")),
+  );
+  assert.deepEqual(
+    [...sections.values()]
+      .flat()
+      .map((food) => food.id)
+      .sort(),
+    foods.map((food) => food.id).sort(),
+  );
+});
 
 test("published station pairs follow the saved meal preference", () => {
   const lunch = (dietary: string[], date = "2026-11-19") =>

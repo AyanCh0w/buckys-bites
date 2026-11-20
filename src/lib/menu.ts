@@ -1,4 +1,4 @@
-import type { Catalog, Component, Service } from "./types";
+import type { Catalog, Component, Food, Offering, Service } from "./types";
 import { campusDate, displayName } from "./domain";
 import { kitchenKey, kitchenName } from "./theme";
 import { preferredOfferings } from "./menu-variants";
@@ -44,6 +44,48 @@ export function menuSectionLabel(section?: string | null): string {
       ? word.toLowerCase()
       : displayName(word),
   );
+}
+
+// The Fire publishes its smash burger under "a la carte" and its combos separately.
+// Match mains before their accompaniments (e.g. chicken tenders with fries).
+const fireMenuOrder: [section: string, dish: RegExp][] = [
+  ["Burgers", /^signature smash burger$/i],
+  ["Burgers", /burgers?\b/i],
+  ["Sandwiches & Tenders", /\b(sandwich(es)?|melts?)\b/i],
+  ["Sandwiches & Tenders", /\btenders?\b/i],
+  ["Bowls", /\bbowls?\b/i],
+  ["From the Grill", /\bgrilled (chicken|salmon)\b/i],
+  ["Fries & Sides", /\bfries\b/i],
+  ["Fries & Sides", /\b(vegetable sticks|grilled vegetables|brown rice)\b/i],
+  ["Drinks", /\bdrinks?\b/i],
+];
+
+export function kitchenDishSections(
+  key: string,
+  foods: Food[],
+  placements?: ReadonlyMap<string, Offering>,
+) {
+  const rows = foods.map((food) => {
+    const index =
+      key === "fire"
+        ? fireMenuOrder.findIndex(([, dish]) => dish.test(food.name))
+        : -1;
+    return {
+      food,
+      order: index < 0 ? fireMenuOrder.length : index,
+      section:
+        fireMenuOrder[index]?.[0] ??
+        menuSectionLabel(placements?.get(food.id)?.menu_section),
+    };
+  });
+  if (key === "fire") rows.sort((a, b) => a.order - b.order);
+  const sections = new Map<string, Food[]>();
+  for (const { section, food } of rows) {
+    const entries = sections.get(section);
+    if (entries) entries.push(food);
+    else sections.set(section, [food]);
+  }
+  return sections;
 }
 
 export function browsingCatalog(

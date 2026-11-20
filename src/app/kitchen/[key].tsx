@@ -149,6 +149,7 @@ export default function Kitchen() {
             />
           ) : (
             <KitchenDishes
+              kitchen={key}
               foods={foods}
               date={date}
               meal={selected}

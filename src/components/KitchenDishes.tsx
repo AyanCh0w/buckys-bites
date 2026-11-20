@@ -4,7 +4,7 @@ import { ScrollView, View, useWindowDimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import type { Food, Offering } from "../lib/types";
 import { displayName } from "../lib/domain";
-import { menuSectionLabel } from "../lib/menu";
+import { kitchenDishSections } from "../lib/menu";
 
 import { BuckyRating, FoodImage, FoodRow, openDish } from "./Food";
 import { Icon, T, Tap } from "./ui";
@@ -13,11 +13,13 @@ import { MenuEntrance } from "./MenuEntrance";
 
 /** One generous hero, or two equal image-first sections, in the measured space. */
 export function KitchenDishes({
+  kitchen,
   foods,
   date,
   meal,
   placements,
 }: {
+  kitchen: string;
   foods: Food[];
   date?: string;
   meal?: string;
@@ -28,18 +30,13 @@ export function KitchenDishes({
   const { bottom } = useSafeAreaInsets();
   const availableHeight = height - bottom;
   const { width, fontScale } = useWindowDimensions();
-  const sections = new Map<string, Food[]>();
-  for (const food of foods) {
-    const name = menuSectionLabel(placements?.get(food.id)?.menu_section);
-    const section = sections.get(name) ?? [];
-    section.push(food);
-    sections.set(name, section);
-  }
+  const sections = kitchenDishSections(kitchen, foods, placements);
   const single = foods.length === 1;
   const fits =
     foods.length <= 2 &&
     fontScale <= 1.2 &&
     availableHeight >= (single ? 380 : 540);
+  const featuredFoods = fits ? [...sections.values()].flat() : [];
   let nextRow = 0;
   return (
     <View
@@ -48,7 +45,7 @@ export function KitchenDishes({
     >
       {fits ? (
         <View style={{ paddingHorizontal: 24, flex: 1 }}>
-          {foods.map((food, i) => {
+          {featuredFoods.map((food, i) => {
             const sectionHeight = (availableHeight - 16) / foods.length;
             const imageHeight = single
               ? Math.min(width - 32, sectionHeight - 200)
