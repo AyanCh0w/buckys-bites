@@ -112,6 +112,7 @@ export default function Ratings() {
           <View style={{ marginTop: 14, alignSelf: "flex-start" }}>
             <Chip
               title={dish + " ×"}
+              haptic="release"
               onPress={() => router.setParams({ dish: "" })}
             />
           </View>

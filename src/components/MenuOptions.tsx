@@ -176,6 +176,11 @@ function OptionTile({
         highlightRadius={14}
         style={{ flex: 1 }}
         accessibilityRole={single ? "radio" : "checkbox"}
+        haptic={
+          single
+            ? checked ? false : "select"
+            : checked ? "release" : "attach"
+        }
         accessibilityLabel={[name, price, detail].filter(Boolean).join(", ")}
         aria-checked={checked}
         disabled={disabled}

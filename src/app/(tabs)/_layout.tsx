@@ -1,11 +1,18 @@
 import { useTheme } from "../../state/ThemeProvider";
 import { NativeTabs } from "expo-router/native-tabs";
 import { navigationIcons } from "../../lib/navigation-icons";
+import { useHaptic } from "../../lib/haptics";
 
 export default function TabsLayout() {
   const { colors } = useTheme();
+  const playHaptic = useHaptic();
   return (
     <NativeTabs
+      screenListeners={{
+        tabPress: ({ data }) => {
+          if (!data.isPrevented) playHaptic("select");
+        },
+      }}
       tintColor={colors.accent}
       labelStyle={{ fontSize: 14, fontFamily: "HelveticaNeue-MediumCond" }}
       disableTransparentOnScrollEdge

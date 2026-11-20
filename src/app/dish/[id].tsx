@@ -314,6 +314,7 @@ export default function DishDetail() {
               <Tap
                 style={s.inset}
                 aria-expanded={showFullIngredients}
+                haptic={showFullIngredients ? "release" : "tap"}
                 onPress={() => setShowFullIngredients((previous) => !previous)}
               >
                 <T style={s.link}>

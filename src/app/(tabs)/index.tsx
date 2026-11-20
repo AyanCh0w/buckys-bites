@@ -1,6 +1,6 @@
 import { useTheme } from "../../state/ThemeProvider";
 import React, { useMemo, useEffect, useState } from "react";
-import { RefreshControl, View } from "react-native";
+import { Platform, RefreshControl, View } from "react-native";
 import { router } from "expo-router";
 import { useApp } from "../../state/AppProvider";
 import { Page, T, Tap } from "../../components/ui";
@@ -14,12 +14,14 @@ import {
   ratingFor,
 } from "../../lib/domain";
 import { homeSelection } from "../../lib/home";
+import { useHaptic } from "../../lib/haptics";
 import { browsingCatalog } from "../../lib/menu";
 
 import { HomeReview } from "../../components/HomeReview";
 import { Avatar } from "../../components/Avatar";
 
 export default function Home() {
+  const playHaptic = useHaptic();
   const { colors, s } = useTheme();
   const {
     catalog: fullCatalog,
@@ -39,6 +41,7 @@ export default function Home() {
   const [now, setNow] = useState(new Date());
   const [refreshingReviews, setRefreshingReviews] = useState(false);
   async function refreshHome() {
+    if (Platform.OS === "android") playHaptic("release");
     setRefreshingReviews(true);
     try {
       await Promise.all([refresh(), refreshAccount()]);

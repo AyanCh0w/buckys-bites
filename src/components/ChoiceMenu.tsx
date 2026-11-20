@@ -2,6 +2,7 @@ import { useTheme } from "../state/ThemeProvider";
 import React, { useRef, useState } from "react";
 import { Modal, Pressable, View, useWindowDimensions } from "react-native";
 import { Icon, T, Tap } from "./ui";
+import { useHaptic } from "../lib/haptics";
 
 import type { ChoiceMenuProps } from "./ChoiceMenu.types";
 
@@ -13,6 +14,7 @@ export default function ChoiceMenu({
   accessibilityLabel,
 }: ChoiceMenuProps) {
   const { colors, s } = useTheme();
+  const playHaptic = useHaptic();
   const anchor = useRef<React.ElementRef<typeof View>>(null);
   const [position, setPosition] = useState<{ x: number; y: number } | null>(
     null,
@@ -57,7 +59,10 @@ export default function ChoiceMenu({
         <Pressable
           accessibilityLabel="Close menu"
           style={{ flex: 1 }}
-          onPress={() => setPosition(null)}
+          onPress={() => {
+            playHaptic("release");
+            setPosition(null);
+          }}
         >
           <View
             accessibilityRole="menu"
@@ -76,6 +81,7 @@ export default function ChoiceMenu({
               <Tap
                 padding="none"
                 key={option.value}
+                haptic={selected === option.value ? "release" : "select"}
                 highlightRadius={10}
                 accessibilityRole="menuitem"
                 accessibilityState={{ selected: selected === option.value }}

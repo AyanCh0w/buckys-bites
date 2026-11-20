@@ -108,6 +108,7 @@ export function BakeryMenu({
                   accessibilityRole="button"
                   accessibilityLabel={`${label}, ${count}`}
                   aria-expanded={expanded}
+                  haptic={expanded ? "release" : "tap"}
                   accessibilityState={{ expanded }}
                   onPress={() => {
                     reveal.current = expanded ? undefined : key;

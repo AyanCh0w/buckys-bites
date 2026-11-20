@@ -10,6 +10,7 @@ import {
 import type { Goals } from "../lib/types";
 import { Art, Button, Icon, Input, Segments, T, Tap } from "./ui";
 import { NutrientAmount } from "./nutrient-display";
+import { useHaptic } from "../lib/haptics";
 
 const activityDetails = [
   "Mostly sitting, with everyday movement.",
@@ -101,6 +102,7 @@ export function GoalEstimator({
     activity: "Low active",
   });
   const [details, setDetails] = useState(false);
+  const playHaptic = useHaptic();
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const pending = useRef(false);
@@ -124,7 +126,9 @@ export function GoalEstimator({
       const goals = estimateFromMeasurements(measurements);
       setBusy(true);
       await onApply(goals);
+      playHaptic("success");
     } catch (e) {
+      playHaptic("error");
       setError(
         e instanceof Error ? e.message : "Couldn’t save your goals. Try again.",
       );
@@ -211,6 +215,7 @@ export function GoalEstimator({
                 disabled={busy}
                 accessibilityRole="radio"
                 accessibilityState={{ checked: selected, disabled: busy }}
+                haptic={selected ? false : "select"}
                 accessibilityLabel={`${level}. ${activityDetails[index]}`}
                 onPress={() => update({ activity: level })}
                 contentStyle={{
@@ -310,11 +315,13 @@ export function GoalEstimator({
           title={busy ? "Saving…" : "Use these goals"}
           disabled={busy}
           onPress={submit}
+          haptic={false}
         />
         <Tap
           padding="row"
           disabled={busy}
           onPress={onCancel}
+          haptic="release"
           accessibilityLabel="Cancel goal estimate"
         >
           <T style={[s.caption, { textAlign: "center" }]}>
@@ -341,6 +348,7 @@ export function GoalEstimator({
           style={{ marginHorizontal: -12 }}
           onPress={() => setDetails(!details)}
           accessibilityState={{ expanded: details }}
+          haptic={details ? "release" : "tap"}
         >
           <View style={s.between}>
             <T style={s.caption}>How this estimate works</T>

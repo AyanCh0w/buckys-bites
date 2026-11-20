@@ -66,6 +66,7 @@ function VoteButton({
     <Tap
       padding="none"
       onPress={press}
+      haptic={false}
       disabled={disabled}
       accessible
       accessibilityRole="button"

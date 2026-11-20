@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Keyboard, Platform, ScrollView, View } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import { useApp } from "../state/AppProvider";
+import { useHaptic } from "../lib/haptics";
 import { Art, BackHeader, Button, Icon, Input, T, Tap } from "../components/ui";
 import { FoodImage } from "../components/Food";
 import { displayName, reviewEligibility } from "../lib/domain";
@@ -42,6 +43,7 @@ export default function WriteReview() {
 }
 
 function ReviewForm({ food, previous }: { food: Food; previous?: Review }) {
+  const playHaptic = useHaptic();
   const { colors, s } = useTheme();
   const { data, userId, saveReview, notify } = useApp();
   const edit = previous?.id;
@@ -100,6 +102,7 @@ function ReviewForm({ food, previous }: { food: Food; previous?: Review }) {
           {[1, 2, 3, 4, 5].map((score) => (
             <Tap
               key={score}
+              haptic={score === stars ? false : "select"}
               contentStyle={{
                 backgroundColor: score === stars ? colors.pressed : undefined,
                 borderRadius: 16,
@@ -168,6 +171,7 @@ function ReviewForm({ food, previous }: { food: Food; previous?: Review }) {
               <Tap
                 padding="none"
                 onPress={Keyboard.dismiss}
+                haptic="release"
                 accessibilityLabel="Hide keyboard"
                 onPointerDown={
                   Platform.OS === "web"
@@ -233,12 +237,14 @@ function ReviewForm({ food, previous }: { food: Food; previous?: Review }) {
                   : "Save rating"
           }
           disabled={!stars || !eligibility.eligible || busy}
+          haptic={false}
           onPress={async () => {
             Keyboard.dismiss();
             setBusy(true);
             setError("");
             try {
               await saveReview(food, stars, comment, edit);
+              playHaptic("success");
               backOrReplace("/ratings");
               notify(
                 edit
@@ -248,6 +254,7 @@ function ReviewForm({ food, previous }: { food: Food; previous?: Review }) {
                     : "Rating saved",
               );
             } catch (e) {
+              playHaptic("error");
               setError((e as Error).message);
             } finally {
               setBusy(false);

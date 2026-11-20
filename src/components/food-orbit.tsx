@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Pressable, View, useWindowDimensions } from "react-native";
 import { GestureDetector, usePanGesture } from "react-native-gesture-handler";
+import { scheduleOnRN } from "react-native-worklets";
+import { useHaptic } from "../lib/haptics";
 import Animated, {
   cancelAnimation,
   Easing,
@@ -79,6 +81,7 @@ function OrbitDish({
 }
 
 export function FoodOrbit() {
+  const playHaptic = useHaptic();
   const { width } = useWindowDimensions();
   const { colors } = useTheme();
   const [face, setFace] = useState<number | null>(null);
@@ -86,6 +89,7 @@ export function FoodOrbit() {
   const size = Math.min(width - 48, 360);
   const buckySize = size * 0.32;
   const rotation = useSharedValue(0);
+  const lastTick = useSharedValue(0);
   const lastAngle = useSharedValue(0);
   const outsideCenter = useSharedValue(false);
   const entrance = useSharedValue(reduced ? 1 : 0);
@@ -107,6 +111,7 @@ export function FoodOrbit() {
     onBegin: (event) => {
       cancelAnimation(rotation);
       // Catch the ring immediately, including during its initial fly-in.
+      lastTick.set(rotation.get());
       entrance.set(
         reduced ? 1 : withTiming(1, { duration: 150, easing: easeOut }),
       );
@@ -123,10 +128,15 @@ export function FoodOrbit() {
       if (outside && outsideCenter.get()) {
         const delta = angle - lastAngle.get();
         // Unwrap the angle so crossing the left edge never jumps a full turn.
-        rotation.set(
+        const next =
           rotation.get() +
-            (Math.atan2(Math.sin(delta), Math.cos(delta)) * 180) / Math.PI,
-        );
+          (Math.atan2(Math.sin(delta), Math.cos(delta)) * 180) / Math.PI;
+        rotation.set(next);
+        // One tick per dish under the finger. Jitter and coasting stay quiet.
+        if (Math.abs(next - lastTick.get()) >= 360 / dishes.length) {
+          lastTick.set(next);
+          scheduleOnRN(playHaptic, "select");
+        }
       }
       lastAngle.set(angle);
       outsideCenter.set(outside);
@@ -245,6 +255,7 @@ export function FoodOrbit() {
               );
           }}
           onPress={() => {
+            playHaptic("release");
             const choices = reviewFaces.filter((score) => score !== face);
             setFace(choices[Math.floor(Math.random() * choices.length)]);
           }}

@@ -13,6 +13,7 @@ import {
 import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
 import { Art, BackHeader, Button, Icon, Input, T, Tap } from "../components/ui";
 import { useApp } from "../state/AppProvider";
+import { useHaptic } from "../lib/haptics";
 
 import { useGoalEstimateDraft } from "../state/GoalEstimateDraftProvider";
 import {
@@ -123,6 +124,7 @@ function SettingsForm({
 }) {
   const { colors, s } = useTheme();
   const { setDraft } = useGoalEstimateDraft();
+  const playHaptic = useHaptic();
   const {
     data,
     local,
@@ -170,6 +172,7 @@ function SettingsForm({
     try {
       if (section === "dietary") {
         await saveMealPreferences(dietary);
+        playHaptic("success");
         notify("Dietary preferences saved");
         backOrReplace("/nutrition");
         return;
@@ -194,9 +197,11 @@ function SettingsForm({
           avatar_id: avatar,
         });
       }
+      if (section !== "general" || haptics) playHaptic("success");
       notify("Preferences saved");
       backOrReplace(section === "goals" ? "/nutrition" : "/me");
     } catch (e) {
+      playHaptic("error");
       setError((e as Error).message);
     } finally {
       setBusy(false);
@@ -281,6 +286,7 @@ function SettingsForm({
                   accessibilityRole="radio"
                   accessibilityLabel={`${option.label} Bucky`}
                   accessibilityState={{ checked: avatar === option.id }}
+                  haptic={avatar === option.id ? false : "select"}
                   onPress={() => setAvatar(option.id)}
                 >
                   <View style={{ alignItems: "center", gap: 4 }}>
@@ -333,7 +339,7 @@ function SettingsForm({
               <View style={{ flex: 1 }}>
                 <T>Gentle haptics</T>
                 <T style={s.caption}>
-                  A little feedback when your food is saved.
+                  Feel taps as you browse, customize a dish, and log a meal.
                 </T>
               </View>
               <Switch
@@ -464,6 +470,7 @@ function SettingsForm({
                   }
                   accessibilityRole="radio"
                   accessibilityState={{ checked: selected }}
+                  haptic={selected ? false : "select"}
                   accessibilityLabel={label}
                 >
                   <View style={[s.row, s.inline, { gap: 18 }]}>
@@ -500,6 +507,7 @@ function SettingsForm({
             {userId || section === "dietary" ? (
               <Button
                 title={busy ? "Saving…" : "Save preferences"}
+                haptic={false}
                 disabled={busy}
                 onPress={save}
               />
@@ -578,14 +586,17 @@ function SettingsForm({
                 />
                 <Button
                   title={busy ? "Sending…" : "Submit deletion request"}
+                  haptic={false}
                   disabled={confirm !== "DELETE" || busy}
                   onPress={async () => {
                     setBusy(true);
                     try {
                       await requestAccountDeletion();
+                      playHaptic("success");
                       setDeleting(false);
                       notify("Your deletion request has been submitted");
                     } catch (e) {
+                      playHaptic("error");
                       setError((e as Error).message);
                     } finally {
                       setBusy(false);

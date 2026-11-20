@@ -1,5 +1,6 @@
 import { useTheme } from "../state/ThemeProvider";
 import { Host } from "@expo/ui";
+import { useHaptic } from "../lib/haptics";
 import { Picker, Text } from "@expo/ui/swift-ui";
 import { disabled, font, pickerStyle, tag } from "@expo/ui/swift-ui/modifiers";
 
@@ -15,6 +16,7 @@ export default function Segments({
   disabledValues?: string[];
 }) {
   const { colors, scheme } = useTheme();
+  const playHaptic = useHaptic();
   return (
     <Host
       colorScheme={scheme}
@@ -24,7 +26,11 @@ export default function Segments({
     >
       <Picker
         selection={value}
-        onSelectionChange={onChange}
+        onSelectionChange={(next) => {
+          if (next === value || disabledValues.includes(next)) return;
+          playHaptic("select");
+          onChange(next);
+        }}
         modifiers={[pickerStyle("segmented")]}
       >
         {values.map((x) => (

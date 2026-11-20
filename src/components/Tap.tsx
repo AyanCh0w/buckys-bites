@@ -11,6 +11,7 @@ import Animated, {
   useReducedMotion,
 } from "react-native-reanimated";
 import { useTheme } from "../state/ThemeProvider";
+import { useHaptic, type HapticCue } from "../lib/haptics";
 
 const contentPadding = {
   card: {
@@ -33,24 +34,37 @@ export function Tap({
   style,
   accessibilityLabel,
   feedback = "highlight",
+  haptic = "tap",
+  onPress,
   highlightRadius = 16,
   padding = "card",
   contentStyle,
   ...props
 }: PressableProps & {
   feedback?: "highlight" | "scale";
+  /** Use false when the action handler supplies feedback at the state change. */
+  haptic?: HapticCue | false;
   highlightRadius?: number;
   /** Unboxed content uses card/row spacing. Use none for an already padded control. */
   padding?: keyof typeof contentPadding;
   contentStyle?: StyleProp<ViewStyle>;
 }) {
   const { colors } = useTheme();
+  const playHaptic = useHaptic();
   const [pressed, setPressed] = useState(false);
   const [hovered, setHovered] = useState(false);
   const reduced = useReducedMotion();
   return (
     <Pressable
       {...props}
+      onPress={
+        onPress &&
+        ((event) => {
+          if (props.disabled) return;
+          if (haptic) playHaptic(haptic);
+          onPress(event);
+        })
+      }
       accessibilityLabel={accessibilityLabel}
       accessibilityRole={props.accessibilityRole ?? "button"}
       onPressIn={(e) => {

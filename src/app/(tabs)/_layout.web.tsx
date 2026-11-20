@@ -32,6 +32,7 @@ export default function TabsLayout() {
                 <Tap
                   padding="none"
                   key={route.key}
+                  haptic={state.index === i ? false : "select"}
                   highlightRadius={28}
                   onPress={() =>
                     router.navigate(

@@ -186,6 +186,7 @@ export function NutritionHistory({
                   highlightRadius={4}
                   contentStyle={{ paddingHorizontal: week ? 4 : 1 }}
                   onPress={() => onSelectDay(day.date)}
+                  haptic="select"
                   accessibilityLabel={`${dateLabel(day.date)}, ${description}`}
                   style={{ flex: 1, minWidth: 0 }}
                 >

@@ -6,6 +6,7 @@ import { View } from "react-native";
 import { Icon, T } from "./ui";
 
 import type { ChoiceMenuProps } from "./ChoiceMenu.types";
+import { useHaptic } from "../lib/haptics";
 
 export default function ChoiceMenu({
   label,
@@ -15,6 +16,7 @@ export default function ChoiceMenu({
   accessibilityLabel,
 }: ChoiceMenuProps) {
   const { colors, scheme } = useTheme();
+  const playHaptic = useHaptic();
   return (
     <Host colorScheme={scheme} matchContents style={{ minHeight: 44 }}>
       <Menu
@@ -46,7 +48,10 @@ export default function ChoiceMenu({
             key={option.value}
             label={option.label}
             systemImage={selected === option.value ? "checkmark" : undefined}
-            onPress={() => onSelect(option.value)}
+            onPress={() => {
+              playHaptic(selected === option.value ? "release" : "select");
+              onSelect(option.value);
+            }}
           />
         ))}
       </Menu>

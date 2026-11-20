@@ -42,6 +42,7 @@ export function ReviewSort({
           highlightRadius={9}
           accessibilityRole="tab"
           accessibilityLabel="Top"
+          haptic={mode === "Top" ? false : "select"}
           accessibilityState={{ selected: mode === "Top" }}
           onPress={() => onMode("Top")}
         >
@@ -72,6 +73,7 @@ export function ReviewSort({
       {(["For You", "New"] as const).map((value) => (
         <Tap
           key={value}
+          haptic={mode === value ? false : "select"}
           padding="none"
           highlightRadius={9}
           style={{ flex: 1 }}

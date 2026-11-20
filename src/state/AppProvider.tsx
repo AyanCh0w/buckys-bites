@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AppState, Platform } from "react-native";
-import * as Haptics from "expo-haptics";
+import { HapticContext, useHapticPlayer, type HapticCue } from "../lib/haptics";
 import type { Session } from "@supabase/supabase-js";
 import snapshot from "../data/catalog.json";
 import { supabase } from "../lib/supabase";
@@ -57,6 +57,7 @@ const CATALOG_KEY = "buckys-bites:catalog:v2";
 type Toast = {
   message: string;
   action?: string;
+  actionHaptic?: HapticCue;
   onAction?: () => void | Promise<void>;
   nutrientRain?: { logId: string; icons: string[] };
 };
@@ -183,6 +184,9 @@ export function AppProvider({ children }: React.PropsWithChildren) {
     loadedProfile && loadedProfile.id === userId
       ? loadedProfile.status
       : "loading";
+  const playHaptic = useHapticPlayer(
+    data.profile.haptics && (!userId || profileStatus === "saved"),
+  );
   const profileRequest = useRef(0);
   const defaultName = session?.user.user_metadata?.display_name ?? "Bronco";
   const refreshProfile = useCallback(async () => {
@@ -500,12 +504,6 @@ export function AppProvider({ children }: React.PropsWithChildren) {
   useEffect(() => {
     if (ready) void refreshAccount().catch((e) => notify(e.message));
   }, [ready, refreshAccount, notify]);
-  const feedback = () => {
-    if (data.profile.haptics && Platform.OS !== "web")
-      void Haptics.notificationAsync(
-        Haptics.NotificationFeedbackType.Success,
-      ).catch(() => {});
-  };
   const signOut = async () => {
     const { error } = await supabase.auth.signOut({ scope: "local" });
     // Local sign-out can clear the device session before server revocation fails.
@@ -547,7 +545,6 @@ export function AppProvider({ children }: React.PropsWithChildren) {
           }),
     );
     await refreshAfterMutation();
-    feedback();
     return result.data as string;
   };
   const updateLog = async (logId: string, servings: number, meal: string) => {
@@ -604,7 +601,6 @@ export function AppProvider({ children }: React.PropsWithChildren) {
       }),
     );
     await refreshAfterMutation();
-    feedback();
   };
   const deleteReview = async (reviewId: string) => {
     if (!session) throw new Error("Sign in to delete your review.");
@@ -619,10 +615,14 @@ export function AppProvider({ children }: React.PropsWithChildren) {
     const next = current === direction ? 0 : direction;
     if (next) {
       const reason = voteEligibility(data.history, review, session.user.id);
-      if (reason) throw new Error(reason);
+      if (reason) {
+        playHaptic("error");
+        throw new Error(reason);
+      }
     }
     reviewRequest.current++;
     setData((d) => applyReviewVote(d, review, next));
+    playHaptic(next ? "attach" : "release");
     if (pending) {
       pending.target = next;
       return;
@@ -647,6 +647,7 @@ export function AppProvider({ children }: React.PropsWithChildren) {
           if (write.target !== target) continue;
           const confirmed = savedVotes.current[id] ?? 0;
           setData((d) => applyReviewVote(d, review, confirmed));
+          playHaptic("error");
           throw error;
         }
         if (!isCurrent()) return;
@@ -763,7 +764,9 @@ export function AppProvider({ children }: React.PropsWithChildren) {
         userId,
       }}
     >
-      {children}
+      <HapticContext.Provider value={playHaptic}>
+        {children}
+      </HapticContext.Provider>
     </Context.Provider>
   );
 }

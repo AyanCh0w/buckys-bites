@@ -1,6 +1,6 @@
 import { useTheme } from "../../state/ThemeProvider";
 import React, { useMemo, useEffect, useState } from "react";
-import { RefreshControl, ScrollView, View } from "react-native";
+import { Platform, RefreshControl, ScrollView, View } from "react-native";
 import { router } from "expo-router";
 import { useApp } from "../../state/AppProvider";
 import {
@@ -16,6 +16,7 @@ import { FoodImage } from "../../components/Food";
 import { BakeryMenuArt } from "../../components/bakery-menu-art";
 import { MealHighlights } from "../../components/KitchenDishes";
 import { MenuEntrance } from "../../components/MenuEntrance";
+import { useHaptic } from "../../lib/haptics";
 import { currentMealPicks } from "../../lib/home";
 import { campusDate, dateLabel, timeLabel } from "../../lib/domain";
 import {
@@ -26,6 +27,7 @@ import {
 } from "../../lib/menu";
 
 export default function Menu() {
+  const playHaptic = useHaptic();
   const { colors, s } = useTheme();
   const {
     catalog: fullCatalog,
@@ -57,7 +59,9 @@ export default function Menu() {
     setStarError(null);
     try {
       await saveProfile({ ...data.profile, starred_kitchens: next });
+      playHaptic(next.includes(key) ? "attach" : "release");
     } catch {
+      playHaptic("error");
       setStarError("Couldn’t save your starred kitchens. Try again.");
     } finally {
       setSavingStar(false);
@@ -107,7 +111,10 @@ export default function Menu() {
         refreshControl={
           <RefreshControl
             refreshing={refreshing}
-            onRefresh={refresh}
+            onRefresh={() => {
+              if (Platform.OS === "android") playHaptic("release");
+              void refresh();
+            }}
             tintColor={colors.accent}
           />
         }
@@ -208,6 +215,7 @@ export default function Menu() {
                   feedback="scale"
                   highlightRadius={22}
                   accessibilityLabel={`${isStarred ? "Unstar" : "Star"} ${kitchen.name}`}
+                  haptic={false}
                   accessibilityState={{ selected: isStarred }}
                   disabled={profileStatus !== "saved" || savingStar}
                   onPress={() => void toggleStar(kitchen.key)}

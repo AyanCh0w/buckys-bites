@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import {
   AccessibilityInfo,
   BackHandler,
-  Platform,
   ScrollView,
   Text,
   View,
@@ -12,10 +11,9 @@ import Animated, {
   useReducedMotion,
 } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import * as Haptics from "expo-haptics";
+import { useHaptic } from "../lib/haptics";
 import { Art, Button, Icon, T, Tap } from "./ui";
 import { useTheme } from "../state/ThemeProvider";
-import { useApp } from "../state/AppProvider";
 import { fontFamily } from "../lib/fonts";
 import snapshot from "../data/catalog.json";
 import type { Catalog } from "../lib/types";
@@ -91,6 +89,7 @@ export function IntroProgress({
             disabled={disabled}
             onPress={onBack}
             accessibilityLabel="Previous onboarding step"
+            haptic="select"
           >
             <View style={s.inline}>
               <Icon name="chevron-back" size={18} />
@@ -244,6 +243,7 @@ function MenuPreview() {
                       style={{ flex: 1, minWidth: 0 }}
                       accessibilityLabel={`Preview ${food.name}, ${period.label}`}
                       accessibilityState={{ selected: selected === food.id }}
+                      haptic={selected === food.id ? "release" : "select"}
                       onPress={() =>
                         setSelected(selected === food.id ? null : food.id)
                       }
@@ -414,6 +414,7 @@ function NutritionPreview() {
         style={{ marginHorizontal: -12 }}
         onPress={() => setMore(!more)}
         accessibilityState={{ expanded: more }}
+        haptic={more ? "release" : "tap"}
       >
         <View style={s.between}>
           <T style={s.link}>
@@ -466,6 +467,7 @@ const exampleReviews = [
 ];
 
 function DemoReview({ review }: { review: (typeof exampleReviews)[number] }) {
+  const playHaptic = useHaptic();
   const { colors } = useTheme();
   const [vote, setVote] = useState(0);
   return (
@@ -501,9 +503,11 @@ function DemoReview({ review }: { review: (typeof exampleReviews)[number] }) {
             downvotes={review.down + (vote === -1 ? 1 : 0)}
             selectedVote={vote}
             subject={`${review.name}’s example review`}
-            onVote={(direction) =>
-              setVote((previous) => (previous === direction ? 0 : direction))
-            }
+            onVote={(direction) => {
+              const next = direction === vote ? 0 : direction;
+              playHaptic(next ? "attach" : "release");
+              setVote(next);
+            }}
           />
         }
       />
@@ -539,7 +543,7 @@ export function Onboarding({
   replay?: boolean;
 }) {
   const { colors, s } = useTheme();
-  const { data } = useApp();
+  const playHaptic = useHaptic();
   const insets = useSafeAreaInsets();
   const [step, setStep] = useState(0);
   const [busy, setBusy] = useState(false);
@@ -568,7 +572,9 @@ export function Onboarding({
     setError("");
     try {
       await onFinish();
+      playHaptic("success");
     } catch {
+      playHaptic("error");
       setError("Couldn’t finish the intro. Please try again.");
     } finally {
       pending.current = false;
@@ -580,8 +586,6 @@ export function Onboarding({
       void finish();
       return;
     }
-    if (Platform.OS !== "web" && data.profile.haptics)
-      void Haptics.selectionAsync().catch(() => {});
     setStep(step + 1);
   };
   return (
@@ -646,6 +650,7 @@ export function Onboarding({
                     : "Let’s eat"
           }
           onPress={next}
+          haptic={step === 3 ? false : "select"}
           disabled={busy}
         />
       </View>

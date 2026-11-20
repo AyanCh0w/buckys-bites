@@ -28,6 +28,7 @@ export default function Segments({
       {values.map((x) => (
         <Tap
           key={x}
+          haptic={x === value ? false : "select"}
           highlightRadius={8}
           onPress={() => onChange(x)}
           disabled={disabledValues.includes(x)}

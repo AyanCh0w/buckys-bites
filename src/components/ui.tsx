@@ -30,6 +30,7 @@ export { Input } from "./input";
 
 import { assets } from "../data/assets";
 import { useApp } from "../state/AppProvider";
+import { useHaptic, type HapticCue } from "../lib/haptics";
 import { campusDate, dateLabel, shiftDate } from "../lib/domain";
 import { fontFamily, secondaryFont, textSize } from "../lib/fonts";
 
@@ -256,18 +257,21 @@ export function Button({
   onPress,
   secondary,
   disabled,
+  haptic,
   icon,
 }: {
   title: string;
   onPress: () => void;
   secondary?: boolean;
   disabled?: boolean;
+  haptic?: HapticCue | false;
   icon?: React.ComponentProps<typeof Icon>["name"];
 }) {
   const { colors, s } = useTheme();
   return (
     <Tap
       feedback="scale"
+      haptic={haptic}
       padding="none"
       highlightRadius={28}
       onPress={onPress}
@@ -298,6 +302,7 @@ export function IconButton({
   onPress,
   color,
   glass = false,
+  haptic,
 }: {
   name: React.ComponentProps<typeof Icon>["name"];
   sf?: string;
@@ -305,6 +310,7 @@ export function IconButton({
   onPress: () => void;
   color?: string;
   glass?: boolean;
+  haptic?: HapticCue | false;
 }) {
   const { s } = useTheme();
   const content = (
@@ -317,6 +323,7 @@ export function IconButton({
       feedback="scale"
       padding="none"
       highlightRadius={24}
+      haptic={haptic}
       onPress={onPress}
       accessibilityLabel={label}
     >
@@ -411,18 +418,21 @@ export function Chip({
   onPress,
   icon,
   disabled = false,
+  haptic = selected ? false : "select",
 }: {
   title: string;
   selected?: boolean;
   onPress: () => void;
   icon?: string;
   disabled?: boolean;
+  haptic?: HapticCue | false;
 }) {
   const { colors, s } = useTheme();
   return (
     <Tap
       onPress={onPress}
       disabled={disabled}
+      haptic={haptic}
       padding="none"
       highlightRadius={24}
       accessibilityState={{ selected, disabled }}
@@ -460,9 +470,13 @@ export function DateNav({
       <IconButton
         name="chevron-back"
         label="Previous day"
+        haptic="select"
         onPress={() => onChange(shiftDate(value, -1))}
       />
-      <Tap onPress={() => onChange(campusDate())}>
+      <Tap
+        haptic={value === campusDate() ? false : "select"}
+        onPress={() => onChange(campusDate())}
+      >
         <View style={s.inline}>
           <Icon
             name="calendar-outline"
@@ -483,6 +497,7 @@ export function DateNav({
       <IconButton
         name="chevron-forward"
         label="Next day"
+        haptic="select"
         onPress={() => onChange(shiftDate(value, 1))}
       />
     </View>
@@ -547,6 +562,7 @@ export function BackHeader({
         name="chevron-back"
         sf="chevron.left"
         label="Back"
+        haptic="release"
         glass
         onPress={() =>
           router.canGoBack() ? router.back() : router.replace("/")
@@ -563,6 +579,7 @@ export function BackHeader({
   );
 }
 export function ToastHost() {
+  const playHaptic = useHaptic();
   const { colors, s } = useTheme();
   const { toast, dismissToast, notify } = useApp();
   const inset = useSafeAreaInsets();
@@ -586,11 +603,14 @@ export function ToastHost() {
           </T>
           {toast.action && (
             <Tap
+              haptic={toast.actionHaptic ? false : "tap"}
               onPress={async () => {
                 try {
                   await toast.onAction?.();
+                  if (toast.actionHaptic) playHaptic(toast.actionHaptic);
                   dismissToast();
                 } catch (e) {
+                  playHaptic("error");
                   notify((e as Error).message);
                 }
               }}
@@ -608,6 +628,7 @@ export function ToastHost() {
             }}
             highlightRadius={22}
             accessibilityLabel="Dismiss notification"
+            haptic="release"
             onPress={dismissToast}
           >
             <Icon name="close" size={18} color={colors.muted} />
@@ -689,6 +710,7 @@ export function FixedScreen({
               name="chevron-back"
               sf="chevron.left"
               label="Back"
+              haptic="release"
               onPress={() =>
                 router.canGoBack() ? router.back() : router.replace("/")
               }

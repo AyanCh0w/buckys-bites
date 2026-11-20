@@ -19,6 +19,7 @@ import {
 import { isEstimatedNutrient } from "../lib/nutrition-display";
 import { nutrientRainIcons } from "../lib/nutrient-rain";
 import { NutrientAmount } from "../components/nutrient-display";
+import { useHaptic } from "../lib/haptics";
 
 export default function LogFood() {
   const { session } = useApp();
@@ -44,6 +45,7 @@ export default function LogFood() {
 }
 
 function FoodLogForm() {
+  const playHaptic = useHaptic();
   const { colors, s } = useTheme();
   const {
     food: foodId,
@@ -118,6 +120,7 @@ function FoodLogForm() {
     try {
       if (previous) {
         await updateLog(previous.id, previous.servings, period);
+        playHaptic("success");
         backOrReplace("/nutrition");
         notify("Food log updated");
       } else {
@@ -129,14 +132,17 @@ function FoodLogForm() {
             ? { offering_id: offering.id, size, choices }
             : undefined,
         );
+        playHaptic("addFood");
         backOrReplace("/nutrition");
         notify("Added to your food", {
           action: "Undo",
+          actionHaptic: "release",
           onAction: () => deleteLog(id, undefined, true),
           nutrientRain: { logId: id, icons: nutrientRainIcons(nutrition) },
         });
       }
     } catch (e) {
+      playHaptic("error");
       setError((e as Error).message);
     } finally {
       setBusy(false);
@@ -264,6 +270,7 @@ function FoodLogForm() {
           }
           disabled={busy || (!previous && !valid)}
           onPress={submit}
+          haptic={false}
         />
         {Boolean(edit) && (
           <Button
@@ -284,6 +291,7 @@ function FoodLogForm() {
                 key={r.id}
                 title={`Also delete ${r.stars}-star review`}
                 selected={selectedReview === r.id}
+                haptic={selectedReview === r.id ? "release" : "attach"}
                 onPress={() =>
                   setSelectedReview(selectedReview === r.id ? undefined : r.id)
                 }
@@ -298,13 +306,16 @@ function FoodLogForm() {
                     : "Delete log only"
               }
               disabled={busy}
+              haptic={false}
               onPress={async () => {
                 setBusy(true);
                 try {
                   await deleteLog(edit!, selectedReview);
+                  playHaptic("release");
                   backOrReplace("/nutrition");
                   notify("Food log deleted");
                 } catch (e) {
+                  playHaptic("error");
                   setError((e as Error).message);
                 } finally {
                   setBusy(false);
@@ -314,6 +325,7 @@ function FoodLogForm() {
             <Button
               secondary
               title="Keep my log"
+              haptic="release"
               onPress={() => {
                 setDeleting(false);
                 setSelectedReview(undefined);
