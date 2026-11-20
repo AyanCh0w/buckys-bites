@@ -6,7 +6,7 @@ import Animated, {
 } from "react-native-reanimated";
 
 // Flip this to false to disable the menu-motion experiment in one place.
-const MENU_ENTRANCE_ENABLED = true;
+const MENU_ENTRANCE_ENABLED = false;
 const STAGGER_MS = 30;
 const MAX_DELAY_MS = 120;
 
