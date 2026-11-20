@@ -83,3 +83,36 @@ footer .brand{font-size:1.1rem;color:var(--ink)}
  footer{font-size:.8rem}
 }
 @media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+.showcase { padding-block: clamp(3.5rem, 6vw, 6rem); }
+.showcase h2, .help-title { margin: 0 0 1.5rem; font-size: clamp(3rem, 6vw, 5.3rem); line-height: .98; letter-spacing: -.07em; }
+.showcase h2 em, .help-title em { font-family: Georgia, serif; font-weight: 400; color: var(--red); }
+.posters { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(.5rem, 1.3vw, 1rem); list-style: none; margin: 0; padding: 0; }
+.posters a, .posters img { display: block; width: 100%; border-radius: 4px; }
+.posters a { cursor: zoom-in; }
+.posters img { height: auto; }
+.footer-links { gap: 1.3rem; }
+.footer-links a, .help-nav a { display: inline-flex; align-items: center; min-height: 44px; }
+.footer-links a:hover, .help-nav a:hover { color: var(--red); text-decoration: underline; }
+.help-nav { gap: clamp(.8rem, 2vw, 1.8rem); }
+.help-nav [aria-current="page"] { text-decoration: underline; text-underline-offset: 5px; }
+.help-main { max-width: 49rem; padding: clamp(2.5rem, 7vw, 6rem) 0; }
+.help-intro { font-size: 1.2rem; max-width: 40rem; color: var(--muted); }
+.help-main section { padding-block: 1.6rem; border-top: 1px solid var(--rule); }
+.help-main section:first-of-type { margin-top: 2.3rem; }
+.help-main h2 { font-size: clamp(1.4rem, 3vw, 1.85rem); letter-spacing: -.045em; line-height: 1.2; margin-bottom: .65rem; }
+.help-main p + p { margin-top: .7rem; }
+.help-main section p { max-width: 43rem; }
+.help-main a:not(.button) { color: var(--red); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.help-date { margin-bottom: .8rem; color: var(--muted); font-size: .9rem; }
+.help-footer { border-top: 1px solid var(--rule); }
+@media (max-width: 850px) {
+  .posters { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding: 5px 5px 12px; margin-inline: -5px; }
+  .posters li { flex: 0 0 clamp(190px, 62vw, 260px); scroll-snap-align: start; }
+}
+@media (max-width: 620px) {
+  .help-nav, .footer-links { font-size: .87rem; gap: .8rem; }
+  footer { flex-wrap: wrap; }
+}
+.form-privacy { font-size: .88rem; margin-top: 1rem; color: var(--muted); }
+.form-privacy a { color: var(--red); text-decoration: underline; text-underline-offset: .15em; }
