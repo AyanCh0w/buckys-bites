@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import catalog from "../src/data/catalog.json";
 import { dailyKitchenHours, foodIsOpen } from "../src/lib/availability";
 import {
+  calorieStack,
   foodNutritionFacts,
   nutrientValue,
   roundedNutritionFacts,
@@ -11,6 +12,41 @@ import {
 import { formatAmount, nutritionTotals } from "../src/lib/domain";
 import { menuNutritionNote } from "../src/lib/menu-nutrition";
 import type { Catalog, Food, FoodLog, Service } from "../src/lib/types";
+
+function chartLog(food: Partial<Food>, servings = 1) {
+  return { food, servings } as FoodLog;
+}
+
+test("calorie stacks use energy per gram and the logged serving size", () => {
+  const food = {
+    calories_kcal: 170,
+    protein_g: 10,
+    carbohydrate_g: 10,
+    total_fat_g: 10,
+  };
+  assert.deepEqual(calorieStack([chartLog(food, 1.5)]), {
+    protein: 60,
+    carbs: 60,
+    fat: 135,
+    unassigned: 0,
+  });
+});
+
+test("calorie stacks keep each dish within its energy total and preserve unattributed calories", () => {
+  const logs = [
+    chartLog({ calories_kcal: 40, protein_g: 10, carbohydrate_g: 10 }),
+    chartLog({ calories_kcal: 100, protein_g: 5 }, 0.5),
+    chartLog({ calories_kcal: 20 }, 2),
+    chartLog({ calories_kcal: null, total_fat_g: 10 }),
+    chartLog({ calories_kcal: 0, total_fat_g: 1 }),
+  ];
+  assert.deepEqual(calorieStack(logs), {
+    protein: 30,
+    carbs: 20,
+    fat: 0,
+    unassigned: 80,
+  });
+});
 
 const breakfast = {
   id: "breakfast",

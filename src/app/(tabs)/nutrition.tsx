@@ -18,14 +18,13 @@ import {
   tabContentBottomPadding,
 } from "../../components/ui";
 import { FoodImage, openDish } from "../../components/Food";
+import { NutritionHistory } from "../../components/nutrition-history";
 import {
   campusDate,
-  dateLabel,
   displayName,
   formatAmount,
   NUTRIENTS,
   nutritionTotals,
-  shiftDate,
 } from "../../lib/domain";
 
 import {
@@ -122,18 +121,6 @@ export default function Nutrition() {
   };
   const calorieGoal = data.profile.goals.calories_kcal;
   const calorieProgress = progress("calories_kcal");
-  const days = period === "Month" ? 30 : 7;
-  const history = Array.from({ length: days }, (_, i) => {
-    const d = shiftDate(date, i - days + 1);
-    const l = data.logs.filter((x) => x.local_date === d);
-    return {
-      date: d,
-      count: l.length,
-      estimated: totalIncludesEstimate(l, NUTRIENTS[0]),
-      ...nutritionTotals(l).calories_kcal,
-    };
-  });
-  const max = Math.max(...history.map((h) => h.value), 1);
   return (
     <FixedScreen
       title="Nutrition"
@@ -415,112 +402,15 @@ export default function Nutrition() {
               </>
             </>
           ) : (
-            <>
-              <T style={[s.caption, { marginTop: 15 }]}>
-                {days} days ending {dateLabel(date)}
-              </T>
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  gap: 12,
-                  marginTop: 8,
-                }}
-              >
-                <Art name="icons/calories" size={38} />
-                <NutrientAmount
-                  value={formatAmount(
-                    history.reduce((v, h) => v + h.value, 0),
-                    1,
-                    history.some((h) => h.estimated),
-                  )}
-                  unit="cal"
-                  size="title"
-                />
-              </View>
-              <View
-                style={{
-                  height: 190,
-                  flexDirection: "row",
-                  alignItems: "flex-end",
-                  gap: period === "Month" ? 3 : 10,
-                  marginTop: 18,
-                }}
-              >
-                {history.map((h) => (
-                  <Tap
-                    key={h.date}
-                    padding="none"
-                    highlightRadius={6}
-                    contentStyle={{
-                      paddingHorizontal: period === "Month" ? 1 : 4,
-                      paddingVertical: 4,
-                    }}
-                    onPress={() => {
-                      setDate(h.date);
-                      setPeriod("Day");
-                    }}
-                    accessibilityLabel={`${h.date}, ${h.count ? `${formatAmount(h.value, 1, h.estimated)} calories` : "no logs"}`}
-                    style={{ flex: 1 }}
-                  >
-                    <View style={{ height: 152, justifyContent: "flex-end" }}>
-                      <View
-                        style={{
-                          height: h.count
-                            ? Math.max(5, (h.value / max) * 152)
-                            : 3,
-                          backgroundColor: h.count
-                            ? colors.accent
-                            : colors.chartEmpty,
-                          borderRadius: 5,
-                        }}
-                      />
-                    </View>
-                    {period === "Week" && (
-                      <T
-                        style={{
-                          fontSize: 10,
-                          color: colors.muted,
-                          textAlign: "center",
-                          marginTop: 8,
-                        }}
-                      >
-                        {dateLabel(h.date, { weekday: "narrow" })}
-                      </T>
-                    )}
-                  </Tap>
-                ))}
-              </View>
-              <View
-                style={[
-                  s.between,
-                  {
-                    marginTop: 30,
-                    paddingVertical: 20,
-                    borderTopWidth: 1,
-                    borderBottomWidth: 1,
-                    borderColor: colors.rule,
-                  },
-                ]}
-              >
-                <View>
-                  <T numeric style={{ fontSize: 26, fontWeight: "600" }}>
-                    {history.filter((h) => h.count > 0).length}
-                  </T>
-                  <T style={s.caption}>days logged</T>
-                </View>
-                <View>
-                  <T numeric style={{ fontSize: 26, fontWeight: "600" }}>
-                    {history.reduce((n, h) => n + h.count, 0)}
-                  </T>
-                  <T style={s.caption}>dishes recorded</T>
-                </View>
-              </View>
-              <T style={[s.body, { marginTop: 22 }]}>
-                Tap a day to see its food. Gray marks mean no logs, rather than
-                zero consumption.
-              </T>
-            </>
+            <NutritionHistory
+              logs={data.logs}
+              endDate={date}
+              days={period === "Month" ? 30 : 7}
+              onSelectDay={(day) => {
+                setDate(day);
+                setPeriod("Day");
+              }}
+            />
           )}
         </View>
       </ScrollView>

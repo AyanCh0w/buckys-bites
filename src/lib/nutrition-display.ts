@@ -17,6 +17,26 @@ export function totalIncludesEstimate(
   );
 }
 
+/** Allocate each food's logged calories so one dish's macros cannot fill another's bar. */
+export function calorieStack(logs: FoodLog[]) {
+  const stack = { protein: 0, carbs: 0, fat: 0, unassigned: 0 };
+  for (const { food, servings } of logs) {
+    const calories = food.calories_kcal;
+    if (calories == null || calories <= 0) continue;
+    const protein = (food.protein_g ?? 0) * 4;
+    const carbs = (food.carbohydrate_g ?? 0) * 4;
+    const fat = (food.total_fat_g ?? 0) * 9;
+    const macroCalories = protein + carbs + fat;
+    // Rounding on food labels can put macro energy above the stated calories.
+    const scale = servings * (calories / Math.max(calories, macroCalories));
+    stack.protein += protein * scale;
+    stack.carbs += carbs * scale;
+    stack.fat += fat * scale;
+    stack.unassigned += Math.max(0, calories - macroCalories) * servings;
+  }
+  return stack;
+}
+
 export function roundedNutritionFacts(
   facts: PublishedNutrition,
   estimates = facts,
